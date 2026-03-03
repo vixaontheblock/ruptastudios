@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>RuptaStudios</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#080808;
+  --black2:#0f0f0f;
+  --black3:#161616;
+  --black4:#1e1e1e;
+  --gold:#f5c842;
+  --gold2:#ffd95a;
+  --gold3:#ffe98a;
+  --gold-dim:#c9a330;
+  --purple:#7c3aed;
+  --purple2:#9d5cf0;
+  --purple3:#b47ff5;
+  --purple-dim:#4c1d95;
+  --white:#ffffff;
+  --white2:#f0ede8;
+  --muted:#5a5a5a;
+  --muted2:#8a8a8a;
+  --border:#242424;
+  --border2:#2e2e2e;
+  --r:10px;
+  --r-sm:6px;
+  --r-lg:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--black);color:var(--white);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:15px;line-height:1.6;
+  cursor:none;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── CURSOR ── */
+.cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1.5px solid var(--gold);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .3s,height .3s,border-color .3s,background .3s;
+  mix-blend-mode:normal;
+}
+.cursor-dot{
+  position:fixed;width:6px;height:6px;
+  background:var(--gold);border-radius:50%;
+  pointer-events:none;z-index:10000;
+  transform:translate(-50%,-50%);
+}
+.cursor-ring.hover{width:60px;height:60px;background:rgba(245,200,66,.06);border-color:var(--purple2);}
+
+/* ── SCROLL BAR ── */
+.scroll-bar{
+  position:fixed;top:0;left:0;height:3px;
+  background:linear-gradient(90deg,var(--purple),var(--gold));
+  z-index:1000;border-radius:0 3px 3px 0;
+  transition:width .1s linear;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);
+  z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  background:rgba(8,8,8,.85);
+  backdrop-filter:blur(24px);
+  border:1px solid var(--border2);
+  border-radius:var(--r);
+  width:calc(100% - 48px);
+  max-width:1100px;
+  transition:all .3s;
+}
+nav.scrolled{background:rgba(8,8,8,.95);box-shadow:0 8px 40px rgba(0,0,0,.5);}
+
+/* LOGO */
+.logo{display:flex;align-items:center;gap:0;text-decoration:none;cursor:none;}
+.logo-text{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:20px;letter-spacing:.03em;
+  line-height:1;
+}
+.logo-rup{color:var(--white);}
+.logo-bolt-wrap{
+  display:inline-flex;align-items:center;
+  margin:0 1px;
+  position:relative;top:-1px;
+}
+.logo-ta{color:var(--white);}
+.logo-sub{
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:300;font-size:8px;
+  letter-spacing:.35em;text-transform:uppercase;
+  color:var(--muted2);display:block;margin-top:2px;
+}
+
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-btn{
+  background:none;border:none;
+  color:var(--muted2);font-family:'Space Grotesk',sans-serif;
+  font-size:13px;font-weight:500;letter-spacing:.02em;
+  cursor:none;padding:8px 14px;border-radius:var(--r-sm);
+  transition:all .2s;
+}
+.nav-btn:hover{color:var(--white);background:var(--black3);}
+.nav-btn.active{
+  color:var(--black);
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  font-weight:600;
+}
+
+.lang-btn{
+  background:var(--black3);border:1px solid var(--border2);
+  color:var(--muted2);font-family:'Space Grotesk',sans-serif;
+  font-size:12px;font-weight:600;letter-spacing:.08em;
+  padding:7px 14px;cursor:none;border-radius:var(--r-sm);
+  transition:all .2s;margin-left:8px;
+}
+.lang-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:4px;}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--white);border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+.mobile-menu{
+  display:none;position:fixed;inset:0;background:var(--black);
+  z-index:400;flex-direction:column;align-items:center;justify-content:center;gap:24px;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu .nav-btn{font-size:22px;padding:12px 24px;}
+
+/* ── PAGES ── */
+.page{display:none;min-height:100vh;padding-top:100px;animation:fadeIn .5s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+/* ── TYPOGRAPHY ── */
+.chip{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);
+  color:var(--purple3);font-size:12px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;padding:6px 14px;border-radius:100px;
+}
+.chip::before{content:'⚡';font-size:10px;}
+
+.h1{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:clamp(40px,6vw,82px);
+  line-height:.95;letter-spacing:-.02em;
+}
+.h2{
+  font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:clamp(28px,3.5vw,52px);
+  line-height:1;letter-spacing:-.02em;
+}
+.h3{
+  font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:22px;letter-spacing:-.01em;line-height:1.1;
+}
+.grad-text{
+  background:linear-gradient(135deg,var(--gold),var(--gold2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.gold-text{color:var(--gold);}
+.muted{color:var(--muted2);}
+
+/* ── SECTION LABEL ── */
+.sec-label{
+  font-size:11px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:16px;display:flex;align-items:center;gap:12px;
+}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--gold);border-radius:2px;}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:14px;letter-spacing:.02em;
+  padding:14px 28px;border-radius:var(--r);
+  cursor:none;border:none;text-decoration:none;
+  transition:all .3s;position:relative;overflow:hidden;
+  white-space:nowrap;
+}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--black);
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(245,200,66,.35);}
+.btn-ghost{
+  background:transparent;color:var(--white);
+  border:1.5px solid var(--border2);
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.btn-purple{
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  color:var(--white);
+}
+.btn-purple:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(124,58,237,.4);}
+.btn .arrow{transition:transform .3s;}
+.btn:hover .arrow{transform:translateX(5px);}
+
+/* ── CARDS BASE ── */
+.card{
+  background:var(--black2);
+  border:1px solid var(--border2);
+  border-radius:var(--r);
+  overflow:hidden;
+  transition:all .4s cubic-bezier(.22,1,.36,1);
+}
+.card:hover{
+  border-color:rgba(245,200,66,.3);
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px rgba(245,200,66,.08);
+}
+
+/* ── REVEAL ── */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
+.rev.on{opacity:1;transform:translateY(0);}
+.rev-l{opacity:0;transform:translateX(-24px);transition:opacity .65s ease,transform .65s ease;}
+.rev-l.on{opacity:1;transform:translateX(0);}
+.rev-r{opacity:0;transform:translateX(24px);transition:opacity .65s ease,transform .65s ease;}
+.rev-r.on{opacity:1;transform:translateX(0);}
+
+/* ══════════════════════════════════════
+   HOME
+══════════════════════════════════════ */
+.hero-section{
+  min-height:calc(100vh - 100px);
+  display:grid;grid-template-columns:1fr 420px;
+  gap:48px;align-items:center;
+  padding:40px 24px 80px;
+  max-width:1100px;margin:0 auto;
+  position:relative;
+}
+
+/* BG glow */
+.hero-glow{
+  position:absolute;pointer-events:none;
+  border-radius:50%;filter:blur(100px);
+}
+.glow-gold{width:500px;height:500px;background:radial-gradient(circle,rgba(245,200,66,.08) 0%,transparent 70%);top:-100px;left:-100px;}
+.glow-purple{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.1) 0%,transparent 70%);bottom:-100px;right:-100px;}
+
+.hero-left{position:relative;z-index:2;}
+.hero-eyebrow{margin-bottom:28px;opacity:0;animation:fadeIn .7s .1s forwards;}
+.hero-title{margin-bottom:24px;opacity:0;animation:fadeIn .7s .25s forwards;}
+.hero-title .line2{color:transparent;-webkit-text-stroke:2px var(--gold);}
+.hero-title .line3{
+  background:linear-gradient(135deg,var(--gold2),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-desc{
+  color:var(--muted2);font-size:16px;line-height:1.8;
+  max-width:480px;margin-bottom:36px;
+  opacity:0;animation:fadeIn .7s .4s forwards;
+}
+.hero-ctas{
+  display:flex;gap:14px;flex-wrap:wrap;
+  opacity:0;animation:fadeIn .7s .55s forwards;
+}
+
+.hero-right{position:relative;z-index:2;opacity:0;animation:slideRight .8s .4s forwards;}
+@keyframes slideRight{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:translateX(0);}}
+
+.hero-card{
+  background:var(--black2);
+  border:1px solid var(--border2);
+  border-radius:var(--r-lg);
+  padding:32px;
+  position:relative;overflow:hidden;
+}
+.hero-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--purple),var(--gold));
+  border-radius:var(--r-lg) var(--r-lg) 0 0;
+}
+.hero-card-title{
+  font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:13px;letter-spacing:.05em;color:var(--muted2);
+  text-transform:uppercase;margin-bottom:24px;
+}
+.metric-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;border-bottom:1px solid var(--border);
+}
+.metric-row:last-of-type{border-bottom:none;}
+.metric-label{font-size:13px;color:var(--muted2);}
+.metric-val{
+  font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:14px;color:var(--gold);
+}
+.metric-bar-wrap{flex:1;height:3px;background:var(--border2);border-radius:3px;margin:0 14px;overflow:hidden;}
+.metric-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--purple),var(--gold));width:0;transition:width 1.5s ease;}
+.hero-card-footer{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:12px;margin-top:28px;padding-top:24px;
+  border-top:1px solid var(--border);
+}
+.hcf-item{text-align:center;}
+.hcf-num{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:26px;background:linear-gradient(135deg,var(--gold),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;margin-bottom:4px;
+}
+.hcf-label{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
+
+.stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border-top:1px solid var(--border);
+  border-radius:0;
+}
+.stat-cell{
+  background:var(--black);padding:36px 32px;
+  transition:background .3s;
+}
+.stat-cell:first-child{border-radius:0 0 0 var(--r);}
+.stat-cell:last-child{border-radius:0 0 var(--r) 0;}
+.stat-cell:hover{background:var(--black2);}
+.stat-num{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:48px;line-height:1;margin-bottom:8px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.stat-label{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
+
+/* ══════════════════════════════════════
+   ABOUT
+══════════════════════════════════════ */
+.about-wrap{padding:60px 0 80px;}
+.about-top{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:center;
+  margin-bottom:64px;padding-bottom:64px;
+  border-bottom:1px solid var(--border);
+}
+.about-desc{color:var(--muted2);font-size:15px;line-height:1.9;}
+.about-desc p+p{margin-top:16px;}
+.about-desc strong{color:var(--gold);font-weight:600;}
+
+.values-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  margin-bottom:64px;
+}
+.value-card{
+  background:var(--black2);border:1px solid var(--border2);
+  border-radius:var(--r);padding:32px;
+  transition:all .35s;position:relative;overflow:hidden;
+}
+.value-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--purple),var(--gold));
+  border-radius:0 0 var(--r) var(--r);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.value-card:hover{border-color:rgba(245,200,66,.25);transform:translateY(-4px);}
+.value-card:hover::after{transform:scaleX(1);}
+.value-icon{font-size:28px;margin-bottom:16px;}
+.value-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px;margin-bottom:10px;}
+.value-desc{color:var(--muted2);font-size:13px;line-height:1.8;}
+
+.skills-section{margin-top:0;}
+.skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+.skill-pill{
+  background:var(--black3);border:1px solid var(--border2);
+  border-radius:100px;padding:8px 18px;
+  font-size:13px;font-weight:500;color:var(--muted2);
+  transition:all .25s;cursor:default;
+}
+.skill-pill:hover{border-color:var(--gold);color:var(--gold);background:rgba(245,200,66,.05);}
+
+/* ══════════════════════════════════════
+   SERVICES
+══════════════════════════════════════ */
+.services-wrap{padding:60px 0 80px;}
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:16px;margin-top:48px;margin-bottom:48px;
+}
+.service-card{
+  background:var(--black2);border:1px solid var(--border2);
+  border-radius:var(--r);padding:36px 28px;
+  transition:all .4s cubic-bezier(.22,1,.36,1);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,var(--purple),var(--gold));
+  border-radius:var(--r) 0 0 var(--r);
+  transform:scaleY(0);transform-origin:top;transition:transform .4s;
+}
+.service-card:hover{
+  border-color:rgba(124,58,237,.4);transform:translateY(-8px);
+  box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 40px rgba(124,58,237,.1);
+}
+.service-card:hover::before{transform:scaleY(1);}
+.service-num{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:36px;color:var(--border2);line-height:1;
+  margin-bottom:20px;transition:color .3s;
+}
+.service-card:hover .service-num{
+  background:linear-gradient(135deg,var(--gold),var(--purple3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.service-title{
+  font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:18px;margin-bottom:14px;line-height:1.2;
+}
+.service-desc{color:var(--muted2);font-size:13px;line-height:1.8;flex:1;margin-bottom:24px;}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.service-tag{
+  background:var(--black3);border:1px solid var(--border);
+  border-radius:100px;padding:4px 12px;
+  font-size:11px;color:var(--muted2);font-weight:500;
+}
+
+.cta-banner{
+  background:linear-gradient(135deg,var(--black2) 0%,rgba(124,58,237,.15) 50%,rgba(245,200,66,.05) 100%);
+  border:1px solid var(--border2);border-radius:var(--r-lg);
+  padding:56px 48px;text-align:center;
+  position:relative;overflow:hidden;
+  margin-top:24px;
+}
+.cta-banner::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--purple),var(--gold),var(--purple));
+}
+.cta-banner::after{
+  content:'⚡';position:absolute;right:40px;bottom:24px;
+  font-size:80px;opacity:.04;line-height:1;
+}
+.cta-banner h3{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:clamp(22px,3vw,38px);margin-bottom:14px;
+}
+.cta-banner p{color:var(--muted2);font-size:15px;margin-bottom:32px;}
+.cta-btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+/* ══════════════════════════════════════
+   PORTFOLIO
+══════════════════════════════════════ */
+.portfolio-wrap{padding:60px 0 80px;}
+.portfolio-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:24px;margin-top:48px;
+}
+.proj-card{
+  background:var(--black2);border:1px solid var(--border2);
+  border-radius:var(--r-lg);overflow:hidden;
+  transition:all .4s cubic-bezier(.22,1,.36,1);
+  display:flex;flex-direction:column;
+}
+.proj-card:hover{
+  border-color:rgba(245,200,66,.3);
+  transform:translateY(-8px);
+  box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(245,200,66,.06);
+}
+
+/* BROWSER PREVIEW */
+.proj-preview{position:relative;height:210px;background:var(--black);overflow:hidden;}
+.browser-bar{
+  position:absolute;top:0;left:0;right:0;
+  background:var(--black3);padding:10px 14px;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid var(--border);z-index:3;
+}
+.b-dot{width:9px;height:9px;border-radius:50%;}
+.b-dot.r{background:#ff5f57;}.b-dot.y{background:#ffbd2e;}.b-dot.g{background:#28ca41;}
+.b-url{
+  flex:1;background:var(--black4);border:1px solid var(--border);
+  border-radius:6px;padding:4px 12px;font-size:11px;color:var(--muted2);
+  letter-spacing:.03em;font-family:monospace;
+}
+.iframe-wrap{
+  position:absolute;top:36px;left:0;right:0;bottom:0;
+  overflow:hidden;
+}
+.iframe-wrap iframe{
+  width:200%;height:200%;transform:scale(.5);transform-origin:top left;
+  border:none;pointer-events:none;
+}
+.preview-shield{
+  position:absolute;inset:0;z-index:2;
+  background:transparent;transition:background .3s;
+}
+.proj-card:hover .preview-shield{background:rgba(124,58,237,.04);}
+.preview-placeholder{
+  position:absolute;inset:0;display:flex;
+  align-items:center;justify-content:center;
+  color:var(--muted);font-size:12px;letter-spacing:.05em;z-index:1;
+}
+
+.proj-body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column;}
+.proj-index{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.15em;margin-bottom:12px;}
+.proj-title{
+  font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:20px;margin-bottom:10px;line-height:1.2;
+}
+.proj-desc{color:var(--muted2);font-size:13px;line-height:1.8;flex:1;margin-bottom:18px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+.proj-tag{
+  background:var(--black3);border:1px solid var(--border);
+  border-radius:100px;padding:3px 11px;font-size:11px;color:var(--muted2);
+}
+.proj-link{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--gold);text-decoration:none;font-size:13px;font-weight:700;
+  letter-spacing:.03em;transition:gap .2s,opacity .2s;margin-top:auto;
+}
+.proj-link:hover{gap:14px;opacity:.75;}
+
+/* ══════════════════════════════════════
+   PROCESS
+══════════════════════════════════════ */
+.process-wrap{padding:60px 0 80px;}
+.process-intro-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;
+  align-items:center;margin-bottom:64px;
+  padding-bottom:64px;border-bottom:1px solid var(--border);
+}
+.steps-list{display:flex;flex-direction:column;gap:0;}
+.step{
+  display:grid;grid-template-columns:72px 1fr;gap:28px;
+  padding:36px 0;border-bottom:1px solid var(--border);
+  align-items:start;transition:all .3s;
+  border-radius:0;
+}
+.step:first-child{border-top:1px solid var(--border);}
+.step:hover{padding-left:12px;}
+.step-num{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:44px;color:var(--border2);line-height:1;
+  transition:color .3s;
+}
+.step:hover .step-num{color:var(--gold);}
+.step-title{
+  font-family:'Unbounded',sans-serif;font-weight:700;
+  font-size:18px;margin-bottom:10px;transition:color .3s;
+}
+.step:hover .step-title{color:var(--gold);}
+.step-desc{color:var(--muted2);font-size:13px;line-height:1.9;}
+.step-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.step-tag{
+  background:var(--black3);border:1px solid var(--border);
+  border-radius:100px;padding:3px 11px;font-size:11px;color:var(--muted);
+  transition:all .2s;
+}
+.step-tag:hover{border-color:var(--purple3);color:var(--purple3);}
+
+/* ══════════════════════════════════════
+   CONTACT
+══════════════════════════════════════ */
+.contact-wrap{padding:60px 0 80px;}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;
+  margin-top:48px;
+}
+.contact-left{}
+.contact-title{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:clamp(28px,3vw,44px);margin-bottom:16px;line-height:1.1;
+}
+.contact-desc{color:var(--muted2);font-size:15px;line-height:1.8;margin-bottom:36px;}
+.contact-details{display:flex;flex-direction:column;gap:0;}
+.cd-item{
+  display:flex;flex-direction:column;gap:4px;
+  padding:18px 0;border-bottom:1px solid var(--border);
+}
+.cd-item:first-child{border-top:1px solid var(--border);}
+.cd-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
+.cd-val{
+  font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;
+  color:var(--white);text-decoration:none;transition:color .2s;
+}
+.cd-val:hover{color:var(--gold);}
+
+/* FORM */
+.form-box{
+  background:var(--black2);border:1px solid var(--border2);
+  border-radius:var(--r-lg);padding:36px;
+}
+.form-box .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.f-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);}
+.f-input,.f-select,.f-textarea{
+  background:var(--black3);border:1.5px solid var(--border2);
+  color:var(--white);font-family:'Space Grotesk',sans-serif;
+  font-size:14px;padding:13px 16px;
+  border-radius:var(--r-sm);outline:none;
+  transition:border-color .2s;appearance:none;
+}
+.f-input:focus,.f-select:focus,.f-textarea:focus{border-color:var(--gold);}
+.f-input::placeholder,.f-textarea::placeholder{color:var(--muted);}
+.f-select{cursor:none;}
+.f-textarea{resize:vertical;min-height:110px;}
+.f-note{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:20px;}
+.f-submit{
+  width:100%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:var(--black);font-family:'Space Grotesk',sans-serif;
+  font-weight:700;font-size:14px;letter-spacing:.04em;
+  border:none;padding:15px 28px;border-radius:var(--r-sm);
+  cursor:none;transition:all .3s;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  position:relative;overflow:hidden;
+}
+.f-submit::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--purple),var(--purple2));
+  opacity:0;transition:opacity .3s;
+}
+.f-submit:hover::before{opacity:1;}
+.f-submit:hover{color:var(--white);box-shadow:0 8px 24px rgba(124,58,237,.4);}
+.f-submit span{position:relative;z-index:1;}
+.form-success{
+  display:none;
+  background:rgba(124,58,237,.12);
+  border:1px solid rgba(124,58,237,.3);
+  border-radius:var(--r-sm);padding:20px 24px;
+  font-size:14px;color:var(--purple3);
+  text-align:center;
+}
+
+/* FAQ */
+.faq-wrap{margin-top:80px;padding-top:60px;border-top:1px solid var(--border);}
+.faq-grid{margin-top:32px;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-item:first-child{border-top:1px solid var(--border);}
+.faq-q{
+  width:100%;background:none;border:none;
+  color:var(--white);font-family:'Space Grotesk',sans-serif;
+  font-weight:600;font-size:16px;
+  text-align:left;padding:24px 0;cursor:none;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--black3);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;color:var(--gold);transition:all .35s;flex-shrink:0;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--gold);color:var(--black);}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.faq-ans-inner{color:var(--muted2);font-size:14px;line-height:1.9;padding-bottom:24px;}
+
+/* ── WHATSAPP ── */
+.wa{
+  position:fixed;bottom:28px;right:28px;z-index:600;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;cursor:none;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);
+  transition:transform .3s,box-shadow .3s;
+}
+.wa:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,.5);}
+.wa-tip{
+  position:absolute;right:68px;
+  background:var(--black2);border:1px solid var(--border2);
+  border-radius:var(--r-sm);
+  color:var(--white);font-size:12px;font-weight:600;
+  padding:8px 14px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.wa:hover .wa-tip{opacity:1;}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border);
+  padding:28px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  color:var(--muted);font-size:12px;flex-wrap:wrap;gap:12px;
+  max-width:1100px;margin:0 auto;
+}
+.footer-logo{
+  font-family:'Unbounded',sans-serif;font-weight:900;
+  font-size:16px;color:var(--border2);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{top:10px;width:calc(100% - 24px);padding:12px 16px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero-section{grid-template-columns:1fr;padding:20px 20px 60px;}
+  .hero-right{display:none;}
+  .wrap{padding:0 20px;}
+  .stats-row{grid-template-columns:1fr;}
+  .stat-cell:first-child{border-radius:0;}
+  .stat-cell:last-child{border-radius:0 0 var(--r) var(--r);}
+  .about-top,.process-intro-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
+  .values-grid,.services-grid{grid-template-columns:1fr;}
+  .portfolio-grid{grid-template-columns:1fr;}
+  .form-box .form-row{grid-template-columns:1fr;}
+  footer{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-ring" id="cRing"></div>
+<div class="cursor-dot" id="cDot"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/TUNUMERO" target="_blank" class="wa">
+  <span class="wa-tip" data-es="Hablemos 💬" data-en="Let's talk 💬">Hablemos 💬</span>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo" onclick="showPage('home');return false;">
+    <span class="logo-text">
+      <span class="logo-rup">RUP</span><!--
+      --><span class="logo-bolt-wrap">
+        <svg width="18" height="28" viewBox="0 0 18 28" fill="none">
+          <polygon points="12,0 18,0 8,14 15,14 3,28 9,14 2,14" fill="url(#lg1)"/>
+          <defs>
+            <linearGradient id="lg1" x1="3" y1="0" x2="15" y2="28" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#f5c842"/>
+              <stop offset="100%" stop-color="#9d5cf0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span><!--
+      --><span class="logo-ta">TA</span>
+    </span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <button class="nav-btn active" onclick="showPage('home')" data-page="home">Inicio</button>
+    <button class="nav-btn" onclick="showPage('about')" data-page="about">Nosotros</button>
+    <button class="nav-btn" onclick="showPage('services')" data-page="services">Servicios</button>
+    <button class="nav-btn" onclick="showPage('portfolio')" data-page="portfolio">Portafolio</button>
+    <button class="nav-btn" onclick="showPage('process')" data-page="process">Proceso</button>
+    <button class="nav-btn" onclick="showPage('contact')" data-page="contact">Contacto</button>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  </div>
+  <button class="hamburger" id="hbg" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="nav-btn" onclick="showPage('home');toggleMenu()">Inicio</button>
+  <button class="nav-btn" onclick="showPage('about');toggleMenu()">Nosotros</button>
+  <button class="nav-btn" onclick="showPage('services');toggleMenu()">Servicios</button>
+  <button class="nav-btn" onclick="showPage('portfolio');toggleMenu()">Portafolio</button>
+  <button class="nav-btn" onclick="showPage('process');toggleMenu()">Proceso</button>
+  <button class="nav-btn" onclick="showPage('contact');toggleMenu()">Contacto</button>
+  <button class="lang-btn" style="margin:0" onclick="toggleLang()">EN</button>
+</div>
+
+<!-- ════════════ HOME ════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero-section">
+    <div class="hero-glow glow-gold"></div>
+    <div class="hero-glow glow-purple"></div>
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="chip" data-es="Estudio Creativo Digital" data-en="Digital Creative Studio">Estudio Creativo Digital</span>
+      </div>
+      <h1 class="h1 hero-title">
+        <span class="line1">WE</span><br>
+        <span class="line2">BUILD</span><br>
+        <span class="line3">DIGITAL<br>WORLDS.</span>
+      </h1>
+      <p class="hero-desc" data-es="Diseño web, apps y gráfico con identidad real. No hacemos webs genéricas — construimos presencias digitales que comunican, convierten y se recuerdan." data-en="Web, app and graphic design with real identity. We don't make generic sites — we build digital presences that communicate, convert and are remembered.">
+        Diseño web, apps y gráfico con identidad real. No hacemos webs genéricas — construimos presencias digitales que comunican, convierten y se recuerdan.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn btn-gold" onclick="showPage('contact')">
+          <span data-es="Cotizar proyecto" data-en="Get a quote">Cotizar proyecto</span>
+          <span class="arrow">→</span>
+        </button>
+        <button class="btn btn-ghost" onclick="showPage('portfolio')">
+          <span data-es="Ver portafolio" data-en="View work">Ver portafolio</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-title" data-es="Métricas del estudio" data-en="Studio metrics">Métricas del estudio</div>
+        <div class="metric-row">
+          <span class="metric-label" data-es="Satisfacción" data-en="Satisfaction">Satisfacción</span>
+          <div class="metric-bar-wrap"><div class="metric-bar" id="mb1" style="width:95%"></div></div>
+          <span class="metric-val">95%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label" data-es="Entregas a tiempo" data-en="On-time delivery">Entregas a tiempo</span>
+          <div class="metric-bar-wrap"><div class="metric-bar" id="mb2" style="width:92%"></div></div>
+          <span class="metric-val">92%</span>
+        </div>
+        <div class="metric-row">
+          <span class="metric-label" data-es="Calidad de diseño" data-en="Design quality">Calidad de diseño</span>
+          <div class="metric-bar-wrap"><div class="metric-bar" id="mb3" style="width:100%"></div></div>
+          <span class="metric-val">100%</span>
+        </div>
+        <div class="hero-card-footer">
+          <div class="hcf-item"><div class="hcf-num">3+</div><div class="hcf-label" data-es="Proyectos" data-en="Projects">Proyectos</div></div>
+          <div class="hcf-item"><div class="hcf-num">3</div><div class="hcf-label" data-es="Disciplinas" data-en="Disciplines">Disciplinas</div></div>
+          <div class="hcf-item"><div class="hcf-num">∞</div><div class="hcf-label" data-es="Creatividad" data-en="Creativity">Creatividad</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
+    <div class="stats-row rev">
+      <div class="stat-cell"><div class="stat-num">3+</div><div class="stat-label" data-es="Proyectos completados" data-en="Completed projects">Proyectos completados</div></div>
+      <div class="stat-cell"><div class="stat-num">100%</div><div class="stat-label" data-es="Diseño personalizado" data-en="Custom design">Diseño personalizado</div></div>
+      <div class="stat-cell"><div class="stat-num">3×</div><div class="stat-label" data-es="Disciplinas creativas" data-en="Creative disciplines">Disciplinas creativas</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ ABOUT ════════════ -->
+<div class="page" id="page-about">
+  <div class="wrap">
+    <div class="about-wrap">
+      <div class="about-top">
+        <div class="rev-l">
+          <div class="sec-label" data-es="Quiénes Somos" data-en="About Us">Quiénes Somos</div>
+          <h2 class="h2" style="margin-bottom:0">Creatividad<br><span class="grad-text">con intención.</span></h2>
+        </div>
+        <div class="about-desc rev-r">
+          <p data-es="<strong>RuptaStudios</strong> es un estudio creativo independiente especializado en diseño web, desarrollo de apps y diseño gráfico. Nacimos para romper con lo genérico." data-en="<strong>RuptaStudios</strong> is an independent creative studio specializing in web design, app development and graphic design. We were born to break from the generic.">
+            <strong>RuptaStudios</strong> es un estudio creativo independiente especializado en diseño web, desarrollo de apps y diseño gráfico. Nacimos para romper con lo genérico.
+          </p>
+          <p data-es="Cada proyecto es único. Analizamos, escuchamos y diseñamos desde cero — sin plantillas, sin atajos, sin comprometer tu identidad." data-en="Every project is unique. We analyze, listen and design from scratch — no templates, no shortcuts, no compromising your identity.">
+            Cada proyecto es único. Analizamos, escuchamos y diseñamos desde cero — sin plantillas, sin atajos, sin comprometer tu identidad.
+          </p>
+          <p data-es="El diseño bien utilizado no solo se ve bien — transforma negocios." data-en="Design used well doesn't just look good — it transforms businesses.">
+            El diseño bien utilizado no solo se ve bien — transforma negocios.
+          </p>
+        </div>
+      </div>
+
+      <div class="sec-label" data-es="Nuestros valores" data-en="Our values">Nuestros valores</div>
+      <div class="values-grid">
+        <div class="value-card rev" style="transition-delay:.0s">
+          <div class="value-icon">⚡</div>
+          <div class="value-title" data-es="Identidad" data-en="Identity">Identidad</div>
+          <div class="value-desc" data-es="Cada cliente es diferente. Su presencia digital debe serlo también. Nunca duplicamos soluciones." data-en="Every client is different. Their digital presence should be too. We never duplicate solutions.">Cada cliente es diferente. Su presencia digital debe serlo también. Nunca duplicamos soluciones.</div>
+        </div>
+        <div class="value-card rev" style="transition-delay:.1s">
+          <div class="value-icon">💎</div>
+          <div class="value-title" data-es="Calidad" data-en="Quality">Calidad</div>
+          <div class="value-desc" data-es="No entregamos nada que no nos enorgullezca. Cada pixel, cada interacción, cada detalle importa." data-en="We don't deliver anything we're not proud of. Every pixel, every interaction, every detail matters.">No entregamos nada que no nos enorgullezca. Cada pixel, cada interacción, cada detalle importa.</div>
+        </div>
+        <div class="value-card rev" style="transition-delay:.2s">
+          <div class="value-icon">🎯</div>
+          <div class="value-title" data-es="Claridad" data-en="Clarity">Claridad</div>
+          <div class="value-desc" data-es="Comunicación directa, plazos reales, cero sorpresas. Sabemos lo que prometemos y lo cumplimos." data-en="Direct communication, real deadlines, zero surprises. We know what we promise and we deliver.">Comunicación directa, plazos reales, cero sorpresas. Sabemos lo que prometemos y lo cumplimos.</div>
+        </div>
+      </div>
+
+      <div class="skills-section rev">
+        <div class="sec-label" data-es="Herramientas & habilidades" data-en="Tools & skills">Herramientas & habilidades</div>
+        <div class="skills-grid">
+          <span class="skill-pill">HTML/CSS/JS</span><span class="skill-pill">UI/UX Design</span>
+          <span class="skill-pill">Branding</span><span class="skill-pill">Figma</span>
+          <span class="skill-pill">Adobe Suite</span><span class="skill-pill">App Design</span>
+          <span class="skill-pill">Motion Design</span><span class="skill-pill">Visual Identity</span>
+          <span class="skill-pill">E-Commerce</span><span class="skill-pill">Responsive Design</span>
+          <span class="skill-pill">Typography</span><span class="skill-pill">Social Media</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ SERVICES ════════════ -->
+<div class="page" id="page-services">
+  <div class="wrap">
+    <div class="services-wrap">
+      <div class="sec-label" data-es="Servicios" data-en="Services">Servicios</div>
+      <h2 class="h2"><span class="grad-text" data-es="Lo que hacemos." data-en="What we do.">Lo que hacemos.</span></h2>
+      <p class="muted" style="margin-top:12px;font-size:15px;" data-es="Tres disciplinas. Un solo estudio. Precio justo según tu proyecto." data-en="Three disciplines. One studio. Fair price for your project.">Tres disciplinas. Un solo estudio. Precio justo según tu proyecto.</p>
+
+      <div class="services-grid">
+        <div class="service-card rev" style="transition-delay:.0s">
+          <div class="service-num">01</div>
+          <h3 class="service-title" data-es="Diseño Web" data-en="Web Design">Diseño Web</h3>
+          <p class="service-desc" data-es="Sitios web a medida. Landing pages, portafolios, tiendas online, webs corporativas. Identidad visual propia, optimizados para todos los dispositivos." data-en="Custom websites. Landing pages, portfolios, online stores, corporate sites. Own visual identity, optimized for all devices.">Sitios web a medida. Landing pages, portafolios, tiendas online, webs corporativas. Identidad visual propia, optimizados para todos los dispositivos.</p>
+          <div class="service-tags">
+            <span class="service-tag">Landing Page</span><span class="service-tag">E-Commerce</span>
+            <span class="service-tag">Corporativo</span><span class="service-tag">Portafolio</span>
+          </div>
+        </div>
+        <div class="service-card rev" style="transition-delay:.1s">
+          <div class="service-num">02</div>
+          <h3 class="service-title" data-es="Apps & UI/UX" data-en="Apps & UI/UX">Apps & UI/UX</h3>
+          <p class="service-desc" data-es="Diseño de interfaces para apps móviles y web. Arquitectura de información, prototipos interactivos, sistemas de diseño completos y handoff." data-en="Interface design for mobile and web apps. Information architecture, interactive prototypes, complete design systems and handoff.">Diseño de interfaces para apps móviles y web. Arquitectura de información, prototipos interactivos, sistemas de diseño completos y handoff.</p>
+          <div class="service-tags">
+            <span class="service-tag">Mobile UI</span><span class="service-tag">Web App</span>
+            <span class="service-tag">Prototipo</span><span class="service-tag">UX Research</span>
+          </div>
+        </div>
+        <div class="service-card rev" style="transition-delay:.2s">
+          <div class="service-num">03</div>
+          <h3 class="service-title" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</h3>
+          <p class="service-desc" data-es="Identidad visual completa, logotipos, branding y piezas para redes sociales. Diseño que comunica quién eres antes de decir una sola palabra." data-en="Complete visual identity, logos, branding and social media pieces. Design that communicates who you are before you say a word.">Identidad visual completa, logotipos, branding y piezas para redes sociales. Diseño que comunica quién eres antes de decir una sola palabra.</p>
+          <div class="service-tags">
+            <span class="service-tag">Branding</span><span class="service-tag">Logotipo</span>
+            <span class="service-tag">Social Media</span><span class="service-tag">Print</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-banner rev">
+        <h3 data-es="¿Cuánto cuesta tu proyecto?" data-en="How much does your project cost?">¿Cuánto cuesta tu proyecto?</h3>
+        <p data-es="Sin paquetes fijos. Precio justo según tu proyecto real. Cotización personalizada en menos de 48 horas." data-en="No fixed packages. Fair price based on your real project. Personalized quote in less than 48 hours.">Sin paquetes fijos. Precio justo según tu proyecto real. Cotización personalizada en menos de 48 horas.</p>
+        <div class="cta-btn-row">
+          <button class="btn btn-gold" onclick="showPage('contact')"><span data-es="Solicitar cotización" data-en="Get a quote">Solicitar cotización</span><span class="arrow">→</span></button>
+          <button class="btn btn-ghost" onclick="showPage('process')"><span data-es="Ver cómo trabajamos" data-en="See how we work">Ver cómo trabajamos</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ PORTFOLIO ════════════ -->
+<div class="page" id="page-portfolio">
+  <div class="wrap">
+    <div class="portfolio-wrap">
+      <div class="sec-label" data-es="Portafolio" data-en="Portfolio">Portafolio</div>
+      <h2 class="h2"><span class="grad-text" data-es="Trabajo seleccionado." data-en="Selected work.">Trabajo seleccionado.</span></h2>
+      <p class="muted" style="margin-top:12px;font-size:15px;" data-es="Proyectos reales. Clientes reales. Resultados reales." data-en="Real projects. Real clients. Real results.">Proyectos reales. Clientes reales. Resultados reales.</p>
+
+      <div class="portfolio-grid">
+        <!-- 01 -->
+        <div class="proj-card rev">
+          <div class="proj-preview">
+            <div class="browser-bar">
+              <div class="b-dot r"></div><div class="b-dot y"></div><div class="b-dot g"></div>
+              <div class="b-url">santopatronclothing.com</div>
+            </div>
+            <div class="preview-placeholder" id="pl1">⚡ Cargando…</div>
+            <div class="iframe-wrap">
+              <iframe src="https://santopatronclothing.com" scrolling="no"
+                onload="document.getElementById('pl1').style.display='none'" title="Santo Patrón"></iframe>
+            </div>
+            <div class="preview-shield"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-index">01 / 03</div>
+            <h3 class="proj-title">Santo Patrón Clothing</h3>
+            <p class="proj-desc" data-es="Tienda online para marca de ropa con identidad cultural fuerte. Diseño orientado a ventas con estética coherente y experiencia de compra fluida." data-en="Online store for a clothing brand with strong cultural identity. Sales design with coherent aesthetics and smooth shopping experience.">Tienda online para marca de ropa con identidad cultural fuerte. Diseño orientado a ventas con estética coherente y experiencia de compra fluida.</p>
+            <div class="proj-tags"><span class="proj-tag">E-Commerce</span><span class="proj-tag">Branding</span><span class="proj-tag">Web Design</span></div>
+            <a href="https://santopatronclothing.com" target="_blank" class="proj-link"><span data-es="Ver sitio en vivo" data-en="View live site">Ver sitio en vivo</span> ↗</a>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="proj-card rev" style="transition-delay:.1s">
+          <div class="proj-preview">
+            <div class="browser-bar">
+              <div class="b-dot r"></div><div class="b-dot y"></div><div class="b-dot g"></div>
+              <div class="b-url">elevacorp.net</div>
+            </div>
+            <div class="preview-placeholder" id="pl2">⚡ Cargando…</div>
+            <div class="iframe-wrap">
+              <iframe src="https://elevacorp.net" scrolling="no"
+                onload="document.getElementById('pl2').style.display='none'" title="Eleva Corp"></iframe>
+            </div>
+            <div class="preview-shield"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-index">02 / 03</div>
+            <h3 class="proj-title">Eleva Corp</h3>
+            <p class="proj-desc" data-es="Web corporativa para empresa de servicios. Arquitectura de información clara, diseño limpio y comunicación de valor directa al cliente ideal." data-en="Corporate website for a services company. Clear information architecture, clean design and direct value communication to the ideal client.">Web corporativa para empresa de servicios. Arquitectura de información clara, diseño limpio y comunicación de valor directa al cliente ideal.</p>
+            <div class="proj-tags"><span class="proj-tag">Corporativo</span><span class="proj-tag">UI/UX</span><span class="proj-tag">Web Design</span></div>
+            <a href="https://elevacorp.net" target="_blank" class="proj-link"><span data-es="Ver sitio en vivo" data-en="View live site">Ver sitio en vivo</span> ↗</a>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="proj-card rev" style="transition-delay:.2s">
+          <div class="proj-preview">
+            <div class="browser-bar">
+              <div class="b-dot r"></div><div class="b-dot y"></div><div class="b-dot g"></div>
+              <div class="b-url">rystarstudios.com</div>
+            </div>
+            <div class="preview-placeholder" id="pl3">⚡ Cargando…</div>
+            <div class="iframe-wrap">
+              <iframe src="https://rystarstudios.com" scrolling="no"
+                onload="document.getElementById('pl3').style.display='none'" title="Rystar Studios"></iframe>
+            </div>
+            <div class="preview-shield"></div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-index">03 / 03</div>
+            <h3 class="proj-title">Rystar Studios</h3>
+            <p class="proj-desc" data-es="Portafolio para estudio creativo. Diseño expresivo con fuerte identidad visual, animaciones cuidadas y experiencia memorable." data-en="Portfolio for a creative studio. Expressive design with strong visual identity, careful animations and a memorable experience.">Portafolio para estudio creativo. Diseño expresivo con fuerte identidad visual, animaciones cuidadas y experiencia memorable.</p>
+            <div class="proj-tags"><span class="proj-tag">Portafolio</span><span class="proj-tag">Creative</span><span class="proj-tag">Web Design</span></div>
+            <a href="https://rystarstudios.com" target="_blank" class="proj-link"><span data-es="Ver sitio en vivo" data-en="View live site">Ver sitio en vivo</span> ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:56px;padding-bottom:40px;">
+        <p class="muted" style="margin-bottom:20px;" data-es="¿Quieres ser el próximo?" data-en="Want to be next?">¿Quieres ser el próximo?</p>
+        <button class="btn btn-purple" onclick="showPage('contact')"><span data-es="Hablemos de tu proyecto" data-en="Let's talk about your project">Hablemos de tu proyecto</span><span class="arrow">→</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ PROCESS ════════════ -->
+<div class="page" id="page-process">
+  <div class="wrap">
+    <div class="process-wrap">
+      <div class="process-intro-grid">
+        <div class="rev-l">
+          <div class="sec-label" data-es="Cómo Trabajamos" data-en="How We Work">Cómo Trabajamos</div>
+          <h2 class="h2">Un proceso<br><span class="grad-text">sin misterios.</span></h2>
+        </div>
+        <p class="muted rev-r" style="font-size:15px;line-height:1.9;" data-es="Transparencia total desde la primera conversación hasta la entrega final. Sin sorpresas, sin plantillas, sin atajos." data-en="Total transparency from the first conversation to the final delivery. No surprises, no templates, no shortcuts.">Transparencia total desde la primera conversación hasta la entrega final. Sin sorpresas, sin plantillas, sin atajos.</p>
+      </div>
+
+      <div class="steps-list">
+        <div class="step rev"><div class="step-num">01</div><div><div class="step-title" data-es="Descubrimiento" data-en="Discovery">Descubrimiento</div><div class="step-desc" data-es="Hablamos. Escuchamos tu proyecto, objetivos y referencias. Todo nos ayuda a entenderte exactamente." data-en="We talk. We listen to your project, goals and references. Everything helps us understand you exactly.">Hablamos. Escuchamos tu proyecto, objetivos y referencias. Todo nos ayuda a entenderte exactamente.</div><div class="step-tags"><span class="step-tag" data-es="Llamada o chat" data-en="Call or chat">Llamada o chat</span><span class="step-tag" data-es="Brief del proyecto" data-en="Project brief">Brief del proyecto</span><span class="step-tag" data-es="Sin compromiso" data-en="No commitment">Sin compromiso</span></div></div></div>
+        <div class="step rev"><div class="step-num">02</div><div><div class="step-title" data-es="Cotización personalizada" data-en="Custom quote">Cotización personalizada</div><div class="step-desc" data-es="Propuesta detallada: alcance, tiempos y precio justo según tu proyecto real. Sin paquetes genéricos." data-en="Detailed proposal: scope, timeline and fair price based on your real project. No generic packages.">Propuesta detallada: alcance, tiempos y precio justo según tu proyecto real. Sin paquetes genéricos.</div><div class="step-tags"><span class="step-tag" data-es="En 24-48h" data-en="In 24-48h">En 24-48h</span><span class="step-tag" data-es="Precio transparente" data-en="Transparent price">Precio transparente</span></div></div></div>
+        <div class="step rev"><div class="step-num">03</div><div><div class="step-title" data-es="Producción" data-en="Production">Producción</div><div class="step-desc" data-es="Arranca el trabajo. Iteraciones con updates periódicos para que siempre sepas cómo va tu proyecto." data-en="Work begins. Iterations with periodic updates so you always know how your project is going.">Arranca el trabajo. Iteraciones con updates periódicos para que siempre sepas cómo va tu proyecto.</div><div class="step-tags"><span class="step-tag" data-es="Updates periódicos" data-en="Periodic updates">Updates periódicos</span><span class="step-tag" data-es="Revisiones incluidas" data-en="Revisions included">Revisiones incluidas</span></div></div></div>
+        <div class="step rev"><div class="step-num">04</div><div><div class="step-title" data-es="Revisión y ajustes" data-en="Review & adjustments">Revisión y ajustes</div><div class="step-desc" data-es="Presentamos el resultado. Si algo no encaja, lo ajustamos. Rondas de revisión incluidas siempre." data-en="We present the result. If something doesn't fit, we adjust. Revision rounds always included.">Presentamos el resultado. Si algo no encaja, lo ajustamos. Rondas de revisión incluidas siempre.</div><div class="step-tags"><span class="step-tag" data-es="Hasta quedar perfecto" data-en="Until it's perfect">Hasta quedar perfecto</span></div></div></div>
+        <div class="step rev"><div class="step-num">05</div><div><div class="step-title" data-es="Entrega final" data-en="Final delivery">Entrega final</div><div class="step-desc" data-es="Todos los archivos organizados. Para webs, gestionamos el lanzamiento. El proyecto es tuyo — completamente." data-en="All files organized. For websites, we manage the launch. The project is yours — completely.">Todos los archivos organizados. Para webs, gestionamos el lanzamiento. El proyecto es tuyo — completamente.</div><div class="step-tags"><span class="step-tag" data-es="Archivos fuente" data-en="Source files">Archivos fuente</span><span class="step-tag" data-es="Soporte post-entrega" data-en="Post-delivery support">Soporte post-entrega</span></div></div></div>
+      </div>
+
+      <div style="text-align:center;padding:56px 0 40px;">
+        <button class="btn btn-gold" onclick="showPage('contact')"><span data-es="Empezar un proyecto" data-en="Start a project">Empezar un proyecto</span><span class="arrow">→</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ CONTACT ════════════ -->
+<div class="page" id="page-contact">
+  <div class="wrap">
+    <div class="contact-wrap">
+      <div class="sec-label" data-es="Contacto" data-en="Contact">Contacto</div>
+      <h2 class="h2">Hablemos de<br><span class="grad-text" data-es="tu proyecto." data-en="your project.">tu proyecto.</span></h2>
+
+      <div class="contact-grid">
+        <div class="contact-left rev-l">
+          <h3 class="contact-title" data-es="Cuéntanos tu idea." data-en="Tell us your idea.">Cuéntanos tu idea.</h3>
+          <p class="contact-desc" data-es="No hay proyectos demasiado pequeños ni grandes. Cotización personalizada en menos de 48 horas, sin compromiso." data-en="No projects are too small or too large. Personalized quote in less than 48 hours, no commitment.">No hay proyectos demasiado pequeños ni grandes. Cotización personalizada en menos de 48 horas, sin compromiso.</p>
+          <div class="contact-details">
+            <div class="cd-item"><span class="cd-label">Email</span><a href="mailto:hola@ruptastudios.com" class="cd-val">hola@ruptastudios.com</a></div>
+            <div class="cd-item"><span class="cd-label">WhatsApp</span><a href="https://wa.me/TUNUMERO" class="cd-val" data-es="Escríbenos directo" data-en="Write to us directly">Escríbenos directo</a></div>
+            <div class="cd-item"><span class="cd-label" data-es="Tiempo de respuesta" data-en="Response time">Tiempo de respuesta</span><span class="cd-val" style="cursor:default" data-es="Menos de 48 horas" data-en="Less than 48 hours">Menos de 48 horas</span></div>
+          </div>
+        </div>
+
+        <div class="rev-r">
+          <div class="form-box" id="contactForm">
+            <div class="form-row">
+              <div class="form-group"><label class="f-label" data-es="Nombre" data-en="Name">Nombre</label><input type="text" class="f-input" id="fname" placeholder="Tu nombre"></div>
+              <div class="form-group"><label class="f-label">Email</label><input type="email" class="f-input" id="femail" placeholder="tu@email.com"></div>
+            </div>
+            <div class="form-group">
+              <label class="f-label" data-es="Tipo de proyecto" data-en="Project type">Tipo de proyecto</label>
+              <select class="f-select" id="ftype">
+                <option value="" data-es="Selecciona un servicio" data-en="Select a service">Selecciona un servicio</option>
+                <option value="web" data-es="Diseño Web" data-en="Web Design">Diseño Web</option>
+                <option value="app" data-es="App / UI Design" data-en="App / UI Design">App / UI Design</option>
+                <option value="graphic" data-es="Diseño Gráfico / Branding" data-en="Graphic Design / Branding">Diseño Gráfico / Branding</option>
+                <option value="other" data-es="Otro / No sé aún" data-en="Other / Not sure">Otro / No sé aún</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="f-label" data-es="Cuéntanos sobre tu proyecto" data-en="Tell us about your project">Cuéntanos sobre tu proyecto</label>
+              <textarea class="f-textarea" id="fmsg" placeholder="Describe tu idea, objetivos, plazo..."></textarea>
+            </div>
+            <p class="f-note" data-es="Tu información es confidencial. Respondemos con una propuesta personalizada en menos de 48 horas." data-en="Your information is confidential. We respond with a personalized proposal within 48 hours.">Tu información es confidencial. Respondemos con una propuesta personalizada en menos de 48 horas.</p>
+            <button class="f-submit" onclick="submitForm()">
+              <span data-es="Enviar solicitud de cotización" data-en="Send quote request">Enviar solicitud de cotización</span>
+              <span>→</span>
+            </button>
+          </div>
+          <div class="form-success" id="formSuccess">
+            ⚡ <span data-es="¡Solicitud enviada! Te contactaremos en menos de 48 horas." data-en="Request sent! We'll contact you within 48 hours.">¡Solicitud enviada! Te contactaremos en menos de 48 horas.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-wrap">
+        <div class="sec-label" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</div>
+        <div class="faq-grid">
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Cuánto cuesta un proyecto?" data-en="How much does a project cost?">¿Cuánto cuesta un proyecto?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="No tenemos precios fijos porque cada proyecto es diferente. Lo que garantizamos es que el precio siempre será justo — ni más ni menos de lo que realmente necesitas." data-en="We don't have fixed prices because every project is different. What we guarantee is the price will always be fair — no more, no less than what you really need.">No tenemos precios fijos porque cada proyecto es diferente. Lo que garantizamos es que el precio siempre será justo — ni más ni menos de lo que realmente necesitas.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Cuánto tarda un proyecto?" data-en="How long does a project take?">¿Cuánto tarda un proyecto?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="Una landing page: 5-7 días. Sitio corporativo completo: 2-3 semanas. Identidad visual: 1-2 semanas. Siempre damos un plazo estimado y lo cumplimos." data-en="A landing page: 5-7 days. Full corporate site: 2-3 weeks. Visual identity: 1-2 weeks. We always give an estimated timeline and stick to it.">Una landing page: 5-7 días. Sitio corporativo completo: 2-3 semanas. Identidad visual: 1-2 semanas. Siempre damos un plazo estimado y lo cumplimos.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Necesito tenerlo todo claro para contactarles?" data-en="Do I need everything figured out to contact you?">¿Necesito tenerlo todo claro para contactarles?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="Para nada. Muchos clientes llegan con solo una idea vaga. Parte de nuestro trabajo es ayudarte a definir qué necesitas. Escríbenos con lo que tengas." data-en="Not at all. Many clients arrive with just a vague idea. Part of our job is helping you define what you need. Write to us with whatever you have.">Para nada. Muchos clientes llegan con solo una idea vaga. Parte de nuestro trabajo es ayudarte a definir qué necesitas. Escríbenos con lo que tengas.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Trabajan con clientes de cualquier país?" data-en="Do you work with clients from any country?">¿Trabajan con clientes de cualquier país?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="Sí. Trabajamos 100% remoto y atendemos clientes de todo el mundo. Todo el proceso se gestiona online desde la primera reunión hasta la entrega final." data-en="Yes. We work 100% remotely and serve clients worldwide. The entire process is managed online from the first meeting to the final delivery.">Sí. Trabajamos 100% remoto y atendemos clientes de todo el mundo. Todo el proceso se gestiona online desde la primera reunión hasta la entrega final.</div></div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Qué incluye la entrega de una web?" data-en="What does web delivery include?">¿Qué incluye la entrega de una web?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="El código completo y organizado, listo para cualquier hosting. Si necesitas ayuda para publicarla, también lo gestionamos. Los archivos son 100% tuyos." data-en="Complete and organized code, ready for any hosting. If you need help publishing it, we handle that too. The files are 100% yours.">El código completo y organizado, listo para cualquier hosting. Si necesitas ayuda para publicarla, también lo gestionamos. Los archivos son 100% tuyos.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="max-width:1100px;margin:0 auto;">
+  <footer>
+    <span class="footer-logo">RUPTA⚡STUDIOS</span>
+    <span style="color:var(--muted)" data-es="Diseño · Desarrollo · Identidad" data-en="Design · Development · Identity">Diseño · Desarrollo · Identidad</span>
+    <span style="color:var(--muted)">© 2025 RuptaStudios</span>
+  </footer>
+</div>
+
+<script>
+// CURSOR
+const ring=document.getElementById('cRing'),dot=document.getElementById('cDot');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,input,select,textarea,.proj-card,.service-card,.value-card,.skill-pill,.faq-q,.step').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
+});
+
+// SCROLL BAR
+window.addEventListener('scroll',()=>{
+  const p=(window.scrollY/Math.max(document.body.scrollHeight-window.innerHeight,1))*100;
+  document.getElementById('scrollBar').style.width=p+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
+});
+
+// PAGES
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  document.querySelectorAll('.nav-btn[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+  setTimeout(initReveal,80);
+}
+
+// REVEAL
+function initReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
+  },{threshold:.08});
+  document.querySelectorAll('.rev:not(.on),.rev-l:not(.on),.rev-r:not(.on)').forEach(el=>obs.observe(el));
+}
+initReveal();
+
+// LANG
+let lang='es';
+function toggleLang(){
+  lang=lang==='es'?'en':'es';
+  document.getElementById('langBtn').textContent=lang==='es'?'EN':'ES';
+  document.querySelectorAll('[data-es]').forEach(el=>{
+    const t=el.getAttribute('data-'+lang);if(t)el.innerHTML=t;
+  });
+  document.querySelectorAll('select option[data-es]').forEach(o=>{
+    const t=o.getAttribute('data-'+lang);if(t)o.textContent=t;
+  });
+}
+
+// HAMBURGER
+function toggleMenu(){
+  document.getElementById('hbg').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// FAQ
+function toggleFaq(btn){
+  const item=btn.parentElement,ans=item.querySelector('.faq-ans'),open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-ans').style.maxHeight='0';});
+  if(!open){item.classList.add('open');ans.style.maxHeight=(ans.scrollHeight+40)+'px';}
+}
+
+// FORM
+function submitForm(){
+  if(!document.getElementById('fname').value.trim()||!document.getElementById('femail').value.trim()||!document.getElementById('fmsg').value.trim()){
+    alert(lang==='es'?'Por favor completa todos los campos.':'Please fill in all fields.');return;
+  }
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+}
+
+// PARTICLE CANVAS on hero
+(function(){
+  const hero=document.querySelector('.hero-section');if(!hero)return;
+  const c=document.createElement('canvas');
+  c.style.cssText='position:absolute;inset:0;pointer-events:none;z-index:0;border-radius:0;';
+  hero.style.position='relative';
+  hero.insertBefore(c,hero.firstChild);
+  const ctx=c.getContext('2d');
+  let W,H;
+  const resize=()=>{W=c.width=hero.offsetWidth;H=c.height=hero.offsetHeight;};
+  resize();window.addEventListener('resize',resize);
+  const pts=Array.from({length:50},()=>({
+    x:Math.random()*1400,y:Math.random()*800,
+    vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,
+    r:Math.random()*1.8+.4,phase:Math.random()*Math.PI*2,
+    gold:Math.random()>.45
+  }));
+  let t=0;
+  (function draw(){
+    t+=.012;ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      const a=(.4+.35*Math.sin(t+p.phase));
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.gold?`rgba(245,200,66,${a})`:`rgba(157,92,240,${a})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  })();
+})();
+</script>
+</body>
+</html>
