@@ -4,276 +4,315 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Rupta Studios — Diseño Web & Estrategia Digital</title>
+<title>Rupta Studios — Diseño Web Estratégico que Convierte</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ink:#0a0a0f;
-  --ink2:#13131a;
-  --surface:#16161f;
-  --border:rgba(255,255,255,.08);
-  --border2:rgba(255,255,255,.14);
-  --p:#7c3aed;--pl:#9d5cf6;--pk:#e040fb;
-  --gold:#c9a84c;
-  --t:#f0eff5;--t2:#9e9baf;--t3:#5a5770;
-  --r:18px;
-  --max:1120px;
+  --ink:#080808;
+  --ink2:#101010;
+  --surface:#161616;
+  --surface2:#1c1c1c;
+  --border:rgba(255,255,255,.07);
+  --border2:rgba(255,255,255,.12);
+  --accent:#fff;
+  --accent2:rgba(255,255,255,.06);
+  --t:#f5f5f5;
+  --t2:#888;
+  --t3:#444;
+  --max:1100px;
+  --r:12px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--ink);color:var(--t);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:3px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--t);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+::-webkit-scrollbar{width:2px}
 ::-webkit-scrollbar-track{background:var(--ink)}
-::-webkit-scrollbar-thumb{background:var(--p)}
+::-webkit-scrollbar-thumb{background:var(--t3)}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 img{display:block;max-width:100%}
 
-/* ── NOISE OVERLAY ── */
-body::before{content:’’;position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.028;background-image:url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’/%3E%3C/svg%3E”);background-size:200px}
+/* ── SUBTLE GRAIN ── */
+body::before{content:’’;position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.022;background-image:url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.85’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’/%3E%3C/svg%3E”);background-size:180px}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;transition:all .4s}
-nav.solid{background:rgba(10,10,15,.92);backdrop-filter:blur(28px);border-bottom:1px solid var(–border)}
-.nav-logo{font-family:‘Syne’,sans-serif;font-size:17px;font-weight:900;letter-spacing:-.5px;color:var(–t)}
-.nav-logo em{font-style:normal;color:var(–pl)}
-.nav-links{display:flex;align-items:center;gap:4px}
-.nav-link{color:var(–t2);font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s}
-.nav-link:hover,.nav-link.active{color:var(–t);background:rgba(255,255,255,.06)}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;transition:all .4s}
+nav.solid{background:rgba(8,8,8,.94);backdrop-filter:blur(24px);border-bottom:1px solid var(–border)}
+.nav-logo{font-family:‘Archivo Black’,sans-serif;font-size:15px;letter-spacing:.5px;color:var(–t);cursor:pointer;background:none;border:none;font-weight:400}
+.nav-logo em{font-style:normal;color:var(–t2)}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{color:var(–t2);font-size:13px;font-weight:500;padding:7px 14px;border-radius:8px;transition:all .2s;background:none;border:none;cursor:pointer;font-family:inherit}
+.nav-link:hover,.nav-link.active{color:var(–t);background:rgba(255,255,255,.05)}
 .nav-actions{display:flex;align-items:center;gap:8px}
-.lang-sw{display:flex;gap:3px}
-.lang-btn{font-size:11.5px;font-weight:700;letter-spacing:.6px;color:var(–t3);padding:5px 9px;border-radius:6px;border:1px solid transparent;transition:all .2s}
+.lang-sw{display:flex;gap:2px}
+.lang-btn{font-size:11px;font-weight:600;letter-spacing:.5px;color:var(–t3);padding:5px 8px;border-radius:6px;border:1px solid transparent;transition:all .2s;cursor:pointer;background:none;font-family:inherit}
 .lang-btn:hover{color:var(–t2)}
-.lang-btn.on{color:var(–pl);border-color:rgba(157,92,246,.3);background:rgba(124,58,237,.1)}
-.nav-cta{font-size:13px;font-weight:600;padding:9px 22px;border-radius:50px;background:var(–t);color:var(–ink);transition:all .25s;letter-spacing:-.1px}
-.nav-cta:hover{background:var(–pl);color:#fff;transform:scale(1.04)}
-.burger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:8px;border:1px solid var(–border)}
+.lang-btn.on{color:var(–t);border-color:var(–border2)}
+.nav-cta{font-size:12.5px;font-weight:600;padding:9px 20px;border-radius:6px;background:var(–t);color:var(–ink);transition:all .25s;letter-spacing:.1px;display:inline-block}
+.nav-cta:hover{background:#ddd;transform:scale(1.02)}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:6px;cursor:pointer;background:none;border:none}
 .burger span{display:block;width:20px;height:1.5px;background:var(–t);transition:all .3s;border-radius:2px}
 
 /* ── MOBILE MENU ── */
-.mob-menu{display:none;position:fixed;inset:0;z-index:899;background:rgba(10,10,15,.98);backdrop-filter:blur(30px);flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.mob-menu{display:none;position:fixed;inset:0;z-index:899;background:rgba(8,8,8,.98);backdrop-filter:blur(30px);flex-direction:column;align-items:center;justify-content:center;gap:4px}
 .mob-menu.open{display:flex}
-.mob-close{position:absolute;top:22px;right:24px;color:var(–t2);font-size:22px;background:none;border:none;cursor:pointer}
-.mob-link{font-family:‘Syne’,sans-serif;font-size:28px;font-weight:800;color:var(–t);padding:8px 0;transition:color .2s}
-.mob-link:hover{color:var(–pl)}
-.mob-lang{display:flex;gap:8px;margin-top:20px}
-.mob-cta{margin-top:16px;font-size:16px;font-weight:700;padding:16px 40px;border-radius:50px;background:linear-gradient(135deg,var(–p),var(–pl));color:#fff}
+.mob-close{position:absolute;top:20px;right:22px;color:var(–t2);font-size:20px;background:none;border:none;cursor:pointer;padding:8px}
+.mob-link{font-family:‘Archivo Black’,sans-serif;font-size:26px;color:var(–t);padding:10px 0;transition:color .2s;background:none;border:none;cursor:pointer;font-weight:400}
+.mob-link:hover{color:var(–t2)}
+.mob-lang{display:flex;gap:8px;margin-top:24px}
+.mob-cta{margin-top:20px;font-size:15px;font-weight:600;padding:16px 40px;border-radius:6px;background:var(–t);color:var(–ink);display:inline-block}
 
 /* ── PAGES ── */
 .page{display:none;position:relative;z-index:1}
 .page.on{display:block}
 
-/* ── HERO ── */
+/* ═══════════════════════════════
+HERO
+═══════════════════════════════ */
 .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
-.hero-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:900px;height:600px;background:radial-gradient(ellipse at center,rgba(124,58,237,.18) 0%,rgba(224,64,251,.07) 40%,transparent 70%);pointer-events:none;filter:blur(1px)}
-.hero-line{display:inline-flex;align-items:center;gap:10px;background:rgba(157,92,246,.1);border:1px solid rgba(157,92,246,.25);border-radius:50px;padding:6px 18px 6px 10px;font-size:12px;font-weight:600;color:var(–pl);letter-spacing:.8px;text-transform:uppercase;margin-bottom:36px}
-.hero-line-dot{width:7px;height:7px;border-radius:50%;background:var(–pl);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.hero h1{font-family:‘Syne’,sans-serif;font-size:clamp(2.8rem,6.5vw,5.4rem);font-weight:900;line-height:1.04;letter-spacing:-2.5px;color:var(–t);max-width:860px;margin:0 auto 24px}
-.hero h1 .hl{background:linear-gradient(120deg,var(–pl),var(–pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:clamp(15px,2vw,18px);color:var(–t2);line-height:1.75;max-width:560px;margin:0 auto 48px;font-weight:400}
-.hero-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:14px}
-.btn-hero{display:inline-flex;align-items:center;gap:10px;padding:18px 40px;border-radius:50px;font-size:15px;font-weight:700;letter-spacing:-.2px;background:linear-gradient(135deg,var(–p),var(–pl));color:#fff;box-shadow:0 0 40px rgba(124,58,237,.4);transition:all .3s;cursor:pointer;border:none;font-family:inherit}
-.btn-hero:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 0 70px rgba(157,92,246,.55)}
-.btn-hero svg{width:18px;height:18px;fill:#fff;transition:transform .3s}
-.btn-hero:hover svg{transform:translateX(3px)}
-.hero-trust{font-size:12.5px;color:var(–t3);font-weight:500;letter-spacing:.3px}
-.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(–t3);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(–t3),transparent);animation:scrolldown 2s infinite}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-bg-line{position:absolute;width:1px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.04),transparent);animation:linedrop 4s ease-in-out infinite}
+.hero-bg-line:nth-child(1){left:20%;height:60%;top:10%;animation-delay:0s}
+.hero-bg-line:nth-child(2){left:50%;height:80%;top:5%;animation-delay:.8s}
+.hero-bg-line:nth-child(3){left:80%;height:50%;top:20%;animation-delay:1.6s}
+@keyframes linedrop{0%,100%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1);transform-origin:top}}
+
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(–border2);border-radius:4px;padding:6px 14px;font-size:11px;font-weight:500;color:var(–t2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:40px}
+.hero-tag-dot{width:5px;height:5px;border-radius:50%;background:var(–t);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero h1{font-family:‘Archivo Black’,sans-serif;font-size:clamp(2.6rem,6.2vw,5.2rem);font-weight:400;line-height:1.06;letter-spacing:-1.5px;color:var(–t);max-width:820px;margin:0 auto 28px}
+.hero h1 .hl{color:var(–t2)}
+.hero-sub{font-size:clamp(14px,1.8vw,17px);color:var(–t2);line-height:1.8;max-width:500px;margin:0 auto 52px;font-weight:400}
+
+.hero-cta-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn-hero-main{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:6px;font-size:14px;font-weight:600;letter-spacing:.1px;background:var(–t);color:var(–ink);transition:all .3s;cursor:pointer;border:none;font-family:inherit}
+.btn-hero-main:hover{background:#ddd;transform:translateY(-1px)}
+.btn-hero-main svg{width:16px;height:16px;fill:none;stroke:var(–ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.btn-hero-main:hover svg{transform:translateX(3px)}
+
+.btn-hero-wa{display:inline-flex;align-items:center;gap:9px;padding:16px 28px;border-radius:6px;font-size:14px;font-weight:600;color:var(–t);border:1px solid var(–border2);transition:all .3s;cursor:pointer;background:none;font-family:inherit;letter-spacing:.1px}
+.btn-hero-wa:hover{border-color:rgba(255,255,255,.3);background:var(–accent2)}
+.btn-hero-wa svg{width:16px;height:16px;fill:none;stroke:#25d366;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.hero-trust{display:block;font-size:11.5px;color:var(–t3);font-weight:500;letter-spacing:.3px;margin-top:28px}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(–t3);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(–t3),transparent);animation:scrolldown 2s infinite}
 @keyframes scrolldown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* ── LOGOS STRIP ── */
-.logos-strip{padding:28px 40px;border-top:1px solid var(–border);border-bottom:1px solid var(–border);background:rgba(255,255,255,.02);display:flex;align-items:center;justify-content:center;gap:0;overflow:hidden;position:relative;z-index:1}
-.logos-strip::before,.logos-strip::after{content:’’;position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.logos-strip{padding:24px 40px;border-top:1px solid var(–border);border-bottom:1px solid var(–border);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;z-index:1}
+.logos-strip::before,.logos-strip::after{content:’’;position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
 .logos-strip::before{left:0;background:linear-gradient(to right,var(–ink),transparent)}
 .logos-strip::after{right:0;background:linear-gradient(to left,var(–ink),transparent)}
-.logos-track{display:flex;align-items:center;gap:56px;animation:marquee 22s linear infinite;white-space:nowrap}
+.logos-track{display:flex;align-items:center;gap:52px;animation:marquee 24s linear infinite;white-space:nowrap}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.logo-item{font-family:‘Syne’,sans-serif;font-size:13px;font-weight:800;color:var(–t3);letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:8px;flex-shrink:0}
-.logo-dot{width:4px;height:4px;border-radius:50%;background:var(–t3)}
+.logo-item{font-family:‘Archivo Black’,sans-serif;font-size:11px;color:var(–t3);letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;flex-shrink:0;font-weight:400}
+.logo-sep{width:3px;height:3px;border-radius:50%;background:var(–t3)}
 
 /* ── SECTION BASE ── */
 .wrap{max-width:var(–max);margin:0 auto;padding:0 24px}
-.sec{padding:104px 0;position:relative;z-index:1}
-.sec-sm{padding:72px 0}
-.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(–pl);margin-bottom:18px}
-.sec-label::before{content:’’;width:20px;height:1px;background:var(–pl)}
-.sec-h{font-family:‘Syne’,sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-1.5px;color:var(–t);line-height:1.08;margin-bottom:18px}
-.sec-p{font-size:16px;color:var(–t2);line-height:1.8;max-width:520px}
+.sec{padding:100px 0;position:relative;z-index:1}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(–t2);margin-bottom:20px}
+.sec-label::before{content:’’;width:16px;height:1px;background:var(–t2)}
+.sec-h{font-family:‘Archivo Black’,sans-serif;font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:400;letter-spacing:-1px;color:var(–t);line-height:1.1;margin-bottom:18px}
+.sec-p{font-size:15px;color:var(–t2);line-height:1.85;max-width:480px}
 .sec-head-center{text-align:center}
-.sec-head-center .sec-label{margin:0 auto 18px}
+.sec-head-center .sec-label{margin:0 auto 20px;display:flex}
 .sec-head-center .sec-p{margin:0 auto}
-.divider{height:1px;background:var(–border);margin:0}
+.divider{height:1px;background:var(–border)}
 
-/* ── BTN STYLES ── */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:50px;font-size:14px;font-weight:600;letter-spacing:-.1px;transition:all .25s;cursor:pointer;border:none;font-family:inherit}
-.btn-primary{background:linear-gradient(135deg,var(–p),var(–pl));color:#fff;box-shadow:0 0 28px rgba(124,58,237,.3)}
-.btn-primary:hover{transform:scale(1.04);box-shadow:0 0 50px rgba(157,92,246,.5)}
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:6px;font-size:13.5px;font-weight:600;letter-spacing:.1px;transition:all .25s;cursor:pointer;border:none;font-family:inherit}
+.btn-primary{background:var(–t);color:var(–ink)}
+.btn-primary:hover{background:#ddd;transform:scale(1.02)}
 .btn-ghost{background:transparent;color:var(–t);border:1px solid var(–border2)}
-.btn-ghost:hover{border-color:rgba(157,92,246,.5);color:var(–pl);background:rgba(124,58,237,.06)}
-.btn-white{background:var(–t);color:var(–ink);font-weight:700}
-.btn-white:hover{background:#fff;transform:scale(1.04)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.3);background:var(–accent2)}
+.btn-ghost-sm{font-size:12.5px;padding:10px 20px}
 
-/* ── WHY US ── */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(–border);border-radius:24px;overflow:hidden;margin-top:64px}
-.why-card{background:var(–ink2);padding:44px 38px;transition:background .3s}
+/* ═══════════════════════════════
+WHY (Autoridad)
+═══════════════════════════════ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(–border);border-radius:var(–r);overflow:hidden;margin-top:56px}
+.why-card{background:var(–ink2);padding:44px 40px;transition:background .3s;position:relative;overflow:hidden}
 .why-card:hover{background:var(–surface)}
-.why-num{font-family:‘Syne’,sans-serif;font-size:11px;font-weight:800;letter-spacing:3px;color:var(–t3);margin-bottom:20px}
-.why-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:rgba(124,58,237,.12)}
-.why-icon svg{width:22px;height:22px;stroke:var(–pl);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.why-card h3{font-family:‘Syne’,sans-serif;font-size:20px;font-weight:800;color:var(–t);margin-bottom:12px;letter-spacing:-.5px}
-.why-card p{font-size:14.5px;color:var(–t2);line-height:1.8}
+.why-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);opacity:0;transition:opacity .3s}
+.why-card:hover::before{opacity:1}
+.why-num{font-family:‘Archivo Black’,sans-serif;font-size:10px;font-weight:400;letter-spacing:3px;color:var(–t3);margin-bottom:24px;text-transform:uppercase}
+.why-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;border:1px solid var(–border2)}
+.why-icon svg{width:20px;height:20px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.why-card h3{font-family:‘Archivo Black’,sans-serif;font-size:17px;font-weight:400;color:var(–t);margin-bottom:12px;letter-spacing:-.3px}
+.why-card p{font-size:14px;color:var(–t2);line-height:1.8}
+
+/* ── AUTHORITY SECTION ── */
+.auth-section{padding:96px 0;border-top:1px solid var(–border);border-bottom:1px solid var(–border);background:var(–ink2)}
+.auth-inner{max-width:var(–max);margin:0 auto;padding:0 24px}
+.auth-header{text-align:center;margin-bottom:60px}
+.auth-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(–border);border-radius:var(–r);overflow:hidden}
+.auth-card{background:var(–ink2);padding:36px 28px;transition:background .3s}
+.auth-card:hover{background:var(–surface)}
+.auth-icon-wrap{width:48px;height:48px;border-radius:10px;border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.auth-icon-wrap svg{width:20px;height:20px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.auth-card h3{font-family:‘Archivo Black’,sans-serif;font-size:15px;font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px}
+.auth-card p{font-size:13.5px;color:var(–t2);line-height:1.75}
 
 /* ── SERVICES ── */
-.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(–border);border-radius:24px;overflow:hidden;margin-top:64px}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(–border);border-radius:var(–r);overflow:hidden;margin-top:56px}
 .serv-card{background:var(–ink2);padding:36px 30px;transition:all .3s;position:relative;overflow:hidden}
-.serv-card::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(–p),var(–pk));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.serv-card::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:1px;background:var(–t);transform:scaleX(0);transform-origin:left;transition:transform .35s}
 .serv-card:hover{background:var(–surface)}
 .serv-card:hover::after{transform:scaleX(1)}
-.serv-card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;background:rgba(124,58,237,.1)}
-.serv-card-icon svg{width:20px;height:20px;stroke:var(–pl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.serv-card h3{font-family:‘Syne’,sans-serif;font-size:17px;font-weight:800;color:var(–t);margin-bottom:10px;letter-spacing:-.3px}
+.serv-card-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;border:1px solid var(–border2)}
+.serv-card-icon svg{width:19px;height:19px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.serv-card h3{font-family:‘Archivo Black’,sans-serif;font-size:16px;font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px}
 .serv-card p{font-size:13.5px;color:var(–t2);line-height:1.75}
-.serv-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:16px}
-.stag{font-size:11px;font-weight:600;color:var(–t3);background:rgba(255,255,255,.05);border:1px solid var(–border);border-radius:4px;padding:3px 9px;letter-spacing:.3px}
-
-/* ── PORTFOLIO ── */
-.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px}
-.port-card{border-radius:20px;overflow:hidden;border:1px solid var(–border);background:var(–ink2);transition:all .35s;cursor:pointer;text-decoration:none;display:block}
-.port-card:hover{border-color:rgba(157,92,246,.35);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.port-preview{width:100%;aspect-ratio:16/10;background:var(–surface);position:relative;overflow:hidden}
-.port-preview iframe{width:200%;height:200%;transform:scale(.5);transform-origin:top left;pointer-events:none;border:none;position:absolute;top:0;left:0}
-.port-preview-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(–surface),var(–ink2))}
-.port-preview-fallback .domain-badge{font-family:‘Syne’,sans-serif;font-size:13px;font-weight:800;color:var(–t2);letter-spacing:1px}
-.port-info{padding:22px 22px 24px}
-.port-meta{display:flex;align-items:center;gap:10px;margin-bottom:9px}
-.port-favicon{width:18px;height:18px;border-radius:4px;object-fit:cover;background:var(–surface);flex-shrink:0}
-.port-domain{font-size:12px;color:var(–t3);font-weight:500}
-.port-info h3{font-family:‘Syne’,sans-serif;font-size:17px;font-weight:800;color:var(–t);margin-bottom:7px;letter-spacing:-.3px}
-.port-info p{font-size:13px;color:var(–t2);line-height:1.7;margin-bottom:14px}
-.port-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.5px;color:var(–pl);background:rgba(124,58,237,.1);border:1px solid rgba(157,92,246,.2);border-radius:4px;padding:3px 10px}
-.port-arrow{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;color:var(–t3);margin-top:12px;transition:color .2s}
-.port-card:hover .port-arrow{color:var(–pl)}
-.port-arrow svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
-.port-card:hover .port-arrow svg{transform:translateX(3px)}
+.serv-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:16px}
+.stag{font-size:10.5px;font-weight:600;color:var(–t3);background:rgba(255,255,255,.04);border:1px solid var(–border);border-radius:4px;padding:3px 8px;letter-spacing:.5px;text-transform:uppercase}
 
 /* ── PROCESS ── */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(–border);border-radius:24px;overflow:hidden;margin-top:64px}
-.process-card{background:var(–ink2);padding:38px 28px;position:relative;transition:background .3s}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(–border);border-radius:var(–r);overflow:hidden;margin-top:56px}
+.process-card{background:var(–ink2);padding:40px 28px;position:relative;transition:background .3s;overflow:hidden}
 .process-card:hover{background:var(–surface)}
-.process-num{font-family:‘Syne’,sans-serif;font-size:48px;font-weight:900;color:rgba(157,92,246,.1);line-height:1;margin-bottom:20px;letter-spacing:-2px}
-.process-card h3{font-family:‘Syne’,sans-serif;font-size:17px;font-weight:800;color:var(–t);margin-bottom:10px;letter-spacing:-.3px}
+.process-num{font-family:‘Archivo Black’,sans-serif;font-size:56px;font-weight:400;color:rgba(255,255,255,.04);line-height:1;margin-bottom:20px;letter-spacing:-3px}
+.process-icon{width:40px;height:40px;border-radius:10px;border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.process-icon svg{width:18px;height:18px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.process-card h3{font-family:‘Archivo Black’,sans-serif;font-size:16px;font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px}
 .process-card p{font-size:13.5px;color:var(–t2);line-height:1.75}
-.process-icon{width:40px;height:40px;border-radius:10px;background:rgba(124,58,237,.12);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
-.process-icon svg{width:19px;height:19px;stroke:var(–pl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── PORTFOLIO ── */
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+.port-card{border-radius:var(–r);overflow:hidden;border:1px solid var(–border);background:var(–ink2);transition:all .35s;cursor:pointer;text-decoration:none;display:block}
+.port-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,.5)}
+.port-preview{width:100%;aspect-ratio:16/9;background:var(–surface);position:relative;overflow:hidden}
+.port-preview-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.port-domain-label{font-family:‘Archivo Black’,sans-serif;font-size:14px;font-weight:400;letter-spacing:2px;text-transform:uppercase}
+.port-url-label{font-size:10px;color:var(–t3);letter-spacing:1px}
+.port-info{padding:20px 20px 22px}
+.port-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.port-favicon{width:16px;height:16px;border-radius:3px;object-fit:cover;background:var(–surface);flex-shrink:0}
+.port-domain{font-size:11px;color:var(–t3);font-weight:500;letter-spacing:.5px}
+.port-info h3{font-family:‘Archivo Black’,sans-serif;font-size:16px;font-weight:400;color:var(–t);margin-bottom:8px;letter-spacing:-.2px}
+.port-info .port-strategy{font-size:13px;color:var(–t2);line-height:1.7;margin-bottom:14px}
+.port-tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.8px;color:var(–t3);background:var(–surface);border:1px solid var(–border);border-radius:4px;padding:3px 9px;text-transform:uppercase}
+.port-arrow{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;color:var(–t3);margin-top:12px;transition:color .2s}
+.port-card:hover .port-arrow{color:var(–t)}
+.port-arrow svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.port-card:hover .port-arrow svg{transform:translateX(3px)}
 
 /* ── PLANS ── */
-.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px;align-items:start}
-.plan{background:var(–ink2);border:1px solid var(–border);border-radius:22px;padding:36px 30px;position:relative;transition:border-color .3s}
-.plan:hover{border-color:rgba(157,92,246,.3)}
-.plan.featured{background:var(–surface);border-color:rgba(157,92,246,.45);box-shadow:0 0 60px rgba(124,58,237,.12)}
-.plan-pill{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 16px;border-radius:50px;background:linear-gradient(135deg,var(–p),var(–pl));color:#fff;white-space:nowrap}
-.plan-name{font-family:‘Syne’,sans-serif;font-size:22px;font-weight:900;color:var(–t);margin-bottom:6px;letter-spacing:-.5px}
-.plan-desc{font-size:13px;color:var(–t2);margin-bottom:28px;line-height:1.6}
-.plan-items{list-style:none;margin-bottom:30px}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px;align-items:start}
+.plan{background:var(–ink2);border:1px solid var(–border);border-radius:var(–r);padding:36px 28px;position:relative;transition:border-color .3s}
+.plan:hover{border-color:rgba(255,255,255,.15)}
+.plan.featured{background:var(–surface);border-color:rgba(255,255,255,.15)}
+.plan-pill{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:4px;background:var(–t);color:var(–ink);white-space:nowrap}
+.plan-name{font-family:‘Archivo Black’,sans-serif;font-size:20px;font-weight:400;color:var(–t);margin-bottom:6px;letter-spacing:-.3px}
+.plan-desc{font-size:13px;color:var(–t2);margin-bottom:26px;line-height:1.65}
+.plan-items{list-style:none;margin-bottom:28px}
 .plan-items li{font-size:13.5px;color:var(–t2);padding:9px 0;border-bottom:1px solid var(–border);display:flex;align-items:center;gap:10px}
 .plan-items li:last-child{border:none}
-.plan-check{width:16px;height:16px;flex-shrink:0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
-.plan-btn{width:100%;justify-content:center;font-size:14px}
+.plan-check{width:14px;height:14px;flex-shrink:0;stroke:var(–t);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.plan-btn{width:100%;justify-content:center;font-size:13.5px}
 
-/* ── CTA CLOSE ── */
-.cta-close{padding:120px 24px;background:linear-gradient(180deg,var(–ink) 0%,#0d0818 50%,var(–ink) 100%);position:relative;overflow:hidden;z-index:1}
-.cta-close-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(124,58,237,.22) 0%,transparent 70%);pointer-events:none}
-.cta-close-inner{max-width:700px;margin:0 auto;text-align:center;position:relative}
-.cta-close-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(–gold);margin-bottom:22px;display:block}
-.cta-close h2{font-family:‘Syne’,sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:900;letter-spacing:-2px;color:var(–t);margin-bottom:20px;line-height:1.06}
-.cta-close p{font-size:16px;color:var(–t2);line-height:1.75;margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto}
-.cta-close-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* ── CTA CLOSE (URGENCIA) ── */
+.cta-close{padding:120px 24px;background:#000;position:relative;overflow:hidden;z-index:1;border-top:1px solid var(–border)}
+.cta-close-inner{max-width:680px;margin:0 auto;text-align:center;position:relative}
+.cta-close h2{font-family:‘Archivo Black’,sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:400;letter-spacing:-1.2px;color:var(–t);margin-bottom:20px;line-height:1.08}
+.cta-close p{font-size:16px;color:var(–t2);line-height:1.8;margin-bottom:44px;max-width:440px;margin-left:auto;margin-right:auto}
+.cta-close-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 
 /* ── ABOUT ── */
-.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.about-visual{position:relative}
-.about-card{background:var(–surface);border:1px solid var(–border);border-radius:24px;padding:40px;position:relative;overflow:hidden}
-.about-card::before{content:’’;position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.2),transparent 70%)}
-.about-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(–p),var(–pk));display:flex;align-items:center;justify-content:center;font-family:‘Syne’,sans-serif;font-size:30px;font-weight:900;color:#fff;margin-bottom:20px;box-shadow:0 0 30px rgba(124,58,237,.3)}
-.about-role{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(–pl);margin-bottom:5px}
-.about-name{font-family:‘Syne’,sans-serif;font-size:22px;font-weight:900;color:var(–t);margin-bottom:14px;letter-spacing:-.5px}
-.about-bio{font-size:14.5px;color:var(–t2);line-height:1.85}
-.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(–border);border-radius:16px;overflow:hidden;margin-top:24px}
-.astat{background:var(–ink2);padding:18px 20px}
-.astat-n{font-family:‘Syne’,sans-serif;font-size:26px;font-weight:900;color:var(–pl);letter-spacing:-1px}
-.astat-l{font-size:12px;color:var(–t3);margin-top:3px}
-.about-text .sec-p{margin-bottom:24px}
-.values-list{display:flex;flex-direction:column;gap:16px;margin-top:36px}
-.val-item{display:flex;gap:16px;align-items:flex-start}
-.val-icon{width:40px;height:40px;border-radius:10px;background:rgba(124,58,237,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.val-icon svg{width:18px;height:18px;stroke:var(–pl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.val-text h4{font-family:‘Syne’,sans-serif;font-size:15px;font-weight:800;color:var(–t);margin-bottom:4px;letter-spacing:-.2px}
-.val-text p{font-size:13.5px;color:var(–t2);line-height:1.7}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-card{background:var(–surface);border:1px solid var(–border);border-radius:var(–r);padding:36px}
+.about-avatar{width:72px;height:72px;border-radius:50%;background:var(–surface2);border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;font-family:‘Archivo Black’,sans-serif;font-size:26px;font-weight:400;color:var(–t);margin-bottom:18px}
+.about-role{font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(–t2);margin-bottom:6px}
+.about-name{font-family:‘Archivo Black’,sans-serif;font-size:20px;font-weight:400;color:var(–t);margin-bottom:14px;letter-spacing:-.3px}
+.about-bio{font-size:14px;color:var(–t2);line-height:1.85}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(–border);border-radius:10px;overflow:hidden;margin-top:22px}
+.astat{background:var(–ink2);padding:16px 18px}
+.astat-n{font-family:‘Archivo Black’,sans-serif;font-size:22px;font-weight:400;color:var(–t);letter-spacing:-.5px}
+.astat-l{font-size:11.5px;color:var(–t3);margin-top:3px}
+.values-list{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+.val-item{display:flex;gap:14px;align-items:flex-start}
+.val-icon{width:38px;height:38px;border-radius:8px;border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.val-icon svg{width:17px;height:17px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.val-text h4{font-family:‘Archivo Black’,sans-serif;font-size:14px;font-weight:400;color:var(–t);margin-bottom:4px;letter-spacing:-.1px}
+.val-text p{font-size:13.5px;color:var(–t2);line-height:1.75}
+
+/* ── SOCIAL PROOF ── */
+.brands-section{padding:0 0 96px}
+.brands-inner{border:1px solid var(–border);border-radius:var(–r);padding:56px 48px;background:var(–ink2);text-align:center}
+.brands-title{font-family:‘Archivo Black’,sans-serif;font-size:1.4rem;font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.3px}
+.brands-sub{font-size:13.5px;color:var(–t2);margin-bottom:44px;line-height:1.7}
+.brands-list{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.brand-item{display:flex;flex-direction:column;align-items:center;gap:6px}
+.brand-name{font-family:‘Archivo Black’,sans-serif;font-size:12px;font-weight:400;color:var(–t2);letter-spacing:2px;text-transform:uppercase}
+.brand-type{font-size:11px;color:var(–t3);letter-spacing:.5px}
+.brand-dot{width:28px;height:1px;background:var(–border2)}
 
 /* ── CONTACT ── */
-.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start}
-.contact-channels{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
-.ch-card{display:flex;align-items:center;gap:14px;padding:18px 20px;border-radius:14px;border:1px solid var(–border);background:var(–ink2);transition:all .25s;cursor:pointer;text-decoration:none}
-.ch-card:hover{border-color:rgba(157,92,246,.35);background:var(–surface);transform:translateX(4px)}
-.ch-icon{width:42px;height:42px;border-radius:10px;background:rgba(124,58,246,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ch-icon svg{width:19px;height:19px;stroke:var(–pl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.ch-label{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(–t3);margin-bottom:3px}
-.ch-val{font-size:14px;font-weight:600;color:var(–t)}
-.contact-note{font-size:13px;color:var(–t3);line-height:1.75;padding:16px 20px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(–border)}
-.form-box{background:var(–ink2);border:1px solid var(–border);border-radius:22px;padding:36px}
-.form-box h3{font-family:‘Syne’,sans-serif;font-size:20px;font-weight:800;color:var(–t);margin-bottom:26px;letter-spacing:-.4px}
-.fg{margin-bottom:16px}
-.fg label{display:block;font-size:12px;font-weight:600;color:var(–t3);letter-spacing:.5px;text-transform:uppercase;margin-bottom:7px}
-.fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,.04);border:1px solid var(–border);border-radius:10px;padding:13px 15px;color:var(–t);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s;resize:vertical;appearance:none}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(157,92,246,.5);background:rgba(157,92,246,.04)}
-.fg select option{background:#16161f;color:var(–t)}
+.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:36px;align-items:start}
+.contact-channels{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.ch-card{display:flex;align-items:center;gap:14px;padding:17px 18px;border-radius:var(–r);border:1px solid var(–border);background:var(–ink2);transition:all .25s;cursor:pointer;text-decoration:none}
+.ch-card:hover{border-color:rgba(255,255,255,.14);background:var(–surface);transform:translateX(3px)}
+.ch-icon{width:40px;height:40px;border-radius:8px;border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ch-icon svg{width:18px;height:18px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ch-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(–t3);margin-bottom:3px}
+.ch-val{font-size:13.5px;font-weight:500;color:var(–t)}
+.contact-note{font-size:13px;color:var(–t3);line-height:1.8;padding:14px 18px;border-radius:8px;background:rgba(255,255,255,.02);border:1px solid var(–border)}
+.form-box{background:var(–ink2);border:1px solid var(–border);border-radius:var(–r);padding:32px}
+.form-box h3{font-family:‘Archivo Black’,sans-serif;font-size:18px;font-weight:400;color:var(–t);margin-bottom:24px;letter-spacing:-.2px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:11px;font-weight:600;color:var(–t3);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,.03);border:1px solid var(–border);border-radius:8px;padding:12px 14px;color:var(–t);font-size:13.5px;font-family:inherit;outline:none;transition:border-color .2s;resize:vertical;appearance:none}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.04)}
+.fg select option{background:#161616;color:var(–t)}
 .form-success{text-align:center;padding:40px 20px}
-.form-success svg{width:52px;height:52px;stroke:var(–pl);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block;margin:0 auto 16px}
-.form-success h3{font-family:‘Syne’,sans-serif;font-size:20px;font-weight:800;color:var(–t);margin-bottom:8px}
-.form-success p{font-size:14px;color:var(–t2)}
+.form-success svg{width:48px;height:48px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block;margin:0 auto 16px}
+.form-success h3{font-family:‘Archivo Black’,sans-serif;font-size:18px;font-weight:400;color:var(–t);margin-bottom:8px}
+.form-success p{font-size:13.5px;color:var(–t2)}
 
 /* ── FOOTER ── */
 footer{background:var(–ink2);border-top:1px solid var(–border);padding:56px 40px 28px;position:relative;z-index:1}
 .footer-inner{max-width:var(–max);margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:48px;margin-bottom:48px}
-.f-logo{font-family:‘Syne’,sans-serif;font-size:17px;font-weight:900;color:var(–t);margin-bottom:10px}
-.f-logo em{font-style:normal;color:var(–pl)}
-.f-desc{font-size:13px;color:var(–t3);line-height:1.8;margin-bottom:18px;max-width:240px}
-.f-socials{display:flex;gap:8px}
-.f-social{width:36px;height:36px;border-radius:50%;border:1px solid var(–border);display:flex;align-items:center;justify-content:center;transition:all .2s}
-.f-social:hover{border-color:rgba(157,92,246,.4);background:rgba(124,58,237,.1)}
-.f-social svg{width:15px;height:15px;stroke:var(–t3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.f-social:hover svg{stroke:var(–pl)}
-.f-col h4{font-family:‘Syne’,sans-serif;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(–t2);margin-bottom:14px}
-.f-link{display:block;font-size:13px;color:var(–t3);padding:4px 0;transition:color .2s;background:none;border:none;text-align:left;cursor:pointer;font-family:inherit}
+.footer-top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:48px;margin-bottom:44px}
+.f-logo{font-family:‘Archivo Black’,sans-serif;font-size:14px;color:var(–t);margin-bottom:10px;font-weight:400}
+.f-logo em{font-style:normal;color:var(–t2)}
+.f-desc{font-size:12.5px;color:var(–t3);line-height:1.8;margin-bottom:18px;max-width:220px}
+.f-socials{display:flex;gap:6px}
+.f-social{width:34px;height:34px;border-radius:50%;border:1px solid var(–border);display:flex;align-items:center;justify-content:center;transition:all .2s;color:inherit}
+.f-social:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.04)}
+.f-social svg{width:14px;height:14px;stroke:var(–t3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.f-social:hover svg{stroke:var(–t)}
+.f-col h4{font-family:‘Archivo Black’,sans-serif;font-size:10.5px;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:var(–t2);margin-bottom:14px}
+.f-link{display:block;font-size:12.5px;color:var(–t3);padding:4px 0;transition:color .2s;background:none;border:none;text-align:left;cursor:pointer;font-family:inherit;letter-spacing:0}
 .f-link:hover{color:var(–t)}
-.footer-bot{border-top:1px solid var(–border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.footer-bot span{font-size:12px;color:var(–t3)}
+.footer-bot{border-top:1px solid var(–border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-bot span{font-size:11.5px;color:var(–t3)}
 
 /* ── FLOAT WA ── */
-.wa-float{position:fixed;bottom:24px;right:24px;z-index:800;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:all .3s}
-.wa-float:hover{transform:scale(1.12);box-shadow:0 6px 36px rgba(37,211,102,.6)}
-.wa-float svg{width:26px;height:26px;fill:#fff}
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.25);transition:all .3s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.4)}
+.wa-float svg{width:25px;height:25px;fill:#fff}
 
 /* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+.d4{transition-delay:.28s}.d5{transition-delay:.35s}.d6{transition-delay:.42s}
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
 .why-grid{grid-template-columns:1fr 1fr}
 .serv-grid{grid-template-columns:1fr 1fr}
 .process-grid{grid-template-columns:1fr 1fr}
-.about-layout{grid-template-columns:1fr;gap:48px}
+.auth-grid{grid-template-columns:1fr 1fr}
+.about-layout{grid-template-columns:1fr;gap:44px}
 .footer-top{grid-template-columns:1fr 1fr;gap:32px}
 nav{padding:0 24px}
+footer{padding:44px 24px 24px}
 }
 @media(max-width:768px){
-nav{padding:0 18px}
 .nav-links,.nav-actions .lang-sw,.nav-cta{display:none}
 .burger{display:flex}
 .why-grid{grid-template-columns:1fr}
@@ -284,26 +323,31 @@ nav{padding:0 18px}
 .contact-layout{grid-template-columns:1fr}
 .footer-top{grid-template-columns:1fr 1fr}
 .footer-bot{flex-direction:column;align-items:flex-start}
-footer{padding:44px 18px 22px}
-.sec{padding:72px 0}
+footer{padding:40px 18px 20px}
+.sec{padding:68px 0}
 .wrap{padding:0 18px}
-.hero{padding:100px 18px 70px}
-.cta-close{padding:80px 18px}
-.logos-strip{padding:20px 18px}
-.btn-hero{padding:16px 32px;font-size:14px}
+.hero{padding:96px 18px 70px}
+.cta-close{padding:76px 18px}
+.logos-strip{padding:18px}
+.auth-grid{grid-template-columns:1fr 1fr}
+.brands-inner{padding:40px 24px}
+.brands-list{gap:28px}
+.auth-section{padding:72px 0}
+.brands-section{padding:0 0 72px}
 }
 @media(max-width:480px){
 .process-grid{grid-template-columns:1fr}
-.hero h1{letter-spacing:-1.5px}
-.sec-h{letter-spacing:-1px}
 .why-card{padding:30px 22px}
 .serv-card{padding:28px 20px}
-.process-card{padding:28px 20px}
-.form-box{padding:24px 18px}
+.process-card{padding:30px 22px}
+.form-box{padding:22px 16px}
 .footer-top{grid-template-columns:1fr}
-.plans-grid{gap:12px}
 .plan{padding:28px 22px}
-.contact-layout{gap:24px}
+.auth-grid{grid-template-columns:1fr}
+.auth-card{padding:28px 20px}
+.hero-cta-wrap{flex-direction:column;align-items:stretch;max-width:320px;margin:0 auto}
+.btn-hero-main,.btn-hero-wa{justify-content:center}
+.hero h1{letter-spacing:-1px}
 }
 </style>
 
@@ -353,86 +397,98 @@ footer{padding:44px 18px 22px}
   <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20iniciar%20un%20proyecto%20con%20Rupta%20Studios" target="_blank" class="mob-cta" data-i="nav_cta">Iniciar proyecto</a>
 </div>
 
-<!-- ════ INICIO ════ -->
+<!-- ════════════ INICIO ════════════ -->
 
 <div id="pg-inicio" class="page on">
 
+  <!-- HERO -->
+
   <section class="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-line rv">
-      <span class="hero-line-dot"></span>
-      <span data-i="hero_tag">Agencia de diseño web & estrategia digital</span>
+    <div class="hero-bg">
+      <div class="hero-bg-line"></div>
+      <div class="hero-bg-line"></div>
+      <div class="hero-bg-line"></div>
     </div>
-    <h1 class="rv d1" data-i="hero_h1">Tu web es tu<br><span class="hl">mejor vendedor.</span><br>Nosotros la construimos.</h1>
-    <p class="hero-sub rv d2" data-i="hero_p">Diseñamos sitios web que generan ventas, posicionan marcas y convierten visitantes en clientes. Sin plantillas. Sin excusas.</p>
+    <div class="hero-tag rv">
+      <span class="hero-tag-dot"></span>
+      <span data-i="hero_tag">Agencia de diseño web estratégico</span>
+    </div>
+    <h1 class="rv d1" data-i="hero_h1">Diseñamos páginas web estratégicas<br>que convierten visitantes<br><span class="hl">en clientes.</span></h1>
+    <p class="hero-sub rv d2" data-i="hero_p">Creamos sitios optimizados para negocios que quieren vender más, posicionarse mejor y crecer online.</p>
     <div class="hero-cta-wrap rv d3">
-      <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20iniciar%20un%20proyecto%20con%20Rupta%20Studios" target="_blank" class="btn-hero">
-        <span data-i="hero_cta">Quiero una web que venda</span>
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <button class="btn-hero-main" onclick="showPage('contacto')">
+        <span data-i="hero_cta1">Crear mi plan</span>
+        <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20iniciar%20un%20proyecto%20con%20Rupta%20Studios" target="_blank" class="btn-hero-wa">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span data-i="hero_cta2">Hablar por WhatsApp</span>
       </a>
-      <span class="hero-trust rv d4" data-i="hero_trust">+20 marcas ya confían en Rupta Studios</span>
     </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-    </div>
+    <span class="hero-trust rv d4" data-i="hero_trust">Marcas en producción: Santo Patrón Clothing · Eleva Corp · Rystar Studios</span>
+    <div class="hero-scroll"><div class="scroll-line"></div></div>
   </section>
 
+  <!-- LOGOS STRIP -->
+
   <div class="logos-strip">
-    <div class="logos-track" id="logosTrack">
-      <span class="logo-item"><span class="logo-dot"></span>Santo Patrón Clothing</span>
-      <span class="logo-item"><span class="logo-dot"></span>Eleva Corp</span>
-      <span class="logo-item"><span class="logo-dot"></span>Rystar Studios</span>
-      <span class="logo-item"><span class="logo-dot"></span>Santo Patrón Clothing</span>
-      <span class="logo-item"><span class="logo-dot"></span>Eleva Corp</span>
-      <span class="logo-item"><span class="logo-dot"></span>Rystar Studios</span>
-      <span class="logo-item"><span class="logo-dot"></span>Santo Patrón Clothing</span>
-      <span class="logo-item"><span class="logo-dot"></span>Eleva Corp</span>
-      <span class="logo-item"><span class="logo-dot"></span>Rystar Studios</span>
-      <span class="logo-item"><span class="logo-dot"></span>Santo Patrón Clothing</span>
-      <span class="logo-item"><span class="logo-dot"></span>Eleva Corp</span>
-      <span class="logo-item"><span class="logo-dot"></span>Rystar Studios</span>
+    <div class="logos-track">
+      <span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
+      <span class="logo-item"><span class="logo-sep"></span>Eleva Corp</span>
+      <span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
+      <span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
+      <span class="logo-item"><span class="logo-sep"></span>Eleva Corp</span>
+      <span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
+      <span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
+      <span class="logo-item"><span class="logo-sep"></span>Eleva Corp</span>
+      <span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
+      <span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
+      <span class="logo-item"><span class="logo-sep"></span>Eleva Corp</span>
+      <span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
     </div>
   </div>
 
-  <!-- WHY -->
+  <!-- AUTORIDAD: POR QUÉ RUPTA -->
 
-  <section class="sec">
-    <div class="wrap">
-      <div class="sec-head-center rv">
-        <div class="sec-label" data-i="why_label">Por qué elegirnos</div>
-        <h2 class="sec-h" data-i="why_h">Resultados que se miden.<br>No promesas vacías.</h2>
-        <p class="sec-p" data-i="why_p">Cada proyecto que tomamos tiene un objetivo claro: hacer crecer tu negocio. Así es cómo lo logramos.</p>
+  <section class="auth-section">
+    <div class="auth-inner">
+      <div class="auth-header rv">
+        <div class="sec-label" style="justify-content:center;display:flex" data-i="auth_label">Por qué elegir Rupta</div>
+        <h2 class="sec-h" style="text-align:center;margin-bottom:14px" data-i="auth_h">Estrategia. Diseño. Resultados.</h2>
+        <p class="sec-p" style="text-align:center;margin:0 auto" data-i="auth_p">Cada proyecto tiene un único objetivo: hacer crecer tu negocio de forma medible y sostenida.</p>
       </div>
-      <div class="why-grid">
-        <div class="why-card rv">
-          <div class="why-num">01</div>
-          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h3 data-i="w1_t">Estrategia antes de diseño</h3>
-          <p data-i="w1_p">No empezamos a diseñar hasta entender tu negocio, tu mercado y tu competencia. Cada decisión visual tiene un propósito comercial detrás.</p>
+      <div class="auth-grid">
+        <div class="auth-card rv">
+          <div class="auth-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 data-i="auth1_t">Estrategia enfocada en ventas</h3>
+          <p data-i="auth1_p">No diseñamos por estética. Cada decisión está orientada a convertir visitantes en clientes reales para tu negocio.</p>
         </div>
-        <div class="why-card rv d1">
-          <div class="why-num">02</div>
-          <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
-          <h3 data-i="w2_t">Optimizado para convertir</h3>
-          <p data-i="w2_p">Velocidad, UX y copy orientados a que cada visitante tome acción. Un sitio lento o confuso pierde ventas. El tuyo no lo hará.</p>
+        <div class="auth-card rv d1">
+          <div class="auth-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 data-i="auth2_t">Diseño moderno y optimizado</h3>
+          <p data-i="auth2_p">Interfaces limpias, mobile-first y construidas con las mejores prácticas de UI/UX para generar confianza y acción.</p>
         </div>
-        <div class="why-card rv d2">
-          <div class="why-num">03</div>
-          <div class="why-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3 data-i="w3_t">Entrega rápida, calidad alta</h3>
-          <p data-i="w3_p">Plazos reales y cumplidos. Procesos claros. Comunicación directa. Sin retrasos indefinidos ni sorpresas de última hora.</p>
+        <div class="auth-card rv d2">
+          <div class="auth-icon-wrap">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 data-i="auth3_t">Web rápida y preparada para SEO</h3>
+          <p data-i="auth3_p">Código limpio, carga rápida y estructura técnica preparada para posicionarte en Google desde el primer día.</p>
         </div>
-        <div class="why-card rv d3">
-          <div class="why-num">04</div>
-          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3 data-i="w4_t">Soporte real post-entrega</h3>
-          <p data-i="w4_p">Tu web no termina en el lanzamiento. Estamos disponibles para cambios, actualizaciones y soporte cuando lo necesitas.</p>
+        <div class="auth-card rv d3">
+          <div class="auth-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 data-i="auth4_t">Soporte real después del lanzamiento</h3>
+          <p data-i="auth4_p">No desaparecemos al entregar. Ofrecemos soporte continuo, actualizaciones y acompañamiento post-lanzamiento.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <div class="divider"></div>
 
   <!-- SERVICES PREVIEW -->
 
@@ -442,7 +498,7 @@ footer{padding:44px 18px 22px}
         <div class="sec-label" data-i="serv_label">Servicios</div>
         <h2 class="sec-h" data-i="serv_h">Todo lo que tu marca<br>necesita para dominar online.</h2>
       </div>
-      <div class="serv-grid" style="margin-top:64px">
+      <div class="serv-grid">
         <div class="serv-card rv">
           <div class="serv-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
           <h3 data-i="sv1_t">Diseño Web</h3>
@@ -480,69 +536,97 @@ footer{padding:44px 18px 22px}
           <div class="serv-tags"><span class="stag">Hosting</span><span class="stag">SSL</span><span class="stag">Soporte</span></div>
         </div>
       </div>
-      <div class="rv" style="text-align:center;margin-top:40px">
-        <button class="btn btn-ghost" onclick="showPage('servicios')" data-i="serv_more">Ver todos los servicios →</button>
+      <div class="rv" style="text-align:center;margin-top:36px">
+        <button class="btn btn-ghost btn-ghost-sm" onclick="showPage('servicios')" data-i="serv_more">Ver todos los servicios →</button>
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- PROCESS -->
+  <!-- PROCESS: ASÍ TRABAJAMOS -->
 
   <section class="sec">
     <div class="wrap">
       <div class="sec-head-center rv">
         <div class="sec-label" data-i="proc_label">Nuestro proceso</div>
-        <h2 class="sec-h" data-i="proc_h">De la idea al lanzamiento.<br>4 pasos. Sin complicaciones.</h2>
+        <h2 class="sec-h" data-i="proc_h">Así trabajamos.</h2>
+        <p class="sec-p" data-i="proc_sub">4 pasos claros, sin sorpresas. Sabemos exactamente cómo llevar tu proyecto del concepto al lanzamiento.</p>
       </div>
       <div class="process-grid">
         <div class="process-card rv">
           <div class="process-num">01</div>
           <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <h3 data-i="p1_t">Estrategia</h3>
-          <p data-i="p1_p">Analizamos tu negocio, mercado y competencia. Definimos objetivos claros y una hoja de ruta concreta.</p>
+          <h3 data-i="p1_t">Analizamos tu negocio y objetivos</h3>
+          <p data-i="p1_p">Entendemos tu mercado, competencia y audiencia. Definimos objetivos claros antes de escribir una línea de código.</p>
         </div>
         <div class="process-card rv d1">
           <div class="process-num">02</div>
           <div class="process-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-          <h3 data-i="p2_t">Diseño</h3>
-          <p data-i="p2_p">Prototipamos y diseñamos cada pantalla pensando en el usuario y en la conversión. Aprobación antes de desarrollar.</p>
+          <h3 data-i="p2_t">Diseñamos la estrategia digital</h3>
+          <p data-i="p2_p">Estructuramos la arquitectura, el copy y el diseño visual. Aprobación completa antes de desarrollar.</p>
         </div>
         <div class="process-card rv d2">
           <div class="process-num">03</div>
           <div class="process-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-          <h3 data-i="p3_t">Desarrollo</h3>
-          <p data-i="p3_p">Construimos con código limpio, velocidad óptima y total compatibilidad. Cada detalle revisado antes de entrega.</p>
+          <h3 data-i="p3_t">Desarrollamos tu web optimizada</h3>
+          <p data-i="p3_p">Construimos con código limpio, carga rápida y total compatibilidad. Cada detalle revisado antes de la entrega.</p>
         </div>
         <div class="process-card rv d3">
           <div class="process-num">04</div>
           <div class="process-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <h3 data-i="p4_t">Lanzamiento</h3>
-          <p data-i="p4_p">Publicamos, configuramos analytics y te entregamos con soporte. El lanzamiento es solo el comienzo.</p>
+          <h3 data-i="p4_t">Lanzamos y medimos resultados</h3>
+          <p data-i="p4_p">Publicamos, configuramos analytics y monitoreamos el rendimiento. El lanzamiento es el inicio del crecimiento.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA CLOSE HERO -->
+  <!-- PRUEBA SOCIAL -->
+
+  <section class="brands-section">
+    <div class="wrap">
+      <div class="brands-inner rv">
+        <div class="sec-label" style="justify-content:center;display:flex;margin-bottom:16px" data-i="brands_label">Proyectos reales</div>
+        <div class="brands-title" data-i="brands_h">Proyectos desarrollados para marcas en crecimiento.</div>
+        <p class="brands-sub" data-i="brands_p">Trabajamos con negocios reales que necesitaban presencia digital profesional para escalar. Estos son algunos de ellos.</p>
+        <div class="brands-list">
+          <div class="brand-item">
+            <div class="brand-dot"></div>
+            <div class="brand-name">Santo Patrón Clothing</div>
+            <div class="brand-type">E-commerce · Shopify</div>
+          </div>
+          <div class="brand-item">
+            <div class="brand-dot"></div>
+            <div class="brand-name">Eleva Corp</div>
+            <div class="brand-type">Marketplace · Tech & Hogar</div>
+          </div>
+          <div class="brand-item">
+            <div class="brand-dot"></div>
+            <div class="brand-name">Rystar Studios</div>
+            <div class="brand-type">Brand · Streetwear</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA CIERRE CON URGENCIA -->
 
   <section class="cta-close">
-    <div class="cta-close-glow"></div>
     <div class="cta-close-inner rv">
-      <span class="cta-close-label" data-i="cta_label">Plazas disponibles este mes</span>
-      <h2 data-i="cta_h">Tu competencia ya<br>tiene una web que vende.</h2>
-      <p data-i="cta_p">Cada día sin una web profesional es un cliente que se va a otro lado. Hablemos hoy y empecemos esta semana.</p>
+      <h2 data-i="cta_h">Tu negocio merece una presencia<br>digital profesional.</h2>
+      <p data-i="cta_p">No dejes que tu competencia te supere online. Cada día sin una web estratégica es un cliente que se va a otro lado.</p>
       <div class="cta-close-btns">
-        <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20iniciar%20un%20proyecto%20con%20Rupta%20Studios" target="_blank" class="btn btn-primary" data-i="cta_btn">Hablar ahora por WhatsApp</a>
-        <button class="btn btn-ghost" onclick="showPage('portafolio')" data-i="cta_btn2">Ver nuestro trabajo</button>
+        <button class="btn btn-primary" onclick="showPage('contacto')" style="padding:16px 36px;font-size:14.5px" data-i="cta_btn">Lanzar mi proyecto ahora</button>
+        <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20iniciar%20un%20proyecto%20con%20Rupta%20Studios" target="_blank" class="btn btn-ghost" style="padding:16px 28px" data-i="cta_btn2">Hablar por WhatsApp</a>
       </div>
     </div>
   </section>
 
 </div>
 
-<!-- ════ SERVICIOS ════ -->
+<!-- ════════════ SERVICIOS ════════════ -->
 
 <div id="pg-servicios" class="page">
   <div class="sec" style="padding-top:120px">
@@ -552,7 +636,7 @@ footer{padding:44px 18px 22px}
         <h2 class="sec-h" data-i="serv_full_h">Servicios diseñados<br>para generar resultados.</h2>
         <p class="sec-p" data-i="serv_full_p">No vendemos páginas web. Construimos activos digitales que trabajan para tu negocio las 24 horas.</p>
       </div>
-      <div class="serv-grid" style="margin-top:64px">
+      <div class="serv-grid" style="margin-top:56px">
         <div class="serv-card rv"><div class="serv-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3 data-i="sv1_t">Diseño Web</h3><p data-i="sv1_full">Desde landing pages hasta portales completos. Diseñamos con propósito: cada elemento está al servicio de la conversión.</p><div class="serv-tags"><span class="stag">UI/UX</span><span class="stag">React</span><span class="stag">Shopify</span><span class="stag">WordPress</span></div></div>
         <div class="serv-card rv d1"><div class="serv-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 data-i="sv2_t">Branding & Identidad</h3><p data-i="sv2_full">Logos, guías de estilo, sistemas de diseño. Construimos marcas que se recuerdan y se respetan en el mercado.</p><div class="serv-tags"><span class="stag">Logo</span><span class="stag">Figma</span><span class="stag">Photoshop</span><span class="stag">Brand System</span></div></div>
         <div class="serv-card rv d2"><div class="serv-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h3 data-i="sv3_t">E-commerce</h3><p data-i="sv3_full">Tiendas optimizadas para vender. Integración de pagos, gestión de inventario y experiencia de compra que elimina fricción.</p><div class="serv-tags"><span class="stag">Shopify</span><span class="stag">WooCommerce</span><span class="stag">Stripe</span><span class="stag">PayPal</span></div></div>
@@ -562,33 +646,34 @@ footer{padding:44px 18px 22px}
         <div class="serv-card rv"><div class="serv-card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3 data-i="sv8_t">Diseño UI/UX</h3><p data-i="sv8_full">Investigación de usuario, wireframes y prototipos interactivos. Diseñamos experiencias que reducen fricción y aumentan conversión.</p><div class="serv-tags"><span class="stag">Figma</span><span class="stag">Prototipos</span><span class="stag">User Testing</span></div></div>
         <div class="serv-card rv d1"><div class="serv-card-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3 data-i="sv6_t">Soporte & Mantenimiento</h3><p data-i="sv6_full">Paquetes de mantenimiento mensual para que tu web esté siempre actualizada, segura y funcionando sin interrupciones.</p><div class="serv-tags"><span class="stag">Hosting</span><span class="stag">Updates</span><span class="stag">Soporte</span></div></div>
       </div>
-      <div style="text-align:center;margin-top:52px;padding:48px 32px;background:var(--ink2);border:1px solid var(--border);border-radius:20px" class="rv">
-        <div class="sec-label" style="margin:0 auto 14px" data-i="serv_cta_l">¿Proyecto especial?</div>
-        <h2 class="sec-h" style="font-size:1.8rem;margin-bottom:12px" data-i="serv_cta_h">Cuéntanos tu visión.</h2>
-        <p style="color:var(--t2);font-size:14.5px;margin-bottom:28px;max-width:400px;margin-left:auto;margin-right:auto" data-i="serv_cta_p">Si tu proyecto no encaja en una categoría estándar, construimos la solución exacta que necesitas.</p>
+      <div style="text-align:center;margin-top:48px;padding:44px 28px;background:var(--ink2);border:1px solid var(--border);border-radius:var(--r)" class="rv">
+        <div class="sec-label" style="justify-content:center;display:flex;margin-bottom:14px" data-i="serv_cta_l">¿Proyecto especial?</div>
+        <h2 class="sec-h" style="font-size:1.7rem;margin-bottom:12px;text-align:center" data-i="serv_cta_h">Cuéntanos tu visión.</h2>
+        <p style="color:var(--t2);font-size:14px;margin-bottom:26px;max-width:380px;margin-left:auto;margin-right:auto;line-height:1.75" data-i="serv_cta_p">Si tu proyecto no encaja en una categoría estándar, construimos la solución exacta que necesitas.</p>
         <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20iniciar%20un%20proyecto%20con%20Rupta%20Studios" target="_blank" class="btn btn-primary" data-i="serv_cta_btn">Hablemos de tu proyecto</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ════ PORTAFOLIO ════ -->
+<!-- ════════════ PORTAFOLIO ════════════ -->
 
 <div id="pg-portafolio" class="page">
   <div class="sec" style="padding-top:120px">
     <div class="wrap">
       <div class="sec-head-center rv">
         <div class="sec-label" data-i="port_label">Trabajo real</div>
-        <h2 class="sec-h" data-i="port_h">Proyectos que generan<br>resultados reales.</h2>
-        <p class="sec-p" data-i="port_p">No mostramos mockups. Mostramos sitios en producción con marcas reales que venden.</p>
+        <h2 class="sec-h" data-i="port_h">Proyectos en producción.<br>Marcas que venden.</h2>
+        <p class="sec-p" data-i="port_p">No mostramos mockups. Mostramos sitios reales, en producción, desarrollados para negocios que querían crecer online.</p>
       </div>
       <div class="port-grid">
 
 ```
     <a href="https://santopatronclothing.com" target="_blank" class="port-card rv">
-      <div class="port-preview">
-        <div class="port-preview-fallback" style="background:linear-gradient(135deg,#1a1208,#2d1f00)">
-          <span class="domain-badge" style="color:#f59e0b">SANTOPATRÓN</span>
+      <div class="port-preview" style="background:linear-gradient(135deg,#100c00,#1a1200)">
+        <div class="port-preview-fallback">
+          <span class="port-domain-label" style="color:#d4a017">SANTOPATRÓN</span>
+          <span class="port-url-label">santopatronclothing.com</span>
         </div>
       </div>
       <div class="port-info">
@@ -597,7 +682,7 @@ footer{padding:44px 18px 22px}
           <span class="port-domain">santopatronclothing.com</span>
         </div>
         <h3>Santo Patrón Clothing</h3>
-        <p data-i="port1_p">E-commerce premium de ropa con drops limitados. Shopify con sistema de lanzamientos, countdowns y checkout de alta conversión.</p>
+        <p class="port-strategy" data-i="port1_p">Objetivo: posicionar una marca de moda con drops limitados y maximizar la tasa de conversión en cada lanzamiento. Solución: Shopify con sistema de countdowns, checkout optimizado y estética premium coherente con el posicionamiento de marca.</p>
         <span class="port-tag" data-i="pt_ec">E-commerce · Shopify</span>
         <div class="port-arrow">
           <span data-i="port_visit">Visitar sitio</span>
@@ -607,9 +692,10 @@ footer{padding:44px 18px 22px}
     </a>
 
     <a href="https://elevacorp.net" target="_blank" class="port-card rv d1">
-      <div class="port-preview">
-        <div class="port-preview-fallback" style="background:linear-gradient(135deg,#08101a,#0a1f35)">
-          <span class="domain-badge" style="color:#3b82f6">ELEVACORP</span>
+      <div class="port-preview" style="background:linear-gradient(135deg,#040c14,#061828)">
+        <div class="port-preview-fallback">
+          <span class="port-domain-label" style="color:#3b82f6">ELEVACORP</span>
+          <span class="port-url-label">elevacorp.net</span>
         </div>
       </div>
       <div class="port-info">
@@ -618,7 +704,7 @@ footer{padding:44px 18px 22px}
           <span class="port-domain">elevacorp.net</span>
         </div>
         <h3>Eleva Corp</h3>
-        <p data-i="port2_p">Marketplace de tecnología y hogar con catálogo de marcas premium como JBL, Ninja y Remington. Plataforma robusta con pagos seguros.</p>
+        <p class="port-strategy" data-i="port2_p">Objetivo: construir un marketplace de tecnología y hogar con catálogo de marcas premium. Solución: plataforma multi-categoría con sistema de pagos seguros, búsqueda avanzada y experiencia de compra que genera confianza desde el primer clic.</p>
         <span class="port-tag" data-i="pt_mp">Marketplace · E-commerce</span>
         <div class="port-arrow">
           <span data-i="port_visit">Visitar sitio</span>
@@ -628,9 +714,10 @@ footer{padding:44px 18px 22px}
     </a>
 
     <a href="https://rystarstudios.com" target="_blank" class="port-card rv d2">
-      <div class="port-preview">
-        <div class="port-preview-fallback" style="background:linear-gradient(135deg,#160a1a,#2a0f30)">
-          <span class="domain-badge" style="color:#e040fb">RYSTAR</span>
+      <div class="port-preview" style="background:linear-gradient(135deg,#0d0010,#180020)">
+        <div class="port-preview-fallback">
+          <span class="port-domain-label" style="color:#c084fc">RYSTAR</span>
+          <span class="port-url-label">rystarstudios.com</span>
         </div>
       </div>
       <div class="port-info">
@@ -639,7 +726,7 @@ footer{padding:44px 18px 22px}
           <span class="port-domain">rystarstudios.com</span>
         </div>
         <h3>Rystar Studios</h3>
-        <p data-i="port3_p">Marca streetwear con drops de edición limitada. Alta estética visual, lista de espera exclusiva y countdown de lanzamientos.</p>
+        <p class="port-strategy" data-i="port3_p">Objetivo: crear una identidad de marca streetwear de edición limitada con presencia digital de alto impacto. Solución: web con estética editorial, lista de espera exclusiva y sistema de countdown que genera anticipación antes de cada drop.</p>
         <span class="port-tag" data-i="pt_br">Brand · E-commerce</span>
         <div class="port-arrow">
           <span data-i="port_visit">Visitar sitio</span>
@@ -650,10 +737,10 @@ footer{padding:44px 18px 22px}
 
   </div>
 
-  <div class="rv" style="text-align:center;margin-top:52px">
-    <p style="font-size:15px;color:var(--t2);margin-bottom:6px"><strong style="color:var(--pl)" data-i="port_more">+17 proyectos más</strong> <span data-i="port_more2">en nuestro historial.</span></p>
-    <p style="font-size:13px;color:var(--t3);margin-bottom:28px" data-i="port_sub">¿Tu marca puede ser la próxima?</p>
-    <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20iniciar%20un%20proyecto%20con%20Rupta%20Studios" target="_blank" class="btn btn-primary" data-i="port_cta">Quiero resultados así</a>
+  <div class="rv" style="text-align:center;margin-top:48px">
+    <p style="font-size:14.5px;color:var(--t2);margin-bottom:6px"><strong style="color:var(--t)" data-i="port_more">+17 proyectos adicionales</strong> <span data-i="port_more2">en nuestro historial.</span></p>
+    <p style="font-size:12.5px;color:var(--t3);margin-bottom:26px" data-i="port_sub">¿Tu marca puede ser la próxima?</p>
+    <button class="btn btn-primary" onclick="showPage('contacto')" data-i="port_cta">Quiero resultados así</button>
   </div>
 </div>
 ```
@@ -661,7 +748,7 @@ footer{padding:44px 18px 22px}
   </div>
 </div>
 
-<!-- ════ PLANES ════ -->
+<!-- ════════════ PLANES ════════════ -->
 
 <div id="pg-planes" class="page">
   <div class="sec" style="padding-top:120px">
@@ -673,55 +760,55 @@ footer{padding:44px 18px 22px}
       </div>
       <div class="plans-grid">
         <div class="plan rv">
-          <div class="plan-name" style="color:#22d3ee">Starter</div>
+          <div class="plan-name" data-i="plan1_name">Starter</div>
           <div class="plan-desc" data-i="plan1_d">Para negocios que necesitan una presencia digital sólida y profesional.</div>
           <ul class="plan-items">
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#22d3ee;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_1">Landing page de alta conversión</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#22d3ee;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_2">Diseño responsive & mobile-first</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#22d3ee;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_3">Integración WhatsApp & formulario</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#22d3ee;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_4">Configuración de dominio & hosting</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#22d3ee;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_5">Entrega en 7–10 días hábiles</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_1">Landing page de alta conversión</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_2">Diseño responsive & mobile-first</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_3">Integración WhatsApp & formulario</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_4">Configuración de dominio & hosting</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1_5">Entrega en 7–10 días hábiles</span></li>
           </ul>
           <a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Starter" target="_blank" class="btn btn-ghost plan-btn" data-i="plan_q">Consultar precio</a>
         </div>
         <div class="plan featured rv d1">
           <div class="plan-pill" data-i="plan_pop">MÁS ELEGIDO</div>
-          <div class="plan-name" style="color:var(--pl)">Business</div>
+          <div class="plan-name" data-i="plan2_name">Business</div>
           <div class="plan-desc" data-i="plan2_d">Para marcas que quieren crecer con una presencia digital completa y estratégica.</div>
           <ul class="plan-items">
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:var(--pl);fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_1">Web multi-página premium</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:var(--pl);fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_2">Diseño UI/UX personalizado</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:var(--pl);fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_3">SEO técnico incluido</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:var(--pl);fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_4">Panel de administración</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:var(--pl);fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_5">WhatsApp + Analytics integrado</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:var(--pl);fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_6">Soporte prioritario 3 meses</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:var(--pl);fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_7">Entrega en 14–21 días hábiles</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_1">Web multi-página premium</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_2">Diseño UI/UX personalizado</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_3">SEO técnico incluido</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_4">Panel de administración</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_5">WhatsApp + Analytics integrado</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_6">Soporte prioritario 3 meses</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2_7">Entrega en 14–21 días hábiles</span></li>
           </ul>
           <a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Business" target="_blank" class="btn btn-primary plan-btn" data-i="plan_q">Consultar precio</a>
         </div>
         <div class="plan rv d2">
-          <div class="plan-name" style="color:#f59e0b">Pro</div>
+          <div class="plan-name" data-i="plan3_name">Pro</div>
           <div class="plan-desc" data-i="plan3_d">Para marcas que exigen el máximo: e-commerce, integraciones avanzadas y posicionamiento total.</div>
           <ul class="plan-items">
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#f59e0b;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_1">E-commerce o web avanzada</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#f59e0b;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_2">Diseño ultra-premium & branding</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#f59e0b;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_3">SEO avanzado + Google Analytics 4</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#f59e0b;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_4">Integraciones a medida</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#f59e0b;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_5">Soporte prioritario 6 meses</span></li>
-            <li><svg class="plan-check" viewBox="0 0 24 24" style="stroke:#f59e0b;fill:none"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_6">Mantenimiento incluido</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_1">E-commerce o web avanzada</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_2">Diseño ultra-premium & branding</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_3">SEO avanzado + Google Analytics 4</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_4">Integraciones a medida</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_5">Soporte prioritario 6 meses</span></li>
+            <li><svg class="plan-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3_6">Mantenimiento incluido</span></li>
           </ul>
           <a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Pro" target="_blank" class="btn btn-ghost plan-btn" data-i="plan_q">Consultar precio</a>
         </div>
       </div>
-      <div style="margin-top:20px;padding:36px;background:var(--ink2);border:1px solid var(--border);border-radius:18px;text-align:center" class="rv">
-        <p style="font-size:14px;color:var(--t2);margin-bottom:16px" data-i="plan_custom">¿Tienes un proyecto especial? Diseñamos una solución a tu medida.</p>
-        <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20un%20plan%20personalizado" target="_blank" class="btn btn-ghost" data-i="plan_custom_btn">Solicitar propuesta personalizada</a>
+      <div style="margin-top:16px;padding:32px;background:var(--ink2);border:1px solid var(--border);border-radius:var(--r);text-align:center" class="rv">
+        <p style="font-size:13.5px;color:var(--t2);margin-bottom:16px" data-i="plan_custom">¿Tienes un proyecto especial? Diseñamos una solución a tu medida.</p>
+        <a href="https://wa.me/50767997259?text=Hola%2C%20quisiera%20un%20plan%20personalizado" target="_blank" class="btn btn-ghost btn-ghost-sm" data-i="plan_custom_btn">Solicitar propuesta personalizada</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ════ NOSOTROS ════ -->
+<!-- ════════════ NOSOTROS ════════════ -->
 
 <div id="pg-nosotros" class="page">
   <div class="sec" style="padding-top:120px">
@@ -736,7 +823,7 @@ footer{padding:44px 18px 22px}
             <div class="about-stats">
               <div class="astat"><div class="astat-n">20+</div><div class="astat-l" data-i="as1">Proyectos entregados</div></div>
               <div class="astat"><div class="astat-n">5+</div><div class="astat-l" data-i="as2">Años de experiencia</div></div>
-              <div class="astat"><div class="astat-n">3</div><div class="astat-l" data-i="as3">Clientes destacados</div></div>
+              <div class="astat"><div class="astat-n">3</div><div class="astat-l" data-i="as3">Marcas en producción</div></div>
               <div class="astat"><div class="astat-n">100%</div><div class="astat-l" data-i="as4">Enfoque en resultados</div></div>
             </div>
           </div>
@@ -745,7 +832,7 @@ footer{padding:44px 18px 22px}
           <div class="sec-label" data-i="about_label">Quiénes somos</div>
           <h2 class="sec-h" data-i="about_h">Una agencia obsesionada<br>con tu crecimiento.</h2>
           <p class="sec-p" data-i="about_p">En Rupta Studios no hacemos páginas web. Construimos herramientas de negocio. Cada proyecto empieza con una pregunta: ¿cómo esto hace crecer a nuestro cliente?</p>
-          <div class="values-list" style="margin-top:32px">
+          <div class="values-list">
             <div class="val-item">
               <div class="val-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
               <div class="val-text"><h4 data-i="v1_t">Orientados a resultados</h4><p data-i="v1_p">Todo lo que hacemos tiene un objetivo claro y medible. Diseñamos para convertir, no para impresionar.</p></div>
@@ -759,7 +846,7 @@ footer{padding:44px 18px 22px}
               <div class="val-text"><h4 data-i="v3_t">Relación a largo plazo</h4><p data-i="v3_p">No somos proveedores de proyectos únicos. Somos el equipo digital de nuestros clientes a largo plazo.</p></div>
             </div>
           </div>
-          <div style="margin-top:36px">
+          <div style="margin-top:32px">
             <button class="btn btn-primary" onclick="showPage('contacto')" data-i="about_cta">Trabajemos juntos</button>
           </div>
         </div>
@@ -768,12 +855,12 @@ footer{padding:44px 18px 22px}
   </div>
 </div>
 
-<!-- ════ CONTACTO ════ -->
+<!-- ════════════ CONTACTO ════════════ -->
 
 <div id="pg-contacto" class="page">
   <div class="sec" style="padding-top:120px">
     <div class="wrap">
-      <div class="sec-head-center rv" style="margin-bottom:56px">
+      <div class="sec-head-center rv" style="margin-bottom:52px">
         <div class="sec-label" data-i="contact_label">Contacto</div>
         <h2 class="sec-h" data-i="contact_h">Hablemos de<br>tu proyecto.</h2>
         <p class="sec-p" data-i="contact_p">Respondemos en menos de 24 horas. Sin compromiso, sin letra pequeña.</p>
@@ -814,7 +901,7 @@ footer{padding:44px 18px 22px}
               </select>
             </div>
             <div class="fg"><label data-i="form_msg">Tu mensaje</label><textarea id="fm" rows="4" placeholder="Cuéntanos qué necesitas..."></textarea></div>
-            <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:14.5px;padding:15px" onclick="sendForm()" data-i="form_btn">Enviar por WhatsApp</button>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:14px;padding:15px" onclick="sendForm()" data-i="form_btn">Enviar por WhatsApp</button>
           </div>
         </div>
       </div>
@@ -829,7 +916,7 @@ footer{padding:44px 18px 22px}
     <div class="footer-top">
       <div>
         <div class="f-logo">RUPTA <em>STUDIOS</em></div>
-        <div class="f-desc" data-i="f_desc">Diseño web, branding y estrategia digital. Construimos webs que generan resultados reales.</div>
+        <div class="f-desc" data-i="f_desc">Diseño web estratégico, branding y marketing digital. Construimos webs que generan resultados reales.</div>
         <div class="f-socials">
           <a href="https://instagram.com/ruptastudios" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="https://wa.me/50767997259" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
@@ -888,14 +975,13 @@ function showPage(id){
   curPage=id;
   window.scrollTo({top:0,behavior:'smooth'});
   setTimeout(initReveal,80);
-  if(window.va)window.va('pageview',{path:'/'+id});
 }
 
 // ── REVEAL ON SCROLL
 function initReveal(){
   const io=new IntersectionObserver(entries=>{
     entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:0.06,rootMargin:'0px 0px -40px 0px'});
+  },{threshold:0.05,rootMargin:'0px 0px -30px 0px'});
   document.querySelectorAll('.page.on .rv:not(.in)').forEach(el=>io.observe(el));
 }
 document.addEventListener('DOMContentLoaded',()=>setTimeout(initReveal,120));
@@ -909,199 +995,207 @@ function sendForm(){
   if(!n||!e){alert('Por favor completa tu nombre y email.');return;}
   const txt=encodeURIComponent(`Hola, soy ${n} (${e}).${s?' Servicio: '+s+'.':''} ${m||'Quisiera más información.'}`);
   window.open(`https://wa.me/50767997259?text=${txt}`,'_blank');
-  document.getElementById('formBox').innerHTML=`<div class="form-success"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><h3 data-i="form_ok_h">¡Mensaje enviado!</h3><p data-i="form_ok_p">Te redirigimos a WhatsApp para continuar la conversación.</p></div>`;
-  applyLang(curLang);
+  document.getElementById('formBox').innerHTML=`<div class="form-success"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><h3>¡Mensaje enviado!</h3><p>Te redirigimos a WhatsApp para continuar la conversación.</p></div>`;
 }
 
 // ── I18N
 let curLang='es';
 const L={
-es:{nav_i:'Inicio',nav_s:'Servicios',nav_p:'Portafolio',nav_pl:'Planes',nav_n:'Nosotros',nav_c:'Contacto',nav_cta:'Iniciar proyecto',
-hero_tag:'Agencia de diseño web & estrategia digital',
-hero_h1:'Tu web es tu<br><span class="hl">mejor vendedor.</span><br>Nosotros la construimos.',
-hero_p:'Diseñamos sitios web que generan ventas, posicionan marcas y convierten visitantes en clientes. Sin plantillas. Sin excusas.',
-hero_cta:'Quiero una web que venda',hero_trust:'+20 marcas ya confían en Rupta Studios',
-why_label:'Por qué elegirnos',why_h:'Resultados que se miden.<br>No promesas vacías.',why_p:'Cada proyecto que tomamos tiene un objetivo claro: hacer crecer tu negocio. Así es cómo lo logramos.',
-w1_t:'Estrategia antes de diseño',w1_p:'No empezamos a diseñar hasta entender tu negocio, tu mercado y tu competencia. Cada decisión visual tiene un propósito comercial detrás.',
-w2_t:'Optimizado para convertir',w2_p:'Velocidad, UX y copy orientados a que cada visitante tome acción. Un sitio lento o confuso pierde ventas. El tuyo no lo hará.',
-w3_t:'Entrega rápida, calidad alta',w3_p:'Plazos reales y cumplidos. Procesos claros. Comunicación directa. Sin retrasos indefinidos ni sorpresas de última hora.',
-w4_t:'Soporte real post-entrega',w4_p:'Tu web no termina en el lanzamiento. Estamos disponibles para cambios, actualizaciones y soporte cuando lo necesitas.',
-serv_label:'Servicios',serv_h:'Todo lo que tu marca<br>necesita para dominar online.',
-serv_more:'Ver todos los servicios →',
-sv1_t:'Diseño Web',sv1_p:'Sitios premium que posicionan, convencen y convierten. Rápidos, mobile-first y construidos para crecer.',
-sv2_t:'Branding & Identidad',sv2_p:'Sistemas de identidad visual que hacen que tu marca sea reconocible, memorable y profesional a primera vista.',
-sv3_t:'E-commerce',sv3_p:'Tiendas online optimizadas para vender desde el primer día. Flujo de compra limpio, seguro y rentable.',
-sv4_t:'SEO & Posicionamiento',sv4_p:'Visibilidad orgánica en Google. Tráfico que compra, no solo que visita.',
-sv5_t:'Marketing Digital',sv5_p:'Campañas pagadas y estrategia de contenido que generan retorno real.',
-sv6_t:'Soporte & Mantenimiento',sv6_p:'Actualizaciones, seguridad y soporte. Tu web siempre funcionando al 100%.',
-sv7_t:'Seguridad & Soporte',sv7_p:'SSL, backups automatizados, monitoreo 24/7 y soporte técnico real.',
-sv8_t:'Diseño UI/UX',sv8_p:'Investigación, wireframes y prototipos que reducen fricción y aumentan conversión.',
-serv_full_h:'Servicios diseñados<br>para generar resultados.',serv_full_p:'No vendemos páginas web. Construimos activos digitales que trabajan para tu negocio las 24 horas.',
-sv1_full:'Desde landing pages hasta portales completos. Diseñamos con propósito: cada elemento al servicio de la conversión.',
-sv2_full:'Logos, guías de estilo, sistemas de diseño. Construimos marcas que se recuerdan y se respetan en el mercado.',
-sv3_full:'Tiendas optimizadas para vender. Integración de pagos, gestión de inventario y experiencia de compra que elimina fricción.',
-sv4_full:'Aparecer en Google no es suerte. Es técnica, constancia y contenido estratégico.',
-sv5_full:'Campañas de Meta Ads, Google Ads y estrategia de contenido que generan retorno medible.',
-sv7_full:'SSL, backups automatizados, monitoreo 24/7 y soporte técnico real. Tu inversión protegida.',
-sv8_full:'Investigación de usuario, wireframes y prototipos interactivos que reducen fricción y aumentan conversión.',
-sv6_full:'Paquetes de mantenimiento mensual para que tu web esté siempre actualizada, segura y funcionando.',
-serv_cta_l:'¿Proyecto especial?',serv_cta_h:'Cuéntanos tu visión.',serv_cta_p:'Si tu proyecto no encaja en una categoría estándar, construimos la solución exacta que necesitas.',serv_cta_btn:'Hablemos de tu proyecto',
-proc_label:'Nuestro proceso',proc_h:'De la idea al lanzamiento.<br>4 pasos. Sin complicaciones.',
-p1_t:'Estrategia',p1_p:'Analizamos tu negocio, mercado y competencia. Definimos objetivos claros y una hoja de ruta concreta.',
-p2_t:'Diseño',p2_p:'Prototipamos y diseñamos pensando en el usuario y la conversión. Aprobación antes de desarrollar.',
-p3_t:'Desarrollo',p3_p:'Construimos con código limpio, velocidad óptima y total compatibilidad. Cada detalle revisado.',
-p4_t:'Lanzamiento',p4_p:'Publicamos, configuramos analytics y te entregamos con soporte. El lanzamiento es solo el comienzo.',
-cta_label:'Plazas disponibles este mes',cta_h:'Tu competencia ya<br>tiene una web que vende.',cta_p:'Cada día sin una web profesional es un cliente que se va a otro lado. Hablemos hoy y empecemos esta semana.',
-cta_btn:'Hablar ahora por WhatsApp',cta_btn2:'Ver nuestro trabajo',
-port_label:'Trabajo real',port_h:'Proyectos que generan<br>resultados reales.',port_p:'No mostramos mockups. Mostramos sitios en producción con marcas reales que venden.',
-pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visitar sitio',
-port1_p:'E-commerce premium de ropa con drops limitados. Shopify con sistema de lanzamientos, countdowns y checkout de alta conversión.',
-port2_p:'Marketplace de tecnología y hogar con catálogo de marcas premium. Plataforma robusta con pagos seguros.',
-port3_p:'Marca streetwear con drops de edición limitada. Alta estética visual, lista de espera exclusiva y countdown de lanzamientos.',
-port_more:'+17 proyectos más',port_more2:'en nuestro historial.',port_sub:'¿Tu marca puede ser la próxima?',port_cta:'Quiero resultados así',
-plan_label:'Inversión',plan_h:'El plan correcto<br>para tu etapa de negocio.',plan_p:'Precios reales, sin letra pequeña. Consulta disponibilidad antes de reservar.',
-plan1_d:'Para negocios que necesitan una presencia digital sólida y profesional.',
-p1_1:'Landing page de alta conversión',p1_2:'Diseño responsive & mobile-first',p1_3:'Integración WhatsApp & formulario',p1_4:'Configuración de dominio & hosting',p1_5:'Entrega en 7–10 días hábiles',
-plan2_d:'Para marcas que quieren crecer con una presencia digital completa y estratégica.',
-p2_1:'Web multi-página premium',p2_2:'Diseño UI/UX personalizado',p2_3:'SEO técnico incluido',p2_4:'Panel de administración',p2_5:'WhatsApp + Analytics integrado',p2_6:'Soporte prioritario 3 meses',p2_7:'Entrega en 14–21 días hábiles',
-plan3_d:'Para marcas que exigen el máximo: e-commerce, integraciones avanzadas y posicionamiento total.',
-p3_1:'E-commerce o web avanzada',p3_2:'Diseño ultra-premium & branding',p3_3:'SEO avanzado + Google Analytics 4',p3_4:'Integraciones a medida',p3_5:'Soporte prioritario 6 meses',p3_6:'Mantenimiento incluido',
-plan_q:'Consultar precio',plan_pop:'MÁS ELEGIDO',plan_custom:'¿Tienes un proyecto especial? Diseñamos una solución a tu medida.',plan_custom_btn:'Solicitar propuesta personalizada',plan_custom_s:'Plan a medida',
-about_label:'Quiénes somos',about_h:'Una agencia obsesionada<br>con tu crecimiento.',about_p:'En Rupta Studios no hacemos páginas web. Construimos herramientas de negocio. Cada proyecto empieza con una pregunta: ¿cómo esto hace crecer a nuestro cliente?',
-founder_role:'Fundador & Director Creativo',founder_bio:'Diseñador y desarrollador con más de 5 años construyendo marcas digitales que generan impacto real. Cada proyecto es tratado como si fuera el propio: con estrategia, precisión y obsesión por los detalles.',
-as1:'Proyectos entregados',as2:'Años de experiencia',as3:'Clientes destacados',as4:'Enfoque en resultados',
-v1_t:'Orientados a resultados',v1_p:'Todo lo que hacemos tiene un objetivo claro y medible. Diseñamos para convertir, no para impresionar.',
-v2_t:'Velocidad y precisión',v2_p:'Plazos cumplidos, comunicación directa y entregables de calidad. Sin excusas ni retrasos.',
-v3_t:'Relación a largo plazo',v3_p:'No somos proveedores de proyectos únicos. Somos el equipo digital de nuestros clientes a largo plazo.',
-about_cta:'Trabajemos juntos',
-contact_label:'Contacto',contact_h:'Hablemos de<br>tu proyecto.',contact_p:'Respondemos en menos de 24 horas. Sin compromiso, sin letra pequeña.',
-contact_note:'Atendemos proyectos en toda Latinoamérica. Respondemos todos los mensajes en menos de 24 horas hábiles.',
-form_h:'Cuéntanos tu proyecto',form_name:'Nombre',form_email:'Email',form_svc:'Servicio de interés',form_sel:'Selecciona un servicio...',form_msg:'Tu mensaje',form_btn:'Enviar por WhatsApp',form_ok_h:'¡Mensaje enviado!',form_ok_p:'Te redirigimos a WhatsApp para continuar la conversación.',
-f_desc:'Diseño web, branding y estrategia digital. Construimos webs que generan resultados reales.',f_nav:'Navegación',f_contact:'Contacto',f_clients:'Clientes',f_made:'Diseñado y desarrollado por Rupta Studios'},
-
-en:{nav_i:'Home',nav_s:'Services',nav_p:'Portfolio',nav_pl:'Plans',nav_n:'About',nav_c:'Contact',nav_cta:'Start project',
-hero_tag:'Web design & digital strategy agency',
-hero_h1:'Your website is your<br><span class="hl">best salesperson.</span><br>We build it.',
-hero_p:'We design websites that generate sales, position brands and turn visitors into customers. No templates. No excuses.',
-hero_cta:'I want a website that sells',hero_trust:'+20 brands already trust Rupta Studios',
-why_label:'Why choose us',why_h:'Results you can measure.<br>Not empty promises.',why_p:"Every project we take has one clear objective: grow your business. Here's how we do it.",
-w1_t:'Strategy before design',w1_p:"We don't start designing until we understand your business, market and competition. Every visual decision has a commercial purpose behind it.",
-w2_t:'Optimized to convert',w2_p:'Speed, UX and copy designed to make every visitor take action. A slow or confusing site loses sales. Yours won\'t.',
-w3_t:'Fast delivery, high quality',w3_p:'Real deadlines, met. Clear processes. Direct communication. No indefinite delays or last-minute surprises.',
-w4_t:'Real post-launch support',w4_p:"Your website doesn't end at launch. We're available for changes, updates and support when you need it.",
-serv_label:'Services',serv_h:'Everything your brand<br>needs to dominate online.',serv_more:'View all services →',
-sv1_t:'Web Design',sv1_p:'Premium sites that position, convince and convert. Fast, mobile-first and built to scale.',
-sv2_t:'Branding & Identity',sv2_p:'Visual identity systems that make your brand recognizable, memorable and professional at first glance.',
-sv3_t:'E-commerce',sv3_p:'Online stores optimized to sell from day one. Clean, secure and profitable purchase flow.',
-sv4_t:'SEO & Positioning',sv4_p:'Organic visibility on Google. Traffic that buys, not just visits.',
-sv5_t:'Digital Marketing',sv5_p:'Paid campaigns and content strategy that generate real returns, not vanity metrics.',
-sv6_t:'Support & Maintenance',sv6_p:'Updates, security and support. Your website always running at 100%.',
-sv7_t:'Security & Support',sv7_p:'SSL, automated backups, 24/7 monitoring and real technical support.',
-sv8_t:'UI/UX Design',sv8_p:'Research, wireframes and prototypes that reduce friction and increase conversion.',
-serv_full_h:'Services designed<br>to generate results.',serv_full_p:"We don't sell web pages. We build digital assets that work for your business 24 hours a day.",
-sv1_full:'From landing pages to full portals. We design with purpose: every element in service of conversion.',
-sv2_full:'Logos, style guides, design systems. We build brands that are remembered and respected in the market.',
-sv3_full:'Stores optimized to sell. Payment integration, inventory management and frictionless purchase experience.',
-sv4_full:"Ranking on Google isn't luck. It's technique, consistency and strategic content.",
-sv5_full:'Meta Ads, Google Ads and content strategy that generate measurable return. No wasted budget.',
-sv7_full:'SSL, automated backups, 24/7 monitoring and real tech support. Your investment protected.',
-sv8_full:'User research, wireframes and interactive prototypes that reduce friction and increase conversion.',
-sv6_full:'Monthly maintenance packages so your website stays updated, secure and running without interruption.',
-serv_cta_l:'Special project?',serv_cta_h:'Tell us your vision.',serv_cta_p:"If your project doesn't fit a standard category, we build the exact solution you need.",serv_cta_btn:'Talk about your project',
-proc_label:'Our process',proc_h:'From idea to launch.<br>4 steps. No complications.',
-p1_t:'Strategy',p1_p:'We analyze your business, market and competition. We define clear goals and a concrete roadmap.',
-p2_t:'Design',p2_p:'We prototype and design with user and conversion in mind. Approval before development.',
-p3_t:'Development',p3_p:'We build with clean code, optimal speed and full compatibility. Every detail reviewed before delivery.',
-p4_t:'Launch',p4_p:"We publish, set up analytics and hand off with support. The launch is just the beginning.",
-cta_label:'Spots available this month',cta_h:'Your competition already<br>has a website that sells.',cta_p:"Every day without a professional website is a customer going elsewhere. Let's talk today and start this week.",
-cta_btn:'Talk now on WhatsApp',cta_btn2:'See our work',
-port_label:'Real work',port_h:'Projects that generate<br>real results.',port_p:"We don't show mockups. We show production sites with real brands that sell.",
-pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visit site',
-port1_p:'Premium clothing e-commerce with limited drops. Shopify with launch system, countdowns and high-conversion checkout.',
-port2_p:'Technology and home marketplace with premium brand catalog. Robust platform with secure payments.',
-port3_p:'Streetwear brand with limited edition drops. High-aesthetic site, exclusive waitlist and launch countdowns.',
-port_more:'+17 more projects',port_more2:'in our history.',port_sub:'Could your brand be next?',port_cta:'I want results like these',
-plan_label:'Investment',plan_h:'The right plan<br>for your business stage.',plan_p:'Real prices, no fine print. Check availability before booking.',
-plan1_d:'For businesses that need a solid and professional digital presence.',
-p1_1:'High-conversion landing page',p1_2:'Responsive & mobile-first design',p1_3:'WhatsApp & form integration',p1_4:'Domain & hosting setup',p1_5:'Delivery in 7–10 business days',
-plan2_d:'For brands that want to grow with a complete and strategic digital presence.',
-p2_1:'Premium multi-page website',p2_2:'Custom UI/UX design',p2_3:'Technical SEO included',p2_4:'Admin panel',p2_5:'WhatsApp + Analytics integrated',p2_6:'Priority support 3 months',p2_7:'Delivery in 14–21 business days',
-plan3_d:'For brands that demand the maximum: e-commerce, advanced integrations and full positioning.',
-p3_1:'E-commerce or advanced web',p3_2:'Ultra-premium design & branding',p3_3:'Advanced SEO + Google Analytics 4',p3_4:'Custom integrations',p3_5:'Priority support 6 months',p3_6:'Maintenance included',
-plan_q:'Check pricing',plan_pop:'MOST CHOSEN',plan_custom:'Have a special project? We design a solution tailored to you.',plan_custom_btn:'Request custom proposal',plan_custom_s:'Custom plan',
-about_label:'Who we are',about_h:'An agency obsessed<br>with your growth.',about_p:"At Rupta Studios we don't make web pages. We build business tools. Every project starts with one question: how does this grow our client?",
-founder_role:'Founder & Creative Director',founder_bio:'Designer and developer with over 5 years building digital brands that generate real impact. Every project is treated as if it were our own: with strategy, precision and obsession for detail.',
-as1:'Projects delivered',as2:'Years of experience',as3:'Featured clients',as4:'Results-focused',
-v1_t:'Results-oriented',v1_p:'Everything we do has a clear, measurable goal. We design to convert, not to impress.',
-v2_t:'Speed and precision',v2_p:'Deadlines met, direct communication and quality deliverables. No excuses or delays.',
-v3_t:'Long-term relationship',v3_p:"We're not single-project providers. We're the long-term digital team of our clients.",
-about_cta:"Let's work together",
-contact_label:'Contact',contact_h:"Let's talk about<br>your project.",contact_p:'We respond in less than 24 hours. No commitment, no fine print.',
-contact_note:'We serve projects across all of Latin America. We respond to every message within 24 business hours.',
-form_h:'Tell us about your project',form_name:'Name',form_email:'Email',form_svc:'Service of interest',form_sel:'Select a service...',form_msg:'Your message',form_btn:'Send via WhatsApp',form_ok_h:'Message sent!',form_ok_p:"We're redirecting you to WhatsApp to continue the conversation.",
-f_desc:'Web design, branding and digital strategy. We build websites that generate real results.',f_nav:'Navigation',f_contact:'Contact',f_clients:'Clients',f_made:'Designed and developed by Rupta Studios'},
-
-pt:{nav_i:'Início',nav_s:'Serviços',nav_p:'Portfólio',nav_pl:'Planos',nav_n:'Sobre',nav_c:'Contato',nav_cta:'Iniciar projeto',
-hero_tag:'Agência de design web & estratégia digital',
-hero_h1:'Seu site é seu<br><span class="hl">melhor vendedor.</span><br>Nós o construímos.',
-hero_p:'Desenvolvemos sites que geram vendas, posicionam marcas e convertem visitantes em clientes. Sem templates. Sem desculpas.',
-hero_cta:'Quero um site que venda',hero_trust:'+20 marcas já confiam na Rupta Studios',
-why_label:'Por que nos escolher',why_h:'Resultados que se medem.<br>Não promessas vazias.',why_p:'Cada projeto que assumimos tem um objetivo claro: fazer seu negócio crescer. É assim que fazemos.',
-w1_t:'Estratégia antes do design',w1_p:'Não começamos a projetar até entender seu negócio, mercado e concorrência. Cada decisão visual tem um propósito comercial.',
-w2_t:'Otimizado para converter',w2_p:'Velocidade, UX e copy para que cada visitante tome ação. Um site lento perde vendas. O seu não vai.',
-w3_t:'Entrega rápida, qualidade alta',w3_p:'Prazos reais e cumpridos. Processos claros. Comunicação direta. Sem atrasos indefinidos.',
-w4_t:'Suporte real pós-entrega',w4_p:'Seu site não termina no lançamento. Estamos disponíveis para mudanças e atualizações quando você precisar.',
-serv_label:'Serviços',serv_h:'Tudo que sua marca<br>precisa para dominar online.',serv_more:'Ver todos os serviços →',
-sv1_t:'Design Web',sv1_p:'Sites premium que posicionam, convencem e convertem. Rápidos, mobile-first e construídos para crescer.',
-sv2_t:'Branding & Identidade',sv2_p:'Sistemas de identidade visual que tornam sua marca reconhecível e profissional à primeira vista.',
-sv3_t:'E-commerce',sv3_p:'Lojas online otimizadas para vender desde o primeiro dia. Fluxo de compra limpo e rentável.',
-sv4_t:'SEO & Posicionamento',sv4_p:'Visibilidade orgânica no Google. Tráfego que compra, não apenas visita.',
-sv5_t:'Marketing Digital',sv5_p:'Campanhas pagas e estratégia de conteúdo que geram retorno real.',
-sv6_t:'Suporte & Manutenção',sv6_p:'Atualizações, segurança e suporte. Seu site sempre funcionando a 100%.',
-sv7_t:'Segurança & Suporte',sv7_p:'SSL, backups automatizados, monitoramento 24/7 e suporte técnico real.',
-sv8_t:'Design UI/UX',sv8_p:'Pesquisa, wireframes e protótipos que reduzem fricção e aumentam conversão.',
-serv_full_h:'Serviços projetados<br>para gerar resultados.',serv_full_p:'Não vendemos páginas web. Construímos ativos digitais que trabalham para seu negócio 24 horas.',
-sv1_full:'De landing pages a portais completos. Projetamos com propósito: cada elemento a serviço da conversão.',
-sv2_full:'Logos, guias de estilo, sistemas de design. Construímos marcas que são lembradas e respeitadas.',
-sv3_full:'Lojas otimizadas para vender. Integração de pagamentos e experiência de compra sem fricção.',
-sv4_full:'Aparecer no Google não é sorte. É técnica, constância e conteúdo estratégico.',
-sv5_full:'Meta Ads, Google Ads e estratégia de conteúdo que geram retorno mensurável.',
-sv7_full:'SSL, backups automatizados, monitoramento 24/7 e suporte técnico real. Seu investimento protegido.',
-sv8_full:'Pesquisa de usuário, wireframes e protótipos interativos que reduzem fricção.',
-sv6_full:'Pacotes de manutenção mensal para que seu site esteja sempre atualizado e funcionando.',
-serv_cta_l:'Projeto especial?',serv_cta_h:'Conte-nos sua visão.',serv_cta_p:'Se seu projeto não se encaixa em uma categoria padrão, construímos a solução exata que você precisa.',serv_cta_btn:'Falar sobre seu projeto',
-proc_label:'Nosso processo',proc_h:'Da ideia ao lançamento.<br>4 passos. Sem complicações.',
-p1_t:'Estratégia',p1_p:'Analisamos seu negócio, mercado e concorrência. Definimos objetivos claros e um roteiro concreto.',
-p2_t:'Design',p2_p:'Prototipamos e projetamos pensando no usuário e na conversão. Aprovação antes do desenvolvimento.',
-p3_t:'Desenvolvimento',p3_p:'Construímos com código limpo, velocidade ótima e total compatibilidade. Cada detalhe revisado.',
-p4_t:'Lançamento',p4_p:'Publicamos, configuramos analytics e entregamos com suporte. O lançamento é só o começo.',
-cta_label:'Vagas disponíveis este mês',cta_h:'Sua concorrência já<br>tem um site que vende.',cta_p:'Cada dia sem um site profissional é um cliente que vai para outro lugar. Vamos conversar hoje.',
-cta_btn:'Falar agora pelo WhatsApp',cta_btn2:'Ver nosso trabalho',
-port_label:'Trabalho real',port_h:'Projetos que geram<br>resultados reais.',port_p:'Não mostramos mockups. Mostramos sites em produção com marcas reais que vendem.',
-pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visitar site',
-port1_p:'E-commerce premium de roupas com drops limitados. Shopify com sistema de lançamentos e checkout de alta conversão.',
-port2_p:'Marketplace de tecnologia e casa com catálogo de marcas premium. Plataforma robusta com pagamentos seguros.',
-port3_p:'Marca streetwear com drops de edição limitada. Alta estética visual, lista de espera exclusiva e countdown.',
-port_more:'+17 projetos a mais',port_more2:'em nosso histórico.',port_sub:'Sua marca pode ser a próxima?',port_cta:'Quero resultados assim',
-plan_label:'Investimento',plan_h:'O plano certo<br>para sua fase de negócio.',plan_p:'Preços reais, sem letras miúdas. Consulte disponibilidade.',
-plan1_d:'Para negócios que precisam de uma presença digital sólida e profissional.',
-p1_1:'Landing page de alta conversão',p1_2:'Design responsivo & mobile-first',p1_3:'Integração WhatsApp & formulário',p1_4:'Configuração de domínio & hospedagem',p1_5:'Entrega em 7–10 dias úteis',
-plan2_d:'Para marcas que querem crescer com presença digital completa e estratégica.',
-p2_1:'Site multi-página premium',p2_2:'Design UI/UX personalizado',p2_3:'SEO técnico incluído',p2_4:'Painel de administração',p2_5:'WhatsApp + Analytics integrado',p2_6:'Suporte prioritário 3 meses',p2_7:'Entrega em 14–21 dias úteis',
-plan3_d:'Para marcas que exigem o máximo: e-commerce, integrações avançadas e posicionamento total.',
-p3_1:'E-commerce ou site avançado',p3_2:'Design ultra-premium & branding',p3_3:'SEO avançado + Google Analytics 4',p3_4:'Integrações personalizadas',p3_5:'Suporte prioritário 6 meses',p3_6:'Manutenção incluída',
-plan_q:'Consultar preço',plan_pop:'MAIS ESCOLHIDO',plan_custom:'Tem um projeto especial? Desenvolvemos uma solução sob medida.',plan_custom_btn:'Solicitar proposta personalizada',plan_custom_s:'Plano personalizado',
-about_label:'Quem somos',about_h:'Uma agência obcecada<br>com seu crescimento.',about_p:'Na Rupta Studios não fazemos páginas web. Construímos ferramentas de negócio. Cada projeto começa com uma pergunta: como isso faz nosso cliente crescer?',
-founder_role:'Fundador & Diretor Criativo',founder_bio:'Designer e desenvolvedor com mais de 5 anos construindo marcas digitais que geram impacto real. Cada projeto é tratado como se fosse o nosso próprio: com estratégia, precisão e obsessão pelos detalhes.',
-as1:'Projetos entregues',as2:'Anos de experiência',as3:'Clientes destacados',as4:'Foco em resultados',
-v1_t:'Orientados a resultados',v1_p:'Tudo que fazemos tem um objetivo claro e mensurável. Projetamos para converter, não para impressionar.',
-v2_t:'Velocidade e precisão',v2_p:'Prazos cumpridos, comunicação direta e entregáveis de qualidade. Sem desculpas ou atrasos.',
-v3_t:'Relacionamento de longo prazo',v3_p:'Não somos fornecedores de projetos únicos. Somos a equipe digital de longo prazo dos nossos clientes.',
-about_cta:'Vamos trabalhar juntos',
-contact_label:'Contato',contact_h:'Vamos falar sobre<br>seu projeto.',contact_p:'Respondemos em menos de 24 horas. Sem compromisso, sem letras miúdas.',
-contact_note:'Atendemos projetos em toda a América Latina. Respondemos a todas as mensagens em menos de 24 horas úteis.',
-form_h:'Conte-nos sobre seu projeto',form_name:'Nome',form_email:'Email',form_svc:'Serviço de interesse',form_sel:'Selecione um serviço...',form_msg:'Sua mensagem',form_btn:'Enviar pelo WhatsApp',form_ok_h:'Mensagem enviada!',form_ok_p:'Redirecionamos você ao WhatsApp para continuar a conversa.',
-f_desc:'Design web, branding e estratégia digital. Construímos sites que geram resultados reais.',f_nav:'Navegação',f_contact:'Contato',f_clients:'Clientes',f_made:'Projetado e desenvolvido pela Rupta Studios'}
+es:{
+  nav_i:'Inicio',nav_s:'Servicios',nav_p:'Portafolio',nav_pl:'Planes',nav_n:'Nosotros',nav_c:'Contacto',nav_cta:'Iniciar proyecto',
+  hero_tag:'Agencia de diseño web estratégico',
+  hero_h1:'Diseñamos páginas web estratégicas<br>que convierten visitantes<br><span class="hl">en clientes.</span>',
+  hero_p:'Creamos sitios optimizados para negocios que quieren vender más, posicionarse mejor y crecer online.',
+  hero_cta1:'Crear mi plan',hero_cta2:'Hablar por WhatsApp',
+  hero_trust:'Marcas en producción: Santo Patrón Clothing · Eleva Corp · Rystar Studios',
+  auth_label:'Por qué elegir Rupta',auth_h:'Estrategia. Diseño. Resultados.',auth_p:'Cada proyecto tiene un único objetivo: hacer crecer tu negocio de forma medible y sostenida.',
+  auth1_t:'Estrategia enfocada en ventas',auth1_p:'No diseñamos por estética. Cada decisión está orientada a convertir visitantes en clientes reales para tu negocio.',
+  auth2_t:'Diseño moderno y optimizado',auth2_p:'Interfaces limpias, mobile-first y construidas con las mejores prácticas de UI/UX para generar confianza y acción.',
+  auth3_t:'Web rápida y preparada para SEO',auth3_p:'Código limpio, carga rápida y estructura técnica preparada para posicionarte en Google desde el primer día.',
+  auth4_t:'Soporte real después del lanzamiento',auth4_p:'No desaparecemos al entregar. Ofrecemos soporte continuo, actualizaciones y acompañamiento post-lanzamiento.',
+  serv_label:'Servicios',serv_h:'Todo lo que tu marca<br>necesita para dominar online.',serv_more:'Ver todos los servicios →',
+  sv1_t:'Diseño Web',sv1_p:'Sitios premium que posicionan, convencen y convierten. Rápidos, mobile-first y construidos para crecer.',
+  sv2_t:'Branding & Identidad',sv2_p:'Sistemas de identidad visual que hacen que tu marca sea reconocible, memorable y profesional a primera vista.',
+  sv3_t:'E-commerce',sv3_p:'Tiendas online optimizadas para vender desde el primer día. Flujo de compra limpio, seguro y rentable.',
+  sv4_t:'SEO & Posicionamiento',sv4_p:'Visibilidad orgánica en Google. Tráfico que compra, no solo que visita.',
+  sv5_t:'Marketing Digital',sv5_p:'Campañas pagadas y estrategia de contenido que generan retorno real.',
+  sv6_t:'Soporte & Mantenimiento',sv6_p:'Actualizaciones, seguridad y soporte. Tu web siempre funcionando al 100%.',
+  sv7_t:'Seguridad & Soporte',sv7_p:'SSL, backups automatizados, monitoreo 24/7 y soporte técnico real.',
+  sv8_t:'Diseño UI/UX',sv8_p:'Investigación, wireframes y prototipos que reducen fricción y aumentan conversión.',
+  serv_full_h:'Servicios diseñados<br>para generar resultados.',serv_full_p:'No vendemos páginas web. Construimos activos digitales que trabajan para tu negocio las 24 horas.',
+  sv1_full:'Desde landing pages hasta portales completos. Diseñamos con propósito: cada elemento al servicio de la conversión.',
+  sv2_full:'Logos, guías de estilo, sistemas de diseño. Construimos marcas que se recuerdan y se respetan en el mercado.',
+  sv3_full:'Tiendas optimizadas para vender. Integración de pagos, gestión de inventario y experiencia de compra que elimina fricción.',
+  sv4_full:'Aparecer en Google no es suerte. Es técnica, constancia y contenido estratégico.',
+  sv5_full:'Meta Ads, Google Ads y estrategia de contenido que generan retorno medible. Sin presupuesto desperdiciado.',
+  sv7_full:'SSL, backups automatizados, monitoreo 24/7 y soporte técnico real. Tu inversión protegida.',
+  sv8_full:'Investigación de usuario, wireframes y prototipos interactivos que reducen fricción y aumentan conversión.',
+  sv6_full:'Paquetes de mantenimiento mensual para que tu web esté siempre actualizada, segura y funcionando.',
+  serv_cta_l:'¿Proyecto especial?',serv_cta_h:'Cuéntanos tu visión.',serv_cta_p:'Si tu proyecto no encaja en una categoría estándar, construimos la solución exacta que necesitas.',serv_cta_btn:'Hablemos de tu proyecto',
+  proc_label:'Nuestro proceso',proc_h:'Así trabajamos.',proc_sub:'4 pasos claros, sin sorpresas. Sabemos exactamente cómo llevar tu proyecto del concepto al lanzamiento.',
+  p1_t:'Analizamos tu negocio y objetivos',p1_p:'Entendemos tu mercado, competencia y audiencia. Definimos objetivos claros antes de escribir una línea de código.',
+  p2_t:'Diseñamos la estrategia digital',p2_p:'Estructuramos la arquitectura, el copy y el diseño visual. Aprobación completa antes de desarrollar.',
+  p3_t:'Desarrollamos tu web optimizada',p3_p:'Construimos con código limpio, carga rápida y total compatibilidad. Cada detalle revisado antes de la entrega.',
+  p4_t:'Lanzamos y medimos resultados',p4_p:'Publicamos, configuramos analytics y monitoreamos el rendimiento. El lanzamiento es el inicio del crecimiento.',
+  brands_label:'Proyectos reales',brands_h:'Proyectos desarrollados para marcas en crecimiento.',brands_p:'Trabajamos con negocios reales que necesitaban presencia digital profesional para escalar. Estos son algunos de ellos.',
+  cta_h:'Tu negocio merece una presencia<br>digital profesional.',cta_p:'No dejes que tu competencia te supere online. Cada día sin una web estratégica es un cliente que se va a otro lado.',
+  cta_btn:'Lanzar mi proyecto ahora',cta_btn2:'Hablar por WhatsApp',
+  port_label:'Trabajo real',port_h:'Proyectos en producción.<br>Marcas que venden.',port_p:'No mostramos mockups. Mostramos sitios reales, en producción, desarrollados para negocios que querían crecer online.',
+  pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visitar sitio',
+  port1_p:'Objetivo: posicionar una marca de moda con drops limitados y maximizar la tasa de conversión. Solución: Shopify con sistema de countdowns, checkout optimizado y estética premium coherente con el posicionamiento de marca.',
+  port2_p:'Objetivo: construir un marketplace de tecnología y hogar con catálogo premium. Solución: plataforma multi-categoría con sistema de pagos seguros y experiencia de compra que genera confianza.',
+  port3_p:'Objetivo: crear una identidad streetwear de edición limitada con presencia de alto impacto. Solución: web editorial, lista de espera exclusiva y countdown que genera anticipación antes de cada drop.',
+  port_more:'+17 proyectos adicionales',port_more2:'en nuestro historial.',port_sub:'¿Tu marca puede ser la próxima?',port_cta:'Quiero resultados así',
+  plan_label:'Inversión',plan_h:'El plan correcto<br>para tu etapa de negocio.',plan_p:'Precios reales, sin letra pequeña. Consulta disponibilidad antes de reservar.',
+  plan1_name:'Starter',plan1_d:'Para negocios que necesitan una presencia digital sólida y profesional.',
+  p1_1:'Landing page de alta conversión',p1_2:'Diseño responsive & mobile-first',p1_3:'Integración WhatsApp & formulario',p1_4:'Configuración de dominio & hosting',p1_5:'Entrega en 7–10 días hábiles',
+  plan2_name:'Business',plan2_d:'Para marcas que quieren crecer con una presencia digital completa y estratégica.',
+  p2_1:'Web multi-página premium',p2_2:'Diseño UI/UX personalizado',p2_3:'SEO técnico incluido',p2_4:'Panel de administración',p2_5:'WhatsApp + Analytics integrado',p2_6:'Soporte prioritario 3 meses',p2_7:'Entrega en 14–21 días hábiles',
+  plan3_name:'Pro',plan3_d:'Para marcas que exigen el máximo: e-commerce, integraciones avanzadas y posicionamiento total.',
+  p3_1:'E-commerce o web avanzada',p3_2:'Diseño ultra-premium & branding',p3_3:'SEO avanzado + Google Analytics 4',p3_4:'Integraciones a medida',p3_5:'Soporte prioritario 6 meses',p3_6:'Mantenimiento incluido',
+  plan_q:'Consultar precio',plan_pop:'MÁS ELEGIDO',plan_custom:'¿Tienes un proyecto especial? Diseñamos una solución a tu medida.',plan_custom_btn:'Solicitar propuesta personalizada',plan_custom_s:'Plan a medida',
+  about_label:'Quiénes somos',about_h:'Una agencia obsesionada<br>con tu crecimiento.',about_p:'En Rupta Studios no hacemos páginas web. Construimos herramientas de negocio. Cada proyecto empieza con una pregunta: ¿cómo esto hace crecer a nuestro cliente?',
+  founder_role:'Fundador & Director Creativo',founder_bio:'Diseñador y desarrollador con más de 5 años construyendo marcas digitales que generan impacto real. Cada proyecto es tratado como si fuera el propio: con estrategia, precisión y obsesión por los detalles.',
+  as1:'Proyectos entregados',as2:'Años de experiencia',as3:'Marcas en producción',as4:'Enfoque en resultados',
+  v1_t:'Orientados a resultados',v1_p:'Todo lo que hacemos tiene un objetivo claro y medible. Diseñamos para convertir, no para impresionar.',
+  v2_t:'Velocidad y precisión',v2_p:'Plazos cumplidos, comunicación directa y entregables de calidad. Sin excusas ni retrasos.',
+  v3_t:'Relación a largo plazo',v3_p:'No somos proveedores de proyectos únicos. Somos el equipo digital de nuestros clientes a largo plazo.',
+  about_cta:'Trabajemos juntos',
+  contact_label:'Contacto',contact_h:'Hablemos de<br>tu proyecto.',contact_p:'Respondemos en menos de 24 horas. Sin compromiso, sin letra pequeña.',
+  contact_note:'Atendemos proyectos en toda Latinoamérica. Respondemos todos los mensajes en menos de 24 horas hábiles.',
+  form_h:'Cuéntanos tu proyecto',form_name:'Nombre',form_email:'Email',form_svc:'Servicio de interés',form_sel:'Selecciona un servicio...',form_msg:'Tu mensaje',form_btn:'Enviar por WhatsApp',
+  f_desc:'Diseño web estratégico, branding y marketing digital. Construimos webs que generan resultados reales.',f_nav:'Navegación',f_contact:'Contacto',f_clients:'Clientes',f_made:'Diseñado y desarrollado por Rupta Studios'
+},
+en:{
+  nav_i:'Home',nav_s:'Services',nav_p:'Portfolio',nav_pl:'Plans',nav_n:'About',nav_c:'Contact',nav_cta:'Start project',
+  hero_tag:'Strategic web design agency',
+  hero_h1:'We design strategic websites<br>that turn visitors<br><span class="hl">into customers.</span>',
+  hero_p:'We build optimized sites for businesses that want to sell more, rank higher, and grow online.',
+  hero_cta1:'Create my plan',hero_cta2:'Chat on WhatsApp',
+  hero_trust:'Live brands: Santo Patrón Clothing · Eleva Corp · Rystar Studios',
+  auth_label:'Why choose Rupta',auth_h:'Strategy. Design. Results.',auth_p:'Every project has one clear goal: grow your business in a measurable, sustained way.',
+  auth1_t:'Sales-focused strategy',auth1_p:"We don't design for aesthetics. Every decision is aimed at turning visitors into real customers for your business.",
+  auth2_t:'Modern, optimized design',auth2_p:'Clean, mobile-first interfaces built with best-in-class UI/UX practices to generate trust and action.',
+  auth3_t:'Fast website ready for SEO',auth3_p:'Clean code, fast loading and technical structure ready to rank on Google from day one.',
+  auth4_t:'Real post-launch support',auth4_p:"We don't disappear after delivery. We offer ongoing support, updates and post-launch guidance.",
+  serv_label:'Services',serv_h:'Everything your brand<br>needs to dominate online.',serv_more:'View all services →',
+  sv1_t:'Web Design',sv1_p:'Premium sites that position, convince and convert. Fast, mobile-first and built to scale.',
+  sv2_t:'Branding & Identity',sv2_p:'Visual identity systems that make your brand recognizable, memorable and professional at first glance.',
+  sv3_t:'E-commerce',sv3_p:'Online stores optimized to sell from day one. Clean, secure and profitable purchase flow.',
+  sv4_t:'SEO & Positioning',sv4_p:'Organic visibility on Google. Traffic that buys, not just visits.',
+  sv5_t:'Digital Marketing',sv5_p:'Paid campaigns and content strategy that generate real returns, not vanity metrics.',
+  sv6_t:'Support & Maintenance',sv6_p:'Updates, security and support. Your website always running at 100%.',
+  sv7_t:'Security & Support',sv7_p:'SSL, automated backups, 24/7 monitoring and real technical support.',
+  sv8_t:'UI/UX Design',sv8_p:'Research, wireframes and prototypes that reduce friction and increase conversion.',
+  serv_full_h:'Services designed<br>to generate results.',serv_full_p:"We don't sell web pages. We build digital assets that work for your business 24 hours a day.",
+  sv1_full:'From landing pages to full portals. We design with purpose: every element in service of conversion.',
+  sv2_full:'Logos, style guides, design systems. We build brands that are remembered and respected in the market.',
+  sv3_full:'Stores optimized to sell. Payment integration, inventory management and frictionless purchase experience.',
+  sv4_full:"Ranking on Google isn't luck. It's technique, consistency and strategic content.",
+  sv5_full:'Meta Ads, Google Ads and content strategy that generate measurable return. No wasted budget.',
+  sv7_full:'SSL, automated backups, 24/7 monitoring and real tech support. Your investment protected.',
+  sv8_full:'User research, wireframes and interactive prototypes that reduce friction and increase conversion.',
+  sv6_full:'Monthly maintenance packages so your website stays updated, secure and running without interruption.',
+  serv_cta_l:'Special project?',serv_cta_h:'Tell us your vision.',serv_cta_p:"If your project doesn't fit a standard category, we build the exact solution you need.",serv_cta_btn:'Talk about your project',
+  proc_label:'Our process',proc_h:'How we work.',proc_sub:'4 clear steps, no surprises. We know exactly how to take your project from concept to launch.',
+  p1_t:'We analyze your business and goals',p1_p:'We understand your market, competition and audience. Clear objectives defined before writing a single line of code.',
+  p2_t:'We design the digital strategy',p2_p:'We structure the architecture, copy and visual design. Full approval before development begins.',
+  p3_t:'We develop your optimized website',p3_p:'We build with clean code, fast loading and full compatibility. Every detail reviewed before delivery.',
+  p4_t:'We launch and measure results',p4_p:"We publish, set up analytics and monitor performance. The launch is just the beginning of growth.",
+  brands_label:'Real projects',brands_h:'Projects developed for growing brands.',brands_p:"We work with real businesses that needed professional digital presence to scale. Here are some of them.",
+  cta_h:'Your business deserves a professional<br>digital presence.',cta_p:"Don't let your competition surpass you online. Every day without a strategic website is a customer going elsewhere.",
+  cta_btn:'Launch my project now',cta_btn2:'Chat on WhatsApp',
+  port_label:'Real work',port_h:'Projects in production.<br>Brands that sell.',port_p:"We don't show mockups. We show real sites, in production, built for businesses that wanted to grow online.",
+  pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visit site',
+  port1_p:'Goal: position a fashion brand with limited drops and maximize conversion rate. Solution: Shopify with countdown system, optimized checkout and premium aesthetics aligned with the brand positioning.',
+  port2_p:'Goal: build a technology and home marketplace with premium brand catalog. Solution: multi-category platform with secure payment system and a purchase experience that builds trust from first click.',
+  port3_p:'Goal: create a high-impact limited edition streetwear identity. Solution: editorial website, exclusive waitlist and countdown system that builds anticipation before each drop.',
+  port_more:'+17 additional projects',port_more2:'in our history.',port_sub:'Could your brand be next?',port_cta:'I want results like these',
+  plan_label:'Investment',plan_h:'The right plan<br>for your business stage.',plan_p:'Real prices, no fine print. Check availability before booking.',
+  plan1_name:'Starter',plan1_d:'For businesses that need a solid and professional digital presence.',
+  p1_1:'High-conversion landing page',p1_2:'Responsive & mobile-first design',p1_3:'WhatsApp & form integration',p1_4:'Domain & hosting setup',p1_5:'Delivery in 7–10 business days',
+  plan2_name:'Business',plan2_d:'For brands that want to grow with a complete and strategic digital presence.',
+  p2_1:'Premium multi-page website',p2_2:'Custom UI/UX design',p2_3:'Technical SEO included',p2_4:'Admin panel',p2_5:'WhatsApp + Analytics integrated',p2_6:'Priority support 3 months',p2_7:'Delivery in 14–21 business days',
+  plan3_name:'Pro',plan3_d:'For brands that demand the maximum: e-commerce, advanced integrations and full positioning.',
+  p3_1:'E-commerce or advanced web',p3_2:'Ultra-premium design & branding',p3_3:'Advanced SEO + Google Analytics 4',p3_4:'Custom integrations',p3_5:'Priority support 6 months',p3_6:'Maintenance included',
+  plan_q:'Check pricing',plan_pop:'MOST CHOSEN',plan_custom:'Have a special project? We design a solution tailored to you.',plan_custom_btn:'Request custom proposal',plan_custom_s:'Custom plan',
+  about_label:'Who we are',about_h:'An agency obsessed<br>with your growth.',about_p:"At Rupta Studios we don't make web pages. We build business tools. Every project starts with one question: how does this grow our client?",
+  founder_role:'Founder & Creative Director',founder_bio:'Designer and developer with over 5 years building digital brands that generate real impact. Every project is treated as our own: with strategy, precision and obsession for detail.',
+  as1:'Projects delivered',as2:'Years of experience',as3:'Live brands',as4:'Results-focused',
+  v1_t:'Results-oriented',v1_p:'Everything we do has a clear, measurable goal. We design to convert, not to impress.',
+  v2_t:'Speed and precision',v2_p:'Deadlines met, direct communication and quality deliverables. No excuses or delays.',
+  v3_t:'Long-term relationship',v3_p:"We're not single-project providers. We're the long-term digital team of our clients.",
+  about_cta:"Let's work together",
+  contact_label:'Contact',contact_h:"Let's talk about<br>your project.",contact_p:'We respond in less than 24 hours. No commitment, no fine print.',
+  contact_note:'We serve projects across all of Latin America. We respond to every message within 24 business hours.',
+  form_h:'Tell us about your project',form_name:'Name',form_email:'Email',form_svc:'Service of interest',form_sel:'Select a service...',form_msg:'Your message',form_btn:'Send via WhatsApp',
+  f_desc:'Strategic web design, branding and digital marketing. We build websites that generate real results.',f_nav:'Navigation',f_contact:'Contact',f_clients:'Clients',f_made:'Designed and developed by Rupta Studios'
+},
+pt:{
+  nav_i:'Início',nav_s:'Serviços',nav_p:'Portfólio',nav_pl:'Planos',nav_n:'Sobre',nav_c:'Contato',nav_cta:'Iniciar projeto',
+  hero_tag:'Agência de design web estratégico',
+  hero_h1:'Desenvolvemos sites estratégicos<br>que convertem visitantes<br><span class="hl">em clientes.</span>',
+  hero_p:'Criamos sites otimizados para negócios que querem vender mais, se posicionar melhor e crescer online.',
+  hero_cta1:'Criar meu plano',hero_cta2:'Falar pelo WhatsApp',
+  hero_trust:'Marcas ativas: Santo Patrón Clothing · Eleva Corp · Rystar Studios',
+  auth_label:'Por que escolher a Rupta',auth_h:'Estratégia. Design. Resultados.',auth_p:'Cada projeto tem um único objetivo: fazer seu negócio crescer de forma mensurável e sustentada.',
+  auth1_t:'Estratégia focada em vendas',auth1_p:'Não projetamos por estética. Cada decisão é orientada a converter visitantes em clientes reais para o seu negócio.',
+  auth2_t:'Design moderno e otimizado',auth2_p:'Interfaces limpas, mobile-first e construídas com as melhores práticas de UI/UX para gerar confiança e ação.',
+  auth3_t:'Site rápido e pronto para SEO',auth3_p:'Código limpo, carregamento rápido e estrutura técnica pronta para se posicionar no Google desde o primeiro dia.',
+  auth4_t:'Suporte real após o lançamento',auth4_p:'Não desaparecemos após a entrega. Oferecemos suporte contínuo, atualizações e acompanhamento pós-lançamento.',
+  serv_label:'Serviços',serv_h:'Tudo que sua marca<br>precisa para dominar online.',serv_more:'Ver todos os serviços →',
+  sv1_t:'Design Web',sv1_p:'Sites premium que posicionam, convencem e convertem. Rápidos, mobile-first e construídos para crescer.',
+  sv2_t:'Branding & Identidade',sv2_p:'Sistemas de identidade visual que tornam sua marca reconhecível e profissional à primeira vista.',
+  sv3_t:'E-commerce',sv3_p:'Lojas online otimizadas para vender desde o primeiro dia. Fluxo de compra limpo e rentável.',
+  sv4_t:'SEO & Posicionamento',sv4_p:'Visibilidade orgânica no Google. Tráfego que compra, não apenas visita.',
+  sv5_t:'Marketing Digital',sv5_p:'Campanhas pagas e estratégia de conteúdo que geram retorno real.',
+  sv6_t:'Suporte & Manutenção',sv6_p:'Atualizações, segurança e suporte. Seu site sempre funcionando a 100%.',
+  sv7_t:'Segurança & Suporte',sv7_p:'SSL, backups automatizados, monitoramento 24/7 e suporte técnico real.',
+  sv8_t:'Design UI/UX',sv8_p:'Pesquisa, wireframes e protótipos que reduzem fricção e aumentam conversão.',
+  serv_full_h:'Serviços projetados<br>para gerar resultados.',serv_full_p:'Não vendemos páginas web. Construímos ativos digitais que trabalham para seu negócio 24 horas.',
+  sv1_full:'De landing pages a portais completos. Projetamos com propósito: cada elemento a serviço da conversão.',
+  sv2_full:'Logos, guias de estilo, sistemas de design. Construímos marcas que são lembradas e respeitadas.',
+  sv3_full:'Lojas otimizadas para vender. Integração de pagamentos e experiência de compra sem fricção.',
+  sv4_full:'Aparecer no Google não é sorte. É técnica, constância e conteúdo estratégico.',
+  sv5_full:'Meta Ads, Google Ads e estratégia de conteúdo que geram retorno mensurável.',
+  sv7_full:'SSL, backups automatizados, monitoramento 24/7 e suporte técnico real. Seu investimento protegido.',
+  sv8_full:'Pesquisa de usuário, wireframes e protótipos interativos que reduzem fricção.',
+  sv6_full:'Pacotes de manutenção mensal para que seu site esteja sempre atualizado e funcionando.',
+  serv_cta_l:'Projeto especial?',serv_cta_h:'Conte-nos sua visão.',serv_cta_p:'Se seu projeto não se encaixa em uma categoria padrão, construímos a solução exata que você precisa.',serv_cta_btn:'Falar sobre seu projeto',
+  proc_label:'Nosso processo',proc_h:'Como trabalhamos.',proc_sub:'4 passos claros, sem surpresas. Sabemos exatamente como levar seu projeto do conceito ao lançamento.',
+  p1_t:'Analisamos seu negócio e objetivos',p1_p:'Entendemos seu mercado, concorrência e audiência. Objetivos claros definidos antes de escrever uma linha de código.',
+  p2_t:'Desenhamos a estratégia digital',p2_p:'Estruturamos a arquitetura, o copy e o design visual. Aprovação completa antes do desenvolvimento.',
+  p3_t:'Desenvolvemos seu site otimizado',p3_p:'Construímos com código limpo, carregamento rápido e total compatibilidade. Cada detalhe revisado antes da entrega.',
+  p4_t:'Lançamos e medimos resultados',p4_p:'Publicamos, configuramos analytics e monitoramos o desempenho. O lançamento é só o início do crescimento.',
+  brands_label:'Projetos reais',brands_h:'Projetos desenvolvidos para marcas em crescimento.',brands_p:'Trabalhamos com negócios reais que precisavam de presença digital profissional para escalar. Estes são alguns deles.',
+  cta_h:'Seu negócio merece uma presença<br>digital profissional.',cta_p:'Não deixe sua concorrência te superar online. Cada dia sem um site estratégico é um cliente que vai para outro lugar.',
+  cta_btn:'Lançar meu projeto agora',cta_btn2:'Falar pelo WhatsApp',
+  port_label:'Trabalho real',port_h:'Projetos em produção.<br>Marcas que vendem.',port_p:'Não mostramos mockups. Mostramos sites reais, em produção, desenvolvidos para negócios que queriam crescer online.',
+  pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visitar site',
+  port1_p:'Objetivo: posicionar uma marca de moda com drops limitados e maximizar a taxa de conversão. Solução: Shopify com sistema de countdown, checkout otimizado e estética premium coerente com o posicionamento da marca.',
+  port2_p:'Objetivo: construir um marketplace de tecnologia e casa com catálogo premium. Solução: plataforma multi-categoria com sistema de pagamentos seguros e experiência de compra que gera confiança.',
+  port3_p:'Objetivo: criar uma identidade streetwear de edição limitada com presença de alto impacto. Solução: site editorial, lista de espera exclusiva e countdown que gera antecipação antes de cada drop.',
+  port_more:'+17 projetos adicionais',port_more2:'em nosso histórico.',port_sub:'Sua marca pode ser a próxima?',port_cta:'Quero resultados assim',
+  plan_label:'Investimento',plan_h:'O plano certo<br>para sua fase de negócio.',plan_p:'Preços reais, sem letras miúdas. Consulte disponibilidade.',
+  plan1_name:'Starter',plan1_d:'Para negócios que precisam de uma presença digital sólida e profissional.',
+  p1_1:'Landing page de alta conversão',p1_2:'Design responsivo & mobile-first',p1_3:'Integração WhatsApp & formulário',p1_4:'Configuração de domínio & hospedagem',p1_5:'Entrega em 7–10 dias úteis',
+  plan2_name:'Business',plan2_d:'Para marcas que querem crescer com presença digital completa e estratégica.',
+  p2_1:'Site multi-página premium',p2_2:'Design UI/UX personalizado',p2_3:'SEO técnico incluído',p2_4:'Painel de administração',p2_5:'WhatsApp + Analytics integrado',p2_6:'Suporte prioritário 3 meses',p2_7:'Entrega em 14–21 dias úteis',
+  plan3_name:'Pro',plan3_d:'Para marcas que exigem o máximo: e-commerce, integrações avançadas e posicionamento total.',
+  p3_1:'E-commerce ou site avançado',p3_2:'Design ultra-premium & branding',p3_3:'SEO avançado + Google Analytics 4',p3_4:'Integrações personalizadas',p3_5:'Suporte prioritário 6 meses',p3_6:'Manutenção incluída',
+  plan_q:'Consultar preço',plan_pop:'MAIS ESCOLHIDO',plan_custom:'Tem um projeto especial? Desenvolvemos uma solução sob medida.',plan_custom_btn:'Solicitar proposta personalizada',plan_custom_s:'Plano personalizado',
+  about_label:'Quem somos',about_h:'Uma agência obcecada<br>com seu crescimento.',about_p:'Na Rupta Studios não fazemos páginas web. Construímos ferramentas de negócio. Cada projeto começa com uma pergunta: como isso faz nosso cliente crescer?',
+  founder_role:'Fundador & Diretor Criativo',founder_bio:'Designer e desenvolvedor com mais de 5 anos construindo marcas digitais que geram impacto real. Cada projeto é tratado como se fosse o nosso próprio: com estratégia, precisão e obsessão pelos detalhes.',
+  as1:'Projetos entregues',as2:'Anos de experiência',as3:'Marcas ativas',as4:'Foco em resultados',
+  v1_t:'Orientados a resultados',v1_p:'Tudo que fazemos tem um objetivo claro e mensurável. Projetamos para converter, não para impressionar.',
+  v2_t:'Velocidade e precisão',v2_p:'Prazos cumpridos, comunicação direta e entregáveis de qualidade. Sem desculpas ou atrasos.',
+  v3_t:'Relacionamento de longo prazo',v3_p:'Não somos fornecedores de projetos únicos. Somos a equipe digital de longo prazo dos nossos clientes.',
+  about_cta:'Vamos trabalhar juntos',
+  contact_label:'Contato',contact_h:'Vamos falar sobre<br>seu projeto.',contact_p:'Respondemos em menos de 24 horas. Sem compromisso, sem letras miúdas.',
+  contact_note:'Atendemos projetos em toda a América Latina. Respondemos a todas as mensagens em menos de 24 horas úteis.',
+  form_h:'Conte-nos sobre seu projeto',form_name:'Nome',form_email:'Email',form_svc:'Serviço de interesse',form_sel:'Selecione um serviço...',form_msg:'Sua mensagem',form_btn:'Enviar pelo WhatsApp',
+  f_desc:'Design web estratégico, branding e marketing digital. Construímos sites que geram resultados reais.',f_nav:'Navegação',f_contact:'Contato',f_clients:'Clientes',f_made:'Projetado e desenvolvido pela Rupta Studios'
+}
 };
 
 function applyLang(lang){
