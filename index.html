@@ -3,1118 +3,492 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>RuptaStudios</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+<title>Rupta Studios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --black:#080808;
-  --black2:#0f0f0f;
-  --black3:#161616;
-  --black4:#1e1e1e;
-  --gold:#f5c842;
-  --gold2:#ffd95a;
-  --gold3:#ffe98a;
-  --gold-dim:#c9a330;
-  --purple:#7c3aed;
-  --purple2:#9d5cf0;
-  --purple3:#b47ff5;
-  --purple-dim:#4c1d95;
-  --white:#ffffff;
-  --white2:#f0ede8;
-  --muted:#5a5a5a;
-  --muted2:#8a8a8a;
-  --border:#242424;
-  --border2:#2e2e2e;
-  --r:10px;
-  --r-sm:6px;
-  --r-lg:16px;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--black);color:var(--white);
-  font-family:'Space Grotesk',sans-serif;
-  font-size:15px;line-height:1.6;
-  cursor:none;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* ── CURSOR ── */
-.cursor-ring{
-  position:fixed;width:36px;height:36px;
-  border:1.5px solid var(--gold);border-radius:50%;
-  pointer-events:none;z-index:9999;
-  transform:translate(-50%,-50%);
-  transition:width .3s,height .3s,border-color .3s,background .3s;
-  mix-blend-mode:normal;
-}
-.cursor-dot{
-  position:fixed;width:6px;height:6px;
-  background:var(--gold);border-radius:50%;
-  pointer-events:none;z-index:10000;
-  transform:translate(-50%,-50%);
-}
-.cursor-ring.hover{width:60px;height:60px;background:rgba(245,200,66,.06);border-color:var(--purple2);}
-
-/* ── SCROLL BAR ── */
-.scroll-bar{
-  position:fixed;top:0;left:0;height:3px;
-  background:linear-gradient(90deg,var(--purple),var(--gold));
-  z-index:1000;border-radius:0 3px 3px 0;
-  transition:width .1s linear;
-}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:16px;left:50%;transform:translateX(-50%);
-  z-index:500;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 24px;
-  background:rgba(8,8,8,.85);
-  backdrop-filter:blur(24px);
-  border:1px solid var(--border2);
-  border-radius:var(--r);
-  width:calc(100% - 48px);
-  max-width:1100px;
-  transition:all .3s;
-}
-nav.scrolled{background:rgba(8,8,8,.95);box-shadow:0 8px 40px rgba(0,0,0,.5);}
-
-/* LOGO */
-.logo{display:flex;align-items:center;gap:0;text-decoration:none;cursor:none;}
-.logo-text{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:20px;letter-spacing:.03em;
-  line-height:1;
-}
-.logo-rup{color:var(--white);}
-.logo-bolt-wrap{
-  display:inline-flex;align-items:center;
-  margin:0 1px;
-  position:relative;top:-1px;
-}
-.logo-ta{color:var(--white);}
-.logo-sub{
-  font-family:'Space Grotesk',sans-serif;
-  font-weight:300;font-size:8px;
-  letter-spacing:.35em;text-transform:uppercase;
-  color:var(--muted2);display:block;margin-top:2px;
-}
-
-.nav-links{display:flex;align-items:center;gap:4px;}
-.nav-btn{
-  background:none;border:none;
-  color:var(--muted2);font-family:'Space Grotesk',sans-serif;
-  font-size:13px;font-weight:500;letter-spacing:.02em;
-  cursor:none;padding:8px 14px;border-radius:var(--r-sm);
-  transition:all .2s;
-}
-.nav-btn:hover{color:var(--white);background:var(--black3);}
-.nav-btn.active{
-  color:var(--black);
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  font-weight:600;
-}
-
-.lang-btn{
-  background:var(--black3);border:1px solid var(--border2);
-  color:var(--muted2);font-family:'Space Grotesk',sans-serif;
-  font-size:12px;font-weight:600;letter-spacing:.08em;
-  padding:7px 14px;cursor:none;border-radius:var(--r-sm);
-  transition:all .2s;margin-left:8px;
-}
-.lang-btn:hover{border-color:var(--gold);color:var(--gold);}
-
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:4px;}
-.hamburger span{display:block;width:20px;height:1.5px;background:var(--white);border-radius:2px;transition:all .3s;}
-.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;}
-.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
-
-.mobile-menu{
-  display:none;position:fixed;inset:0;background:var(--black);
-  z-index:400;flex-direction:column;align-items:center;justify-content:center;gap:24px;
-}
-.mobile-menu.open{display:flex;}
-.mobile-menu .nav-btn{font-size:22px;padding:12px 24px;}
-
-/* ── PAGES ── */
-.page{display:none;min-height:100vh;padding-top:100px;animation:fadeIn .5s ease;}
-.page.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-
-.wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
-
-/* ── TYPOGRAPHY ── */
-.chip{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);
-  color:var(--purple3);font-size:12px;font-weight:600;letter-spacing:.08em;
-  text-transform:uppercase;padding:6px 14px;border-radius:100px;
-}
-.chip::before{content:'⚡';font-size:10px;}
-
-.h1{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:clamp(40px,6vw,82px);
-  line-height:.95;letter-spacing:-.02em;
-}
-.h2{
-  font-family:'Unbounded',sans-serif;font-weight:700;
-  font-size:clamp(28px,3.5vw,52px);
-  line-height:1;letter-spacing:-.02em;
-}
-.h3{
-  font-family:'Unbounded',sans-serif;font-weight:700;
-  font-size:22px;letter-spacing:-.01em;line-height:1.1;
-}
-.grad-text{
-  background:linear-gradient(135deg,var(--gold),var(--gold2),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.gold-text{color:var(--gold);}
-.muted{color:var(--muted2);}
-
-/* ── SECTION LABEL ── */
-.sec-label{
-  font-size:11px;font-weight:700;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--gold);
-  margin-bottom:16px;display:flex;align-items:center;gap:12px;
-}
-.sec-label::before{content:'';width:24px;height:2px;background:var(--gold);border-radius:2px;}
-
-/* ── BUTTONS ── */
-.btn{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:'Space Grotesk',sans-serif;font-weight:700;
-  font-size:14px;letter-spacing:.02em;
-  padding:14px 28px;border-radius:var(--r);
-  cursor:none;border:none;text-decoration:none;
-  transition:all .3s;position:relative;overflow:hidden;
-  white-space:nowrap;
-}
-.btn-gold{
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:var(--black);
-}
-.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(245,200,66,.35);}
-.btn-ghost{
-  background:transparent;color:var(--white);
-  border:1.5px solid var(--border2);
-}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
-.btn-purple{
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  color:var(--white);
-}
-.btn-purple:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(124,58,237,.4);}
-.btn .arrow{transition:transform .3s;}
-.btn:hover .arrow{transform:translateX(5px);}
-
-/* ── CARDS BASE ── */
-.card{
-  background:var(--black2);
-  border:1px solid var(--border2);
-  border-radius:var(--r);
-  overflow:hidden;
-  transition:all .4s cubic-bezier(.22,1,.36,1);
-}
-.card:hover{
-  border-color:rgba(245,200,66,.3);
-  transform:translateY(-6px);
-  box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 1px rgba(245,200,66,.08);
-}
-
-/* ── REVEAL ── */
-.rev{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
-.rev.on{opacity:1;transform:translateY(0);}
-.rev-l{opacity:0;transform:translateX(-24px);transition:opacity .65s ease,transform .65s ease;}
-.rev-l.on{opacity:1;transform:translateX(0);}
-.rev-r{opacity:0;transform:translateX(24px);transition:opacity .65s ease,transform .65s ease;}
-.rev-r.on{opacity:1;transform:translateX(0);}
-
-/* ══════════════════════════════════════
-   HOME
-══════════════════════════════════════ */
-.hero-section{
-  min-height:calc(100vh - 100px);
-  display:grid;grid-template-columns:1fr 420px;
-  gap:48px;align-items:center;
-  padding:40px 24px 80px;
-  max-width:1100px;margin:0 auto;
-  position:relative;
-}
-
-/* BG glow */
-.hero-glow{
-  position:absolute;pointer-events:none;
-  border-radius:50%;filter:blur(100px);
-}
-.glow-gold{width:500px;height:500px;background:radial-gradient(circle,rgba(245,200,66,.08) 0%,transparent 70%);top:-100px;left:-100px;}
-.glow-purple{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.1) 0%,transparent 70%);bottom:-100px;right:-100px;}
-
-.hero-left{position:relative;z-index:2;}
-.hero-eyebrow{margin-bottom:28px;opacity:0;animation:fadeIn .7s .1s forwards;}
-.hero-title{margin-bottom:24px;opacity:0;animation:fadeIn .7s .25s forwards;}
-.hero-title .line2{color:transparent;-webkit-text-stroke:2px var(--gold);}
-.hero-title .line3{
-  background:linear-gradient(135deg,var(--gold2),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.hero-desc{
-  color:var(--muted2);font-size:16px;line-height:1.8;
-  max-width:480px;margin-bottom:36px;
-  opacity:0;animation:fadeIn .7s .4s forwards;
-}
-.hero-ctas{
-  display:flex;gap:14px;flex-wrap:wrap;
-  opacity:0;animation:fadeIn .7s .55s forwards;
-}
-
-.hero-right{position:relative;z-index:2;opacity:0;animation:slideRight .8s .4s forwards;}
-@keyframes slideRight{from{opacity:0;transform:translateX(30px);}to{opacity:1;transform:translateX(0);}}
-
-.hero-card{
-  background:var(--black2);
-  border:1px solid var(--border2);
-  border-radius:var(--r-lg);
-  padding:32px;
-  position:relative;overflow:hidden;
-}
-.hero-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--purple),var(--gold));
-  border-radius:var(--r-lg) var(--r-lg) 0 0;
-}
-.hero-card-title{
-  font-family:'Unbounded',sans-serif;font-weight:700;
-  font-size:13px;letter-spacing:.05em;color:var(--muted2);
-  text-transform:uppercase;margin-bottom:24px;
-}
-.metric-row{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 0;border-bottom:1px solid var(--border);
-}
-.metric-row:last-of-type{border-bottom:none;}
-.metric-label{font-size:13px;color:var(--muted2);}
-.metric-val{
-  font-family:'Unbounded',sans-serif;font-weight:700;
-  font-size:14px;color:var(--gold);
-}
-.metric-bar-wrap{flex:1;height:3px;background:var(--border2);border-radius:3px;margin:0 14px;overflow:hidden;}
-.metric-bar{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--purple),var(--gold));width:0;transition:width 1.5s ease;}
-.hero-card-footer{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:12px;margin-top:28px;padding-top:24px;
-  border-top:1px solid var(--border);
-}
-.hcf-item{text-align:center;}
-.hcf-num{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:26px;background:linear-gradient(135deg,var(--gold),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  line-height:1;margin-bottom:4px;
-}
-.hcf-label{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;}
-
-.stats-row{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--border);
-  border-top:1px solid var(--border);
-  border-radius:0;
-}
-.stat-cell{
-  background:var(--black);padding:36px 32px;
-  transition:background .3s;
-}
-.stat-cell:first-child{border-radius:0 0 0 var(--r);}
-.stat-cell:last-child{border-radius:0 0 var(--r) 0;}
-.stat-cell:hover{background:var(--black2);}
-.stat-num{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:48px;line-height:1;margin-bottom:8px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.stat-label{font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;}
-
-/* ══════════════════════════════════════
-   ABOUT
-══════════════════════════════════════ */
-.about-wrap{padding:60px 0 80px;}
-.about-top{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:64px;align-items:center;
-  margin-bottom:64px;padding-bottom:64px;
-  border-bottom:1px solid var(--border);
-}
-.about-desc{color:var(--muted2);font-size:15px;line-height:1.9;}
-.about-desc p+p{margin-top:16px;}
-.about-desc strong{color:var(--gold);font-weight:600;}
-
-.values-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
-  margin-bottom:64px;
-}
-.value-card{
-  background:var(--black2);border:1px solid var(--border2);
-  border-radius:var(--r);padding:32px;
-  transition:all .35s;position:relative;overflow:hidden;
-}
-.value-card::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--purple),var(--gold));
-  border-radius:0 0 var(--r) var(--r);
-  transform:scaleX(0);transform-origin:left;transition:transform .4s;
-}
-.value-card:hover{border-color:rgba(245,200,66,.25);transform:translateY(-4px);}
-.value-card:hover::after{transform:scaleX(1);}
-.value-icon{font-size:28px;margin-bottom:16px;}
-.value-title{font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px;margin-bottom:10px;}
-.value-desc{color:var(--muted2);font-size:13px;line-height:1.8;}
-
-.skills-section{margin-top:0;}
-.skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
-.skill-pill{
-  background:var(--black3);border:1px solid var(--border2);
-  border-radius:100px;padding:8px 18px;
-  font-size:13px;font-weight:500;color:var(--muted2);
-  transition:all .25s;cursor:default;
-}
-.skill-pill:hover{border-color:var(--gold);color:var(--gold);background:rgba(245,200,66,.05);}
-
-/* ══════════════════════════════════════
-   SERVICES
-══════════════════════════════════════ */
-.services-wrap{padding:60px 0 80px;}
-.services-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:16px;margin-top:48px;margin-bottom:48px;
-}
-.service-card{
-  background:var(--black2);border:1px solid var(--border2);
-  border-radius:var(--r);padding:36px 28px;
-  transition:all .4s cubic-bezier(.22,1,.36,1);
-  position:relative;overflow:hidden;
-  display:flex;flex-direction:column;
-}
-.service-card::before{
-  content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
-  background:linear-gradient(180deg,var(--purple),var(--gold));
-  border-radius:var(--r) 0 0 var(--r);
-  transform:scaleY(0);transform-origin:top;transition:transform .4s;
-}
-.service-card:hover{
-  border-color:rgba(124,58,237,.4);transform:translateY(-8px);
-  box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 40px rgba(124,58,237,.1);
-}
-.service-card:hover::before{transform:scaleY(1);}
-.service-num{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:36px;color:var(--border2);line-height:1;
-  margin-bottom:20px;transition:color .3s;
-}
-.service-card:hover .service-num{
-  background:linear-gradient(135deg,var(--gold),var(--purple3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.service-title{
-  font-family:'Unbounded',sans-serif;font-weight:700;
-  font-size:18px;margin-bottom:14px;line-height:1.2;
-}
-.service-desc{color:var(--muted2);font-size:13px;line-height:1.8;flex:1;margin-bottom:24px;}
-.service-tags{display:flex;flex-wrap:wrap;gap:6px;}
-.service-tag{
-  background:var(--black3);border:1px solid var(--border);
-  border-radius:100px;padding:4px 12px;
-  font-size:11px;color:var(--muted2);font-weight:500;
-}
-
-.cta-banner{
-  background:linear-gradient(135deg,var(--black2) 0%,rgba(124,58,237,.15) 50%,rgba(245,200,66,.05) 100%);
-  border:1px solid var(--border2);border-radius:var(--r-lg);
-  padding:56px 48px;text-align:center;
-  position:relative;overflow:hidden;
-  margin-top:24px;
-}
-.cta-banner::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--purple),var(--gold),var(--purple));
-}
-.cta-banner::after{
-  content:'⚡';position:absolute;right:40px;bottom:24px;
-  font-size:80px;opacity:.04;line-height:1;
-}
-.cta-banner h3{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:clamp(22px,3vw,38px);margin-bottom:14px;
-}
-.cta-banner p{color:var(--muted2);font-size:15px;margin-bottom:32px;}
-.cta-btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-
-/* ══════════════════════════════════════
-   PORTFOLIO
-══════════════════════════════════════ */
-.portfolio-wrap{padding:60px 0 80px;}
-.portfolio-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:24px;margin-top:48px;
-}
-.proj-card{
-  background:var(--black2);border:1px solid var(--border2);
-  border-radius:var(--r-lg);overflow:hidden;
-  transition:all .4s cubic-bezier(.22,1,.36,1);
-  display:flex;flex-direction:column;
-}
-.proj-card:hover{
-  border-color:rgba(245,200,66,.3);
-  transform:translateY(-8px);
-  box-shadow:0 24px 60px rgba(0,0,0,.6),0 0 0 1px rgba(245,200,66,.06);
-}
-
-/* BROWSER PREVIEW */
-.proj-preview{position:relative;height:210px;background:var(--black);overflow:hidden;}
-.browser-bar{
-  position:absolute;top:0;left:0;right:0;
-  background:var(--black3);padding:10px 14px;
-  display:flex;align-items:center;gap:10px;
-  border-bottom:1px solid var(--border);z-index:3;
-}
-.b-dot{width:9px;height:9px;border-radius:50%;}
-.b-dot.r{background:#ff5f57;}.b-dot.y{background:#ffbd2e;}.b-dot.g{background:#28ca41;}
-.b-url{
-  flex:1;background:var(--black4);border:1px solid var(--border);
-  border-radius:6px;padding:4px 12px;font-size:11px;color:var(--muted2);
-  letter-spacing:.03em;font-family:monospace;
-}
-.iframe-wrap{
-  position:absolute;top:36px;left:0;right:0;bottom:0;
-  overflow:hidden;
-}
-.iframe-wrap iframe{
-  width:200%;height:200%;transform:scale(.5);transform-origin:top left;
-  border:none;pointer-events:none;
-}
-.preview-shield{
-  position:absolute;inset:0;z-index:2;
-  background:transparent;transition:background .3s;
-}
-.proj-card:hover .preview-shield{background:rgba(124,58,237,.04);}
-.preview-placeholder{
-  position:absolute;inset:0;display:flex;
-  align-items:center;justify-content:center;
-  color:var(--muted);font-size:12px;letter-spacing:.05em;z-index:1;
-}
-
-.proj-body{padding:24px 26px 28px;flex:1;display:flex;flex-direction:column;}
-.proj-index{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.15em;margin-bottom:12px;}
-.proj-title{
-  font-family:'Unbounded',sans-serif;font-weight:700;
-  font-size:20px;margin-bottom:10px;line-height:1.2;
-}
-.proj-desc{color:var(--muted2);font-size:13px;line-height:1.8;flex:1;margin-bottom:18px;}
-.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
-.proj-tag{
-  background:var(--black3);border:1px solid var(--border);
-  border-radius:100px;padding:3px 11px;font-size:11px;color:var(--muted2);
-}
-.proj-link{
-  display:inline-flex;align-items:center;gap:8px;
-  color:var(--gold);text-decoration:none;font-size:13px;font-weight:700;
-  letter-spacing:.03em;transition:gap .2s,opacity .2s;margin-top:auto;
-}
-.proj-link:hover{gap:14px;opacity:.75;}
-
-/* ══════════════════════════════════════
-   PROCESS
-══════════════════════════════════════ */
-.process-wrap{padding:60px 0 80px;}
-.process-intro-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:64px;
-  align-items:center;margin-bottom:64px;
-  padding-bottom:64px;border-bottom:1px solid var(--border);
-}
-.steps-list{display:flex;flex-direction:column;gap:0;}
-.step{
-  display:grid;grid-template-columns:72px 1fr;gap:28px;
-  padding:36px 0;border-bottom:1px solid var(--border);
-  align-items:start;transition:all .3s;
-  border-radius:0;
-}
-.step:first-child{border-top:1px solid var(--border);}
-.step:hover{padding-left:12px;}
-.step-num{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:44px;color:var(--border2);line-height:1;
-  transition:color .3s;
-}
-.step:hover .step-num{color:var(--gold);}
-.step-title{
-  font-family:'Unbounded',sans-serif;font-weight:700;
-  font-size:18px;margin-bottom:10px;transition:color .3s;
-}
-.step:hover .step-title{color:var(--gold);}
-.step-desc{color:var(--muted2);font-size:13px;line-height:1.9;}
-.step-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
-.step-tag{
-  background:var(--black3);border:1px solid var(--border);
-  border-radius:100px;padding:3px 11px;font-size:11px;color:var(--muted);
-  transition:all .2s;
-}
-.step-tag:hover{border-color:var(--purple3);color:var(--purple3);}
-
-/* ══════════════════════════════════════
-   CONTACT
-══════════════════════════════════════ */
-.contact-wrap{padding:60px 0 80px;}
-.contact-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:48px;
-  margin-top:48px;
-}
-.contact-left{}
-.contact-title{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:clamp(28px,3vw,44px);margin-bottom:16px;line-height:1.1;
-}
-.contact-desc{color:var(--muted2);font-size:15px;line-height:1.8;margin-bottom:36px;}
-.contact-details{display:flex;flex-direction:column;gap:0;}
-.cd-item{
-  display:flex;flex-direction:column;gap:4px;
-  padding:18px 0;border-bottom:1px solid var(--border);
-}
-.cd-item:first-child{border-top:1px solid var(--border);}
-.cd-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);}
-.cd-val{
-  font-family:'Unbounded',sans-serif;font-size:15px;font-weight:700;
-  color:var(--white);text-decoration:none;transition:color .2s;
-}
-.cd-val:hover{color:var(--gold);}
-
-/* FORM */
-.form-box{
-  background:var(--black2);border:1px solid var(--border2);
-  border-radius:var(--r-lg);padding:36px;
-}
-.form-box .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
-.f-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);}
-.f-input,.f-select,.f-textarea{
-  background:var(--black3);border:1.5px solid var(--border2);
-  color:var(--white);font-family:'Space Grotesk',sans-serif;
-  font-size:14px;padding:13px 16px;
-  border-radius:var(--r-sm);outline:none;
-  transition:border-color .2s;appearance:none;
-}
-.f-input:focus,.f-select:focus,.f-textarea:focus{border-color:var(--gold);}
-.f-input::placeholder,.f-textarea::placeholder{color:var(--muted);}
-.f-select{cursor:none;}
-.f-textarea{resize:vertical;min-height:110px;}
-.f-note{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:20px;}
-.f-submit{
-  width:100%;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:var(--black);font-family:'Space Grotesk',sans-serif;
-  font-weight:700;font-size:14px;letter-spacing:.04em;
-  border:none;padding:15px 28px;border-radius:var(--r-sm);
-  cursor:none;transition:all .3s;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  position:relative;overflow:hidden;
-}
-.f-submit::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,var(--purple),var(--purple2));
-  opacity:0;transition:opacity .3s;
-}
-.f-submit:hover::before{opacity:1;}
-.f-submit:hover{color:var(--white);box-shadow:0 8px 24px rgba(124,58,237,.4);}
-.f-submit span{position:relative;z-index:1;}
-.form-success{
-  display:none;
-  background:rgba(124,58,237,.12);
-  border:1px solid rgba(124,58,237,.3);
-  border-radius:var(--r-sm);padding:20px 24px;
-  font-size:14px;color:var(--purple3);
-  text-align:center;
-}
-
-/* FAQ */
-.faq-wrap{margin-top:80px;padding-top:60px;border-top:1px solid var(--border);}
-.faq-grid{margin-top:32px;}
-.faq-item{border-bottom:1px solid var(--border);}
-.faq-item:first-child{border-top:1px solid var(--border);}
-.faq-q{
-  width:100%;background:none;border:none;
-  color:var(--white);font-family:'Space Grotesk',sans-serif;
-  font-weight:600;font-size:16px;
-  text-align:left;padding:24px 0;cursor:none;
-  display:flex;justify-content:space-between;align-items:center;gap:20px;
-  transition:color .2s;
-}
-.faq-q:hover{color:var(--gold);}
-.faq-icon{
-  width:28px;height:28px;border-radius:50%;
-  background:var(--black3);border:1px solid var(--border2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;color:var(--gold);transition:all .35s;flex-shrink:0;
-}
-.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--gold);color:var(--black);}
-.faq-ans{max-height:0;overflow:hidden;transition:max-height .4s ease;}
-.faq-ans-inner{color:var(--muted2);font-size:14px;line-height:1.9;padding-bottom:24px;}
-
-/* ── WHATSAPP ── */
-.wa{
-  position:fixed;bottom:28px;right:28px;z-index:600;
-  width:56px;height:56px;border-radius:50%;
-  background:#25D366;display:flex;align-items:center;justify-content:center;
-  text-decoration:none;cursor:none;
-  box-shadow:0 4px 20px rgba(37,211,102,.35);
-  transition:transform .3s,box-shadow .3s;
-}
-.wa:hover{transform:scale(1.1);box-shadow:0 8px 32px rgba(37,211,102,.5);}
-.wa-tip{
-  position:absolute;right:68px;
-  background:var(--black2);border:1px solid var(--border2);
-  border-radius:var(--r-sm);
-  color:var(--white);font-size:12px;font-weight:600;
-  padding:8px 14px;white-space:nowrap;
-  opacity:0;pointer-events:none;transition:opacity .2s;
-}
-.wa:hover .wa-tip{opacity:1;}
-
-/* ── FOOTER ── */
-footer{
-  border-top:1px solid var(--border);
-  padding:28px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-  color:var(--muted);font-size:12px;flex-wrap:wrap;gap:12px;
-  max-width:1100px;margin:0 auto;
-}
-.footer-logo{
-  font-family:'Unbounded',sans-serif;font-weight:900;
-  font-size:16px;color:var(--border2);
-}
-
-/* ── RESPONSIVE ── */
+  --p:#7c3aed;--pl:#a855f7;--pp:#c084fc;--pk:#ec4899;
+  --bg:#06040e;--s:rgba(255,255,255,.035);--b:rgba(255,255,255,.07);
+  --t:#e2e8f0;--m:#64748b;--m2:#94a3b8;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t);overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--p);border-radius:2px}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.45}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;transition:background .35s,border-color .35s}
+nav.scrolled{background:rgba(6,4,14,.94);backdrop-filter:blur(22px);border-bottom:1px solid rgba(168,85,247,.16)}
+.logo{font-size:18px;font-weight:900;letter-spacing:-.8px;color:#fff;background:none;border:none}
+.logo span{background:linear-gradient(135deg,var(--p),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-link{background:none;border:1px solid transparent;color:var(--m2);padding:7px 13px;border-radius:7px;font-size:13px;font-weight:500;transition:all .2s}
+.nav-link:hover{color:var(--t);background:rgba(255,255,255,.05)}
+.nav-link.active{color:var(--pp);background:rgba(124,58,237,.2);border-color:rgba(168,85,247,.3)}
+.nav-right{display:flex;align-items:center;gap:8px;margin-left:6px}
+.lang-switcher{display:flex;gap:3px}
+.lang-btn{background:none;border:1px solid rgba(255,255,255,.1);color:var(--m);padding:5px 9px;border-radius:6px;font-size:11.5px;font-weight:600;letter-spacing:.5px;transition:all .2s}
+.lang-btn:hover{border-color:rgba(168,85,247,.4);color:var(--pp)}
+.lang-btn.active{background:rgba(124,58,237,.2);border-color:rgba(168,85,247,.45);color:var(--pp)}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:12px 26px;border-radius:50px;font-weight:700;font-size:14px;border:none;transition:all .3s;cursor:pointer;letter-spacing:.2px}
+.btn-primary{background:linear-gradient(135deg,var(--p),var(--pl));color:#fff;box-shadow:0 0 26px rgba(168,85,247,.35)}
+.btn-primary:hover{transform:scale(1.05);box-shadow:0 0 50px rgba(168,85,247,.6)}
+.btn-outline{background:transparent;color:var(--pl);border:1.5px solid var(--pl);box-shadow:0 0 15px rgba(168,85,247,.14)}
+.btn-outline:hover{transform:scale(1.05);background:rgba(124,58,237,.1);box-shadow:0 0 36px rgba(168,85,247,.4)}
+.btn-sm{padding:8px 18px;font-size:13px}
+.hamburger{display:none;background:none;border:1px solid rgba(168,85,247,.3);border-radius:7px;padding:7px 10px;color:var(--pl)}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:999;background:rgba(6,4,14,.97);backdrop-filter:blur(22px);flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.mobile-menu.open{display:flex}
+.mobile-close{position:absolute;top:18px;right:22px;background:none;border:none;color:var(--pl);font-size:26px}
+.mobile-link{background:none;border:none;color:var(--t);font-size:25px;font-weight:800;padding:6px 0}
+.mobile-lang{display:flex;gap:10px;margin-top:22px}
+.page{display:none;min-height:100vh;padding-top:64px;position:relative;z-index:1}
+.page.active{display:block}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 80px;text-align:center}
+.hero-inner{max-width:800px;width:100%}
+.badge{display:inline-block;background:rgba(124,58,237,.14);border:1px solid rgba(168,85,247,.28);border-radius:50px;padding:5px 18px;font-size:11.5px;color:var(--pl);letter-spacing:2px;text-transform:uppercase;margin-bottom:26px}
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;line-height:1.07;margin-bottom:20px;color:#fff;letter-spacing:-2px}
+.grad{background:linear-gradient(135deg,var(--p),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:17px;color:var(--m2);line-height:1.8;max-width:560px;margin:0 auto 40px}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.stats{padding:54px 24px;background:rgba(124,58,237,.05);border-top:1px solid rgba(168,85,247,.1);border-bottom:1px solid rgba(168,85,247,.1)}
+.stats-grid{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:34px;text-align:center}
+.stat-num{font-size:2.7rem;font-weight:900;color:var(--pl)}
+.stat-lbl{color:var(--m);font-size:12px;margin-top:5px;letter-spacing:1px;text-transform:uppercase}
+.section{padding:88px 24px;max-width:1100px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:54px}
+.sec-head .badge{margin-bottom:14px}
+.sec-head h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:#fff;margin-bottom:10px}
+.sec-head p{color:var(--m);font-size:15px;max-width:500px;margin:0 auto;line-height:1.7}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:18px}
+.card{background:var(--s);border:1px solid var(--b);border-radius:18px;padding:30px 24px;transition:all .3s}
+.card:hover{background:rgba(124,58,237,.11);border-color:rgba(168,85,247,.42);transform:translateY(-5px);box-shadow:0 16px 52px rgba(124,58,237,.16)}
+.card-icon{width:42px;height:42px;background:rgba(124,58,237,.18);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+.card-icon svg{width:21px;height:21px;stroke:var(--pl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card h3{color:#fff;font-size:16.5px;font-weight:700;margin-bottom:8px}
+.card p{color:var(--m);font-size:13.5px;line-height:1.75}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
+.tag{background:rgba(124,58,237,.18);color:var(--pp);padding:3px 11px;border-radius:20px;font-size:11px;border:1px solid rgba(168,85,247,.22)}
+.cta-banner{padding:74px 24px;background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(236,72,153,.08));border-top:1px solid rgba(168,85,247,.16);border-bottom:1px solid rgba(168,85,247,.16);text-align:center}
+.cta-banner h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;color:#fff;margin-bottom:12px}
+.cta-banner p{color:var(--m2);margin-bottom:30px;font-size:16px}
+.port-list{display:flex;flex-direction:column;gap:22px}
+.port-item{background:var(--s);border:1px solid var(--b);border-radius:20px;padding:34px 30px;display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;transition:all .3s}
+.port-item:hover{transform:translateY(-4px)}
+.port-icon{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.port-icon svg{width:28px;height:28px;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.port-info{flex:1;min-width:220px}
+.port-title-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.port-info h2{color:#fff;font-size:19px;font-weight:800}
+.port-cat{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
+.port-info p{color:var(--m);font-size:14px;line-height:1.75;margin-bottom:13px}
+.port-link{font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:5px;transition:opacity .2s}
+.port-link:hover{opacity:.7}
+.port-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));gap:18px;align-items:start}
+.plan-card{background:var(--s);border:2px solid var(--b);border-radius:20px;padding:38px 26px;position:relative;overflow:hidden}
+.plan-card.featured{background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(168,85,247,.08));border-color:var(--pl);box-shadow:0 0 52px rgba(168,85,247,.15)}
+.plan-badge{position:absolute;top:15px;right:15px;background:linear-gradient(135deg,var(--p),var(--pl));color:#fff;padding:3px 11px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1px}
+.plan-icon{width:48px;height:48px;background:rgba(124,58,237,.16);border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.plan-icon svg{width:24px;height:24px;stroke:var(--pl);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.plan-name{font-size:23px;font-weight:800;margin-bottom:6px}
+.plan-desc{color:var(--m);font-size:13px;margin-bottom:22px;line-height:1.6}
+.plan-list{list-style:none;margin-bottom:28px}
+.plan-list li{color:var(--m2);font-size:13.5px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:9px}
+.plan-list li svg{width:14px;height:14px;flex-shrink:0;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.plan-cta{width:100%;justify-content:center}
+.custom-plan{margin-top:44px;padding:42px 34px;background:rgba(124,58,237,.07);border:1px solid rgba(168,85,247,.17);border-radius:20px;text-align:center}
+.custom-plan-icon{width:52px;height:52px;background:rgba(124,58,237,.18);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.custom-plan-icon svg{width:26px;height:26px;stroke:var(--pl);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.custom-plan h2{color:#fff;font-size:21px;font-weight:800;margin-bottom:8px}
+.custom-plan p{color:var(--m);max-width:460px;margin:0 auto 24px;line-height:1.75;font-size:14.5px}
+.founder-card{background:rgba(124,58,237,.07);border:1px solid rgba(168,85,247,.18);border-radius:24px;padding:40px 36px;margin-bottom:52px;display:flex;gap:34px;align-items:flex-start;flex-wrap:wrap}
+.founder-avatar{width:86px;height:86px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pk));display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 0 32px rgba(168,85,247,.33)}
+.founder-role{color:var(--pl);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:5px}
+.founder-name{color:#fff;font-size:23px;font-weight:800;margin-bottom:10px}
+.founder-bio{color:var(--m);font-size:14.5px;line-height:1.8}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:15px;margin-bottom:52px}
+.value-card{background:var(--s);border:1px solid var(--b);border-radius:15px;padding:24px 18px;text-align:center}
+.value-icon{width:44px;height:44px;background:rgba(124,58,237,.16);border-radius:11px;display:flex;align-items:center;justify-content:center;margin:0 auto 13px}
+.value-icon svg{width:21px;height:21px;stroke:var(--pl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.value-card h3{color:#fff;font-size:14.5px;font-weight:700;margin-bottom:6px}
+.value-card p{color:var(--m);font-size:12.5px;line-height:1.7}
+.timeline{position:relative;padding-left:34px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--p),var(--pk),transparent)}
+.tl-item{position:relative;padding-bottom:28px}
+.tl-dot{position:absolute;left:-26px;top:5px;width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--pl));box-shadow:0 0 10px rgba(168,85,247,.5)}
+.tl-year{color:var(--pl);font-weight:800;font-size:14px}
+.tl-text{color:var(--m);font-size:14px;margin-top:3px;line-height:1.65}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:28px;align-items:start}
+.contact-card{background:var(--s);border:1px solid var(--b);border-radius:13px;padding:15px 18px;display:flex;gap:13px;align-items:center;text-decoration:none;transition:all .2s;margin-bottom:11px}
+.contact-card:hover{border-color:rgba(168,85,247,.38);background:rgba(124,58,237,.09);transform:translateX(4px)}
+.contact-card-icon{width:38px;height:38px;background:rgba(124,58,237,.16);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-card-icon svg{width:18px;height:18px;stroke:var(--pl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.contact-card-lbl{color:var(--pl);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.contact-card-val{color:var(--t);font-weight:600;font-size:13.5px}
+.contact-note{background:rgba(124,58,237,.06);border:1px solid rgba(168,85,247,.15);border-radius:11px;padding:16px 18px}
+.contact-note p{color:var(--m);font-size:13px;line-height:1.85}
+.form-box{background:var(--s);border:1px solid var(--b);border-radius:18px;padding:32px 28px}
+.form-box h3{color:#fff;font-size:17px;font-weight:700;margin-bottom:22px}
+.form-group{margin-bottom:15px}
+.form-group label{display:block;color:var(--m2);font-size:12px;letter-spacing:.3px;margin-bottom:6px}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:9px;padding:11px 13px;color:var(--t);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s;resize:vertical}
+.form-group select{cursor:pointer}
+.form-group select option{background:#1e1b2e;color:var(--t)}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--pl)}
+.form-success{text-align:center;padding:34px 0}
+.form-success svg{width:48px;height:48px;stroke:var(--pl);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:12px;display:block;margin-left:auto;margin-right:auto}
+.form-success h3{color:#fff;font-size:18px;font-weight:700;margin-bottom:6px}
+.form-success p{color:var(--m)}
+footer{background:rgba(0,0,0,.48);border-top:1px solid rgba(168,85,247,.1);padding:54px 40px 24px;position:relative;z-index:1}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:36px;margin-bottom:38px}
+.footer-logo{font-size:16px;font-weight:900;letter-spacing:-.5px;color:#fff;margin-bottom:9px}
+.footer-desc{color:#475569;font-size:12.5px;line-height:1.75;margin-bottom:15px}
+.footer-socials{display:flex;gap:8px}
+.footer-social{width:34px;height:34px;border-radius:50%;background:rgba(124,58,237,.14);border:1px solid rgba(168,85,247,.2);display:flex;align-items:center;justify-content:center;transition:all .2s}
+.footer-social:hover{background:rgba(124,58,237,.32);transform:scale(1.1)}
+.footer-social svg{width:15px;height:15px;stroke:var(--pl);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.footer-col h4{color:var(--t);font-size:13px;font-weight:700;margin-bottom:12px}
+.footer-link{display:block;color:#475569;font-size:12.5px;padding:3.5px 0;transition:color .2s;background:none;border:none;text-align:left;cursor:pointer;font-family:inherit}
+.footer-link:hover{color:var(--pl)}
+.footer-bottom{max-width:1100px;margin:0 auto;border-top:1px solid rgba(255,255,255,.05);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:7px}
+.footer-bottom span{color:#334155;font-size:11.5px}
+.float-wa{position:fixed;bottom:22px;right:22px;z-index:900;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(37,211,102,.3);transition:all .3s}
+.float-wa:hover{transform:scale(1.12);box-shadow:0 0 40px rgba(37,211,102,.55)}
+.float-wa svg{width:24px;height:24px;fill:#fff}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s,transform .6s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+.d4{transition-delay:.28s}.d5{transition-delay:.35s}.d6{transition-delay:.42s}
 @media(max-width:900px){
-  nav{top:10px;width:calc(100% - 24px);padding:12px 16px;}
-  .nav-links{display:none;}
-  .hamburger{display:flex;}
-  .hero-section{grid-template-columns:1fr;padding:20px 20px 60px;}
-  .hero-right{display:none;}
-  .wrap{padding:0 20px;}
-  .stats-row{grid-template-columns:1fr;}
-  .stat-cell:first-child{border-radius:0;}
-  .stat-cell:last-child{border-radius:0 0 var(--r) var(--r);}
-  .about-top,.process-intro-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
-  .values-grid,.services-grid{grid-template-columns:1fr;}
-  .portfolio-grid{grid-template-columns:1fr;}
-  .form-box .form-row{grid-template-columns:1fr;}
-  footer{padding:24px 20px;}
+  nav{padding:0 18px}
+  .nav-links{display:none}
+  .hamburger{display:flex;align-items:center;justify-content:center}
+  .contact-grid{grid-template-columns:1fr}
+  .founder-card{padding:24px 18px}
+  .port-item{padding:24px 18px;gap:18px}
+  .form-box{padding:24px 16px}
+  footer{padding:42px 18px 20px}
+  .footer-bottom{flex-direction:column;gap:4px}
+  .section{padding:60px 16px}
+  .hero{padding:88px 16px 60px}
+}
+@media(max-width:480px){
+  .hero h1{letter-spacing:-1px}
+  .btn{padding:11px 20px;font-size:13.5px}
+  .stat-num{font-size:2.2rem}
+  .plan-card{padding:28px 18px}
+  .custom-plan{padding:30px 18px}
+  .port-icon{width:48px;height:48px}
+  .port-info h2{font-size:16px}
+  .hero p{font-size:15.5px}
 }
 </style>
 </head>
 <body>
+<canvas id="particles"></canvas>
 
-<!-- CURSOR -->
-<div class="cursor-ring" id="cRing"></div>
-<div class="cursor-dot" id="cDot"></div>
-<div class="scroll-bar" id="scrollBar"></div>
-
-<!-- WHATSAPP -->
-<a href="https://wa.me/TUNUMERO" target="_blank" class="wa">
-  <span class="wa-tip" data-es="Hablemos 💬" data-en="Let's talk 💬">Hablemos 💬</span>
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
-<!-- NAV -->
 <nav id="navbar">
-  <a href="#" class="logo" onclick="showPage('home');return false;">
-    <span class="logo-text">
-      <span class="logo-rup">RUP</span><!--
-      --><span class="logo-bolt-wrap">
-        <svg width="18" height="28" viewBox="0 0 18 28" fill="none">
-          <polygon points="12,0 18,0 8,14 15,14 3,28 9,14 2,14" fill="url(#lg1)"/>
-          <defs>
-            <linearGradient id="lg1" x1="3" y1="0" x2="15" y2="28" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#f5c842"/>
-              <stop offset="100%" stop-color="#9d5cf0"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </span><!--
-      --><span class="logo-ta">TA</span>
-    </span>
-  </a>
-  <div class="nav-links" id="navLinks">
-    <button class="nav-btn active" onclick="showPage('home')" data-page="home">Inicio</button>
-    <button class="nav-btn" onclick="showPage('about')" data-page="about">Nosotros</button>
-    <button class="nav-btn" onclick="showPage('services')" data-page="services">Servicios</button>
-    <button class="nav-btn" onclick="showPage('portfolio')" data-page="portfolio">Portafolio</button>
-    <button class="nav-btn" onclick="showPage('process')" data-page="process">Proceso</button>
-    <button class="nav-btn" onclick="showPage('contact')" data-page="contact">Contacto</button>
-    <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+  <button class="logo" onclick="showPage('inicio')">RUPTA <span>STUDIOS</span></button>
+  <div class="nav-links">
+    <button class="nav-link active" data-page="inicio" onclick="showPage('inicio')" data-i18n="nav_inicio">Inicio</button>
+    <button class="nav-link" data-page="servicios" onclick="showPage('servicios')" data-i18n="nav_servicios">Servicios</button>
+    <button class="nav-link" data-page="portafolio" onclick="showPage('portafolio')" data-i18n="nav_portafolio">Portafolio</button>
+    <button class="nav-link" data-page="planes" onclick="showPage('planes')" data-i18n="nav_planes">Planes</button>
+    <button class="nav-link" data-page="nosotros" onclick="showPage('nosotros')" data-i18n="nav_nosotros">Nosotros</button>
+    <button class="nav-link" data-page="contacto" onclick="showPage('contacto')" data-i18n="nav_contacto">Contacto</button>
+    <div class="nav-right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      </div>
+      <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-primary btn-sm" data-i18n="nav_cta">Contáctanos</a>
+    </div>
   </div>
-  <button class="hamburger" id="hbg" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <button class="hamburger" onclick="toggleMenu()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
   </button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <button class="nav-btn" onclick="showPage('home');toggleMenu()">Inicio</button>
-  <button class="nav-btn" onclick="showPage('about');toggleMenu()">Nosotros</button>
-  <button class="nav-btn" onclick="showPage('services');toggleMenu()">Servicios</button>
-  <button class="nav-btn" onclick="showPage('portfolio');toggleMenu()">Portafolio</button>
-  <button class="nav-btn" onclick="showPage('process');toggleMenu()">Proceso</button>
-  <button class="nav-btn" onclick="showPage('contact');toggleMenu()">Contacto</button>
-  <button class="lang-btn" style="margin:0" onclick="toggleLang()">EN</button>
+  <button class="mobile-close" onclick="toggleMenu()">&#x2715;</button>
+  <button class="mobile-link" onclick="showPage('inicio');toggleMenu()" data-i18n="nav_inicio">Inicio</button>
+  <button class="mobile-link" onclick="showPage('servicios');toggleMenu()" data-i18n="nav_servicios">Servicios</button>
+  <button class="mobile-link" onclick="showPage('portafolio');toggleMenu()" data-i18n="nav_portafolio">Portafolio</button>
+  <button class="mobile-link" onclick="showPage('planes');toggleMenu()" data-i18n="nav_planes">Planes</button>
+  <button class="mobile-link" onclick="showPage('nosotros');toggleMenu()" data-i18n="nav_nosotros">Nosotros</button>
+  <button class="mobile-link" onclick="showPage('contacto');toggleMenu()" data-i18n="nav_contacto">Contacto</button>
+  <div class="mobile-lang">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+  </div>
+  <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-primary" style="margin-top:14px" data-i18n="nav_cta">Contáctanos</a>
 </div>
 
-<!-- ════════════ HOME ════════════ -->
-<div class="page active" id="page-home">
-  <div class="hero-section">
-    <div class="hero-glow glow-gold"></div>
-    <div class="hero-glow glow-purple"></div>
-
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <span class="chip" data-es="Estudio Creativo Digital" data-en="Digital Creative Studio">Estudio Creativo Digital</span>
-      </div>
-      <h1 class="h1 hero-title">
-        <span class="line1">WE</span><br>
-        <span class="line2">BUILD</span><br>
-        <span class="line3">DIGITAL<br>WORLDS.</span>
-      </h1>
-      <p class="hero-desc" data-es="Diseño web, apps y gráfico con identidad real. No hacemos webs genéricas — construimos presencias digitales que comunican, convierten y se recuerdan." data-en="Web, app and graphic design with real identity. We don't make generic sites — we build digital presences that communicate, convert and are remembered.">
-        Diseño web, apps y gráfico con identidad real. No hacemos webs genéricas — construimos presencias digitales que comunican, convierten y se recuerdan.
-      </p>
-      <div class="hero-ctas">
-        <button class="btn btn-gold" onclick="showPage('contact')">
-          <span data-es="Cotizar proyecto" data-en="Get a quote">Cotizar proyecto</span>
-          <span class="arrow">→</span>
-        </button>
-        <button class="btn btn-ghost" onclick="showPage('portfolio')">
-          <span data-es="Ver portafolio" data-en="View work">Ver portafolio</span>
-        </button>
+<!-- ══ INICIO ══ -->
+<div id="page-inicio" class="page active">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="badge reveal" data-i18n="hero_badge">Diseño · Desarrollo · Resultados</div>
+      <h1 class="reveal d1" data-i18n="hero_h1">Creamos la web que<br><span class="grad">tu negocio merece</span></h1>
+      <p class="reveal d2" data-i18n="hero_p">Diseño web, branding y desarrollo que transforman tu presencia digital. Más de 5 años y 20+ clientes que confían en nosotros.</p>
+      <div class="btn-row reveal d3">
+        <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-primary" data-i18n="hero_cta1">Empieza tu proyecto</a>
+        <button class="btn btn-outline" onclick="showPage('portafolio')" data-i18n="hero_cta2">Ver portafolio</button>
       </div>
     </div>
-
-    <div class="hero-right">
-      <div class="hero-card">
-        <div class="hero-card-title" data-es="Métricas del estudio" data-en="Studio metrics">Métricas del estudio</div>
-        <div class="metric-row">
-          <span class="metric-label" data-es="Satisfacción" data-en="Satisfaction">Satisfacción</span>
-          <div class="metric-bar-wrap"><div class="metric-bar" id="mb1" style="width:95%"></div></div>
-          <span class="metric-val">95%</span>
-        </div>
-        <div class="metric-row">
-          <span class="metric-label" data-es="Entregas a tiempo" data-en="On-time delivery">Entregas a tiempo</span>
-          <div class="metric-bar-wrap"><div class="metric-bar" id="mb2" style="width:92%"></div></div>
-          <span class="metric-val">92%</span>
-        </div>
-        <div class="metric-row">
-          <span class="metric-label" data-es="Calidad de diseño" data-en="Design quality">Calidad de diseño</span>
-          <div class="metric-bar-wrap"><div class="metric-bar" id="mb3" style="width:100%"></div></div>
-          <span class="metric-val">100%</span>
-        </div>
-        <div class="hero-card-footer">
-          <div class="hcf-item"><div class="hcf-num">3+</div><div class="hcf-label" data-es="Proyectos" data-en="Projects">Proyectos</div></div>
-          <div class="hcf-item"><div class="hcf-num">3</div><div class="hcf-label" data-es="Disciplinas" data-en="Disciplines">Disciplinas</div></div>
-          <div class="hcf-item"><div class="hcf-num">∞</div><div class="hcf-label" data-es="Creatividad" data-en="Creativity">Creatividad</div></div>
-        </div>
-      </div>
+  </section>
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="reveal"><div class="stat-num" data-target="20" data-suffix="+">0+</div><div class="stat-lbl" data-i18n="stat1">Clientes satisfechos</div></div>
+      <div class="reveal d1"><div class="stat-num" data-target="5" data-suffix="+">0+</div><div class="stat-lbl" data-i18n="stat2">Años de experiencia</div></div>
+      <div class="reveal d2"><div class="stat-num" data-target="30" data-suffix="+">0+</div><div class="stat-lbl" data-i18n="stat3">Proyectos entregados</div></div>
+      <div class="reveal d3"><div class="stat-num" data-target="3" data-suffix="">0</div><div class="stat-lbl" data-i18n="stat4">Proyectos destacados</div></div>
+    </div>
+  </section>
+  <div class="section">
+    <div class="sec-head reveal">
+      <h2 data-i18n="home_serv_h">¿Qué hacemos?</h2>
+      <p data-i18n="home_serv_p">Todo lo que necesitas para dominar el mundo digital</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card reveal"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3 data-i18n="s1_t">Diseño Web</h3><p data-i18n="s1_p">Sitios únicos, rápidos y optimizados. Cada diseño convierte visitantes en clientes reales.</p></div>
+      <div class="card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 data-i18n="s2_t">Branding & Identidad</h3><p data-i18n="s2_p">Logos, sistemas de diseño y material gráfico que hacen tu marca reconocible e inolvidable.</p></div>
+      <div class="card reveal d2"><div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h3 data-i18n="s3_t">E-commerce</h3><p data-i18n="s3_p">Tiendas online completas con pasarelas de pago y experiencia de compra premium.</p></div>
+      <div class="card reveal d3"><div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 data-i18n="s4_t">SEO & Rendimiento</h3><p data-i18n="s4_p">Posiciona tu negocio en Google y atrae clientes de forma orgánica y sostenible.</p></div>
+      <div class="card reveal d4"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3 data-i18n="s5_t">Marketing Digital</h3><p data-i18n="s5_p">Estrategia de redes y campañas que generan resultados reales y medibles.</p></div>
+      <div class="card reveal d5"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3 data-i18n="s6_t">Mantenimiento</h3><p data-i18n="s6_p">Soporte técnico, actualizaciones y backups para que tu sitio nunca falle.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <button class="btn btn-outline" onclick="showPage('servicios')" data-i18n="home_serv_more">Ver todos los servicios</button>
     </div>
   </div>
-
-  <div style="max-width:1100px;margin:0 auto;padding:0 24px;">
-    <div class="stats-row rev">
-      <div class="stat-cell"><div class="stat-num">3+</div><div class="stat-label" data-es="Proyectos completados" data-en="Completed projects">Proyectos completados</div></div>
-      <div class="stat-cell"><div class="stat-num">100%</div><div class="stat-label" data-es="Diseño personalizado" data-en="Custom design">Diseño personalizado</div></div>
-      <div class="stat-cell"><div class="stat-num">3×</div><div class="stat-label" data-es="Disciplinas creativas" data-en="Creative disciplines">Disciplinas creativas</div></div>
+  <section class="cta-banner">
+    <div class="reveal">
+      <h2 data-i18n="cta_h">¿Listo para dar el siguiente paso?</h2>
+      <p data-i18n="cta_p">Conversemos y construimos juntos el plan perfecto para tu negocio.</p>
+      <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-primary" data-i18n="cta_btn">Contáctanos por WhatsApp</a>
     </div>
-  </div>
+  </section>
 </div>
 
-<!-- ════════════ ABOUT ════════════ -->
-<div class="page" id="page-about">
-  <div class="wrap">
-    <div class="about-wrap">
-      <div class="about-top">
-        <div class="rev-l">
-          <div class="sec-label" data-es="Quiénes Somos" data-en="About Us">Quiénes Somos</div>
-          <h2 class="h2" style="margin-bottom:0">Creatividad<br><span class="grad-text">con intención.</span></h2>
-        </div>
-        <div class="about-desc rev-r">
-          <p data-es="<strong>RuptaStudios</strong> es un estudio creativo independiente especializado en diseño web, desarrollo de apps y diseño gráfico. Nacimos para romper con lo genérico." data-en="<strong>RuptaStudios</strong> is an independent creative studio specializing in web design, app development and graphic design. We were born to break from the generic.">
-            <strong>RuptaStudios</strong> es un estudio creativo independiente especializado en diseño web, desarrollo de apps y diseño gráfico. Nacimos para romper con lo genérico.
-          </p>
-          <p data-es="Cada proyecto es único. Analizamos, escuchamos y diseñamos desde cero — sin plantillas, sin atajos, sin comprometer tu identidad." data-en="Every project is unique. We analyze, listen and design from scratch — no templates, no shortcuts, no compromising your identity.">
-            Cada proyecto es único. Analizamos, escuchamos y diseñamos desde cero — sin plantillas, sin atajos, sin comprometer tu identidad.
-          </p>
-          <p data-es="El diseño bien utilizado no solo se ve bien — transforma negocios." data-en="Design used well doesn't just look good — it transforms businesses.">
-            El diseño bien utilizado no solo se ve bien — transforma negocios.
-          </p>
-        </div>
-      </div>
-
-      <div class="sec-label" data-es="Nuestros valores" data-en="Our values">Nuestros valores</div>
-      <div class="values-grid">
-        <div class="value-card rev" style="transition-delay:.0s">
-          <div class="value-icon">⚡</div>
-          <div class="value-title" data-es="Identidad" data-en="Identity">Identidad</div>
-          <div class="value-desc" data-es="Cada cliente es diferente. Su presencia digital debe serlo también. Nunca duplicamos soluciones." data-en="Every client is different. Their digital presence should be too. We never duplicate solutions.">Cada cliente es diferente. Su presencia digital debe serlo también. Nunca duplicamos soluciones.</div>
-        </div>
-        <div class="value-card rev" style="transition-delay:.1s">
-          <div class="value-icon">💎</div>
-          <div class="value-title" data-es="Calidad" data-en="Quality">Calidad</div>
-          <div class="value-desc" data-es="No entregamos nada que no nos enorgullezca. Cada pixel, cada interacción, cada detalle importa." data-en="We don't deliver anything we're not proud of. Every pixel, every interaction, every detail matters.">No entregamos nada que no nos enorgullezca. Cada pixel, cada interacción, cada detalle importa.</div>
-        </div>
-        <div class="value-card rev" style="transition-delay:.2s">
-          <div class="value-icon">🎯</div>
-          <div class="value-title" data-es="Claridad" data-en="Clarity">Claridad</div>
-          <div class="value-desc" data-es="Comunicación directa, plazos reales, cero sorpresas. Sabemos lo que prometemos y lo cumplimos." data-en="Direct communication, real deadlines, zero surprises. We know what we promise and we deliver.">Comunicación directa, plazos reales, cero sorpresas. Sabemos lo que prometemos y lo cumplimos.</div>
-        </div>
-      </div>
-
-      <div class="skills-section rev">
-        <div class="sec-label" data-es="Herramientas & habilidades" data-en="Tools & skills">Herramientas & habilidades</div>
-        <div class="skills-grid">
-          <span class="skill-pill">HTML/CSS/JS</span><span class="skill-pill">UI/UX Design</span>
-          <span class="skill-pill">Branding</span><span class="skill-pill">Figma</span>
-          <span class="skill-pill">Adobe Suite</span><span class="skill-pill">App Design</span>
-          <span class="skill-pill">Motion Design</span><span class="skill-pill">Visual Identity</span>
-          <span class="skill-pill">E-Commerce</span><span class="skill-pill">Responsive Design</span>
-          <span class="skill-pill">Typography</span><span class="skill-pill">Social Media</span>
-        </div>
-      </div>
+<!-- ══ SERVICIOS ══ -->
+<div id="page-servicios" class="page">
+  <div class="section">
+    <div class="sec-head reveal">
+      <div class="badge" data-i18n="serv_badge">Lo que ofrecemos</div>
+      <h2 data-i18n="serv_h">Nuestros Servicios</h2>
+      <p data-i18n="serv_p">Soluciones digitales completas para llevar tu negocio al siguiente nivel</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card reveal"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3 data-i18n="sv1_t">Diseño Web</h3><p data-i18n="sv1_p">De landing pages a portales completos. Sitios rápidos, modernos y optimizados. Responsive en todos los dispositivos.</p><div class="tags"><span class="tag">UI/UX</span><span class="tag">React</span><span class="tag">Shopify</span><span class="tag">WordPress</span></div></div>
+      <div class="card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 data-i18n="sv2_t">Branding & Identidad Visual</h3><p data-i18n="sv2_p">Logos, guías de estilo y material gráfico. Construimos marcas que se reconocen y se recuerdan.</p><div class="tags"><span class="tag">Illustrator</span><span class="tag">Figma</span><span class="tag">Photoshop</span></div></div>
+      <div class="card reveal d2"><div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><h3 data-i18n="sv3_t">E-commerce</h3><p data-i18n="sv3_p">Tiendas online con pasarelas de pago, gestión de inventario y todo lo necesario para vender desde el primer día.</p><div class="tags"><span class="tag">Shopify</span><span class="tag">WooCommerce</span><span class="tag">Stripe</span></div></div>
+      <div class="card reveal d3"><div class="card-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 data-i18n="sv4_t">SEO & Posicionamiento</h3><p data-i18n="sv4_p">SEO técnico y de contenido para aparecer primero en Google y atraer clientes de manera orgánica y sostenible.</p><div class="tags"><span class="tag">SEO Técnico</span><span class="tag">Analytics</span><span class="tag">Core Web Vitals</span></div></div>
+      <div class="card reveal d4"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3 data-i18n="sv5_t">Marketing Digital</h3><p data-i18n="sv5_p">Redes sociales, Meta Ads y estrategia de contenido que genera resultados medibles para tu negocio.</p><div class="tags"><span class="tag">Meta Ads</span><span class="tag">Contenido</span><span class="tag">Estrategia</span></div></div>
+      <div class="card reveal d5"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3 data-i18n="sv6_t">Mantenimiento & Soporte</h3><p data-i18n="sv6_p">Actualizaciones, backups y monitoreo continuo para que tu web esté siempre al 100%.</p><div class="tags"><span class="tag">Soporte</span><span class="tag">Backups</span><span class="tag">Monitoreo</span></div></div>
+      <div class="card reveal"><div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 data-i18n="sv7_t">Seguridad Web</h3><p data-i18n="sv7_p">SSL, firewalls, protección contra malware y auditorías para proteger tu negocio en línea.</p><div class="tags"><span class="tag">SSL</span><span class="tag">Firewall</span><span class="tag">Auditorías</span></div></div>
+      <div class="card reveal d1"><div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3 data-i18n="sv8_t">Diseño UI/UX</h3><p data-i18n="sv8_p">Prototipado y wireframes que garantizan la mejor experiencia de usuario posible en cada proyecto.</p><div class="tags"><span class="tag">Figma</span><span class="tag">Prototipos</span><span class="tag">Testing</span></div></div>
+    </div>
+    <div style="text-align:center;margin-top:46px;padding:40px 24px;background:rgba(124,58,237,.07);border:1px solid rgba(168,85,247,.16);border-radius:18px" class="reveal">
+      <h2 style="color:#fff;font-size:20px;margin-bottom:8px" data-i18n="serv_cta_h">¿No ves lo que buscas?</h2>
+      <p style="color:var(--m);margin-bottom:22px;font-size:14px" data-i18n="serv_cta_p">Contáctanos y creamos la solución perfecta para tu proyecto.</p>
+      <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-primary" data-i18n="serv_cta_btn">Hablar con el equipo</a>
     </div>
   </div>
 </div>
 
-<!-- ════════════ SERVICES ════════════ -->
-<div class="page" id="page-services">
-  <div class="wrap">
-    <div class="services-wrap">
-      <div class="sec-label" data-es="Servicios" data-en="Services">Servicios</div>
-      <h2 class="h2"><span class="grad-text" data-es="Lo que hacemos." data-en="What we do.">Lo que hacemos.</span></h2>
-      <p class="muted" style="margin-top:12px;font-size:15px;" data-es="Tres disciplinas. Un solo estudio. Precio justo según tu proyecto." data-en="Three disciplines. One studio. Fair price for your project.">Tres disciplinas. Un solo estudio. Precio justo según tu proyecto.</p>
-
-      <div class="services-grid">
-        <div class="service-card rev" style="transition-delay:.0s">
-          <div class="service-num">01</div>
-          <h3 class="service-title" data-es="Diseño Web" data-en="Web Design">Diseño Web</h3>
-          <p class="service-desc" data-es="Sitios web a medida. Landing pages, portafolios, tiendas online, webs corporativas. Identidad visual propia, optimizados para todos los dispositivos." data-en="Custom websites. Landing pages, portfolios, online stores, corporate sites. Own visual identity, optimized for all devices.">Sitios web a medida. Landing pages, portafolios, tiendas online, webs corporativas. Identidad visual propia, optimizados para todos los dispositivos.</p>
-          <div class="service-tags">
-            <span class="service-tag">Landing Page</span><span class="service-tag">E-Commerce</span>
-            <span class="service-tag">Corporativo</span><span class="service-tag">Portafolio</span>
-          </div>
-        </div>
-        <div class="service-card rev" style="transition-delay:.1s">
-          <div class="service-num">02</div>
-          <h3 class="service-title" data-es="Apps & UI/UX" data-en="Apps & UI/UX">Apps & UI/UX</h3>
-          <p class="service-desc" data-es="Diseño de interfaces para apps móviles y web. Arquitectura de información, prototipos interactivos, sistemas de diseño completos y handoff." data-en="Interface design for mobile and web apps. Information architecture, interactive prototypes, complete design systems and handoff.">Diseño de interfaces para apps móviles y web. Arquitectura de información, prototipos interactivos, sistemas de diseño completos y handoff.</p>
-          <div class="service-tags">
-            <span class="service-tag">Mobile UI</span><span class="service-tag">Web App</span>
-            <span class="service-tag">Prototipo</span><span class="service-tag">UX Research</span>
-          </div>
-        </div>
-        <div class="service-card rev" style="transition-delay:.2s">
-          <div class="service-num">03</div>
-          <h3 class="service-title" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</h3>
-          <p class="service-desc" data-es="Identidad visual completa, logotipos, branding y piezas para redes sociales. Diseño que comunica quién eres antes de decir una sola palabra." data-en="Complete visual identity, logos, branding and social media pieces. Design that communicates who you are before you say a word.">Identidad visual completa, logotipos, branding y piezas para redes sociales. Diseño que comunica quién eres antes de decir una sola palabra.</p>
-          <div class="service-tags">
-            <span class="service-tag">Branding</span><span class="service-tag">Logotipo</span>
-            <span class="service-tag">Social Media</span><span class="service-tag">Print</span>
-          </div>
+<!-- ══ PORTAFOLIO ══ -->
+<div id="page-portafolio" class="page">
+  <div class="section">
+    <div class="sec-head reveal">
+      <div class="badge" data-i18n="port_badge">Trabajo real</div>
+      <h2 data-i18n="port_h">Portafolio</h2>
+      <p data-i18n="port_p">Proyectos que hablan por sí solos. Clientes que confían en nuestra visión y ejecución.</p>
+    </div>
+    <div class="port-list">
+      <div class="port-item reveal" onmouseenter="this.style.borderColor='rgba(245,158,11,.4)';this.style.background='rgba(245,158,11,.04)'" onmouseleave="this.style.borderColor='var(--b)';this.style.background='var(--s)'">
+        <div class="port-icon" style="background:rgba(245,158,11,.14)"><svg viewBox="0 0 24 24" style="stroke:rgb(245,158,11)"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg></div>
+        <div class="port-info">
+          <div class="port-title-row"><h2>Santo Patrón Clothing</h2><span class="port-cat" style="background:rgba(245,158,11,.16);color:rgb(245,158,11);border:1px solid rgba(245,158,11,.28)" data-i18n="pt_ecommerce">E-commerce</span></div>
+          <p data-i18n="port1_p">Tienda de ropa premium con drops limitados. Shopify completo con sistema de colecciones, countdowns de lanzamiento y experiencia de compra de alto nivel.</p>
+          <a href="https://santopatronclothing.com" target="_blank" class="port-link" style="color:rgb(245,158,11)"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>santopatronclothing.com</a>
         </div>
       </div>
-
-      <div class="cta-banner rev">
-        <h3 data-es="¿Cuánto cuesta tu proyecto?" data-en="How much does your project cost?">¿Cuánto cuesta tu proyecto?</h3>
-        <p data-es="Sin paquetes fijos. Precio justo según tu proyecto real. Cotización personalizada en menos de 48 horas." data-en="No fixed packages. Fair price based on your real project. Personalized quote in less than 48 hours.">Sin paquetes fijos. Precio justo según tu proyecto real. Cotización personalizada en menos de 48 horas.</p>
-        <div class="cta-btn-row">
-          <button class="btn btn-gold" onclick="showPage('contact')"><span data-es="Solicitar cotización" data-en="Get a quote">Solicitar cotización</span><span class="arrow">→</span></button>
-          <button class="btn btn-ghost" onclick="showPage('process')"><span data-es="Ver cómo trabajamos" data-en="See how we work">Ver cómo trabajamos</span></button>
+      <div class="port-item reveal" onmouseenter="this.style.borderColor='rgba(59,130,246,.4)';this.style.background='rgba(59,130,246,.04)'" onmouseleave="this.style.borderColor='var(--b)';this.style.background='var(--s)'">
+        <div class="port-icon" style="background:rgba(59,130,246,.14)"><svg viewBox="0 0 24 24" style="stroke:rgb(59,130,246)"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div class="port-info">
+          <div class="port-title-row"><h2>Eleva Corp</h2><span class="port-cat" style="background:rgba(59,130,246,.16);color:rgb(59,130,246);border:1px solid rgba(59,130,246,.28)" data-i18n="pt_ecommerce">E-commerce</span></div>
+          <p data-i18n="port2_p">Marketplace de tecnología, hogar y belleza con catálogo de marcas premium como JBL, Ninja y Remington. Plataforma con sistema de pago seguro y envíos a toda la región.</p>
+          <a href="https://elevacorp.net" target="_blank" class="port-link" style="color:rgb(59,130,246)"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>elevacorp.net</a>
         </div>
       </div>
+      <div class="port-item reveal" onmouseenter="this.style.borderColor='rgba(236,72,153,.4)';this.style.background='rgba(236,72,153,.04)'" onmouseleave="this.style.borderColor='var(--b)';this.style.background='var(--s)'">
+        <div class="port-icon" style="background:rgba(236,72,153,.14)"><svg viewBox="0 0 24 24" style="stroke:rgb(236,72,153)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="port-info">
+          <div class="port-title-row"><h2>Rystar Studios</h2><span class="port-cat" style="background:rgba(236,72,153,.16);color:rgb(236,72,153);border:1px solid rgba(236,72,153,.28)" data-i18n="pt_brand">Marca / E-commerce</span></div>
+          <p data-i18n="port3_p">Marca de ropa streetwear con drops exclusivos de edición limitada. Web de alta estética con countdown de lanzamientos y lista de espera exclusiva.</p>
+          <a href="https://rystarstudios.com" target="_blank" class="port-link" style="color:rgb(236,72,153)"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>rystarstudios.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="reveal" style="text-align:center;margin-top:48px">
+      <p style="color:var(--m);font-size:15px;margin-bottom:4px"><strong style="color:var(--pl)" data-i18n="port_more1">+17 clientes más</strong> <span data-i18n="port_more2">confían en Rupta Studios.</span></p>
+      <p style="color:#475569;font-size:13px;margin-bottom:26px" data-i18n="port_cta_sub">¿Quieres ser el próximo caso de éxito?</p>
+      <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-primary" data-i18n="port_cta_btn">Iniciar mi proyecto</a>
     </div>
   </div>
 </div>
 
-<!-- ════════════ PORTFOLIO ════════════ -->
-<div class="page" id="page-portfolio">
-  <div class="wrap">
-    <div class="portfolio-wrap">
-      <div class="sec-label" data-es="Portafolio" data-en="Portfolio">Portafolio</div>
-      <h2 class="h2"><span class="grad-text" data-es="Trabajo seleccionado." data-en="Selected work.">Trabajo seleccionado.</span></h2>
-      <p class="muted" style="margin-top:12px;font-size:15px;" data-es="Proyectos reales. Clientes reales. Resultados reales." data-en="Real projects. Real clients. Real results.">Proyectos reales. Clientes reales. Resultados reales.</p>
-
-      <div class="portfolio-grid">
-        <!-- 01 -->
-        <div class="proj-card rev">
-          <div class="proj-preview">
-            <div class="browser-bar">
-              <div class="b-dot r"></div><div class="b-dot y"></div><div class="b-dot g"></div>
-              <div class="b-url">santopatronclothing.com</div>
-            </div>
-            <div class="preview-placeholder" id="pl1">⚡ Cargando…</div>
-            <div class="iframe-wrap">
-              <iframe src="https://santopatronclothing.com" scrolling="no"
-                onload="document.getElementById('pl1').style.display='none'" title="Santo Patrón"></iframe>
-            </div>
-            <div class="preview-shield"></div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-index">01 / 03</div>
-            <h3 class="proj-title">Santo Patrón Clothing</h3>
-            <p class="proj-desc" data-es="Tienda online para marca de ropa con identidad cultural fuerte. Diseño orientado a ventas con estética coherente y experiencia de compra fluida." data-en="Online store for a clothing brand with strong cultural identity. Sales design with coherent aesthetics and smooth shopping experience.">Tienda online para marca de ropa con identidad cultural fuerte. Diseño orientado a ventas con estética coherente y experiencia de compra fluida.</p>
-            <div class="proj-tags"><span class="proj-tag">E-Commerce</span><span class="proj-tag">Branding</span><span class="proj-tag">Web Design</span></div>
-            <a href="https://santopatronclothing.com" target="_blank" class="proj-link"><span data-es="Ver sitio en vivo" data-en="View live site">Ver sitio en vivo</span> ↗</a>
-          </div>
-        </div>
-
-        <!-- 02 -->
-        <div class="proj-card rev" style="transition-delay:.1s">
-          <div class="proj-preview">
-            <div class="browser-bar">
-              <div class="b-dot r"></div><div class="b-dot y"></div><div class="b-dot g"></div>
-              <div class="b-url">elevacorp.net</div>
-            </div>
-            <div class="preview-placeholder" id="pl2">⚡ Cargando…</div>
-            <div class="iframe-wrap">
-              <iframe src="https://elevacorp.net" scrolling="no"
-                onload="document.getElementById('pl2').style.display='none'" title="Eleva Corp"></iframe>
-            </div>
-            <div class="preview-shield"></div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-index">02 / 03</div>
-            <h3 class="proj-title">Eleva Corp</h3>
-            <p class="proj-desc" data-es="Web corporativa para empresa de servicios. Arquitectura de información clara, diseño limpio y comunicación de valor directa al cliente ideal." data-en="Corporate website for a services company. Clear information architecture, clean design and direct value communication to the ideal client.">Web corporativa para empresa de servicios. Arquitectura de información clara, diseño limpio y comunicación de valor directa al cliente ideal.</p>
-            <div class="proj-tags"><span class="proj-tag">Corporativo</span><span class="proj-tag">UI/UX</span><span class="proj-tag">Web Design</span></div>
-            <a href="https://elevacorp.net" target="_blank" class="proj-link"><span data-es="Ver sitio en vivo" data-en="View live site">Ver sitio en vivo</span> ↗</a>
-          </div>
-        </div>
-
-        <!-- 03 -->
-        <div class="proj-card rev" style="transition-delay:.2s">
-          <div class="proj-preview">
-            <div class="browser-bar">
-              <div class="b-dot r"></div><div class="b-dot y"></div><div class="b-dot g"></div>
-              <div class="b-url">rystarstudios.com</div>
-            </div>
-            <div class="preview-placeholder" id="pl3">⚡ Cargando…</div>
-            <div class="iframe-wrap">
-              <iframe src="https://rystarstudios.com" scrolling="no"
-                onload="document.getElementById('pl3').style.display='none'" title="Rystar Studios"></iframe>
-            </div>
-            <div class="preview-shield"></div>
-          </div>
-          <div class="proj-body">
-            <div class="proj-index">03 / 03</div>
-            <h3 class="proj-title">Rystar Studios</h3>
-            <p class="proj-desc" data-es="Portafolio para estudio creativo. Diseño expresivo con fuerte identidad visual, animaciones cuidadas y experiencia memorable." data-en="Portfolio for a creative studio. Expressive design with strong visual identity, careful animations and a memorable experience.">Portafolio para estudio creativo. Diseño expresivo con fuerte identidad visual, animaciones cuidadas y experiencia memorable.</p>
-            <div class="proj-tags"><span class="proj-tag">Portafolio</span><span class="proj-tag">Creative</span><span class="proj-tag">Web Design</span></div>
-            <a href="https://rystarstudios.com" target="_blank" class="proj-link"><span data-es="Ver sitio en vivo" data-en="View live site">Ver sitio en vivo</span> ↗</a>
-          </div>
-        </div>
+<!-- ══ PLANES ══ -->
+<div id="page-planes" class="page">
+  <div class="section">
+    <div class="sec-head reveal">
+      <div class="badge" data-i18n="plan_badge">Inversión</div>
+      <h2 data-i18n="plan_h">Planes</h2>
+      <p data-i18n="plan_p">Cada negocio es diferente. Contáctanos y armamos el plan que más se adapta a ti.</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card reveal">
+        <div class="plan-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="plan-name" style="color:#22d3ee" data-i18n="plan1_name">Starter</div>
+        <div class="plan-desc" data-i18n="plan1_desc">Ideal para comenzar con una presencia digital sólida.</div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p1_i1">Landing page profesional</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p1_i2">Diseño responsive</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p1_i3">Formulario de contacto</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p1_i4">Integración redes sociales</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p1_i5">Asesoría de dominio y hosting</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p1_i6">Entrega en 7–10 días</span></li>
+        </ul>
+        <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-outline plan-cta" data-i18n="plan_query">Consultar precio</a>
       </div>
-
-      <div style="text-align:center;margin-top:56px;padding-bottom:40px;">
-        <p class="muted" style="margin-bottom:20px;" data-es="¿Quieres ser el próximo?" data-en="Want to be next?">¿Quieres ser el próximo?</p>
-        <button class="btn btn-purple" onclick="showPage('contact')"><span data-es="Hablemos de tu proyecto" data-en="Let's talk about your project">Hablemos de tu proyecto</span><span class="arrow">→</span></button>
+      <div class="plan-card featured reveal d1">
+        <div class="plan-badge" data-i18n="plan_popular">POPULAR</div>
+        <div class="plan-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="plan-name" style="color:var(--pl)" data-i18n="plan2_name">Business</div>
+        <div class="plan-desc" data-i18n="plan2_desc">Para negocios que quieren crecer con presencia digital completa.</div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p2_i1">Web completa multi-página</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p2_i2">Diseño premium personalizado</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p2_i3">SEO básico incluido</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p2_i4">Panel de administración</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p2_i5">WhatsApp integrado</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p2_i6">Soporte 3 meses</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p2_i7">Entrega en 14–21 días</span></li>
+        </ul>
+        <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-primary plan-cta" data-i18n="plan_query">Consultar precio</a>
       </div>
+      <div class="plan-card reveal d2">
+        <div class="plan-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="plan-name" style="color:#f59e0b" data-i18n="plan3_name">Pro</div>
+        <div class="plan-desc" data-i18n="plan3_desc">Para marcas que buscan dominar su industria sin límites.</div>
+        <ul class="plan-list">
+          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p3_i1">E-commerce o web avanzada</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p3_i2">Diseño ultra-premium</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p3_i3">SEO avanzado + Analytics</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p3_i4">Integraciones a medida</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p3_i5">Soporte 6 meses</span></li>
+          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="p3_i6">Mantenimiento incluido</span></li>
+        </ul>
+        <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-outline plan-cta" data-i18n="plan_query">Consultar precio</a>
+      </div>
+    </div>
+    <div class="custom-plan reveal">
+      <div class="custom-plan-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+      <h2 data-i18n="custom_h">Plan a medida</h2>
+      <p data-i18n="custom_p">¿Tu proyecto no encaja en ningún plan? Cuéntanos qué necesitas y construimos la solución perfecta para ti.</p>
+      <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="btn btn-primary" data-i18n="custom_btn">Armar mi plan perfecto</a>
     </div>
   </div>
 </div>
 
-<!-- ════════════ PROCESS ════════════ -->
-<div class="page" id="page-process">
-  <div class="wrap">
-    <div class="process-wrap">
-      <div class="process-intro-grid">
-        <div class="rev-l">
-          <div class="sec-label" data-es="Cómo Trabajamos" data-en="How We Work">Cómo Trabajamos</div>
-          <h2 class="h2">Un proceso<br><span class="grad-text">sin misterios.</span></h2>
-        </div>
-        <p class="muted rev-r" style="font-size:15px;line-height:1.9;" data-es="Transparencia total desde la primera conversación hasta la entrega final. Sin sorpresas, sin plantillas, sin atajos." data-en="Total transparency from the first conversation to the final delivery. No surprises, no templates, no shortcuts.">Transparencia total desde la primera conversación hasta la entrega final. Sin sorpresas, sin plantillas, sin atajos.</p>
+<!-- ══ NOSOTROS ══ -->
+<div id="page-nosotros" class="page">
+  <div class="section">
+    <div class="sec-head reveal">
+      <div class="badge" data-i18n="about_badge">Quiénes somos</div>
+      <h2 data-i18n="about_h">Rupta Studios</h2>
+      <p data-i18n="about_p">Un equipo creativo y técnico con la misión de cambiar la forma en que los negocios se presentan en el mundo digital.</p>
+    </div>
+    <div class="founder-card reveal">
+      <div class="founder-avatar">R</div>
+      <div>
+        <div class="founder-role" data-i18n="founder_role">Fundador & Director Creativo</div>
+        <div class="founder-name">Rodolfo Martinez</div>
+        <div class="founder-bio" data-i18n="founder_bio">Diseñador y desarrollador con más de 5 años construyendo marcas digitales que generan impacto. Fundó Rupta Studios con el deseo de elevar el estándar del diseño web y demostrar que desde Latinoamérica se puede hacer trabajo de clase mundial. Cada proyecto es un reto nuevo, cada cliente una historia que merece ser contada de la mejor manera.</div>
       </div>
-
-      <div class="steps-list">
-        <div class="step rev"><div class="step-num">01</div><div><div class="step-title" data-es="Descubrimiento" data-en="Discovery">Descubrimiento</div><div class="step-desc" data-es="Hablamos. Escuchamos tu proyecto, objetivos y referencias. Todo nos ayuda a entenderte exactamente." data-en="We talk. We listen to your project, goals and references. Everything helps us understand you exactly.">Hablamos. Escuchamos tu proyecto, objetivos y referencias. Todo nos ayuda a entenderte exactamente.</div><div class="step-tags"><span class="step-tag" data-es="Llamada o chat" data-en="Call or chat">Llamada o chat</span><span class="step-tag" data-es="Brief del proyecto" data-en="Project brief">Brief del proyecto</span><span class="step-tag" data-es="Sin compromiso" data-en="No commitment">Sin compromiso</span></div></div></div>
-        <div class="step rev"><div class="step-num">02</div><div><div class="step-title" data-es="Cotización personalizada" data-en="Custom quote">Cotización personalizada</div><div class="step-desc" data-es="Propuesta detallada: alcance, tiempos y precio justo según tu proyecto real. Sin paquetes genéricos." data-en="Detailed proposal: scope, timeline and fair price based on your real project. No generic packages.">Propuesta detallada: alcance, tiempos y precio justo según tu proyecto real. Sin paquetes genéricos.</div><div class="step-tags"><span class="step-tag" data-es="En 24-48h" data-en="In 24-48h">En 24-48h</span><span class="step-tag" data-es="Precio transparente" data-en="Transparent price">Precio transparente</span></div></div></div>
-        <div class="step rev"><div class="step-num">03</div><div><div class="step-title" data-es="Producción" data-en="Production">Producción</div><div class="step-desc" data-es="Arranca el trabajo. Iteraciones con updates periódicos para que siempre sepas cómo va tu proyecto." data-en="Work begins. Iterations with periodic updates so you always know how your project is going.">Arranca el trabajo. Iteraciones con updates periódicos para que siempre sepas cómo va tu proyecto.</div><div class="step-tags"><span class="step-tag" data-es="Updates periódicos" data-en="Periodic updates">Updates periódicos</span><span class="step-tag" data-es="Revisiones incluidas" data-en="Revisions included">Revisiones incluidas</span></div></div></div>
-        <div class="step rev"><div class="step-num">04</div><div><div class="step-title" data-es="Revisión y ajustes" data-en="Review & adjustments">Revisión y ajustes</div><div class="step-desc" data-es="Presentamos el resultado. Si algo no encaja, lo ajustamos. Rondas de revisión incluidas siempre." data-en="We present the result. If something doesn't fit, we adjust. Revision rounds always included.">Presentamos el resultado. Si algo no encaja, lo ajustamos. Rondas de revisión incluidas siempre.</div><div class="step-tags"><span class="step-tag" data-es="Hasta quedar perfecto" data-en="Until it's perfect">Hasta quedar perfecto</span></div></div></div>
-        <div class="step rev"><div class="step-num">05</div><div><div class="step-title" data-es="Entrega final" data-en="Final delivery">Entrega final</div><div class="step-desc" data-es="Todos los archivos organizados. Para webs, gestionamos el lanzamiento. El proyecto es tuyo — completamente." data-en="All files organized. For websites, we manage the launch. The project is yours — completely.">Todos los archivos organizados. Para webs, gestionamos el lanzamiento. El proyecto es tuyo — completamente.</div><div class="step-tags"><span class="step-tag" data-es="Archivos fuente" data-en="Source files">Archivos fuente</span><span class="step-tag" data-es="Soporte post-entrega" data-en="Post-delivery support">Soporte post-entrega</span></div></div></div>
-      </div>
-
-      <div style="text-align:center;padding:56px 0 40px;">
-        <button class="btn btn-gold" onclick="showPage('contact')"><span data-es="Empezar un proyecto" data-en="Start a project">Empezar un proyecto</span><span class="arrow">→</span></button>
-      </div>
+    </div>
+    <h2 style="color:#fff;font-size:22px;font-weight:800;text-align:center;margin-bottom:28px" class="reveal" data-i18n="values_h">Nuestros valores</h2>
+    <div class="values-grid">
+      <div class="value-card reveal"><div class="value-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 data-i18n="v1_t">Enfoque en resultados</h3><p data-i18n="v1_p">Cada decisión de diseño tiene un propósito claro: hacer crecer tu negocio.</p></div>
+      <div class="value-card reveal d1"><div class="value-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 data-i18n="v2_t">Relación cercana</h3><p data-i18n="v2_p">No eres solo un cliente. Somos tu equipo digital en cada paso del camino.</p></div>
+      <div class="value-card reveal d2"><div class="value-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3 data-i18n="v3_t">Velocidad y calidad</h3><p data-i18n="v3_p">Entregamos rápido sin sacrificar calidad. Estándares internacionales en cada proyecto.</p></div>
+      <div class="value-card reveal d3"><div class="value-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 data-i18n="v4_t">Innovación constante</h3><p data-i18n="v4_p">Siempre a la vanguardia de las tecnologías y tendencias del diseño global.</p></div>
+    </div>
+    <h2 style="color:#fff;font-size:22px;font-weight:800;text-align:center;margin:42px 0 30px" class="reveal" data-i18n="timeline_h">Nuestra historia</h2>
+    <div class="timeline reveal">
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2019</div><div class="tl-text" data-i18n="tl1">Fundación de Rupta Studios con la visión de transformar el diseño digital en la región.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2020</div><div class="tl-text" data-i18n="tl2">Primeros 5 clientes. Definición del método de trabajo y estilo visual único de Rupta.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2022</div><div class="tl-text" data-i18n="tl3">Crecimiento a más de 10 proyectos activos y expansión de los servicios ofrecidos.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2024</div><div class="tl-text" data-i18n="tl4">Más de 20 clientes satisfechos. Proyectos icónicos como Santo Patrón Clothing y Eleva Corp.</div></div>
+      <div class="tl-item"><div class="tl-dot"></div><div class="tl-year">2025+</div><div class="tl-text" data-i18n="tl5">Expansión continua. Redefiniendo el estándar del diseño web en Latinoamérica.</div></div>
+    </div>
+    <div style="text-align:center;margin-top:48px" class="reveal">
+      <button class="btn btn-primary" onclick="showPage('contacto')" data-i18n="about_cta">Trabajemos juntos</button>
     </div>
   </div>
 </div>
 
-<!-- ════════════ CONTACT ════════════ -->
-<div class="page" id="page-contact">
-  <div class="wrap">
-    <div class="contact-wrap">
-      <div class="sec-label" data-es="Contacto" data-en="Contact">Contacto</div>
-      <h2 class="h2">Hablemos de<br><span class="grad-text" data-es="tu proyecto." data-en="your project.">tu proyecto.</span></h2>
-
-      <div class="contact-grid">
-        <div class="contact-left rev-l">
-          <h3 class="contact-title" data-es="Cuéntanos tu idea." data-en="Tell us your idea.">Cuéntanos tu idea.</h3>
-          <p class="contact-desc" data-es="No hay proyectos demasiado pequeños ni grandes. Cotización personalizada en menos de 48 horas, sin compromiso." data-en="No projects are too small or too large. Personalized quote in less than 48 hours, no commitment.">No hay proyectos demasiado pequeños ni grandes. Cotización personalizada en menos de 48 horas, sin compromiso.</p>
-          <div class="contact-details">
-            <div class="cd-item"><span class="cd-label">Email</span><a href="mailto:hola@ruptastudios.com" class="cd-val">hola@ruptastudios.com</a></div>
-            <div class="cd-item"><span class="cd-label">WhatsApp</span><a href="https://wa.me/TUNUMERO" class="cd-val" data-es="Escríbenos directo" data-en="Write to us directly">Escríbenos directo</a></div>
-            <div class="cd-item"><span class="cd-label" data-es="Tiempo de respuesta" data-en="Response time">Tiempo de respuesta</span><span class="cd-val" style="cursor:default" data-es="Menos de 48 horas" data-en="Less than 48 hours">Menos de 48 horas</span></div>
-          </div>
-        </div>
-
-        <div class="rev-r">
-          <div class="form-box" id="contactForm">
-            <div class="form-row">
-              <div class="form-group"><label class="f-label" data-es="Nombre" data-en="Name">Nombre</label><input type="text" class="f-input" id="fname" placeholder="Tu nombre"></div>
-              <div class="form-group"><label class="f-label">Email</label><input type="email" class="f-input" id="femail" placeholder="tu@email.com"></div>
-            </div>
-            <div class="form-group">
-              <label class="f-label" data-es="Tipo de proyecto" data-en="Project type">Tipo de proyecto</label>
-              <select class="f-select" id="ftype">
-                <option value="" data-es="Selecciona un servicio" data-en="Select a service">Selecciona un servicio</option>
-                <option value="web" data-es="Diseño Web" data-en="Web Design">Diseño Web</option>
-                <option value="app" data-es="App / UI Design" data-en="App / UI Design">App / UI Design</option>
-                <option value="graphic" data-es="Diseño Gráfico / Branding" data-en="Graphic Design / Branding">Diseño Gráfico / Branding</option>
-                <option value="other" data-es="Otro / No sé aún" data-en="Other / Not sure">Otro / No sé aún</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="f-label" data-es="Cuéntanos sobre tu proyecto" data-en="Tell us about your project">Cuéntanos sobre tu proyecto</label>
-              <textarea class="f-textarea" id="fmsg" placeholder="Describe tu idea, objetivos, plazo..."></textarea>
-            </div>
-            <p class="f-note" data-es="Tu información es confidencial. Respondemos con una propuesta personalizada en menos de 48 horas." data-en="Your information is confidential. We respond with a personalized proposal within 48 hours.">Tu información es confidencial. Respondemos con una propuesta personalizada en menos de 48 horas.</p>
-            <button class="f-submit" onclick="submitForm()">
-              <span data-es="Enviar solicitud de cotización" data-en="Send quote request">Enviar solicitud de cotización</span>
-              <span>→</span>
-            </button>
-          </div>
-          <div class="form-success" id="formSuccess">
-            ⚡ <span data-es="¡Solicitud enviada! Te contactaremos en menos de 48 horas." data-en="Request sent! We'll contact you within 48 hours.">¡Solicitud enviada! Te contactaremos en menos de 48 horas.</span>
-          </div>
-        </div>
+<!-- ══ CONTACTO ══ -->
+<div id="page-contacto" class="page">
+  <div class="section">
+    <div class="sec-head reveal">
+      <div class="badge" data-i18n="contact_badge">Hablemos</div>
+      <h2 data-i18n="contact_h">Contacto</h2>
+      <p data-i18n="contact_p">Cuéntanos tu idea. Nosotros la hacemos realidad.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="contact-card-lbl">WhatsApp</div><div class="contact-card-val">+507 6799-7259</div></div>
+        </a>
+        <a href="mailto:ruptastudiospa@gmail.com" class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="contact-card-lbl">Email</div><div class="contact-card-val">ruptastudiospa@gmail.com</div></div>
+        </a>
+        <a href="https://instagram.com/ruptastudios" target="_blank" class="contact-card">
+          <div class="contact-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+          <div><div class="contact-card-lbl">Instagram</div><div class="contact-card-val">@ruptastudios</div></div>
+        </a>
+        <div class="contact-note"><p data-i18n="contact_note">Respondemos en menos de 24 horas. Atención a toda Latinoamérica.</p></div>
       </div>
-
-      <!-- FAQ -->
-      <div class="faq-wrap">
-        <div class="sec-label" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</div>
-        <div class="faq-grid">
-          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Cuánto cuesta un proyecto?" data-en="How much does a project cost?">¿Cuánto cuesta un proyecto?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="No tenemos precios fijos porque cada proyecto es diferente. Lo que garantizamos es que el precio siempre será justo — ni más ni menos de lo que realmente necesitas." data-en="We don't have fixed prices because every project is different. What we guarantee is the price will always be fair — no more, no less than what you really need.">No tenemos precios fijos porque cada proyecto es diferente. Lo que garantizamos es que el precio siempre será justo — ni más ni menos de lo que realmente necesitas.</div></div></div>
-          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Cuánto tarda un proyecto?" data-en="How long does a project take?">¿Cuánto tarda un proyecto?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="Una landing page: 5-7 días. Sitio corporativo completo: 2-3 semanas. Identidad visual: 1-2 semanas. Siempre damos un plazo estimado y lo cumplimos." data-en="A landing page: 5-7 days. Full corporate site: 2-3 weeks. Visual identity: 1-2 weeks. We always give an estimated timeline and stick to it.">Una landing page: 5-7 días. Sitio corporativo completo: 2-3 semanas. Identidad visual: 1-2 semanas. Siempre damos un plazo estimado y lo cumplimos.</div></div></div>
-          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Necesito tenerlo todo claro para contactarles?" data-en="Do I need everything figured out to contact you?">¿Necesito tenerlo todo claro para contactarles?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="Para nada. Muchos clientes llegan con solo una idea vaga. Parte de nuestro trabajo es ayudarte a definir qué necesitas. Escríbenos con lo que tengas." data-en="Not at all. Many clients arrive with just a vague idea. Part of our job is helping you define what you need. Write to us with whatever you have.">Para nada. Muchos clientes llegan con solo una idea vaga. Parte de nuestro trabajo es ayudarte a definir qué necesitas. Escríbenos con lo que tengas.</div></div></div>
-          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Trabajan con clientes de cualquier país?" data-en="Do you work with clients from any country?">¿Trabajan con clientes de cualquier país?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="Sí. Trabajamos 100% remoto y atendemos clientes de todo el mundo. Todo el proceso se gestiona online desde la primera reunión hasta la entrega final." data-en="Yes. We work 100% remotely and serve clients worldwide. The entire process is managed online from the first meeting to the final delivery.">Sí. Trabajamos 100% remoto y atendemos clientes de todo el mundo. Todo el proceso se gestiona online desde la primera reunión hasta la entrega final.</div></div></div>
-          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)"><span data-es="¿Qué incluye la entrega de una web?" data-en="What does web delivery include?">¿Qué incluye la entrega de una web?</span><div class="faq-icon">+</div></button><div class="faq-ans"><div class="faq-ans-inner" data-es="El código completo y organizado, listo para cualquier hosting. Si necesitas ayuda para publicarla, también lo gestionamos. Los archivos son 100% tuyos." data-en="Complete and organized code, ready for any hosting. If you need help publishing it, we handle that too. The files are 100% yours.">El código completo y organizado, listo para cualquier hosting. Si necesitas ayuda para publicarla, también lo gestionamos. Los archivos son 100% tuyos.</div></div></div>
+      <div class="reveal d1">
+        <div class="form-box" id="formBox">
+          <h3 data-i18n="form_h">Cuéntanos tu proyecto</h3>
+          <div class="form-group"><label data-i18n="form_name">Tu nombre</label><input type="text" id="f-nombre" placeholder="¿Cómo te llamas?"/></div>
+          <div class="form-group"><label data-i18n="form_email">Tu email</label><input type="email" id="f-email" placeholder="tu@email.com"/></div>
+          <div class="form-group">
+            <label data-i18n="form_service">Servicio de interés</label>
+            <select id="f-servicio">
+              <option value="" data-i18n="form_sel">Selecciona un servicio...</option>
+              <option data-i18n="sv1_t">Diseño Web</option>
+              <option data-i18n="sv2_t">Branding & Identidad Visual</option>
+              <option data-i18n="sv3_t">E-commerce</option>
+              <option data-i18n="sv4_t">SEO & Posicionamiento</option>
+              <option data-i18n="sv5_t">Marketing Digital</option>
+              <option data-i18n="custom_h">Plan a medida</option>
+            </select>
+          </div>
+          <div class="form-group"><label data-i18n="form_msg">Tu mensaje</label><textarea id="f-mensaje" rows="4" placeholder="Cuéntanos sobre tu proyecto..."></textarea></div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="sendForm()" data-i18n="form_btn">Enviar por WhatsApp</button>
         </div>
       </div>
     </div>
@@ -1122,116 +496,115 @@ footer{
 </div>
 
 <!-- FOOTER -->
-<div style="max-width:1100px;margin:0 auto;">
-  <footer>
-    <span class="footer-logo">RUPTA⚡STUDIOS</span>
-    <span style="color:var(--muted)" data-es="Diseño · Desarrollo · Identidad" data-en="Design · Development · Identity">Diseño · Desarrollo · Identidad</span>
-    <span style="color:var(--muted)">© 2025 RuptaStudios</span>
-  </footer>
-</div>
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">RUPTA <span class="grad">STUDIOS</span></div>
+      <div class="footer-desc" data-i18n="footer_desc">Diseño web, branding y desarrollo digital. Más de 5 años creando experiencias digitales que generan resultados reales.</div>
+      <div class="footer-socials">
+        <a href="https://instagram.com/ruptastudios" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="footer-social"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+        <a href="mailto:ruptastudiospa@gmail.com" class="footer-social"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_nav">Navegación</h4>
+      <button class="footer-link" onclick="showPage('inicio')" data-i18n="nav_inicio">Inicio</button>
+      <button class="footer-link" onclick="showPage('servicios')" data-i18n="nav_servicios">Servicios</button>
+      <button class="footer-link" onclick="showPage('portafolio')" data-i18n="nav_portafolio">Portafolio</button>
+      <button class="footer-link" onclick="showPage('planes')" data-i18n="nav_planes">Planes</button>
+      <button class="footer-link" onclick="showPage('nosotros')" data-i18n="nav_nosotros">Nosotros</button>
+      <button class="footer-link" onclick="showPage('contacto')" data-i18n="nav_contacto">Contacto</button>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_contact">Contacto</h4>
+      <a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="footer-link">WhatsApp</a>
+      <a href="https://instagram.com/ruptastudios" target="_blank" class="footer-link">@ruptastudios</a>
+      <a href="mailto:ruptastudiospa@gmail.com" class="footer-link">ruptastudiospa@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_clients">Clientes destacados</h4>
+      <a href="https://santopatronclothing.com" target="_blank" class="footer-link">Santo Patrón Clothing</a>
+      <a href="https://elevacorp.net" target="_blank" class="footer-link">Eleva Corp</a>
+      <a href="https://rystarstudios.com" target="_blank" class="footer-link">Rystar Studios</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Rupta Studios.</span>
+    <span data-i18n="footer_made">Diseñado y desarrollado por Rupta Studios</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/50767997259?text=Hola,%20vengo%20de%20la%20p%C3%A1gina%20de%20Rupta,%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20para%20crear%20mi%20plan%20perfecto" target="_blank" class="float-wa" title="WhatsApp">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 1C7.73 1 1 7.73 1 16c0 2.63.68 5.1 1.87 7.25L1 31l7.98-1.84A14.93 14.93 0 0 0 16 31c8.27 0 15-6.73 15-15S24.27 1 16 1zm0 27.33a12.26 12.26 0 0 1-6.27-1.72l-.45-.27-4.74 1.09 1.12-4.61-.3-.48A12.27 12.27 0 1 1 16 28.33zm6.74-9.17c-.37-.18-2.18-1.07-2.52-1.2-.34-.12-.58-.18-.83.18-.24.37-.95 1.2-1.17 1.44-.21.25-.43.28-.8.09-.37-.18-1.56-.57-2.97-1.83-1.1-.98-1.84-2.19-2.05-2.56-.22-.37-.02-.57.16-.75.17-.17.37-.43.55-.65.18-.22.24-.37.37-.61.12-.25.06-.46-.03-.65-.09-.18-.83-2-.13-2.73.62-.65 1.56-.46 1.99-.1.52.43.87 1.05.87 1.78 0 .74-.13 1.48-.13 1.48s-.6-.24-.83-.36z"/></svg>
+</a>
 
 <script>
-// CURSOR
-const ring=document.getElementById('cRing'),dot=document.getElementById('cDot');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-(function loop(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
-document.querySelectorAll('a,button,input,select,textarea,.proj-card,.service-card,.value-card,.skill-pill,.faq-q,.step').forEach(el=>{
-  el.addEventListener('mouseenter',()=>ring.classList.add('hover'));
-  el.addEventListener('mouseleave',()=>ring.classList.remove('hover'));
-});
+(function(){
+  const c=document.getElementById('particles'),ctx=c.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  function init(){resize();pts=Array.from({length:72},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.36,vy:(Math.random()-.5)*.36,r:Math.random()*1.4+.3}));}
+  function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(168,85,247,.52)';ctx.fill();});for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(168,85,247,${.11*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke();}}requestAnimationFrame(draw);}
+  init();draw();window.addEventListener('resize',resize);
+})();
 
-// SCROLL BAR
-window.addEventListener('scroll',()=>{
-  const p=(window.scrollY/Math.max(document.body.scrollHeight-window.innerHeight,1))*100;
-  document.getElementById('scrollBar').style.width=p+'%';
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>20);
-});
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>36);});
 
-// PAGES
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
-  document.querySelectorAll('.nav-btn[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===id));
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.dataset.page===id));
+  const el=document.getElementById('page-'+id);
+  if(el)el.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
-  setTimeout(initReveal,80);
+  setTimeout(triggerReveals,60);
 }
 
-// REVEAL
-function initReveal(){
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}});
-  },{threshold:.08});
-  document.querySelectorAll('.rev:not(.on),.rev-l:not(.on),.rev-r:not(.on)').forEach(el=>obs.observe(el));
+function triggerReveals(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.07});
+  document.querySelectorAll('.page.active .reveal:not(.visible)').forEach(el=>obs.observe(el));
 }
-initReveal();
+window.addEventListener('DOMContentLoaded',()=>setTimeout(triggerReveals,80));
 
-// LANG
-let lang='es';
-function toggleLang(){
-  lang=lang==='es'?'en':'es';
-  document.getElementById('langBtn').textContent=lang==='es'?'EN':'ES';
-  document.querySelectorAll('[data-es]').forEach(el=>{
-    const t=el.getAttribute('data-'+lang);if(t)el.innerHTML=t;
-  });
-  document.querySelectorAll('select option[data-es]').forEach(o=>{
-    const t=o.getAttribute('data-'+lang);if(t)o.textContent=t;
-  });
-}
-
-// HAMBURGER
-function toggleMenu(){
-  document.getElementById('hbg').classList.toggle('open');
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-
-// FAQ
-function toggleFaq(btn){
-  const item=btn.parentElement,ans=item.querySelector('.faq-ans'),open=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-ans').style.maxHeight='0';});
-  if(!open){item.classList.add('open');ans.style.maxHeight=(ans.scrollHeight+40)+'px';}
-}
-
-// FORM
-function submitForm(){
-  if(!document.getElementById('fname').value.trim()||!document.getElementById('femail').value.trim()||!document.getElementById('fmsg').value.trim()){
-    alert(lang==='es'?'Por favor completa todos los campos.':'Please fill in all fields.');return;
-  }
-  document.getElementById('contactForm').style.display='none';
-  document.getElementById('formSuccess').style.display='block';
-}
-
-// PARTICLE CANVAS on hero
 (function(){
-  const hero=document.querySelector('.hero-section');if(!hero)return;
-  const c=document.createElement('canvas');
-  c.style.cssText='position:absolute;inset:0;pointer-events:none;z-index:0;border-radius:0;';
-  hero.style.position='relative';
-  hero.insertBefore(c,hero.firstChild);
-  const ctx=c.getContext('2d');
-  let W,H;
-  const resize=()=>{W=c.width=hero.offsetWidth;H=c.height=hero.offsetHeight;};
-  resize();window.addEventListener('resize',resize);
-  const pts=Array.from({length:50},()=>({
-    x:Math.random()*1400,y:Math.random()*800,
-    vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,
-    r:Math.random()*1.8+.4,phase:Math.random()*Math.PI*2,
-    gold:Math.random()>.45
-  }));
-  let t=0;
-  (function draw(){
-    t+=.012;ctx.clearRect(0,0,W,H);
-    pts.forEach(p=>{
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-      const a=(.4+.35*Math.sin(t+p.phase));
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=p.gold?`rgba(245,200,66,${a})`:`rgba(157,92,240,${a})`;
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  })();
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,target=parseInt(el.dataset.target),suffix=el.dataset.suffix||'';let cur=0;const step=Math.ceil(target/50);const iv=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=cur+suffix;if(cur>=target)clearInterval(iv);},28);obs.unobserve(el);});},{threshold:.5});
+  document.querySelectorAll('.stat-num[data-target]').forEach(el=>obs.observe(el));
 })();
+
+function sendForm(){
+  const nombre=document.getElementById('f-nombre').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const servicio=document.getElementById('f-servicio').value;
+  const msg=document.getElementById('f-mensaje').value.trim();
+  if(!nombre||!email){alert('Por favor completa tu nombre y email.');return;}
+  const txt=encodeURIComponent(`Hola, soy ${nombre} (${email}).${servicio?' Interés en: '+servicio+'.':''} ${msg||'Me gustaría más información.'}`);
+  window.open(`https://wa.me/50767997259?text=${txt}`,'_blank');
+  document.getElementById('formBox').innerHTML='<div class="form-success"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><h3 data-i18n="form_ok_h">¡Listo!</h3><p data-i18n="form_ok_p">Te redirigimos a WhatsApp para continuar.</p></div>';
+  applyLang(currentLang);
+}
+
+let currentLang='es';
+const T={
+es:{nav_inicio:'Inicio',nav_servicios:'Servicios',nav_portafolio:'Portafolio',nav_planes:'Planes',nav_nosotros:'Nosotros',nav_contacto:'Contacto',nav_cta:'Contáctanos',hero_badge:'Diseño · Desarrollo · Resultados',hero_h1:'Creamos la web que<br><span class="grad">tu negocio merece</span>',hero_p:'Diseño web, branding y desarrollo que transforman tu presencia digital. Más de 5 años y 20+ clientes que confían en nosotros.',hero_cta1:'Empieza tu proyecto',hero_cta2:'Ver portafolio',stat1:'Clientes satisfechos',stat2:'Años de experiencia',stat3:'Proyectos entregados',stat4:'Proyectos destacados',home_serv_h:'¿Qué hacemos?',home_serv_p:'Todo lo que necesitas para dominar el mundo digital',home_serv_more:'Ver todos los servicios',s1_t:'Diseño Web',s1_p:'Sitios únicos, rápidos y optimizados. Cada diseño convierte visitantes en clientes reales.',s2_t:'Branding & Identidad',s2_p:'Logos, sistemas de diseño y material gráfico que hacen tu marca reconocible e inolvidable.',s3_t:'E-commerce',s3_p:'Tiendas online completas con pasarelas de pago y experiencia de compra premium.',s4_t:'SEO & Rendimiento',s4_p:'Posiciona tu negocio en Google y atrae clientes de forma orgánica y sostenible.',s5_t:'Marketing Digital',s5_p:'Estrategia de redes y campañas que generan resultados reales y medibles.',s6_t:'Mantenimiento',s6_p:'Soporte técnico, actualizaciones y backups para que tu sitio nunca falle.',cta_h:'¿Listo para dar el siguiente paso?',cta_p:'Conversemos y construimos juntos el plan perfecto para tu negocio.',cta_btn:'Contáctanos por WhatsApp',serv_badge:'Lo que ofrecemos',serv_h:'Nuestros Servicios',serv_p:'Soluciones digitales completas para llevar tu negocio al siguiente nivel',sv1_t:'Diseño Web',sv1_p:'De landing pages a portales completos. Sitios rápidos, modernos y optimizados. Responsive en todos los dispositivos.',sv2_t:'Branding & Identidad Visual',sv2_p:'Logos, guías de estilo y material gráfico. Construimos marcas que se reconocen y se recuerdan.',sv3_t:'E-commerce',sv3_p:'Tiendas online con pasarelas de pago, gestión de inventario y todo lo necesario para vender desde el primer día.',sv4_t:'SEO & Posicionamiento',sv4_p:'SEO técnico y de contenido para aparecer primero en Google y atraer clientes de manera orgánica.',sv5_t:'Marketing Digital',sv5_p:'Redes sociales, Meta Ads y estrategia de contenido que genera resultados medibles.',sv6_t:'Mantenimiento & Soporte',sv6_p:'Actualizaciones, backups y monitoreo continuo para que tu web esté siempre al 100%.',sv7_t:'Seguridad Web',sv7_p:'SSL, firewalls, protección contra malware y auditorías para proteger tu negocio en línea.',sv8_t:'Diseño UI/UX',sv8_p:'Prototipado y wireframes que garantizan la mejor experiencia de usuario en cada proyecto.',serv_cta_h:'¿No ves lo que buscas?',serv_cta_p:'Contáctanos y creamos la solución perfecta para tu proyecto.',serv_cta_btn:'Hablar con el equipo',port_badge:'Trabajo real',port_h:'Portafolio',port_p:'Proyectos que hablan por sí solos. Clientes que confían en nuestra visión y ejecución.',pt_ecommerce:'E-commerce',pt_brand:'Marca / E-commerce',port1_p:'Tienda de ropa premium con drops limitados. Shopify completo con sistema de colecciones, countdowns de lanzamiento y experiencia de compra de alto nivel.',port2_p:'Marketplace de tecnología, hogar y belleza con catálogo de marcas premium. Plataforma con sistema de pago seguro y envíos a toda la región.',port3_p:'Marca de ropa streetwear con drops exclusivos de edición limitada. Web de alta estética con countdown de lanzamientos y lista de espera exclusiva.',port_more1:'+17 clientes más',port_more2:'confían en Rupta Studios.',port_cta_sub:'¿Quieres ser el próximo caso de éxito?',port_cta_btn:'Iniciar mi proyecto',plan_badge:'Inversión',plan_h:'Planes',plan_p:'Cada negocio es diferente. Contáctanos y armamos el plan que más se adapta a ti.',plan1_name:'Starter',plan1_desc:'Ideal para comenzar con una presencia digital sólida.',p1_i1:'Landing page profesional',p1_i2:'Diseño responsive',p1_i3:'Formulario de contacto',p1_i4:'Integración redes sociales',p1_i5:'Asesoría de dominio y hosting',p1_i6:'Entrega en 7–10 días',plan2_name:'Business',plan2_desc:'Para negocios que quieren crecer con presencia digital completa.',p2_i1:'Web completa multi-página',p2_i2:'Diseño premium personalizado',p2_i3:'SEO básico incluido',p2_i4:'Panel de administración',p2_i5:'WhatsApp integrado',p2_i6:'Soporte 3 meses',p2_i7:'Entrega en 14–21 días',plan3_name:'Pro',plan3_desc:'Para marcas que buscan dominar su industria sin límites.',p3_i1:'E-commerce o web avanzada',p3_i2:'Diseño ultra-premium',p3_i3:'SEO avanzado + Analytics',p3_i4:'Integraciones a medida',p3_i5:'Soporte 6 meses',p3_i6:'Mantenimiento incluido',plan_query:'Consultar precio',plan_popular:'POPULAR',custom_h:'Plan a medida',custom_p:'¿Tu proyecto no encaja en ningún plan? Cuéntanos qué necesitas y construimos la solución perfecta para ti.',custom_btn:'Armar mi plan perfecto',about_badge:'Quiénes somos',about_h:'Rupta Studios',about_p:'Un equipo creativo y técnico con la misión de cambiar la forma en que los negocios se presentan en el mundo digital.',founder_role:'Fundador & Director Creativo',founder_bio:'Diseñador y desarrollador con más de 5 años construyendo marcas digitales que generan impacto. Fundó Rupta Studios con el deseo de elevar el estándar del diseño web y demostrar que desde Latinoamérica se puede hacer trabajo de clase mundial.',values_h:'Nuestros valores',v1_t:'Enfoque en resultados',v1_p:'Cada decisión de diseño tiene un propósito claro: hacer crecer tu negocio.',v2_t:'Relación cercana',v2_p:'No eres solo un cliente. Somos tu equipo digital en cada paso.',v3_t:'Velocidad y calidad',v3_p:'Entregamos rápido sin sacrificar calidad. Estándares internacionales.',v4_t:'Innovación constante',v4_p:'Siempre a la vanguardia de las tecnologías y tendencias del diseño global.',timeline_h:'Nuestra historia',tl1:'Fundación de Rupta Studios con la visión de transformar el diseño digital en la región.',tl2:'Primeros 5 clientes. Definición del método y estilo visual único de Rupta.',tl3:'Crecimiento a más de 10 proyectos activos y expansión de servicios.',tl4:'Más de 20 clientes. Proyectos icónicos como Santo Patrón Clothing y Eleva Corp.',tl5:'Expansión continua. Redefiniendo el estándar del diseño web en Latinoamérica.',about_cta:'Trabajemos juntos',contact_badge:'Hablemos',contact_h:'Contacto',contact_p:'Cuéntanos tu idea. Nosotros la hacemos realidad.',contact_note:'Respondemos en menos de 24 horas. Atención a toda Latinoamérica.',form_h:'Cuéntanos tu proyecto',form_name:'Tu nombre',form_email:'Tu email',form_service:'Servicio de interés',form_sel:'Selecciona un servicio...',form_msg:'Tu mensaje',form_btn:'Enviar por WhatsApp',form_ok_h:'¡Listo!',form_ok_p:'Te redirigimos a WhatsApp para continuar.',footer_desc:'Diseño web, branding y desarrollo digital. Más de 5 años creando experiencias digitales que generan resultados reales.',footer_nav:'Navegación',footer_contact:'Contacto',footer_clients:'Clientes destacados',footer_made:'Diseñado y desarrollado por Rupta Studios'},
+en:{nav_inicio:'Home',nav_servicios:'Services',nav_portafolio:'Portfolio',nav_planes:'Plans',nav_nosotros:'About',nav_contacto:'Contact',nav_cta:'Contact Us',hero_badge:'Design · Development · Results',hero_h1:'We build the website your<br><span class="grad">business deserves</span>',hero_p:'Web design, branding and development that transforms your digital presence. Over 5 years and 20+ clients who trust us.',hero_cta1:'Start your project',hero_cta2:'View portfolio',stat1:'Happy clients',stat2:'Years of experience',stat3:'Projects delivered',stat4:'Featured projects',home_serv_h:'What we do',home_serv_p:'Everything you need to dominate the digital world',home_serv_more:'View all services',s1_t:'Web Design',s1_p:'Unique, fast and optimized sites. Every design turns visitors into real customers.',s2_t:'Branding & Identity',s2_p:'Logos, design systems and graphic materials that make your brand recognizable and unforgettable.',s3_t:'E-commerce',s3_p:'Complete online stores with payment gateways and premium shopping experience.',s4_t:'SEO & Performance',s4_p:'Position your business on Google and attract customers organically and sustainably.',s5_t:'Digital Marketing',s5_p:'Social strategy and campaigns that generate real, measurable results.',s6_t:'Maintenance',s6_p:'Technical support, updates and backups so your site never fails.',cta_h:'Ready to take the next step?',cta_p:"Let's talk and build the perfect plan for your business.",cta_btn:'Contact us on WhatsApp',serv_badge:'What we offer',serv_h:'Our Services',serv_p:'Complete digital solutions to take your business to the next level',sv1_t:'Web Design',sv1_p:'From landing pages to full portals. Fast, modern, optimized sites. Fully responsive.',sv2_t:'Branding & Visual Identity',sv2_p:'Logos, style guides and graphic material. We build brands that are recognized and remembered.',sv3_t:'E-commerce',sv3_p:'Online stores with payment gateways, inventory management and everything to sell from day one.',sv4_t:'SEO & Positioning',sv4_p:'Technical and content SEO to rank first on Google and attract customers organically.',sv5_t:'Digital Marketing',sv5_p:'Social media, Meta Ads and content strategy that generates measurable results.',sv6_t:'Maintenance & Support',sv6_p:'Updates, backups and continuous monitoring so your web is always 100%.',sv7_t:'Web Security',sv7_p:'SSL, firewalls, malware protection and audits to protect your online business.',sv8_t:'UI/UX Design',sv8_p:'Prototyping and wireframes that ensure the best possible user experience.',serv_cta_h:"Don't see what you need?",serv_cta_p:"Contact us and we'll create the perfect solution.",serv_cta_btn:'Talk to the team',port_badge:'Real work',port_h:'Portfolio',port_p:'Projects that speak for themselves. Clients who trust our vision and execution.',pt_ecommerce:'E-commerce',pt_brand:'Brand / E-commerce',port1_p:'Premium clothing store with limited drops. Full Shopify with collections system, launch countdowns and high-level shopping experience.',port2_p:'Technology, home and beauty marketplace with premium brand catalog. Robust platform with secure payment system.',port3_p:'Streetwear brand with exclusive limited edition drops. High-aesthetic website with launch countdowns and exclusive waitlist.',port_more1:'+17 more clients',port_more2:'trust Rupta Studios.',port_cta_sub:'Want to be the next success story?',port_cta_btn:'Start my project',plan_badge:'Investment',plan_h:'Plans',plan_p:"Every business is different. Contact us and let's build the plan that fits you.",plan1_name:'Starter',plan1_desc:'Ideal to start with a solid digital presence.',p1_i1:'Professional landing page',p1_i2:'Responsive design',p1_i3:'Contact form',p1_i4:'Social media integration',p1_i5:'Domain & hosting advisory',p1_i6:'Delivery in 7–10 days',plan2_name:'Business',plan2_desc:'For businesses that want to grow with a complete digital presence.',p2_i1:'Full multi-page website',p2_i2:'Custom premium design',p2_i3:'Basic SEO included',p2_i4:'Admin panel',p2_i5:'WhatsApp integrated',p2_i6:'3 months support',p2_i7:'Delivery in 14–21 days',plan3_name:'Pro',plan3_desc:'For brands looking to dominate their industry.',p3_i1:'E-commerce or advanced web',p3_i2:'Ultra-premium design',p3_i3:'Advanced SEO + Analytics',p3_i4:'Custom integrations',p3_i5:'6 months support',p3_i6:'Maintenance included',plan_query:'Check pricing',plan_popular:'POPULAR',custom_h:'Custom plan',custom_p:"Your project doesn't fit any plan? Tell us what you need and we'll build the perfect solution.",custom_btn:'Build my perfect plan',about_badge:'Who we are',about_h:'Rupta Studios',about_p:'A creative and technical team with a mission to change how businesses present themselves in the digital world.',founder_role:'Founder & Creative Director',founder_bio:'Designer and developer with over 5 years building digital brands that generate impact. Founded Rupta Studios to raise the standard of web design and prove that world-class work can come from Latin America.',values_h:'Our values',v1_t:'Results-driven',v1_p:'Every design decision has one clear purpose: grow your business.',v2_t:'Close relationship',v2_p:"You're not just a client. We're your digital team at every step.",v3_t:'Speed and quality',v3_p:'We deliver fast without sacrificing quality. International standards.',v4_t:'Constant innovation',v4_p:'Always at the forefront of global design technologies and trends.',timeline_h:'Our story',tl1:'Rupta Studios founded with the vision of transforming digital design in the region.',tl2:"First 5 clients. Definition of Rupta's unique work method and visual style.",tl3:'Growth to 10+ active projects and expansion of services.',tl4:'20+ satisfied clients. Iconic projects like Santo Patrón Clothing and Eleva Corp.',tl5:'Continued expansion. Redefining the web design standard in Latin America.',about_cta:"Let's work together",contact_badge:"Let's talk",contact_h:'Contact',contact_p:"Tell us your idea. We'll make it real.",contact_note:'We respond within 24 hours. Serving all of Latin America.',form_h:'Tell us about your project',form_name:'Your name',form_email:'Your email',form_service:'Service of interest',form_sel:'Select a service...',form_msg:'Your message',form_btn:'Send via WhatsApp',form_ok_h:"You're all set!",form_ok_p:'Redirecting you to WhatsApp to continue.',footer_desc:'Web design, branding and digital development. Over 5 years creating digital experiences that deliver real results.',footer_nav:'Navigation',footer_contact:'Contact',footer_clients:'Featured clients',footer_made:'Designed and developed by Rupta Studios'},
+pt:{nav_inicio:'Início',nav_servicios:'Serviços',nav_portafolio:'Portfólio',nav_planes:'Planos',nav_nosotros:'Sobre',nav_contacto:'Contato',nav_cta:'Fale Conosco',hero_badge:'Design · Desenvolvimento · Resultados',hero_h1:'Criamos o site que o seu<br><span class="grad">negócio merece</span>',hero_p:'Design web, branding e desenvolvimento que transformam sua presença digital. Mais de 5 anos e 20+ clientes que confiam em nós.',hero_cta1:'Inicie seu projeto',hero_cta2:'Ver portfólio',stat1:'Clientes satisfeitos',stat2:'Anos de experiência',stat3:'Projetos entregues',stat4:'Projetos destacados',home_serv_h:'O que fazemos',home_serv_p:'Tudo que você precisa para dominar o mundo digital',home_serv_more:'Ver todos os serviços',s1_t:'Design Web',s1_p:'Sites únicos, rápidos e otimizados. Cada design transforma visitantes em clientes reais.',s2_t:'Branding & Identidade',s2_p:'Logos, sistemas de design e material gráfico que tornam sua marca reconhecível e inesquecível.',s3_t:'E-commerce',s3_p:'Lojas online completas com gateways de pagamento e experiência de compra premium.',s4_t:'SEO & Desempenho',s4_p:'Posicione seu negócio no Google e atraia clientes de forma orgânica e sustentável.',s5_t:'Marketing Digital',s5_p:'Estratégia de redes e campanhas que geram resultados reais e mensuráveis.',s6_t:'Manutenção',s6_p:'Suporte técnico, atualizações e backups para que seu site nunca falhe.',cta_h:'Pronto para dar o próximo passo?',cta_p:'Conversemos e construamos juntos o plano perfeito para o seu negócio.',cta_btn:'Entre em contato pelo WhatsApp',serv_badge:'O que oferecemos',serv_h:'Nossos Serviços',serv_p:'Soluções digitais completas para levar seu negócio ao próximo nível',sv1_t:'Design Web',sv1_p:'De landing pages a portais completos. Sites rápidos, modernos e otimizados. Responsivos em todos os dispositivos.',sv2_t:'Branding & Identidade Visual',sv2_p:'Logos, guias de estilo e material gráfico. Construímos marcas que são reconhecidas e lembradas.',sv3_t:'E-commerce',sv3_p:'Lojas online com gateways de pagamento, gestão de estoque e tudo para vender desde o primeiro dia.',sv4_t:'SEO & Posicionamento',sv4_p:'SEO técnico e de conteúdo para aparecer primeiro no Google e atrair clientes organicamente.',sv5_t:'Marketing Digital',sv5_p:'Redes sociais, Meta Ads e estratégia de conteúdo que gera resultados mensuráveis.',sv6_t:'Manutenção & Suporte',sv6_p:'Atualizações, backups e monitoramento contínuo para que seu site esteja sempre 100%.',sv7_t:'Segurança Web',sv7_p:'SSL, firewalls, proteção contra malware e auditorias para proteger seu negócio online.',sv8_t:'Design UI/UX',sv8_p:'Prototipagem e wireframes que garantem a melhor experiência do usuário em cada projeto.',serv_cta_h:'Não encontrou o que precisa?',serv_cta_p:'Entre em contato e criamos a solução perfeita para o seu projeto.',serv_cta_btn:'Falar com a equipe',port_badge:'Trabalho real',port_h:'Portfólio',port_p:'Projetos que falam por si mesmos. Clientes que confiam em nossa visão e execução.',pt_ecommerce:'E-commerce',pt_brand:'Marca / E-commerce',port1_p:'Loja de roupas premium com drops limitados. Shopify completo com sistema de coleções, contagens regressivas e experiência de compra de alto nível.',port2_p:'Marketplace de tecnologia, casa e beleza com catálogo de marcas premium. Plataforma com sistema de pagamento seguro.',port3_p:'Marca de roupas streetwear com drops exclusivos de edição limitada. Site de alta estética com countdown de lançamentos.',port_more1:'+17 clientes a mais',port_more2:'confiam na Rupta Studios.',port_cta_sub:'Quer ser o próximo caso de sucesso?',port_cta_btn:'Iniciar meu projeto',plan_badge:'Investimento',plan_h:'Planos',plan_p:'Cada negócio é diferente. Entre em contato e montamos juntos o plano que mais se adapta a você.',plan1_name:'Starter',plan1_desc:'Ideal para começar com uma presença digital sólida.',p1_i1:'Landing page profissional',p1_i2:'Design responsivo',p1_i3:'Formulário de contato',p1_i4:'Integração redes sociais',p1_i5:'Assessoria de domínio e hospedagem',p1_i6:'Entrega em 7–10 dias',plan2_name:'Business',plan2_desc:'Para negócios que querem crescer com presença digital completa.',p2_i1:'Site completo multi-página',p2_i2:'Design premium personalizado',p2_i3:'SEO básico incluído',p2_i4:'Painel de administração',p2_i5:'WhatsApp integrado',p2_i6:'Suporte 3 meses',p2_i7:'Entrega em 14–21 dias',plan3_name:'Pro',plan3_desc:'Para marcas que buscam dominar seu setor sem limites.',p3_i1:'E-commerce ou site avançado',p3_i2:'Design ultra-premium',p3_i3:'SEO avançado + Analytics',p3_i4:'Integrações personalizadas',p3_i5:'Suporte 6 meses',p3_i6:'Manutenção incluída',plan_query:'Consultar preço',plan_popular:'POPULAR',custom_h:'Plano personalizado',custom_p:'Seu projeto não se encaixa em nenhum plano? Diga-nos o que precisa e construímos a solução perfeita para você.',custom_btn:'Montar meu plano perfeito',about_badge:'Quem somos',about_h:'Rupta Studios',about_p:'Uma equipe criativa e técnica com a missão de mudar a forma como os negócios se apresentam no mundo digital.',founder_role:'Fundador & Diretor Criativo',founder_bio:'Designer e desenvolvedor com mais de 5 anos construindo marcas digitais que geram impacto. Fundou a Rupta Studios com o desejo de elevar o padrão do design web e demonstrar que da América Latina se pode fazer trabalho de classe mundial.',values_h:'Nossos valores',v1_t:'Foco em resultados',v1_p:'Cada decisão de design tem um propósito claro: fazer seu negócio crescer.',v2_t:'Relacionamento próximo',v2_p:'Você não é apenas um cliente. Somos sua equipe digital em cada etapa.',v3_t:'Velocidade e qualidade',v3_p:'Entregamos rápido sem sacrificar qualidade. Padrões internacionais.',v4_t:'Inovação constante',v4_p:'Sempre na vanguarda das tecnologias e tendências de design global.',timeline_h:'Nossa história',tl1:'Fundação da Rupta Studios com a visão de transformar o design digital na região.',tl2:"Primeiros 5 clientes. Definição do método de trabalho e estilo visual único da Rupta.",tl3:'Crescimento para mais de 10 projetos ativos e expansão dos serviços.',tl4:'Mais de 20 clientes. Projetos icônicos como Santo Patrón Clothing e Eleva Corp.',tl5:'Expansão contínua. Redefinindo o padrão de design web na América Latina.',about_cta:'Vamos trabalhar juntos',contact_badge:'Vamos conversar',contact_h:'Contato',contact_p:'Conta-nos sua ideia. Nós a tornamos realidade.',contact_note:'Respondemos em menos de 24 horas. Atendemos toda a América Latina.',form_h:'Conte-nos sobre seu projeto',form_name:'Seu nome',form_email:'Seu email',form_service:'Serviço de interesse',form_sel:'Selecione um serviço...',form_msg:'Sua mensagem',form_btn:'Enviar pelo WhatsApp',form_ok_h:'Pronto!',form_ok_p:'Redirecionamos você ao WhatsApp para continuar.',footer_desc:'Design web, branding e desenvolvimento digital. Mais de 5 anos criando experiências digitais que geram resultados reais.',footer_nav:'Navegação',footer_contact:'Contato',footer_clients:'Clientes destacados',footer_made:'Projetado e desenvolvido pela Rupta Studios'}
+};
+
+function applyLang(lang){
+  currentLang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(T[lang]&&T[lang][key]!==undefined){
+      if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=T[lang][key];}
+      else{el.innerHTML=T[lang][key];}
+    }
+  });
+  document.querySelectorAll('.lang-btn').forEach(b=>{b.classList.toggle('active',b.textContent===lang.toUpperCase());});
+  document.documentElement.lang=lang;
+}
+function setLang(lang){applyLang(lang);}
 </script>
 </body>
 </html>
