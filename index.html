@@ -4,304 +4,929 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="theme-color" content="#080808"/>
+<meta name="description" content="Rupta Studios — Diseño web estratégico que convierte visitantes en clientes. Sitios optimizados para negocios que quieren vender más y crecer online."/>
 <title>Rupta Studios — Diseño Web Estratégico que Convierte</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --ink:#080808;
-  --ink2:#101010;
-  --surface:#161616;
-  --surface2:#1c1c1c;
-  --border:rgba(255,255,255,.07);
-  --border2:rgba(255,255,255,.12);
-  --accent:#fff;
-  --accent2:rgba(255,255,255,.06);
-  --t:#f5f5f5;
-  --t2:#888;
-  --t3:#444;
-  --max:1100px;
-  --r:12px;
+  /* ── BRAND PALETTE ── */
+  --purple:#7c3aed;
+  --purple-light:#9d5cf6;
+  --purple-dark:#5b21b6;
+  --purple-hover:#6d28d9;
+  --purple-glow:rgba(124,58,237,.35);
+  --purple-soft:rgba(124,58,237,.1);
+  --purple-border:rgba(157,92,246,.3);
+
+/* ── BACKGROUNDS ── */
+–ink:#080808;
+–ink2:#0f0f0f;
+–surface:#161616;
+–surface2:#1e1e1e;
+
+/* ── BORDERS ── */
+–border:rgba(255,255,255,.07);
+–border2:rgba(255,255,255,.13);
+
+/* ── TEXT ── */
+–t:#f5f5f5;
+–t2:#9a9a9a;
+–t3:#555;
+
+/* ── MISC ── */
+–max:1100px;
+–r:12px;
 }
+
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);color:var(--t);overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+body{
+font-family:‘Inter’,Helvetica,system-ui,sans-serif;
+background:var(–ink);
+color:var(–t);
+overflow-x:hidden;
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+font-weight:400;
+}
 ::-webkit-scrollbar{width:2px}
-::-webkit-scrollbar-track{background:var(--ink)}
-::-webkit-scrollbar-thumb{background:var(--t3)}
+::-webkit-scrollbar-track{background:var(–ink)}
+::-webkit-scrollbar-thumb{background:var(–purple)}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 img{display:block;max-width:100%}
 
-/* ── SUBTLE GRAIN ── */
-body::before{content:’’;position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.022;background-image:url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.85’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’/%3E%3C/svg%3E”);background-size:180px}
+/* ── GRAIN OVERLAY ── */
+body::before{
+content:’’;
+position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.02;
+background-image:url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.85’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’/%3E%3C/svg%3E”);
+background-size:180px;
+}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:900;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;transition:all .4s}
-nav.solid{background:rgba(8,8,8,.94);backdrop-filter:blur(24px);border-bottom:1px solid var(–border)}
-.nav-logo{font-family:‘Archivo Black’,sans-serif;font-size:15px;letter-spacing:.5px;color:var(–t);cursor:pointer;background:none;border:none;font-weight:400}
-.nav-logo em{font-style:normal;color:var(–t2)}
+/* ══════════════════════════════
+NAV
+══════════════════════════════ */
+nav{
+position:fixed;top:0;left:0;right:0;z-index:900;
+height:64px;display:flex;align-items:center;justify-content:space-between;
+padding:0 40px;transition:background .4s,border-color .4s;
+}
+nav.solid{
+background:rgba(8,8,8,.95);
+backdrop-filter:blur(24px);
+-webkit-backdrop-filter:blur(24px);
+border-bottom:1px solid var(–border);
+}
+.nav-logo{
+font-family:‘Archivo Black’,sans-serif;
+font-size:15px;letter-spacing:.5px;color:var(–t);
+cursor:pointer;background:none;border:none;font-weight:400;
+}
+.nav-logo em{font-style:normal;color:var(–purple-light)}
 .nav-links{display:flex;align-items:center;gap:2px}
-.nav-link{color:var(–t2);font-size:13px;font-weight:500;padding:7px 14px;border-radius:8px;transition:all .2s;background:none;border:none;cursor:pointer;font-family:inherit}
-.nav-link:hover,.nav-link.active{color:var(–t);background:rgba(255,255,255,.05)}
+.nav-link{
+color:var(–t2);font-size:13px;font-weight:500;
+padding:7px 14px;border-radius:8px;
+transition:color .2s,background .2s;
+background:none;border:none;cursor:pointer;font-family:inherit;
+}
+.nav-link:hover{color:var(–t);background:rgba(255,255,255,.05)}
+.nav-link.active{color:var(–purple-light);background:var(–purple-soft)}
 .nav-actions{display:flex;align-items:center;gap:8px}
 .lang-sw{display:flex;gap:2px}
-.lang-btn{font-size:11px;font-weight:600;letter-spacing:.5px;color:var(–t3);padding:5px 8px;border-radius:6px;border:1px solid transparent;transition:all .2s;cursor:pointer;background:none;font-family:inherit}
-.lang-btn:hover{color:var(–t2)}
-.lang-btn.on{color:var(–t);border-color:var(–border2)}
-.nav-cta{font-size:12.5px;font-weight:600;padding:9px 20px;border-radius:6px;background:var(–t);color:var(–ink);transition:all .25s;letter-spacing:.1px;display:inline-block}
-.nav-cta:hover{background:#ddd;transform:scale(1.02)}
-.burger{display:none;flex-direction:column;gap:5px;padding:8px;border-radius:6px;cursor:pointer;background:none;border:none}
-.burger span{display:block;width:20px;height:1.5px;background:var(–t);transition:all .3s;border-radius:2px}
+.lang-btn{
+font-size:11px;font-weight:600;letter-spacing:.5px;
+color:var(–t3);padding:5px 8px;border-radius:6px;
+border:1px solid transparent;transition:all .2s;
+cursor:pointer;background:none;font-family:inherit;
+}
+.lang-btn:hover{color:var(–t2);border-color:var(–border)}
+.lang-btn.on{color:var(–purple-light);border-color:var(–purple-border);background:var(–purple-soft)}
+.nav-cta{
+font-size:12.5px;font-weight:600;padding:9px 20px;border-radius:6px;
+background:var(–purple);color:#fff;
+transition:background .25s,transform .2s;
+letter-spacing:.1px;display:inline-block;
+}
+.nav-cta:hover{background:var(–purple-hover);transform:scale(1.02)}
+.burger{
+display:none;flex-direction:column;gap:5px;
+padding:8px;border-radius:6px;cursor:pointer;
+background:none;border:none;
+}
+.burger span{
+display:block;width:20px;height:1.5px;
+background:var(–t);transition:all .3s;border-radius:2px;
+}
 
-/* ── MOBILE MENU ── */
-.mob-menu{display:none;position:fixed;inset:0;z-index:899;background:rgba(8,8,8,.98);backdrop-filter:blur(30px);flex-direction:column;align-items:center;justify-content:center;gap:4px}
+/* ══════════════════════════════
+MOBILE MENU
+══════════════════════════════ */
+.mob-menu{
+display:none;position:fixed;inset:0;z-index:899;
+background:rgba(8,8,8,.98);
+backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);
+flex-direction:column;align-items:center;justify-content:center;gap:4px;
+}
 .mob-menu.open{display:flex}
-.mob-close{position:absolute;top:20px;right:22px;color:var(–t2);font-size:20px;background:none;border:none;cursor:pointer;padding:8px}
-.mob-link{font-family:‘Archivo Black’,sans-serif;font-size:26px;color:var(–t);padding:10px 0;transition:color .2s;background:none;border:none;cursor:pointer;font-weight:400}
-.mob-link:hover{color:var(–t2)}
+.mob-close{
+position:absolute;top:20px;right:22px;
+color:var(–t2);font-size:20px;
+background:none;border:none;cursor:pointer;padding:8px;
+transition:color .2s;
+}
+.mob-close:hover{color:var(–t)}
+.mob-link{
+font-family:‘Archivo Black’,sans-serif;font-size:26px;
+color:var(–t);padding:10px 0;
+transition:color .2s;
+background:none;border:none;cursor:pointer;font-weight:400;
+}
+.mob-link:hover{color:var(–purple-light)}
 .mob-lang{display:flex;gap:8px;margin-top:24px}
-.mob-cta{margin-top:20px;font-size:15px;font-weight:600;padding:16px 40px;border-radius:6px;background:var(–t);color:var(–ink);display:inline-block}
+.mob-cta{
+margin-top:20px;font-size:15px;font-weight:600;
+padding:16px 40px;border-radius:6px;
+background:var(–purple);color:#fff;display:inline-block;
+transition:background .25s;
+}
+.mob-cta:hover{background:var(–purple-hover)}
 
-/* ── PAGES ── */
+/* ══════════════════════════════
+PAGES
+══════════════════════════════ */
 .page{display:none;position:relative;z-index:1}
 .page.on{display:block}
 
-/* ═══════════════════════════════
+/* ══════════════════════════════
 HERO
-═══════════════════════════════ */
-.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden}
+══════════════════════════════ */
+.hero{
+min-height:100svh;
+display:flex;flex-direction:column;align-items:center;justify-content:center;
+padding:120px 24px 80px;text-align:center;
+position:relative;overflow:hidden;
+}
 .hero-bg{position:absolute;inset:0;pointer-events:none}
-.hero-bg-line{position:absolute;width:1px;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.04),transparent);animation:linedrop 4s ease-in-out infinite}
+.hero-bg-line{
+position:absolute;width:1px;
+background:linear-gradient(to bottom,transparent,rgba(124,58,237,.08),transparent);
+animation:linedrop 4s ease-in-out infinite;
+}
 .hero-bg-line:nth-child(1){left:20%;height:60%;top:10%;animation-delay:0s}
 .hero-bg-line:nth-child(2){left:50%;height:80%;top:5%;animation-delay:.8s}
 .hero-bg-line:nth-child(3){left:80%;height:50%;top:20%;animation-delay:1.6s}
-@keyframes linedrop{0%,100%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1);transform-origin:top}}
+@keyframes linedrop{
+0%,100%{opacity:0;transform:scaleY(0);transform-origin:top}
+50%{opacity:1;transform:scaleY(1);transform-origin:top}
+}
 
-.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(–border2);border-radius:4px;padding:6px 14px;font-size:11px;font-weight:500;color:var(–t2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:40px}
-.hero-tag-dot{width:5px;height:5px;border-radius:50%;background:var(–t);animation:blink 2s infinite}
+/* Purple glow behind hero text */
+.hero::after{
+content:’’;
+position:absolute;top:50%;left:50%;
+transform:translate(-50%,-60%);
+width:700px;height:400px;
+background:radial-gradient(ellipse at center,rgba(124,58,237,.12) 0%,transparent 70%);
+pointer-events:none;z-index:0;
+}
+.hero>*{position:relative;z-index:1}
+
+.hero-tag{
+display:inline-flex;align-items:center;gap:8px;
+border:1px solid var(–purple-border);
+background:var(–purple-soft);
+border-radius:4px;padding:6px 14px;
+font-size:11px;font-weight:500;
+color:var(–purple-light);
+letter-spacing:1.5px;text-transform:uppercase;margin-bottom:40px;
+}
+.hero-tag-dot{
+width:5px;height:5px;border-radius:50%;
+background:var(–purple-light);animation:blink 2s infinite;
+}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 
-.hero h1{font-family:‘Archivo Black’,sans-serif;font-size:clamp(2.6rem,6.2vw,5.2rem);font-weight:400;line-height:1.06;letter-spacing:-1.5px;color:var(–t);max-width:820px;margin:0 auto 28px}
-.hero h1 .hl{color:var(–t2)}
-.hero-sub{font-size:clamp(14px,1.8vw,17px);color:var(–t2);line-height:1.8;max-width:500px;margin:0 auto 52px;font-weight:400}
+.hero h1{
+font-family:‘Archivo Black’,sans-serif;
+font-size:clamp(2.5rem,6vw,5rem);
+font-weight:400;line-height:1.06;letter-spacing:-1.5px;
+color:var(–t);max-width:820px;margin:0 auto 28px;
+}
+.hero h1 .hl{
+background:linear-gradient(120deg,var(–purple-light),#c084fc);
+-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+background-clip:text;
+}
+.hero-sub{
+font-size:clamp(14px,1.8vw,17px);color:var(–t2);
+line-height:1.8;max-width:500px;margin:0 auto 52px;font-weight:400;
+}
 
-.hero-cta-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
-.btn-hero-main{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;border-radius:6px;font-size:14px;font-weight:600;letter-spacing:.1px;background:var(–t);color:var(–ink);transition:all .3s;cursor:pointer;border:none;font-family:inherit}
-.btn-hero-main:hover{background:#ddd;transform:translateY(-1px)}
-.btn-hero-main svg{width:16px;height:16px;fill:none;stroke:var(–ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.hero-cta-wrap{
+display:flex;align-items:center;gap:12px;
+flex-wrap:wrap;justify-content:center;
+}
+.btn-hero-main{
+display:inline-flex;align-items:center;gap:10px;
+padding:16px 36px;border-radius:6px;
+font-size:14px;font-weight:600;letter-spacing:.1px;
+background:var(–purple);color:#fff;
+transition:background .3s,transform .2s,box-shadow .3s;
+cursor:pointer;border:none;font-family:inherit;
+box-shadow:0 0 28px var(–purple-glow);
+}
+.btn-hero-main:hover{
+background:var(–purple-hover);
+transform:translateY(-2px);
+box-shadow:0 0 48px rgba(124,58,237,.55);
+}
+.btn-hero-main svg{
+width:16px;height:16px;fill:none;
+stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+transition:transform .3s;
+}
 .btn-hero-main:hover svg{transform:translateX(3px)}
 
-.btn-hero-wa{display:inline-flex;align-items:center;gap:9px;padding:16px 28px;border-radius:6px;font-size:14px;font-weight:600;color:var(–t);border:1px solid var(–border2);transition:all .3s;cursor:pointer;background:none;font-family:inherit;letter-spacing:.1px}
-.btn-hero-wa:hover{border-color:rgba(255,255,255,.3);background:var(–accent2)}
-.btn-hero-wa svg{width:16px;height:16px;fill:none;stroke:#25d366;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn-hero-wa{
+display:inline-flex;align-items:center;gap:9px;
+padding:16px 28px;border-radius:6px;
+font-size:14px;font-weight:600;color:var(–t);
+border:1px solid var(–border2);
+transition:border-color .3s,background .3s;
+cursor:pointer;background:none;font-family:inherit;letter-spacing:.1px;
+}
+.btn-hero-wa:hover{border-color:var(–purple-border);background:var(–purple-soft);color:#fff}
+.btn-hero-wa svg{
+width:16px;height:16px;fill:none;
+stroke:#25d366;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+}
 
-.hero-trust{display:block;font-size:11.5px;color:var(–t3);font-weight:500;letter-spacing:.3px;margin-top:28px}
-.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(–t3);font-size:10px;letter-spacing:2px;text-transform:uppercase}
-.scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(–t3),transparent);animation:scrolldown 2s infinite}
-@keyframes scrolldown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero-trust{
+display:block;font-size:11.5px;color:var(–t3);
+font-weight:500;letter-spacing:.3px;margin-top:28px;
+}
+.hero-scroll{
+position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
+display:flex;flex-direction:column;align-items:center;gap:8px;
+color:var(–t3);font-size:10px;letter-spacing:2px;text-transform:uppercase;
+}
+.scroll-line{
+width:1px;height:36px;
+background:linear-gradient(to bottom,var(–purple-light),transparent);
+animation:scrolldown 2s infinite;
+}
+@keyframes scrolldown{
+0%{transform:scaleY(0);transform-origin:top}
+50%{transform:scaleY(1);transform-origin:top}
+51%{transform:scaleY(1);transform-origin:bottom}
+100%{transform:scaleY(0);transform-origin:bottom}
+}
 
-/* ── LOGOS STRIP ── */
-.logos-strip{padding:24px 40px;border-top:1px solid var(–border);border-bottom:1px solid var(–border);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;z-index:1}
-.logos-strip::before,.logos-strip::after{content:’’;position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
+/* ══════════════════════════════
+LOGOS STRIP
+══════════════════════════════ */
+.logos-strip{
+padding:24px 40px;
+border-top:1px solid var(–border);
+border-bottom:1px solid var(–border);
+display:flex;align-items:center;justify-content:center;
+overflow:hidden;position:relative;z-index:1;
+}
+.logos-strip::before,.logos-strip::after{
+content:’’;position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;
+}
 .logos-strip::before{left:0;background:linear-gradient(to right,var(–ink),transparent)}
 .logos-strip::after{right:0;background:linear-gradient(to left,var(–ink),transparent)}
-.logos-track{display:flex;align-items:center;gap:52px;animation:marquee 24s linear infinite;white-space:nowrap}
+.logos-track{
+display:flex;align-items:center;gap:52px;
+animation:marquee 24s linear infinite;white-space:nowrap;
+}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.logo-item{font-family:‘Archivo Black’,sans-serif;font-size:11px;color:var(–t3);letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;flex-shrink:0;font-weight:400}
-.logo-sep{width:3px;height:3px;border-radius:50%;background:var(–t3)}
+.logo-item{
+font-family:‘Archivo Black’,sans-serif;font-size:11px;
+color:var(–t3);letter-spacing:2px;text-transform:uppercase;
+display:flex;align-items:center;gap:8px;flex-shrink:0;font-weight:400;
+transition:color .3s;
+}
+.logo-item:hover{color:var(–purple-light)}
+.logo-sep{width:3px;height:3px;border-radius:50%;background:var(–purple)}
 
-/* ── SECTION BASE ── */
+/* ══════════════════════════════
+SECTION BASE
+══════════════════════════════ */
 .wrap{max-width:var(–max);margin:0 auto;padding:0 24px}
 .sec{padding:100px 0;position:relative;z-index:1}
-.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(–t2);margin-bottom:20px}
-.sec-label::before{content:’’;width:16px;height:1px;background:var(–t2)}
-.sec-h{font-family:‘Archivo Black’,sans-serif;font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:400;letter-spacing:-1px;color:var(–t);line-height:1.1;margin-bottom:18px}
+.sec-label{
+display:inline-flex;align-items:center;gap:8px;
+font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+color:var(–purple-light);margin-bottom:20px;
+}
+.sec-label::before{content:’’;width:16px;height:1px;background:var(–purple-light)}
+.sec-h{
+font-family:‘Archivo Black’,sans-serif;
+font-size:clamp(1.9rem,3.8vw,2.9rem);
+font-weight:400;letter-spacing:-1px;
+color:var(–t);line-height:1.1;margin-bottom:18px;
+}
 .sec-p{font-size:15px;color:var(–t2);line-height:1.85;max-width:480px}
 .sec-head-center{text-align:center}
-.sec-head-center .sec-label{margin:0 auto 20px;display:flex}
+.sec-head-center .sec-label{margin:0 auto 20px;display:flex;justify-content:center}
 .sec-head-center .sec-p{margin:0 auto}
 .divider{height:1px;background:var(–border)}
 
-/* ── BUTTONS ── */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:6px;font-size:13.5px;font-weight:600;letter-spacing:.1px;transition:all .25s;cursor:pointer;border:none;font-family:inherit}
-.btn-primary{background:var(–t);color:var(–ink)}
-.btn-primary:hover{background:#ddd;transform:scale(1.02)}
-.btn-ghost{background:transparent;color:var(–t);border:1px solid var(–border2)}
-.btn-ghost:hover{border-color:rgba(255,255,255,.3);background:var(–accent2)}
+/* ══════════════════════════════
+BUTTONS
+══════════════════════════════ */
+.btn{
+display:inline-flex;align-items:center;gap:8px;
+padding:13px 26px;border-radius:6px;
+font-size:13.5px;font-weight:600;letter-spacing:.1px;
+transition:all .25s;cursor:pointer;border:none;font-family:inherit;
+}
+.btn-primary{
+background:var(–purple);color:#fff;
+box-shadow:0 0 20px var(–purple-glow);
+}
+.btn-primary:hover{
+background:var(–purple-hover);
+box-shadow:0 0 36px rgba(124,58,237,.5);
+transform:scale(1.02);
+}
+.btn-ghost{
+background:transparent;color:var(–t);
+border:1px solid var(–border2);
+}
+.btn-ghost:hover{
+border-color:var(–purple-border);
+color:var(–purple-light);
+background:var(–purple-soft);
+}
 .btn-ghost-sm{font-size:12.5px;padding:10px 20px}
 
-/* ═══════════════════════════════
-WHY (Autoridad)
-═══════════════════════════════ */
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(–border);border-radius:var(–r);overflow:hidden;margin-top:56px}
-.why-card{background:var(–ink2);padding:44px 40px;transition:background .3s;position:relative;overflow:hidden}
+/* ══════════════════════════════
+WHY (cards 2x2)
+══════════════════════════════ */
+.why-grid{
+display:grid;grid-template-columns:1fr 1fr;
+gap:1px;background:var(–border);
+border-radius:var(–r);overflow:hidden;margin-top:56px;
+}
+.why-card{
+background:var(–ink2);padding:44px 40px;
+transition:background .3s;position:relative;overflow:hidden;
+}
+.why-card::after{
+content:’’;position:absolute;bottom:0;left:0;right:0;height:2px;
+background:linear-gradient(90deg,var(–purple),var(–purple-light));
+transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
 .why-card:hover{background:var(–surface)}
-.why-card::before{content:’’;position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);opacity:0;transition:opacity .3s}
-.why-card:hover::before{opacity:1}
-.why-num{font-family:‘Archivo Black’,sans-serif;font-size:10px;font-weight:400;letter-spacing:3px;color:var(–t3);margin-bottom:24px;text-transform:uppercase}
-.why-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;border:1px solid var(–border2)}
-.why-icon svg{width:20px;height:20px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.why-card h3{font-family:‘Archivo Black’,sans-serif;font-size:17px;font-weight:400;color:var(–t);margin-bottom:12px;letter-spacing:-.3px}
+.why-card:hover::after{transform:scaleX(1)}
+.why-num{
+font-family:‘Archivo Black’,sans-serif;font-size:10px;
+font-weight:400;letter-spacing:3px;color:var(–t3);
+margin-bottom:24px;text-transform:uppercase;
+}
+.why-icon{
+width:44px;height:44px;border-radius:10px;
+display:flex;align-items:center;justify-content:center;
+margin-bottom:20px;
+border:1px solid var(–purple-border);
+background:var(–purple-soft);
+}
+.why-icon svg{
+width:20px;height:20px;stroke:var(–purple-light);
+fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.why-card h3{
+font-family:‘Archivo Black’,sans-serif;font-size:17px;
+font-weight:400;color:var(–t);margin-bottom:12px;letter-spacing:-.3px;
+}
 .why-card p{font-size:14px;color:var(–t2);line-height:1.8}
 
-/* ── AUTHORITY SECTION ── */
-.auth-section{padding:96px 0;border-top:1px solid var(–border);border-bottom:1px solid var(–border);background:var(–ink2)}
+/* ══════════════════════════════
+AUTHORITY SECTION
+══════════════════════════════ */
+.auth-section{
+padding:96px 0;
+border-top:1px solid var(–border);
+border-bottom:1px solid var(–border);
+background:var(–ink2);
+}
 .auth-inner{max-width:var(–max);margin:0 auto;padding:0 24px}
 .auth-header{text-align:center;margin-bottom:60px}
-.auth-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(–border);border-radius:var(–r);overflow:hidden}
-.auth-card{background:var(–ink2);padding:36px 28px;transition:background .3s}
+.auth-grid{
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:1px;background:var(–border);
+border-radius:var(–r);overflow:hidden;
+}
+.auth-card{
+background:var(–ink2);padding:36px 28px;
+transition:background .3s;
+position:relative;overflow:hidden;
+}
+.auth-card::before{
+content:’’;
+position:absolute;top:0;left:0;right:0;height:2px;
+background:linear-gradient(90deg,var(–purple),var(–purple-light));
+transform:scaleX(0);transform-origin:left;
+transition:transform .4s;
+}
 .auth-card:hover{background:var(–surface)}
-.auth-icon-wrap{width:48px;height:48px;border-radius:10px;border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.auth-icon-wrap svg{width:20px;height:20px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.auth-card h3{font-family:‘Archivo Black’,sans-serif;font-size:15px;font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px}
+.auth-card:hover::before{transform:scaleX(1)}
+.auth-icon-wrap{
+width:48px;height:48px;border-radius:10px;
+border:1px solid var(–purple-border);
+background:var(–purple-soft);
+display:flex;align-items:center;justify-content:center;margin-bottom:20px;
+}
+.auth-icon-wrap svg{
+width:20px;height:20px;stroke:var(–purple-light);
+fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.auth-card h3{
+font-family:‘Archivo Black’,sans-serif;font-size:15px;
+font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px;
+}
 .auth-card p{font-size:13.5px;color:var(–t2);line-height:1.75}
 
-/* ── SERVICES ── */
-.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(–border);border-radius:var(–r);overflow:hidden;margin-top:56px}
-.serv-card{background:var(–ink2);padding:36px 30px;transition:all .3s;position:relative;overflow:hidden}
-.serv-card::after{content:’’;position:absolute;bottom:0;left:0;right:0;height:1px;background:var(–t);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+/* ══════════════════════════════
+SERVICES
+══════════════════════════════ */
+.serv-grid{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:1px;background:var(–border);
+border-radius:var(–r);overflow:hidden;margin-top:56px;
+}
+.serv-card{
+background:var(–ink2);padding:36px 30px;
+transition:background .3s;position:relative;overflow:hidden;
+}
+.serv-card::after{
+content:’’;position:absolute;bottom:0;left:0;right:0;height:2px;
+background:linear-gradient(90deg,var(–purple),var(–purple-light));
+transform:scaleX(0);transform-origin:left;transition:transform .35s;
+}
 .serv-card:hover{background:var(–surface)}
 .serv-card:hover::after{transform:scaleX(1)}
-.serv-card-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;border:1px solid var(–border2)}
-.serv-card-icon svg{width:19px;height:19px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.serv-card h3{font-family:‘Archivo Black’,sans-serif;font-size:16px;font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px}
+.serv-card-icon{
+width:42px;height:42px;border-radius:10px;
+display:flex;align-items:center;justify-content:center;
+margin-bottom:20px;
+border:1px solid var(–purple-border);
+background:var(–purple-soft);
+}
+.serv-card-icon svg{
+width:19px;height:19px;stroke:var(–purple-light);
+fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.serv-card h3{
+font-family:‘Archivo Black’,sans-serif;font-size:16px;
+font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px;
+}
 .serv-card p{font-size:13.5px;color:var(–t2);line-height:1.75}
 .serv-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:16px}
-.stag{font-size:10.5px;font-weight:600;color:var(–t3);background:rgba(255,255,255,.04);border:1px solid var(–border);border-radius:4px;padding:3px 8px;letter-spacing:.5px;text-transform:uppercase}
+.stag{
+font-size:10.5px;font-weight:600;
+color:var(–purple-light);
+background:var(–purple-soft);
+border:1px solid var(–purple-border);
+border-radius:4px;padding:3px 8px;
+letter-spacing:.5px;text-transform:uppercase;
+}
 
-/* ── PROCESS ── */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(–border);border-radius:var(–r);overflow:hidden;margin-top:56px}
-.process-card{background:var(–ink2);padding:40px 28px;position:relative;transition:background .3s;overflow:hidden}
+/* ══════════════════════════════
+PROCESS
+══════════════════════════════ */
+.process-grid{
+display:grid;grid-template-columns:repeat(4,1fr);
+gap:1px;background:var(–border);
+border-radius:var(–r);overflow:hidden;margin-top:56px;
+}
+.process-card{
+background:var(–ink2);padding:40px 28px;
+position:relative;transition:background .3s;overflow:hidden;
+}
 .process-card:hover{background:var(–surface)}
-.process-num{font-family:‘Archivo Black’,sans-serif;font-size:56px;font-weight:400;color:rgba(255,255,255,.04);line-height:1;margin-bottom:20px;letter-spacing:-3px}
-.process-icon{width:40px;height:40px;border-radius:10px;border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.process-icon svg{width:18px;height:18px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.process-card h3{font-family:‘Archivo Black’,sans-serif;font-size:16px;font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px}
+.process-num{
+font-family:‘Archivo Black’,sans-serif;
+font-size:56px;font-weight:400;
+color:rgba(124,58,237,.08);
+line-height:1;margin-bottom:20px;letter-spacing:-3px;
+}
+.process-card:hover .process-num{color:rgba(124,58,237,.15)}
+.process-icon{
+width:40px;height:40px;border-radius:10px;
+border:1px solid var(–purple-border);
+background:var(–purple-soft);
+display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.process-icon svg{
+width:18px;height:18px;stroke:var(–purple-light);
+fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.process-card h3{
+font-family:‘Archivo Black’,sans-serif;font-size:15px;
+font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.2px;
+}
 .process-card p{font-size:13.5px;color:var(–t2);line-height:1.75}
 
-/* ── PORTFOLIO ── */
+/* ══════════════════════════════
+PORTFOLIO
+══════════════════════════════ */
 .port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
-.port-card{border-radius:var(–r);overflow:hidden;border:1px solid var(–border);background:var(–ink2);transition:all .35s;cursor:pointer;text-decoration:none;display:block}
-.port-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-4px);box-shadow:0 20px 48px rgba(0,0,0,.5)}
-.port-preview{width:100%;aspect-ratio:16/9;background:var(–surface);position:relative;overflow:hidden}
-.port-preview-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
-.port-domain-label{font-family:‘Archivo Black’,sans-serif;font-size:14px;font-weight:400;letter-spacing:2px;text-transform:uppercase}
+.port-card{
+border-radius:var(–r);overflow:hidden;
+border:1px solid var(–border);background:var(–ink2);
+transition:border-color .35s,transform .35s,box-shadow .35s;
+cursor:pointer;text-decoration:none;display:block;
+}
+.port-card:hover{
+border-color:var(–purple-border);
+transform:translateY(-5px);
+box-shadow:0 20px 48px rgba(0,0,0,.5),0 0 0 1px var(–purple-border);
+}
+.port-preview{
+width:100%;aspect-ratio:16/9;
+background:var(–surface);position:relative;overflow:hidden;
+}
+.port-preview-fallback{
+width:100%;height:100%;
+display:flex;align-items:center;justify-content:center;
+flex-direction:column;gap:8px;
+}
+.port-domain-label{
+font-family:‘Archivo Black’,sans-serif;
+font-size:14px;font-weight:400;letter-spacing:2px;text-transform:uppercase;
+}
 .port-url-label{font-size:10px;color:var(–t3);letter-spacing:1px}
 .port-info{padding:20px 20px 22px}
 .port-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px}
-.port-favicon{width:16px;height:16px;border-radius:3px;object-fit:cover;background:var(–surface);flex-shrink:0}
+.port-favicon{
+width:16px;height:16px;border-radius:3px;
+object-fit:cover;background:var(–surface);flex-shrink:0;
+}
 .port-domain{font-size:11px;color:var(–t3);font-weight:500;letter-spacing:.5px}
-.port-info h3{font-family:‘Archivo Black’,sans-serif;font-size:16px;font-weight:400;color:var(–t);margin-bottom:8px;letter-spacing:-.2px}
+.port-info h3{
+font-family:‘Archivo Black’,sans-serif;font-size:16px;
+font-weight:400;color:var(–t);margin-bottom:8px;letter-spacing:-.2px;
+}
 .port-info .port-strategy{font-size:13px;color:var(–t2);line-height:1.7;margin-bottom:14px}
-.port-tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.8px;color:var(–t3);background:var(–surface);border:1px solid var(–border);border-radius:4px;padding:3px 9px;text-transform:uppercase}
-.port-arrow{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;color:var(–t3);margin-top:12px;transition:color .2s}
-.port-card:hover .port-arrow{color:var(–t)}
-.port-arrow svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.port-tag{
+display:inline-block;font-size:10.5px;font-weight:600;
+letter-spacing:.8px;
+color:var(–purple-light);background:var(–purple-soft);
+border:1px solid var(–purple-border);
+border-radius:4px;padding:3px 9px;text-transform:uppercase;
+}
+.port-arrow{
+display:inline-flex;align-items:center;gap:5px;
+font-size:12px;font-weight:500;color:var(–t3);
+margin-top:12px;transition:color .2s;
+}
+.port-card:hover .port-arrow{color:var(–purple-light)}
+.port-arrow svg{
+width:12px;height:12px;stroke:currentColor;fill:none;
+stroke-width:2;stroke-linecap:round;stroke-linejoin:round;
+transition:transform .2s;
+}
 .port-card:hover .port-arrow svg{transform:translateX(3px)}
 
-/* ── PLANS ── */
-.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px;align-items:start}
-.plan{background:var(–ink2);border:1px solid var(–border);border-radius:var(–r);padding:36px 28px;position:relative;transition:border-color .3s}
-.plan:hover{border-color:rgba(255,255,255,.15)}
-.plan.featured{background:var(–surface);border-color:rgba(255,255,255,.15)}
-.plan-pill{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:4px;background:var(–t);color:var(–ink);white-space:nowrap}
-.plan-name{font-family:‘Archivo Black’,sans-serif;font-size:20px;font-weight:400;color:var(–t);margin-bottom:6px;letter-spacing:-.3px}
+/* ══════════════════════════════
+PLANS
+══════════════════════════════ */
+.plans-grid{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:14px;margin-top:56px;align-items:start;
+}
+.plan{
+background:var(–ink2);border:1px solid var(–border);
+border-radius:var(–r);padding:36px 28px;
+position:relative;transition:border-color .3s,box-shadow .3s;
+}
+.plan:hover{border-color:var(–purple-border)}
+.plan.featured{
+background:var(–surface);
+border-color:var(–purple-border);
+box-shadow:0 0 48px rgba(124,58,237,.1);
+}
+.plan-pill{
+position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+padding:4px 14px;border-radius:4px;
+background:var(–purple);color:#fff;white-space:nowrap;
+}
+.plan-name{
+font-family:‘Archivo Black’,sans-serif;font-size:20px;
+font-weight:400;color:var(–t);margin-bottom:6px;letter-spacing:-.3px;
+}
 .plan-desc{font-size:13px;color:var(–t2);margin-bottom:26px;line-height:1.65}
 .plan-items{list-style:none;margin-bottom:28px}
-.plan-items li{font-size:13.5px;color:var(–t2);padding:9px 0;border-bottom:1px solid var(–border);display:flex;align-items:center;gap:10px}
+.plan-items li{
+font-size:13.5px;color:var(–t2);
+padding:9px 0;border-bottom:1px solid var(–border);
+display:flex;align-items:center;gap:10px;
+}
 .plan-items li:last-child{border:none}
-.plan-check{width:14px;height:14px;flex-shrink:0;stroke:var(–t);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.plan-check{
+width:14px;height:14px;flex-shrink:0;
+stroke:var(–purple-light);fill:none;
+stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;
+}
 .plan-btn{width:100%;justify-content:center;font-size:13.5px}
 
-/* ── CTA CLOSE (URGENCIA) ── */
-.cta-close{padding:120px 24px;background:#000;position:relative;overflow:hidden;z-index:1;border-top:1px solid var(–border)}
-.cta-close-inner{max-width:680px;margin:0 auto;text-align:center;position:relative}
-.cta-close h2{font-family:‘Archivo Black’,sans-serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:400;letter-spacing:-1.2px;color:var(–t);margin-bottom:20px;line-height:1.08}
-.cta-close p{font-size:16px;color:var(–t2);line-height:1.8;margin-bottom:44px;max-width:440px;margin-left:auto;margin-right:auto}
+/* ══════════════════════════════
+CTA CLOSE
+══════════════════════════════ */
+.cta-close{
+padding:120px 24px;
+background:#000;
+position:relative;overflow:hidden;z-index:1;
+border-top:1px solid var(–border);
+}
+.cta-close::before{
+content:’’;
+position:absolute;top:50%;left:50%;
+transform:translate(-50%,-50%);
+width:800px;height:400px;
+background:radial-gradient(ellipse at center,rgba(124,58,237,.15) 0%,transparent 70%);
+pointer-events:none;
+}
+.cta-close-inner{
+max-width:680px;margin:0 auto;
+text-align:center;position:relative;
+}
+.cta-close h2{
+font-family:‘Archivo Black’,sans-serif;
+font-size:clamp(2rem,4.5vw,3.4rem);
+font-weight:400;letter-spacing:-1.2px;
+color:var(–t);margin-bottom:20px;line-height:1.08;
+}
+.cta-close p{
+font-size:16px;color:var(–t2);
+line-height:1.8;margin-bottom:44px;
+max-width:440px;margin-left:auto;margin-right:auto;
+}
 .cta-close-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 
-/* ── ABOUT ── */
-.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.about-card{background:var(–surface);border:1px solid var(–border);border-radius:var(–r);padding:36px}
-.about-avatar{width:72px;height:72px;border-radius:50%;background:var(–surface2);border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;font-family:‘Archivo Black’,sans-serif;font-size:26px;font-weight:400;color:var(–t);margin-bottom:18px}
-.about-role{font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(–t2);margin-bottom:6px}
-.about-name{font-family:‘Archivo Black’,sans-serif;font-size:20px;font-weight:400;color:var(–t);margin-bottom:14px;letter-spacing:-.3px}
+/* ══════════════════════════════
+BRANDS / SOCIAL PROOF
+══════════════════════════════ */
+.brands-section{padding:0 0 96px}
+.brands-inner{
+border:1px solid var(–border);border-radius:var(–r);
+padding:56px 48px;background:var(–ink2);text-align:center;
+}
+.brands-title{
+font-family:‘Archivo Black’,sans-serif;font-size:1.4rem;
+font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.3px;
+}
+.brands-sub{font-size:13.5px;color:var(–t2);margin-bottom:44px;line-height:1.7}
+.brands-list{
+display:flex;align-items:center;
+justify-content:center;gap:48px;flex-wrap:wrap;
+}
+.brand-item{
+display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.brand-name{
+font-family:‘Archivo Black’,sans-serif;font-size:12px;
+font-weight:400;color:var(–t2);
+letter-spacing:2px;text-transform:uppercase;
+}
+.brand-type{font-size:11px;color:var(–t3);letter-spacing:.5px}
+.brand-dot{width:28px;height:1px;background:var(–purple-border)}
+
+/* ══════════════════════════════
+ABOUT
+══════════════════════════════ */
+.about-layout{
+display:grid;grid-template-columns:1fr 1fr;
+gap:72px;align-items:center;
+}
+.about-card{
+background:var(–surface);
+border:1px solid var(–border);
+border-radius:var(–r);padding:36px;
+}
+.about-avatar{
+width:72px;height:72px;border-radius:50%;
+background:linear-gradient(135deg,var(–purple),var(–purple-light));
+display:flex;align-items:center;justify-content:center;
+font-family:‘Archivo Black’,sans-serif;font-size:26px;font-weight:400;color:#fff;
+margin-bottom:18px;box-shadow:0 0 28px var(–purple-glow);
+}
+.about-role{
+font-size:10.5px;font-weight:600;letter-spacing:2px;
+text-transform:uppercase;color:var(–purple-light);margin-bottom:6px;
+}
+.about-name{
+font-family:‘Archivo Black’,sans-serif;font-size:20px;
+font-weight:400;color:var(–t);margin-bottom:14px;letter-spacing:-.3px;
+}
 .about-bio{font-size:14px;color:var(–t2);line-height:1.85}
-.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(–border);border-radius:10px;overflow:hidden;margin-top:22px}
+.about-stats{
+display:grid;grid-template-columns:1fr 1fr;
+gap:1px;background:var(–border);
+border-radius:10px;overflow:hidden;margin-top:22px;
+}
 .astat{background:var(–ink2);padding:16px 18px}
-.astat-n{font-family:‘Archivo Black’,sans-serif;font-size:22px;font-weight:400;color:var(–t);letter-spacing:-.5px}
+.astat-n{
+font-family:‘Archivo Black’,sans-serif;font-size:22px;
+font-weight:400;color:var(–purple-light);letter-spacing:-.5px;
+}
 .astat-l{font-size:11.5px;color:var(–t3);margin-top:3px}
 .values-list{display:flex;flex-direction:column;gap:16px;margin-top:32px}
 .val-item{display:flex;gap:14px;align-items:flex-start}
-.val-icon{width:38px;height:38px;border-radius:8px;border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.val-icon svg{width:17px;height:17px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.val-text h4{font-family:‘Archivo Black’,sans-serif;font-size:14px;font-weight:400;color:var(–t);margin-bottom:4px;letter-spacing:-.1px}
+.val-icon{
+width:38px;height:38px;border-radius:8px;
+border:1px solid var(–purple-border);
+background:var(–purple-soft);
+display:flex;align-items:center;justify-content:center;
+flex-shrink:0;margin-top:2px;
+}
+.val-icon svg{
+width:17px;height:17px;stroke:var(–purple-light);
+fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.val-text h4{
+font-family:‘Archivo Black’,sans-serif;font-size:14px;
+font-weight:400;color:var(–t);margin-bottom:4px;letter-spacing:-.1px;
+}
 .val-text p{font-size:13.5px;color:var(–t2);line-height:1.75}
 
-/* ── SOCIAL PROOF ── */
-.brands-section{padding:0 0 96px}
-.brands-inner{border:1px solid var(–border);border-radius:var(–r);padding:56px 48px;background:var(–ink2);text-align:center}
-.brands-title{font-family:‘Archivo Black’,sans-serif;font-size:1.4rem;font-weight:400;color:var(–t);margin-bottom:10px;letter-spacing:-.3px}
-.brands-sub{font-size:13.5px;color:var(–t2);margin-bottom:44px;line-height:1.7}
-.brands-list{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
-.brand-item{display:flex;flex-direction:column;align-items:center;gap:6px}
-.brand-name{font-family:‘Archivo Black’,sans-serif;font-size:12px;font-weight:400;color:var(–t2);letter-spacing:2px;text-transform:uppercase}
-.brand-type{font-size:11px;color:var(–t3);letter-spacing:.5px}
-.brand-dot{width:28px;height:1px;background:var(–border2)}
-
-/* ── CONTACT ── */
-.contact-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:36px;align-items:start}
+/* ══════════════════════════════
+CONTACT
+══════════════════════════════ */
+.contact-layout{
+display:grid;grid-template-columns:1fr 1.3fr;
+gap:36px;align-items:start;
+}
 .contact-channels{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-.ch-card{display:flex;align-items:center;gap:14px;padding:17px 18px;border-radius:var(–r);border:1px solid var(–border);background:var(–ink2);transition:all .25s;cursor:pointer;text-decoration:none}
-.ch-card:hover{border-color:rgba(255,255,255,.14);background:var(–surface);transform:translateX(3px)}
-.ch-icon{width:40px;height:40px;border-radius:8px;border:1px solid var(–border2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ch-icon svg{width:18px;height:18px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.ch-label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(–t3);margin-bottom:3px}
+.ch-card{
+display:flex;align-items:center;gap:14px;
+padding:17px 18px;border-radius:var(–r);
+border:1px solid var(–border);background:var(–ink2);
+transition:border-color .25s,background .25s,transform .25s;
+cursor:pointer;text-decoration:none;
+}
+.ch-card:hover{
+border-color:var(–purple-border);
+background:var(–surface);
+transform:translateX(4px);
+}
+.ch-icon{
+width:40px;height:40px;border-radius:8px;
+border:1px solid var(–purple-border);
+background:var(–purple-soft);
+display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ch-icon svg{
+width:18px;height:18px;stroke:var(–purple-light);
+fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+}
+.ch-label{
+font-size:10px;font-weight:600;
+letter-spacing:1.5px;text-transform:uppercase;
+color:var(–t3);margin-bottom:3px;
+}
 .ch-val{font-size:13.5px;font-weight:500;color:var(–t)}
-.contact-note{font-size:13px;color:var(–t3);line-height:1.8;padding:14px 18px;border-radius:8px;background:rgba(255,255,255,.02);border:1px solid var(–border)}
-.form-box{background:var(–ink2);border:1px solid var(–border);border-radius:var(–r);padding:32px}
-.form-box h3{font-family:‘Archivo Black’,sans-serif;font-size:18px;font-weight:400;color:var(–t);margin-bottom:24px;letter-spacing:-.2px}
+.contact-note{
+font-size:13px;color:var(–t3);
+line-height:1.8;padding:14px 18px;
+border-radius:8px;background:rgba(255,255,255,.02);
+border:1px solid var(–border);
+}
+.form-box{
+background:var(–ink2);border:1px solid var(–border);
+border-radius:var(–r);padding:32px;
+}
+.form-box h3{
+font-family:‘Archivo Black’,sans-serif;font-size:18px;
+font-weight:400;color:var(–t);margin-bottom:24px;letter-spacing:-.2px;
+}
 .fg{margin-bottom:14px}
-.fg label{display:block;font-size:11px;font-weight:600;color:var(–t3);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
-.fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,.03);border:1px solid var(–border);border-radius:8px;padding:12px 14px;color:var(–t);font-size:13.5px;font-family:inherit;outline:none;transition:border-color .2s;resize:vertical;appearance:none}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.04)}
+.fg label{
+display:block;font-size:11px;font-weight:600;
+color:var(–t3);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;
+}
+.fg input,.fg textarea,.fg select{
+width:100%;background:rgba(255,255,255,.03);
+border:1px solid var(–border);border-radius:8px;
+padding:12px 14px;color:var(–t);
+font-size:13.5px;font-family:‘Inter’,Helvetica,sans-serif;
+outline:none;transition:border-color .2s,background .2s;
+resize:vertical;appearance:none;-webkit-appearance:none;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(–t3)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{
+border-color:var(–purple-border);
+background:var(–purple-soft);
+}
 .fg select option{background:#161616;color:var(–t)}
 .form-success{text-align:center;padding:40px 20px}
-.form-success svg{width:48px;height:48px;stroke:var(–t);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;display:block;margin:0 auto 16px}
-.form-success h3{font-family:‘Archivo Black’,sans-serif;font-size:18px;font-weight:400;color:var(–t);margin-bottom:8px}
+.form-success svg{
+width:48px;height:48px;stroke:var(–purple-light);
+fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;
+display:block;margin:0 auto 16px;
+}
+.form-success h3{
+font-family:‘Archivo Black’,sans-serif;font-size:18px;
+font-weight:400;color:var(–t);margin-bottom:8px;
+}
 .form-success p{font-size:13.5px;color:var(–t2)}
 
-/* ── FOOTER ── */
-footer{background:var(–ink2);border-top:1px solid var(–border);padding:56px 40px 28px;position:relative;z-index:1}
+/* ══════════════════════════════
+FOOTER
+══════════════════════════════ */
+footer{
+background:var(–ink2);border-top:1px solid var(–border);
+padding:56px 40px 28px;position:relative;z-index:1;
+}
 .footer-inner{max-width:var(–max);margin:0 auto}
-.footer-top{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:48px;margin-bottom:44px}
-.f-logo{font-family:‘Archivo Black’,sans-serif;font-size:14px;color:var(–t);margin-bottom:10px;font-weight:400}
-.f-logo em{font-style:normal;color:var(–t2)}
+.footer-top{
+display:grid;grid-template-columns:1.6fr repeat(3,1fr);
+gap:48px;margin-bottom:44px;
+}
+.f-logo{
+font-family:‘Archivo Black’,sans-serif;font-size:14px;
+color:var(–t);margin-bottom:10px;font-weight:400;
+}
+.f-logo em{font-style:normal;color:var(–purple-light)}
 .f-desc{font-size:12.5px;color:var(–t3);line-height:1.8;margin-bottom:18px;max-width:220px}
 .f-socials{display:flex;gap:6px}
-.f-social{width:34px;height:34px;border-radius:50%;border:1px solid var(–border);display:flex;align-items:center;justify-content:center;transition:all .2s;color:inherit}
-.f-social:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.04)}
-.f-social svg{width:14px;height:14px;stroke:var(–t3);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.f-social:hover svg{stroke:var(–t)}
-.f-col h4{font-family:‘Archivo Black’,sans-serif;font-size:10.5px;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:var(–t2);margin-bottom:14px}
-.f-link{display:block;font-size:12.5px;color:var(–t3);padding:4px 0;transition:color .2s;background:none;border:none;text-align:left;cursor:pointer;font-family:inherit;letter-spacing:0}
-.f-link:hover{color:var(–t)}
-.footer-bot{border-top:1px solid var(–border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.f-social{
+width:34px;height:34px;border-radius:50%;
+border:1px solid var(–border);
+display:flex;align-items:center;justify-content:center;
+transition:border-color .2s,background .2s;color:inherit;
+}
+.f-social:hover{border-color:var(–purple-border);background:var(–purple-soft)}
+.f-social svg{
+width:14px;height:14px;stroke:var(–t3);
+fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+transition:stroke .2s;
+}
+.f-social:hover svg{stroke:var(–purple-light)}
+.f-col h4{
+font-family:‘Archivo Black’,sans-serif;font-size:10.5px;
+font-weight:400;letter-spacing:2px;text-transform:uppercase;
+color:var(–t2);margin-bottom:14px;
+}
+.f-link{
+display:block;font-size:12.5px;color:var(–t3);
+padding:4px 0;transition:color .2s;
+background:none;border:none;text-align:left;
+cursor:pointer;font-family:inherit;letter-spacing:0;
+}
+.f-link:hover{color:var(–purple-light)}
+.footer-bot{
+border-top:1px solid var(–border);padding-top:20px;
+display:flex;justify-content:space-between;align-items:center;
+flex-wrap:wrap;gap:8px;
+}
 .footer-bot span{font-size:11.5px;color:var(–t3)}
 
-/* ── FLOAT WA ── */
-.wa-float{position:fixed;bottom:24px;right:24px;z-index:800;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,.25);transition:all .3s}
-.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.4)}
+/* ══════════════════════════════
+FLOAT WHATSAPP
+══════════════════════════════ */
+.wa-float{
+position:fixed;bottom:24px;right:24px;z-index:800;
+width:52px;height:52px;border-radius:50%;
+background:#25d366;
+display:flex;align-items:center;justify-content:center;
+box-shadow:0 4px 16px rgba(37,211,102,.25);
+transition:transform .3s,box-shadow .3s;
+}
+.wa-float:hover{
+transform:scale(1.1);
+box-shadow:0 6px 28px rgba(37,211,102,.4);
+}
 .wa-float svg{width:25px;height:25px;fill:#fff}
 
-/* ── REVEAL ── */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+/* ══════════════════════════════
+REVEAL ANIMATIONS
+══════════════════════════════ */
+.rv{
+opacity:0;transform:translateY(22px);
+transition:opacity .6s ease,transform .6s ease;
+}
 .rv.in{opacity:1;transform:none}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
-.d4{transition-delay:.28s}.d5{transition-delay:.35s}.d6{transition-delay:.42s}
+.d1{transition-delay:.07s}
+.d2{transition-delay:.14s}
+.d3{transition-delay:.21s}
+.d4{transition-delay:.28s}
+.d5{transition-delay:.35s}
+.d6{transition-delay:.42s}
 
-/* ── RESPONSIVE ── */
+/* ══════════════════════════════
+RESPONSIVE — TABLET
+══════════════════════════════ */
 @media(max-width:1024px){
 .why-grid{grid-template-columns:1fr 1fr}
 .serv-grid{grid-template-columns:1fr 1fr}
@@ -312,9 +937,14 @@ footer{background:var(–ink2);border-top:1px solid var(–border);padding:56px 
 nav{padding:0 24px}
 footer{padding:44px 24px 24px}
 }
+
+/* ══════════════════════════════
+RESPONSIVE — MOBILE
+══════════════════════════════ */
 @media(max-width:768px){
 .nav-links,.nav-actions .lang-sw,.nav-cta{display:none}
 .burger{display:flex}
+
 .why-grid{grid-template-columns:1fr}
 .serv-grid{grid-template-columns:1fr}
 .port-grid{grid-template-columns:1fr}
@@ -324,33 +954,42 @@ footer{padding:44px 24px 24px}
 .footer-top{grid-template-columns:1fr 1fr}
 .footer-bot{flex-direction:column;align-items:flex-start}
 footer{padding:40px 18px 20px}
+
 .sec{padding:68px 0}
 .wrap{padding:0 18px}
 .hero{padding:96px 18px 70px}
 .cta-close{padding:76px 18px}
 .logos-strip{padding:18px}
-.auth-grid{grid-template-columns:1fr 1fr}
+
+.auth-section{padding:72px 0}
+.auth-inner{padding:0 18px}
+.brands-section{padding:0 0 72px}
 .brands-inner{padding:40px 24px}
 .brands-list{gap:28px}
-.auth-section{padding:72px 0}
-.brands-section{padding:0 0 72px}
+
+.hero-cta-wrap{flex-direction:column;align-items:stretch;width:100%;max-width:320px;margin:0 auto}
+.btn-hero-main,.btn-hero-wa{justify-content:center;width:100%}
 }
+
+/* ══════════════════════════════
+RESPONSIVE — SMALL MOBILE
+══════════════════════════════ */
 @media(max-width:480px){
 .process-grid{grid-template-columns:1fr}
 .why-card{padding:30px 22px}
 .serv-card{padding:28px 20px}
 .process-card{padding:30px 22px}
+.auth-card{padding:28px 20px}
+.auth-grid{grid-template-columns:1fr}
 .form-box{padding:22px 16px}
 .footer-top{grid-template-columns:1fr}
 .plan{padding:28px 22px}
-.auth-grid{grid-template-columns:1fr}
-.auth-card{padding:28px 20px}
-.hero-cta-wrap{flex-direction:column;align-items:stretch;max-width:320px;margin:0 auto}
-.btn-hero-main,.btn-hero-wa{justify-content:center}
 .hero h1{letter-spacing:-1px}
+.sec-h{letter-spacing:-.8px}
+.brands-inner{padding:32px 18px}
 }
-</style>
 
+</style>
 </head>
 <body>
 
@@ -872,9 +1511,9 @@ footer{padding:40px 18px 20px}
               <div class="ch-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
               <div><div class="ch-label">WhatsApp</div><div class="ch-val">+507 6799-7259</div></div>
             </a>
-            <a href="mailto:ruptastudiospa@gmail.com" class="ch-card">
+            <a href="/cdn-cgi/l/email-protection#3c4e494c485d4f48495855534f4c5d7c5b515d5550125f5351" class="ch-card">
               <div class="ch-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-              <div><div class="ch-label">Email</div><div class="ch-val">ruptastudiospa@gmail.com</div></div>
+              <div><div class="ch-label">Email</div><div class="ch-val"><span class="__cf_email__" data-cfemail="f48681848095878081909d9b878495b49399959d98da979b99">[email&#160;protected]</span></div></div>
             </a>
             <a href="https://instagram.com/ruptastudios" target="_blank" class="ch-card">
               <div class="ch-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
@@ -920,7 +1559,7 @@ footer{padding:40px 18px 20px}
         <div class="f-socials">
           <a href="https://instagram.com/ruptastudios" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
           <a href="https://wa.me/50767997259" target="_blank" class="f-social"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-          <a href="mailto:ruptastudiospa@gmail.com" class="f-social"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          <a href="/cdn-cgi/l/email-protection#562423262237252223323f3925263716313b373f3a7835393b" class="f-social"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
         </div>
       </div>
       <div class="f-col">
@@ -935,7 +1574,7 @@ footer{padding:40px 18px 20px}
       <div class="f-col">
         <h4 data-i="f_contact">Contacto</h4>
         <a href="https://wa.me/50767997259" target="_blank" class="f-link">+507 6799-7259</a>
-        <a href="mailto:ruptastudiospa@gmail.com" class="f-link">ruptastudiospa@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#176562676376646362737e7864677657707a767e7b3974787a" class="f-link"><span class="__cf_email__" data-cfemail="384a4d484c594b4c4d5c51574b4859785f55595154165b5755">[email&#160;protected]</span></a>
         <a href="https://instagram.com/ruptastudios" target="_blank" class="f-link">@ruptastudios</a>
       </div>
       <div class="f-col">
@@ -956,259 +1595,28 @@ footer{padding:40px 18px 20px}
   <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 1C7.73 1 1 7.73 1 16c0 2.63.68 5.1 1.87 7.25L1 31l7.98-1.84A14.93 14.93 0 0 0 16 31c8.27 0 15-6.73 15-15S24.27 1 16 1zm0 27.33a12.26 12.26 0 0 1-6.27-1.72l-.45-.27-4.74 1.09 1.12-4.61-.3-.48A12.27 12.27 0 1 1 16 28.33zm6.74-9.17c-.37-.18-2.18-1.07-2.52-1.2-.34-.12-.58-.18-.83.18-.24.37-.95 1.2-1.17 1.44-.21.25-.43.28-.8.09-.37-.18-1.56-.57-2.97-1.83-1.1-.98-1.84-2.19-2.05-2.56-.22-.37-.02-.57.16-.75.17-.17.37-.43.55-.65.18-.22.24-.37.37-.61.12-.25.06-.46-.03-.65-.09-.18-.83-2-.13-2.73.62-.65 1.56-.46 1.99-.1.52.43.87 1.05.87 1.78 0 .74-.13 1.48-.13 1.48s-.6-.24-.83-.36z"/></svg>
 </a>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
 // ── NAV SCROLL
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('solid',window.scrollY>40);
+window.addEventListener(‘scroll’,()=>{
+document.getElementById(‘nav’).classList.toggle(‘solid’,window.scrollY>40);
 });
 
 // ── MOBILE MENU
-function toggleMob(){document.getElementById('mobMenu').classList.toggle('open');}
+function toggleMob(){document.getElementById(‘mobMenu’).classList.toggle(‘open’);}
 
 // ── PAGE ROUTER
-let curPage='inicio';
+let curPage=‘inicio’;
 function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.nav-link').forEach(l=>l.classList.toggle('active',l.dataset.p===id));
-  const el=document.getElementById('pg-'+id);
-  if(el)el.classList.add('on');
-  curPage=id;
-  window.scrollTo({top:0,behavior:'smooth'});
-  setTimeout(initReveal,80);
+document.querySelectorAll(’[data-i]’).forEach(el=>{
+const k=el.dataset.i;
+if(L[lang]&&L[lang][k]!==undefined){
+if(el.tagName===‘INPUT’||el.tagName===‘TEXTAREA’){el.placeholder=L[lang][k];}
+else{el.innerHTML=L[lang][k];}
 }
-
-// ── REVEAL ON SCROLL
-function initReveal(){
-  const io=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:0.05,rootMargin:'0px 0px -30px 0px'});
-  document.querySelectorAll('.page.on .rv:not(.in)').forEach(el=>io.observe(el));
-}
-document.addEventListener('DOMContentLoaded',()=>setTimeout(initReveal,120));
-
-// ── CONTACT FORM
-function sendForm(){
-  const n=document.getElementById('fn').value.trim();
-  const e=document.getElementById('fe').value.trim();
-  const s=document.getElementById('fs').value;
-  const m=document.getElementById('fm').value.trim();
-  if(!n||!e){alert('Por favor completa tu nombre y email.');return;}
-  const txt=encodeURIComponent(`Hola, soy ${n} (${e}).${s?' Servicio: '+s+'.':''} ${m||'Quisiera más información.'}`);
-  window.open(`https://wa.me/50767997259?text=${txt}`,'_blank');
-  document.getElementById('formBox').innerHTML=`<div class="form-success"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><h3>¡Mensaje enviado!</h3><p>Te redirigimos a WhatsApp para continuar la conversación.</p></div>`;
-}
-
-// ── I18N
-let curLang='es';
-const L={
-es:{
-  nav_i:'Inicio',nav_s:'Servicios',nav_p:'Portafolio',nav_pl:'Planes',nav_n:'Nosotros',nav_c:'Contacto',nav_cta:'Iniciar proyecto',
-  hero_tag:'Agencia de diseño web estratégico',
-  hero_h1:'Diseñamos páginas web estratégicas<br>que convierten visitantes<br><span class="hl">en clientes.</span>',
-  hero_p:'Creamos sitios optimizados para negocios que quieren vender más, posicionarse mejor y crecer online.',
-  hero_cta1:'Crear mi plan',hero_cta2:'Hablar por WhatsApp',
-  hero_trust:'Marcas en producción: Santo Patrón Clothing · Eleva Corp · Rystar Studios',
-  auth_label:'Por qué elegir Rupta',auth_h:'Estrategia. Diseño. Resultados.',auth_p:'Cada proyecto tiene un único objetivo: hacer crecer tu negocio de forma medible y sostenida.',
-  auth1_t:'Estrategia enfocada en ventas',auth1_p:'No diseñamos por estética. Cada decisión está orientada a convertir visitantes en clientes reales para tu negocio.',
-  auth2_t:'Diseño moderno y optimizado',auth2_p:'Interfaces limpias, mobile-first y construidas con las mejores prácticas de UI/UX para generar confianza y acción.',
-  auth3_t:'Web rápida y preparada para SEO',auth3_p:'Código limpio, carga rápida y estructura técnica preparada para posicionarte en Google desde el primer día.',
-  auth4_t:'Soporte real después del lanzamiento',auth4_p:'No desaparecemos al entregar. Ofrecemos soporte continuo, actualizaciones y acompañamiento post-lanzamiento.',
-  serv_label:'Servicios',serv_h:'Todo lo que tu marca<br>necesita para dominar online.',serv_more:'Ver todos los servicios →',
-  sv1_t:'Diseño Web',sv1_p:'Sitios premium que posicionan, convencen y convierten. Rápidos, mobile-first y construidos para crecer.',
-  sv2_t:'Branding & Identidad',sv2_p:'Sistemas de identidad visual que hacen que tu marca sea reconocible, memorable y profesional a primera vista.',
-  sv3_t:'E-commerce',sv3_p:'Tiendas online optimizadas para vender desde el primer día. Flujo de compra limpio, seguro y rentable.',
-  sv4_t:'SEO & Posicionamiento',sv4_p:'Visibilidad orgánica en Google. Tráfico que compra, no solo que visita.',
-  sv5_t:'Marketing Digital',sv5_p:'Campañas pagadas y estrategia de contenido que generan retorno real.',
-  sv6_t:'Soporte & Mantenimiento',sv6_p:'Actualizaciones, seguridad y soporte. Tu web siempre funcionando al 100%.',
-  sv7_t:'Seguridad & Soporte',sv7_p:'SSL, backups automatizados, monitoreo 24/7 y soporte técnico real.',
-  sv8_t:'Diseño UI/UX',sv8_p:'Investigación, wireframes y prototipos que reducen fricción y aumentan conversión.',
-  serv_full_h:'Servicios diseñados<br>para generar resultados.',serv_full_p:'No vendemos páginas web. Construimos activos digitales que trabajan para tu negocio las 24 horas.',
-  sv1_full:'Desde landing pages hasta portales completos. Diseñamos con propósito: cada elemento al servicio de la conversión.',
-  sv2_full:'Logos, guías de estilo, sistemas de diseño. Construimos marcas que se recuerdan y se respetan en el mercado.',
-  sv3_full:'Tiendas optimizadas para vender. Integración de pagos, gestión de inventario y experiencia de compra que elimina fricción.',
-  sv4_full:'Aparecer en Google no es suerte. Es técnica, constancia y contenido estratégico.',
-  sv5_full:'Meta Ads, Google Ads y estrategia de contenido que generan retorno medible. Sin presupuesto desperdiciado.',
-  sv7_full:'SSL, backups automatizados, monitoreo 24/7 y soporte técnico real. Tu inversión protegida.',
-  sv8_full:'Investigación de usuario, wireframes y prototipos interactivos que reducen fricción y aumentan conversión.',
-  sv6_full:'Paquetes de mantenimiento mensual para que tu web esté siempre actualizada, segura y funcionando.',
-  serv_cta_l:'¿Proyecto especial?',serv_cta_h:'Cuéntanos tu visión.',serv_cta_p:'Si tu proyecto no encaja en una categoría estándar, construimos la solución exacta que necesitas.',serv_cta_btn:'Hablemos de tu proyecto',
-  proc_label:'Nuestro proceso',proc_h:'Así trabajamos.',proc_sub:'4 pasos claros, sin sorpresas. Sabemos exactamente cómo llevar tu proyecto del concepto al lanzamiento.',
-  p1_t:'Analizamos tu negocio y objetivos',p1_p:'Entendemos tu mercado, competencia y audiencia. Definimos objetivos claros antes de escribir una línea de código.',
-  p2_t:'Diseñamos la estrategia digital',p2_p:'Estructuramos la arquitectura, el copy y el diseño visual. Aprobación completa antes de desarrollar.',
-  p3_t:'Desarrollamos tu web optimizada',p3_p:'Construimos con código limpio, carga rápida y total compatibilidad. Cada detalle revisado antes de la entrega.',
-  p4_t:'Lanzamos y medimos resultados',p4_p:'Publicamos, configuramos analytics y monitoreamos el rendimiento. El lanzamiento es el inicio del crecimiento.',
-  brands_label:'Proyectos reales',brands_h:'Proyectos desarrollados para marcas en crecimiento.',brands_p:'Trabajamos con negocios reales que necesitaban presencia digital profesional para escalar. Estos son algunos de ellos.',
-  cta_h:'Tu negocio merece una presencia<br>digital profesional.',cta_p:'No dejes que tu competencia te supere online. Cada día sin una web estratégica es un cliente que se va a otro lado.',
-  cta_btn:'Lanzar mi proyecto ahora',cta_btn2:'Hablar por WhatsApp',
-  port_label:'Trabajo real',port_h:'Proyectos en producción.<br>Marcas que venden.',port_p:'No mostramos mockups. Mostramos sitios reales, en producción, desarrollados para negocios que querían crecer online.',
-  pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visitar sitio',
-  port1_p:'Objetivo: posicionar una marca de moda con drops limitados y maximizar la tasa de conversión. Solución: Shopify con sistema de countdowns, checkout optimizado y estética premium coherente con el posicionamiento de marca.',
-  port2_p:'Objetivo: construir un marketplace de tecnología y hogar con catálogo premium. Solución: plataforma multi-categoría con sistema de pagos seguros y experiencia de compra que genera confianza.',
-  port3_p:'Objetivo: crear una identidad streetwear de edición limitada con presencia de alto impacto. Solución: web editorial, lista de espera exclusiva y countdown que genera anticipación antes de cada drop.',
-  port_more:'+17 proyectos adicionales',port_more2:'en nuestro historial.',port_sub:'¿Tu marca puede ser la próxima?',port_cta:'Quiero resultados así',
-  plan_label:'Inversión',plan_h:'El plan correcto<br>para tu etapa de negocio.',plan_p:'Precios reales, sin letra pequeña. Consulta disponibilidad antes de reservar.',
-  plan1_name:'Starter',plan1_d:'Para negocios que necesitan una presencia digital sólida y profesional.',
-  p1_1:'Landing page de alta conversión',p1_2:'Diseño responsive & mobile-first',p1_3:'Integración WhatsApp & formulario',p1_4:'Configuración de dominio & hosting',p1_5:'Entrega en 7–10 días hábiles',
-  plan2_name:'Business',plan2_d:'Para marcas que quieren crecer con una presencia digital completa y estratégica.',
-  p2_1:'Web multi-página premium',p2_2:'Diseño UI/UX personalizado',p2_3:'SEO técnico incluido',p2_4:'Panel de administración',p2_5:'WhatsApp + Analytics integrado',p2_6:'Soporte prioritario 3 meses',p2_7:'Entrega en 14–21 días hábiles',
-  plan3_name:'Pro',plan3_d:'Para marcas que exigen el máximo: e-commerce, integraciones avanzadas y posicionamiento total.',
-  p3_1:'E-commerce o web avanzada',p3_2:'Diseño ultra-premium & branding',p3_3:'SEO avanzado + Google Analytics 4',p3_4:'Integraciones a medida',p3_5:'Soporte prioritario 6 meses',p3_6:'Mantenimiento incluido',
-  plan_q:'Consultar precio',plan_pop:'MÁS ELEGIDO',plan_custom:'¿Tienes un proyecto especial? Diseñamos una solución a tu medida.',plan_custom_btn:'Solicitar propuesta personalizada',plan_custom_s:'Plan a medida',
-  about_label:'Quiénes somos',about_h:'Una agencia obsesionada<br>con tu crecimiento.',about_p:'En Rupta Studios no hacemos páginas web. Construimos herramientas de negocio. Cada proyecto empieza con una pregunta: ¿cómo esto hace crecer a nuestro cliente?',
-  founder_role:'Fundador & Director Creativo',founder_bio:'Diseñador y desarrollador con más de 5 años construyendo marcas digitales que generan impacto real. Cada proyecto es tratado como si fuera el propio: con estrategia, precisión y obsesión por los detalles.',
-  as1:'Proyectos entregados',as2:'Años de experiencia',as3:'Marcas en producción',as4:'Enfoque en resultados',
-  v1_t:'Orientados a resultados',v1_p:'Todo lo que hacemos tiene un objetivo claro y medible. Diseñamos para convertir, no para impresionar.',
-  v2_t:'Velocidad y precisión',v2_p:'Plazos cumplidos, comunicación directa y entregables de calidad. Sin excusas ni retrasos.',
-  v3_t:'Relación a largo plazo',v3_p:'No somos proveedores de proyectos únicos. Somos el equipo digital de nuestros clientes a largo plazo.',
-  about_cta:'Trabajemos juntos',
-  contact_label:'Contacto',contact_h:'Hablemos de<br>tu proyecto.',contact_p:'Respondemos en menos de 24 horas. Sin compromiso, sin letra pequeña.',
-  contact_note:'Atendemos proyectos en toda Latinoamérica. Respondemos todos los mensajes en menos de 24 horas hábiles.',
-  form_h:'Cuéntanos tu proyecto',form_name:'Nombre',form_email:'Email',form_svc:'Servicio de interés',form_sel:'Selecciona un servicio...',form_msg:'Tu mensaje',form_btn:'Enviar por WhatsApp',
-  f_desc:'Diseño web estratégico, branding y marketing digital. Construimos webs que generan resultados reales.',f_nav:'Navegación',f_contact:'Contacto',f_clients:'Clientes',f_made:'Diseñado y desarrollado por Rupta Studios'
-},
-en:{
-  nav_i:'Home',nav_s:'Services',nav_p:'Portfolio',nav_pl:'Plans',nav_n:'About',nav_c:'Contact',nav_cta:'Start project',
-  hero_tag:'Strategic web design agency',
-  hero_h1:'We design strategic websites<br>that turn visitors<br><span class="hl">into customers.</span>',
-  hero_p:'We build optimized sites for businesses that want to sell more, rank higher, and grow online.',
-  hero_cta1:'Create my plan',hero_cta2:'Chat on WhatsApp',
-  hero_trust:'Live brands: Santo Patrón Clothing · Eleva Corp · Rystar Studios',
-  auth_label:'Why choose Rupta',auth_h:'Strategy. Design. Results.',auth_p:'Every project has one clear goal: grow your business in a measurable, sustained way.',
-  auth1_t:'Sales-focused strategy',auth1_p:"We don't design for aesthetics. Every decision is aimed at turning visitors into real customers for your business.",
-  auth2_t:'Modern, optimized design',auth2_p:'Clean, mobile-first interfaces built with best-in-class UI/UX practices to generate trust and action.',
-  auth3_t:'Fast website ready for SEO',auth3_p:'Clean code, fast loading and technical structure ready to rank on Google from day one.',
-  auth4_t:'Real post-launch support',auth4_p:"We don't disappear after delivery. We offer ongoing support, updates and post-launch guidance.",
-  serv_label:'Services',serv_h:'Everything your brand<br>needs to dominate online.',serv_more:'View all services →',
-  sv1_t:'Web Design',sv1_p:'Premium sites that position, convince and convert. Fast, mobile-first and built to scale.',
-  sv2_t:'Branding & Identity',sv2_p:'Visual identity systems that make your brand recognizable, memorable and professional at first glance.',
-  sv3_t:'E-commerce',sv3_p:'Online stores optimized to sell from day one. Clean, secure and profitable purchase flow.',
-  sv4_t:'SEO & Positioning',sv4_p:'Organic visibility on Google. Traffic that buys, not just visits.',
-  sv5_t:'Digital Marketing',sv5_p:'Paid campaigns and content strategy that generate real returns, not vanity metrics.',
-  sv6_t:'Support & Maintenance',sv6_p:'Updates, security and support. Your website always running at 100%.',
-  sv7_t:'Security & Support',sv7_p:'SSL, automated backups, 24/7 monitoring and real technical support.',
-  sv8_t:'UI/UX Design',sv8_p:'Research, wireframes and prototypes that reduce friction and increase conversion.',
-  serv_full_h:'Services designed<br>to generate results.',serv_full_p:"We don't sell web pages. We build digital assets that work for your business 24 hours a day.",
-  sv1_full:'From landing pages to full portals. We design with purpose: every element in service of conversion.',
-  sv2_full:'Logos, style guides, design systems. We build brands that are remembered and respected in the market.',
-  sv3_full:'Stores optimized to sell. Payment integration, inventory management and frictionless purchase experience.',
-  sv4_full:"Ranking on Google isn't luck. It's technique, consistency and strategic content.",
-  sv5_full:'Meta Ads, Google Ads and content strategy that generate measurable return. No wasted budget.',
-  sv7_full:'SSL, automated backups, 24/7 monitoring and real tech support. Your investment protected.',
-  sv8_full:'User research, wireframes and interactive prototypes that reduce friction and increase conversion.',
-  sv6_full:'Monthly maintenance packages so your website stays updated, secure and running without interruption.',
-  serv_cta_l:'Special project?',serv_cta_h:'Tell us your vision.',serv_cta_p:"If your project doesn't fit a standard category, we build the exact solution you need.",serv_cta_btn:'Talk about your project',
-  proc_label:'Our process',proc_h:'How we work.',proc_sub:'4 clear steps, no surprises. We know exactly how to take your project from concept to launch.',
-  p1_t:'We analyze your business and goals',p1_p:'We understand your market, competition and audience. Clear objectives defined before writing a single line of code.',
-  p2_t:'We design the digital strategy',p2_p:'We structure the architecture, copy and visual design. Full approval before development begins.',
-  p3_t:'We develop your optimized website',p3_p:'We build with clean code, fast loading and full compatibility. Every detail reviewed before delivery.',
-  p4_t:'We launch and measure results',p4_p:"We publish, set up analytics and monitor performance. The launch is just the beginning of growth.",
-  brands_label:'Real projects',brands_h:'Projects developed for growing brands.',brands_p:"We work with real businesses that needed professional digital presence to scale. Here are some of them.",
-  cta_h:'Your business deserves a professional<br>digital presence.',cta_p:"Don't let your competition surpass you online. Every day without a strategic website is a customer going elsewhere.",
-  cta_btn:'Launch my project now',cta_btn2:'Chat on WhatsApp',
-  port_label:'Real work',port_h:'Projects in production.<br>Brands that sell.',port_p:"We don't show mockups. We show real sites, in production, built for businesses that wanted to grow online.",
-  pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visit site',
-  port1_p:'Goal: position a fashion brand with limited drops and maximize conversion rate. Solution: Shopify with countdown system, optimized checkout and premium aesthetics aligned with the brand positioning.',
-  port2_p:'Goal: build a technology and home marketplace with premium brand catalog. Solution: multi-category platform with secure payment system and a purchase experience that builds trust from first click.',
-  port3_p:'Goal: create a high-impact limited edition streetwear identity. Solution: editorial website, exclusive waitlist and countdown system that builds anticipation before each drop.',
-  port_more:'+17 additional projects',port_more2:'in our history.',port_sub:'Could your brand be next?',port_cta:'I want results like these',
-  plan_label:'Investment',plan_h:'The right plan<br>for your business stage.',plan_p:'Real prices, no fine print. Check availability before booking.',
-  plan1_name:'Starter',plan1_d:'For businesses that need a solid and professional digital presence.',
-  p1_1:'High-conversion landing page',p1_2:'Responsive & mobile-first design',p1_3:'WhatsApp & form integration',p1_4:'Domain & hosting setup',p1_5:'Delivery in 7–10 business days',
-  plan2_name:'Business',plan2_d:'For brands that want to grow with a complete and strategic digital presence.',
-  p2_1:'Premium multi-page website',p2_2:'Custom UI/UX design',p2_3:'Technical SEO included',p2_4:'Admin panel',p2_5:'WhatsApp + Analytics integrated',p2_6:'Priority support 3 months',p2_7:'Delivery in 14–21 business days',
-  plan3_name:'Pro',plan3_d:'For brands that demand the maximum: e-commerce, advanced integrations and full positioning.',
-  p3_1:'E-commerce or advanced web',p3_2:'Ultra-premium design & branding',p3_3:'Advanced SEO + Google Analytics 4',p3_4:'Custom integrations',p3_5:'Priority support 6 months',p3_6:'Maintenance included',
-  plan_q:'Check pricing',plan_pop:'MOST CHOSEN',plan_custom:'Have a special project? We design a solution tailored to you.',plan_custom_btn:'Request custom proposal',plan_custom_s:'Custom plan',
-  about_label:'Who we are',about_h:'An agency obsessed<br>with your growth.',about_p:"At Rupta Studios we don't make web pages. We build business tools. Every project starts with one question: how does this grow our client?",
-  founder_role:'Founder & Creative Director',founder_bio:'Designer and developer with over 5 years building digital brands that generate real impact. Every project is treated as our own: with strategy, precision and obsession for detail.',
-  as1:'Projects delivered',as2:'Years of experience',as3:'Live brands',as4:'Results-focused',
-  v1_t:'Results-oriented',v1_p:'Everything we do has a clear, measurable goal. We design to convert, not to impress.',
-  v2_t:'Speed and precision',v2_p:'Deadlines met, direct communication and quality deliverables. No excuses or delays.',
-  v3_t:'Long-term relationship',v3_p:"We're not single-project providers. We're the long-term digital team of our clients.",
-  about_cta:"Let's work together",
-  contact_label:'Contact',contact_h:"Let's talk about<br>your project.",contact_p:'We respond in less than 24 hours. No commitment, no fine print.',
-  contact_note:'We serve projects across all of Latin America. We respond to every message within 24 business hours.',
-  form_h:'Tell us about your project',form_name:'Name',form_email:'Email',form_svc:'Service of interest',form_sel:'Select a service...',form_msg:'Your message',form_btn:'Send via WhatsApp',
-  f_desc:'Strategic web design, branding and digital marketing. We build websites that generate real results.',f_nav:'Navigation',f_contact:'Contact',f_clients:'Clients',f_made:'Designed and developed by Rupta Studios'
-},
-pt:{
-  nav_i:'Início',nav_s:'Serviços',nav_p:'Portfólio',nav_pl:'Planos',nav_n:'Sobre',nav_c:'Contato',nav_cta:'Iniciar projeto',
-  hero_tag:'Agência de design web estratégico',
-  hero_h1:'Desenvolvemos sites estratégicos<br>que convertem visitantes<br><span class="hl">em clientes.</span>',
-  hero_p:'Criamos sites otimizados para negócios que querem vender mais, se posicionar melhor e crescer online.',
-  hero_cta1:'Criar meu plano',hero_cta2:'Falar pelo WhatsApp',
-  hero_trust:'Marcas ativas: Santo Patrón Clothing · Eleva Corp · Rystar Studios',
-  auth_label:'Por que escolher a Rupta',auth_h:'Estratégia. Design. Resultados.',auth_p:'Cada projeto tem um único objetivo: fazer seu negócio crescer de forma mensurável e sustentada.',
-  auth1_t:'Estratégia focada em vendas',auth1_p:'Não projetamos por estética. Cada decisão é orientada a converter visitantes em clientes reais para o seu negócio.',
-  auth2_t:'Design moderno e otimizado',auth2_p:'Interfaces limpas, mobile-first e construídas com as melhores práticas de UI/UX para gerar confiança e ação.',
-  auth3_t:'Site rápido e pronto para SEO',auth3_p:'Código limpo, carregamento rápido e estrutura técnica pronta para se posicionar no Google desde o primeiro dia.',
-  auth4_t:'Suporte real após o lançamento',auth4_p:'Não desaparecemos após a entrega. Oferecemos suporte contínuo, atualizações e acompanhamento pós-lançamento.',
-  serv_label:'Serviços',serv_h:'Tudo que sua marca<br>precisa para dominar online.',serv_more:'Ver todos os serviços →',
-  sv1_t:'Design Web',sv1_p:'Sites premium que posicionam, convencem e convertem. Rápidos, mobile-first e construídos para crescer.',
-  sv2_t:'Branding & Identidade',sv2_p:'Sistemas de identidade visual que tornam sua marca reconhecível e profissional à primeira vista.',
-  sv3_t:'E-commerce',sv3_p:'Lojas online otimizadas para vender desde o primeiro dia. Fluxo de compra limpo e rentável.',
-  sv4_t:'SEO & Posicionamento',sv4_p:'Visibilidade orgânica no Google. Tráfego que compra, não apenas visita.',
-  sv5_t:'Marketing Digital',sv5_p:'Campanhas pagas e estratégia de conteúdo que geram retorno real.',
-  sv6_t:'Suporte & Manutenção',sv6_p:'Atualizações, segurança e suporte. Seu site sempre funcionando a 100%.',
-  sv7_t:'Segurança & Suporte',sv7_p:'SSL, backups automatizados, monitoramento 24/7 e suporte técnico real.',
-  sv8_t:'Design UI/UX',sv8_p:'Pesquisa, wireframes e protótipos que reduzem fricção e aumentam conversão.',
-  serv_full_h:'Serviços projetados<br>para gerar resultados.',serv_full_p:'Não vendemos páginas web. Construímos ativos digitais que trabalham para seu negócio 24 horas.',
-  sv1_full:'De landing pages a portais completos. Projetamos com propósito: cada elemento a serviço da conversão.',
-  sv2_full:'Logos, guias de estilo, sistemas de design. Construímos marcas que são lembradas e respeitadas.',
-  sv3_full:'Lojas otimizadas para vender. Integração de pagamentos e experiência de compra sem fricção.',
-  sv4_full:'Aparecer no Google não é sorte. É técnica, constância e conteúdo estratégico.',
-  sv5_full:'Meta Ads, Google Ads e estratégia de conteúdo que geram retorno mensurável.',
-  sv7_full:'SSL, backups automatizados, monitoramento 24/7 e suporte técnico real. Seu investimento protegido.',
-  sv8_full:'Pesquisa de usuário, wireframes e protótipos interativos que reduzem fricção.',
-  sv6_full:'Pacotes de manutenção mensal para que seu site esteja sempre atualizado e funcionando.',
-  serv_cta_l:'Projeto especial?',serv_cta_h:'Conte-nos sua visão.',serv_cta_p:'Se seu projeto não se encaixa em uma categoria padrão, construímos a solução exata que você precisa.',serv_cta_btn:'Falar sobre seu projeto',
-  proc_label:'Nosso processo',proc_h:'Como trabalhamos.',proc_sub:'4 passos claros, sem surpresas. Sabemos exatamente como levar seu projeto do conceito ao lançamento.',
-  p1_t:'Analisamos seu negócio e objetivos',p1_p:'Entendemos seu mercado, concorrência e audiência. Objetivos claros definidos antes de escrever uma linha de código.',
-  p2_t:'Desenhamos a estratégia digital',p2_p:'Estruturamos a arquitetura, o copy e o design visual. Aprovação completa antes do desenvolvimento.',
-  p3_t:'Desenvolvemos seu site otimizado',p3_p:'Construímos com código limpo, carregamento rápido e total compatibilidade. Cada detalhe revisado antes da entrega.',
-  p4_t:'Lançamos e medimos resultados',p4_p:'Publicamos, configuramos analytics e monitoramos o desempenho. O lançamento é só o início do crescimento.',
-  brands_label:'Projetos reais',brands_h:'Projetos desenvolvidos para marcas em crescimento.',brands_p:'Trabalhamos com negócios reais que precisavam de presença digital profissional para escalar. Estes são alguns deles.',
-  cta_h:'Seu negócio merece uma presença<br>digital profissional.',cta_p:'Não deixe sua concorrência te superar online. Cada dia sem um site estratégico é um cliente que vai para outro lugar.',
-  cta_btn:'Lançar meu projeto agora',cta_btn2:'Falar pelo WhatsApp',
-  port_label:'Trabalho real',port_h:'Projetos em produção.<br>Marcas que vendem.',port_p:'Não mostramos mockups. Mostramos sites reais, em produção, desenvolvidos para negócios que queriam crescer online.',
-  pt_ec:'E-commerce · Shopify',pt_mp:'Marketplace · E-commerce',pt_br:'Brand · E-commerce',port_visit:'Visitar site',
-  port1_p:'Objetivo: posicionar uma marca de moda com drops limitados e maximizar a taxa de conversão. Solução: Shopify com sistema de countdown, checkout otimizado e estética premium coerente com o posicionamento da marca.',
-  port2_p:'Objetivo: construir um marketplace de tecnologia e casa com catálogo premium. Solução: plataforma multi-categoria com sistema de pagamentos seguros e experiência de compra que gera confiança.',
-  port3_p:'Objetivo: criar uma identidade streetwear de edição limitada com presença de alto impacto. Solução: site editorial, lista de espera exclusiva e countdown que gera antecipação antes de cada drop.',
-  port_more:'+17 projetos adicionais',port_more2:'em nosso histórico.',port_sub:'Sua marca pode ser a próxima?',port_cta:'Quero resultados assim',
-  plan_label:'Investimento',plan_h:'O plano certo<br>para sua fase de negócio.',plan_p:'Preços reais, sem letras miúdas. Consulte disponibilidade.',
-  plan1_name:'Starter',plan1_d:'Para negócios que precisam de uma presença digital sólida e profissional.',
-  p1_1:'Landing page de alta conversão',p1_2:'Design responsivo & mobile-first',p1_3:'Integração WhatsApp & formulário',p1_4:'Configuração de domínio & hospedagem',p1_5:'Entrega em 7–10 dias úteis',
-  plan2_name:'Business',plan2_d:'Para marcas que querem crescer com presença digital completa e estratégica.',
-  p2_1:'Site multi-página premium',p2_2:'Design UI/UX personalizado',p2_3:'SEO técnico incluído',p2_4:'Painel de administração',p2_5:'WhatsApp + Analytics integrado',p2_6:'Suporte prioritário 3 meses',p2_7:'Entrega em 14–21 dias úteis',
-  plan3_name:'Pro',plan3_d:'Para marcas que exigem o máximo: e-commerce, integrações avançadas e posicionamento total.',
-  p3_1:'E-commerce ou site avançado',p3_2:'Design ultra-premium & branding',p3_3:'SEO avançado + Google Analytics 4',p3_4:'Integrações personalizadas',p3_5:'Suporte prioritário 6 meses',p3_6:'Manutenção incluída',
-  plan_q:'Consultar preço',plan_pop:'MAIS ESCOLHIDO',plan_custom:'Tem um projeto especial? Desenvolvemos uma solução sob medida.',plan_custom_btn:'Solicitar proposta personalizada',plan_custom_s:'Plano personalizado',
-  about_label:'Quem somos',about_h:'Uma agência obcecada<br>com seu crescimento.',about_p:'Na Rupta Studios não fazemos páginas web. Construímos ferramentas de negócio. Cada projeto começa com uma pergunta: como isso faz nosso cliente crescer?',
-  founder_role:'Fundador & Diretor Criativo',founder_bio:'Designer e desenvolvedor com mais de 5 anos construindo marcas digitais que geram impacto real. Cada projeto é tratado como se fosse o nosso próprio: com estratégia, precisão e obsessão pelos detalhes.',
-  as1:'Projetos entregues',as2:'Anos de experiência',as3:'Marcas ativas',as4:'Foco em resultados',
-  v1_t:'Orientados a resultados',v1_p:'Tudo que fazemos tem um objetivo claro e mensurável. Projetamos para converter, não para impressionar.',
-  v2_t:'Velocidade e precisão',v2_p:'Prazos cumpridos, comunicação direta e entregáveis de qualidade. Sem desculpas ou atrasos.',
-  v3_t:'Relacionamento de longo prazo',v3_p:'Não somos fornecedores de projetos únicos. Somos a equipe digital de longo prazo dos nossos clientes.',
-  about_cta:'Vamos trabalhar juntos',
-  contact_label:'Contato',contact_h:'Vamos falar sobre<br>seu projeto.',contact_p:'Respondemos em menos de 24 horas. Sem compromisso, sem letras miúdas.',
-  contact_note:'Atendemos projetos em toda a América Latina. Respondemos a todas as mensagens em menos de 24 horas úteis.',
-  form_h:'Conte-nos sobre seu projeto',form_name:'Nome',form_email:'Email',form_svc:'Serviço de interesse',form_sel:'Selecione um serviço...',form_msg:'Sua mensagem',form_btn:'Enviar pelo WhatsApp',
-  f_desc:'Design web estratégico, branding e marketing digital. Construímos sites que geram resultados reais.',f_nav:'Navegação',f_contact:'Contato',f_clients:'Clientes',f_made:'Projetado e desenvolvido pela Rupta Studios'
-}
-};
-
-function applyLang(lang){
-  curLang=lang;
-  document.querySelectorAll('[data-i]').forEach(el=>{
-    const k=el.dataset.i;
-    if(L[lang]&&L[lang][k]!==undefined){
-      if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=L[lang][k];}
-      else{el.innerHTML=L[lang][k];}
-    }
-  });
-  document.querySelectorAll('.lang-btn').forEach(b=>{b.classList.toggle('on',b.textContent===lang.toUpperCase());});
-  document.documentElement.lang=lang;
+});
+document.querySelectorAll(’.lang-btn’).forEach(b=>{b.classList.toggle(‘on’,b.textContent===lang.toUpperCase());});
+document.documentElement.lang=lang;
 }
 function setLang(lang){applyLang(lang);}
 </script>
