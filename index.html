@@ -49,7 +49,7 @@ nav.s{background:rgba(9,9,15,.94);backdrop-filter:blur(20px);border-color:var(--
 .nav-in{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:15.5px;letter-spacing:.4px;cursor:pointer;color:var(--t);display:flex;align-items:center;gap:9px}
 .logo em{font-style:normal;color:var(--pl)}
-.logo-icon{width:32px;height:32px;border-radius:8px;flex-shrink:0;object-fit:cover;display:block}
+.logo-icon{width:50px;border-radius:5px;overflow:hidden;height:50px;flex-shrink:0}
 .nav-links{display:flex;gap:2px}
 .nl{font-size:13.5px;font-weight:500;color:var(--t2);padding:7px 12px;border-radius:6px;transition:all .18s}
 .nl:hover,.nl.on{color:var(--t);background:rgba(255,255,255,.05)}
@@ -146,6 +146,13 @@ nav.s{background:rgba(9,9,15,.94);backdrop-filter:blur(20px);border-color:var(--
 .scr-el .mn-logo{width:40px;height:4px;background:rgba(0,0,0,.35);border-radius:2px}
 .scr-el .mn-links i{width:24px;height:3px;background:rgba(0,0,0,.12);border-radius:1px}
 
+/* Vista Mar — navy gold */
+.scr-vm{background:#0b1d2e;padding:8px;height:100%;display:flex;flex-direction:column;gap:4px}
+.scr-vm .mn{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.scr-vm .mn-logo{width:32px;height:4px;background:rgba(200,170,80,.6);border-radius:2px}
+.scr-vm .mn-links i{width:18px;height:3px;background:rgba(255,255,255,.1);border-radius:1px}
+.gold-bar{background:rgba(200,170,80,.4)}
+.navy-bar{background:rgba(255,255,255,.1)}
 /* Caos World — dark streetwear */
 .scr-cw{background:#0a0a0a;padding:8px;height:100%;display:flex;flex-direction:column;gap:4px}
 .scr-cw .mn{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
@@ -388,51 +395,50 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  nav{padding:0 20px}
-  .footer-top{grid-template-columns:1fr 1fr;gap:28px}
-  .about-grid{grid-template-columns:1fr;gap:36px}
-  .hero{grid-template-columns:1fr;min-height:auto;padding-bottom:40px;text-align:center}
-  .hero-right{display:flex;justify-content:center;height:260px;margin-top:8px}
-  .mockup-cluster{transform:scale(0.72);transform-origin:center top}
-  .results-grid{grid-template-columns:1fr 1fr}
-  .sol-grid{grid-template-columns:1fr 1fr}
-  .work-grid{grid-template-columns:1fr 1fr}
-  .cases-grid{grid-template-columns:1fr 1fr}
-  .price-grid{grid-template-columns:1fr}
+nav{padding:0 20px}
+.footer-top{grid-template-columns:1fr 1fr;gap:28px}
+.about-grid{grid-template-columns:1fr;gap:36px}
+.hero{grid-template-columns:1fr;min-height:auto;padding-bottom:40px}
+.hero-right{display:none}
+.results-grid{grid-template-columns:1fr 1fr}
+.sol-grid{grid-template-columns:1fr 1fr}
+.work-grid{grid-template-columns:1fr 1fr}
+.cases-grid{grid-template-columns:1fr 1fr}
+.price-grid{grid-template-columns:1fr}
 }
 @media(max-width:768px){
-  nav{padding:0 16px;height:56px}
-  .nav-links,.langs,.nav-btn{display:none}
-  .burger{display:flex}
-  .wrap{padding:0 16px}
-  .sec{padding:64px 0}
-  .pain{padding:64px 0}
-  h2{font-size:1.7rem;letter-spacing:-.5px}
-  .hero{padding:84px 16px 48px;gap:2rem}
-  .hero h1{font-size:clamp(2rem,7.5vw,2.7rem);letter-spacing:-1.5px}
-  .hero-sub{font-size:14.5px;margin-bottom:28px}
-  .hero-btns{flex-direction:column}
-  .hero-btns .btn{width:100%;max-width:310px;justify-content:center}
-  .results-grid{grid-template-columns:1fr}
-  .sol-grid{grid-template-columns:1fr}
-  .work-grid{grid-template-columns:1fr}
-  .cases-grid{grid-template-columns:1fr}
-  .pain-grid{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr}
-  .serv-grid{grid-template-columns:1fr}
-  .proc-grid{grid-template-columns:1fr 1fr}
-  .plans-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr 1fr}
-  .rev-grid{grid-template-columns:1fr}
-  .port-grid{grid-template-columns:1fr}
-  .cta-btns{flex-direction:column;align-items:center}
-  .cta-btns .btn{width:100%;max-width:310px;justify-content:center}
+nav{padding:0 16px;height:56px}
+.nav-links,.langs,.nav-btn{display:none}
+.burger{display:flex}
+.wrap{padding:0 16px}
+.sec{padding:64px 0}
+.pain{padding:64px 0}
+h2{font-size:1.7rem;letter-spacing:-.5px}
+.hero{padding:84px 16px 48px;gap:2rem}
+.hero h1{font-size:clamp(2rem,7.5vw,2.7rem);letter-spacing:-1.5px}
+.hero-sub{font-size:14.5px;margin-bottom:28px}
+.hero-btns{flex-direction:column}
+.hero-btns .btn{width:100%;max-width:310px;justify-content:center}
+.results-grid{grid-template-columns:1fr}
+.sol-grid{grid-template-columns:1fr}
+.work-grid{grid-template-columns:1fr}
+.cases-grid{grid-template-columns:1fr}
+.pain-grid{grid-template-columns:1fr}
+.why-grid{grid-template-columns:1fr}
+.serv-grid{grid-template-columns:1fr}
+.proc-grid{grid-template-columns:1fr 1fr}
+.plans-grid{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr 1fr}
+.rev-grid{grid-template-columns:1fr}
+.port-grid{grid-template-columns:1fr}
+.cta-btns{flex-direction:column;align-items:center}
+.cta-btns .btn{width:100%;max-width:310px;justify-content:center}
 }
 @media(max-width:480px){
-  .proc-grid{grid-template-columns:1fr}
-  .footer-top{grid-template-columns:1fr}
-  .about-stats{grid-template-columns:1fr 1fr}
+.proc-grid{grid-template-columns:1fr}
+.footer-top{grid-template-columns:1fr}
+.about-stats{grid-template-columns:1fr 1fr}
 }
 .about-av img,.pc-thumb img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .pc-thumb img{border-radius:0}
@@ -441,45 +447,46 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
 <body>
 
 <nav id="nav">
-  <div class="nav-in">
-    <button class="logo" onclick="go('inicio')">
+<div class="nav-in">
+<button class="logo" onclick="go('inicio')">
       <img src="/favi.png" class="logo-icon" alt="Rupta Studios">
-      RUPTA <em>STUDIOS</em>
-    </button>
-    <div class="nav-links">
-      <button class="nl on" data-p="inicio" onclick="go('inicio')" data-i="nav_i">Inicio</button>
-      <button class="nl" data-p="servicios" onclick="go('servicios')" data-i="nav_s">Servicios</button>
-      <button class="nl" data-p="portafolio" onclick="go('portafolio')" data-i="nav_p">Portafolio</button>
-      <button class="nl" data-p="planes" onclick="go('planes')" data-i="nav_pl">Planes</button>
-      <button class="nl" data-p="nosotros" onclick="go('nosotros')" data-i="nav_n">Nosotros</button>
-      <button class="nl" data-p="contacto" onclick="go('contacto')" data-i="nav_c">Contacto</button>
-    </div>
-    <div class="nav-r">
-      <div class="langs">
-        <button class="lb on" onclick="setL('es')">ES</button>
-        <button class="lb" onclick="setL('en')">EN</button>
-        <button class="lb" onclick="setL('pt')">PT</button>
-      </div>
-      <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-p nav-btn" data-i="nav_cta">Iniciar proyecto</a>
-    </div>
-    <button class="burger" id="burg" onclick="mobMenu()"><span></span><span></span><span></span></button>
-  </div>
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="flex-shrink:0;border-radius:5px"><rect width="28" height="28" rx="6" fill="#7c3aed"/><path d="M7 8h8c2.2 0 4 1.8 4 4s-1.8 4-4 4H7V8z" fill="white"/><path d="M7 16h5l4 4H7v-4z" fill="rgba(255,255,255,0.55)"/></svg>
+RUPTA <em>STUDIOS</em>
+</button>
+<div class="nav-links">
+<button class="nl on" data-p="inicio" onclick="go('inicio')" data-i="nav_i">Inicio</button>
+<button class="nl" data-p="servicios" onclick="go('servicios')" data-i="nav_s">Servicios</button>
+<button class="nl" data-p="portafolio" onclick="go('portafolio')" data-i="nav_p">Portafolio</button>
+<button class="nl" data-p="planes" onclick="go('planes')" data-i="nav_pl">Planes</button>
+<button class="nl" data-p="nosotros" onclick="go('nosotros')" data-i="nav_n">Nosotros</button>
+<button class="nl" data-p="contacto" onclick="go('contacto')" data-i="nav_c">Contacto</button>
+</div>
+<div class="nav-r">
+<div class="langs">
+<button class="lb on" onclick="setL('es')">ES</button>
+<button class="lb" onclick="setL('en')">EN</button>
+<button class="lb" onclick="setL('pt')">PT</button>
+</div>
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-p nav-btn" data-i="nav_cta">Iniciar proyecto</a>
+</div>
+<button class="burger" id="burg" onclick="mobMenu()"><span></span><span></span><span></span></button>
+</div>
 </nav>
 
 <div class="mob" id="mobEl">
-  <button class="mob-x" onclick="mobMenu()">✕</button>
-  <button class="mob-nl" onclick="go('inicio');mobMenu()" data-i="nav_i">Inicio</button>
-  <button class="mob-nl" onclick="go('servicios');mobMenu()" data-i="nav_s">Servicios</button>
-  <button class="mob-nl" onclick="go('portafolio');mobMenu()" data-i="nav_p">Portafolio</button>
-  <button class="mob-nl" onclick="go('planes');mobMenu()" data-i="nav_pl">Planes</button>
-  <button class="mob-nl" onclick="go('nosotros');mobMenu()" data-i="nav_n">Nosotros</button>
-  <button class="mob-nl" onclick="go('contacto');mobMenu()" data-i="nav_c">Contacto</button>
-  <div class="mob-lang">
-    <button class="lb on" onclick="setL('es')">ES</button>
-    <button class="lb" onclick="setL('en')">EN</button>
-    <button class="lb" onclick="setL('pt')">PT</button>
-  </div>
-  <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-p mob-cta" data-i="nav_cta">Iniciar proyecto</a>
+<button class="mob-x" onclick="mobMenu()">✕</button>
+<button class="mob-nl" onclick="go('inicio');mobMenu()" data-i="nav_i">Inicio</button>
+<button class="mob-nl" onclick="go('servicios');mobMenu()" data-i="nav_s">Servicios</button>
+<button class="mob-nl" onclick="go('portafolio');mobMenu()" data-i="nav_p">Portafolio</button>
+<button class="mob-nl" onclick="go('planes');mobMenu()" data-i="nav_pl">Planes</button>
+<button class="mob-nl" onclick="go('nosotros');mobMenu()" data-i="nav_n">Nosotros</button>
+<button class="mob-nl" onclick="go('contacto');mobMenu()" data-i="nav_c">Contacto</button>
+<div class="mob-lang">
+<button class="lb on" onclick="setL('es')">ES</button>
+<button class="lb" onclick="setL('en')">EN</button>
+<button class="lb" onclick="setL('pt')">PT</button>
+</div>
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-p mob-cta" data-i="nav_cta">Iniciar proyecto</a>
 </div>
 
 <!-- ═══════════ INICIO ═══════════ -->
@@ -487,657 +494,710 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
 
 <!-- HERO -->
 <div class="hero-wrap">
-  <div style="position:absolute;inset:0;pointer-events:none">
-    <div class="hero-glow"></div>
-    <div class="hero-grid"></div>
-  </div>
-  <div class="hero">
-    <!-- LEFT -->
-    <div class="hero-left">
-      <div class="hero-badge rv"><span class="hero-dot"></span><span data-i="h_badge">Design & Conversion Agency — Panama</span></div>
-      <h1 class="rv d1">Diseñamos<br>marcas que <span class="hl" data-i="h_hl">venden</span>.</h1>
-      <p class="hero-sub rv d2" data-i="h_sub">Shopify, brand websites y landing pages para marcas de moda, lujo y growth-stage en Latinoamérica.</p>
-      <div class="hero-btns rv d3">
-        <button onclick="go('contacto')" class="btn btn-p btn-lg" data-i="h_b1">Iniciar proyecto</button>
-        <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-o btn-lg" data-i="h_b2">WhatsApp</a>
-      </div>
-      <div class="hero-trust rv d4">
-        <div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t1">+20 proyectos entregados</span></div>
+<div style="position:absolute;inset:0;pointer-events:none">
+<div class="hero-glow"></div>
+<div class="hero-grid"></div>
+</div>
+<div class="hero">
+<!-- LEFT -->
+<div class="hero-left">
+<div class="hero-badge rv"><span class="hero-dot"></span><span data-i="h_badge">Design & Conversion Agency — Panama</span></div>
+<h1 class="rv d1">Diseñamos<br>marcas que <span class="hl" data-i="h_hl">venden</span>.</h1>
+<p class="hero-sub rv d2" data-i="h_sub">Shopify, brand websites y landing pages para marcas de moda, lujo y growth-stage en Latinoamérica.</p>
+<div class="hero-btns rv d3">
+<button onclick="go('contacto')" class="btn btn-p btn-lg" data-i="h_b1">Iniciar proyecto</button>
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-o btn-lg" data-i="h_b2">WhatsApp</a>
+</div>
+<div class="hero-trust rv d4">
+<div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t1">+20 proyectos entregados</span></div>
+        <div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t2">Santo Patrón, Eleva Corp, Vista Mar</span></div>
         <div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t2">Santo Patrón, Eleva Corp, Caos World</span></div>
-        <div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t3">Proyectos desde $900 USD</span></div>
-      </div>
-    </div>
+<div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t3">Proyectos desde $900 USD</span></div>
+</div>
+</div>
 
-    <!-- RIGHT — MOCKUP CLUSTER -->
-    <div class="hero-right rv d2">
-      <div class="mockup-cluster">
+<!-- RIGHT — MOCKUP CLUSTER -->
+<div class="hero-right rv d2">
+<div class="mockup-cluster">
 
-        <!-- Badge 1 -->
-        <div class="mk-badge b1">
-          <strong>+240%</strong>
-          <span>conversión promedio</span>
-        </div>
+<!-- Badge 1 -->
+<div class="mk-badge b1">
+<strong>+240%</strong>
+<span>conversión promedio</span>
+</div>
 
-        <!-- Badge 2 -->
-        <div class="mk-badge b2">
-          <strong>Sold out</strong>
-          <span>18 minutos · SP Clothing</span>
-        </div>
+<!-- Badge 2 -->
+<div class="mk-badge b2">
+<strong>Sold out</strong>
+<span>18 minutos · SP Clothing</span>
+</div>
 
-        <!-- LAPTOP — Santo Patrón -->
-        <div class="mk-laptop">
-          <div class="laptop-shell">
-            <div class="laptop-dots">
-              <i class="d-r"></i><i class="d-y"></i><i class="d-g"></i>
-            </div>
-            <div class="laptop-screen">
-              <div class="scr-sp" style="height:170px">
-                <div class="mn">
-                  <div class="mn-logo"></div>
-                  <div class="mn-links"><i></i><i></i><i></i><i></i></div>
-                </div>
-                <div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:5px;width:45%;margin-bottom:5px"></div>
-                <div class="bar w-bar" style="height:13px;width:75%;margin-bottom:4px"></div>
-                <div class="bar w-bar" style="height:13px;width:55%;margin-bottom:10px"></div>
-                <div class="bar w-bar" style="height:5px;width:40%;margin-bottom:12px"></div>
-                <div style="display:flex;gap:5px;margin-bottom:10px">
-                  <div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:24px;width:85px;border-radius:4px"></div>
-                  <div class="bar w-bar" style="height:24px;width:65px;border-radius:4px"></div>
-                </div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-                  <div class="bar w-bar" style="height:52px;border-radius:4px"></div>
-                  <div class="bar" style="height:52px;border-radius:4px;background:rgba(255,255,255,.06)"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="laptop-chin"></div>
-        </div>
+<!-- LAPTOP — Santo Patrón -->
+<div class="mk-laptop">
+<div class="laptop-shell">
+<div class="laptop-dots">
+<i class="d-r"></i><i class="d-y"></i><i class="d-g"></i>
+</div>
+<div class="laptop-screen">
+<div class="scr-sp" style="height:170px">
+<div class="mn">
+<div class="mn-logo"></div>
+<div class="mn-links"><i></i><i></i><i></i><i></i></div>
+</div>
+<div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:5px;width:45%;margin-bottom:5px"></div>
+<div class="bar w-bar" style="height:13px;width:75%;margin-bottom:4px"></div>
+<div class="bar w-bar" style="height:13px;width:55%;margin-bottom:10px"></div>
+<div class="bar w-bar" style="height:5px;width:40%;margin-bottom:12px"></div>
+<div style="display:flex;gap:5px;margin-bottom:10px">
+<div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:24px;width:85px;border-radius:4px"></div>
+<div class="bar w-bar" style="height:24px;width:65px;border-radius:4px"></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+<div class="bar w-bar" style="height:52px;border-radius:4px"></div>
+<div class="bar" style="height:52px;border-radius:4px;background:rgba(255,255,255,.06)"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="laptop-chin"></div>
+</div>
 
-        <!-- PHONE — Rystar -->
-        <div class="mk-phone">
-          <div class="phone-shell">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <div class="scr-ry">
-                <div class="bar w-bar" style="height:4px;width:45%;margin-bottom:5px"></div>
-                <div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:8px;width:70%;margin-bottom:4px"></div>
-                <div class="bar w-bar" style="height:4px;width:55%;margin-bottom:10px"></div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px">
-                  <div class="bar w-bar" style="height:48px;border-radius:3px"></div>
-                  <div class="bar" style="height:48px;border-radius:3px;background:rgba(255,255,255,.06)"></div>
-                </div>
-                <div class="bar w-bar" style="height:4px;width:60%;margin-bottom:5px"></div>
-                <div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:20px;width:100%;border-radius:3px"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- PHONE — Rystar -->
+<div class="mk-phone">
+<div class="phone-shell">
+<div class="phone-notch"></div>
+<div class="phone-screen">
+<div class="scr-ry">
+<div class="bar w-bar" style="height:4px;width:45%;margin-bottom:5px"></div>
+<div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:8px;width:70%;margin-bottom:4px"></div>
+<div class="bar w-bar" style="height:4px;width:55%;margin-bottom:10px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px">
+<div class="bar w-bar" style="height:48px;border-radius:3px"></div>
+<div class="bar" style="height:48px;border-radius:3px;background:rgba(255,255,255,.06)"></div>
+</div>
+<div class="bar w-bar" style="height:4px;width:60%;margin-bottom:5px"></div>
+<div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:20px;width:100%;border-radius:3px"></div>
+</div>
+</div>
+</div>
+</div>
 
+        <!-- TABLET — Vista Mar -->
         <!-- TABLET — Caos World -->
-        <div class="mk-tablet">
-          <div class="tablet-shell">
-            <div class="tablet-camera"></div>
-            <div class="tablet-screen">
+<div class="mk-tablet">
+<div class="tablet-shell">
+<div class="tablet-camera"></div>
+<div class="tablet-screen">
+              <div class="scr-vm">
               <div class="scr-cw">
-                <div class="mn">
-                  <div class="mn-logo"></div>
-                  <div class="mn-links"><i></i><i></i><i></i></div>
-                </div>
+<div class="mn">
+<div class="mn-logo"></div>
+<div class="mn-links"><i></i><i></i><i></i></div>
+</div>
+                <div class="bar gold-bar" style="height:4px;width:55%;margin-bottom:4px"></div>
+                <div class="bar navy-bar" style="height:9px;width:80%;margin-bottom:3px"></div>
+                <div class="bar navy-bar" style="height:9px;width:60%;margin-bottom:8px"></div>
                 <div class="bar cw-accent" style="height:4px;width:55%;margin-bottom:4px"></div>
                 <div class="bar cw-bar" style="height:9px;width:80%;margin-bottom:3px"></div>
                 <div class="bar cw-bar" style="height:9px;width:60%;margin-bottom:8px"></div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
+                  <div style="background:rgba(200,170,80,.08);border:1px solid rgba(200,170,80,.15);border-radius:3px;height:38px"></div>
+                  <div style="background:rgba(200,170,80,.08);border:1px solid rgba(200,170,80,.15);border-radius:3px;height:38px"></div>
                   <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:38px"></div>
                   <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:38px"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
 </div>
 
 <!-- LOGOS STRIP -->
 <div class="logos-strip">
-  <div class="logos-track">
-    <span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
-    <span class="logo-item"><span class="logo-sep"></span>Eleva Corp</span>
-    <span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
-    <span class="logo-item"><span class="logo-sep"></span>Caos World</span>
-    <span class="logo-item"><span class="logo-sep"></span>Sprayground LATAM</span>
-    <span class="logo-item"><span class="logo-sep"></span>FitLife Panama</span>
-    <span class="logo-item"><span class="logo-sep"></span>Nexo Dental</span>
-    <span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
-    <span class="logo-item"><span class="logo-sep"></span>Eleva Corp</span>
-    <span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
-    <span class="logo-item"><span class="logo-sep"></span>Caos World</span>
-    <span class="logo-item"><span class="logo-sep"></span>Sprayground LATAM</span>
-    <span class="logo-item"><span class="logo-sep"></span>FitLife Panama</span>
-    <span class="logo-item"><span class="logo-sep"></span>Nexo Dental</span>
-  </div>
+<div class="logos-track">
+<span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
+<span class="logo-item"><span class="logo-sep"></span>Eleva Corp</span>
+<span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
+<span class="logo-item"><span class="logo-sep"></span>Caos World</span>
+<span class="logo-item"><span class="logo-sep"></span>Sprayground LATAM</span>
+    <span class="logo-item"><span class="logo-sep"></span>Vista Mar Golf &amp; Marina</span>
+<span class="logo-item"><span class="logo-sep"></span>FitLife Panama</span>
+<span class="logo-item"><span class="logo-sep"></span>Nexo Dental</span>
+<span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
+<span class="logo-item"><span class="logo-sep"></span>Eleva Corp</span>
+<span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
+<span class="logo-item"><span class="logo-sep"></span>Caos World</span>
+<span class="logo-item"><span class="logo-sep"></span>Sprayground LATAM</span>
+    <span class="logo-item"><span class="logo-sep"></span>Vista Mar Golf &amp; Marina</span>
+<span class="logo-item"><span class="logo-sep"></span>FitLife Panama</span>
+<span class="logo-item"><span class="logo-sep"></span>Nexo Dental</span>
+</div>
 </div>
 <div class="divider"></div>
 
 <!-- RESULTADOS REALES -->
 <section class="sec">
-  <div class="wrap">
-    <div class="rv"><div class="lbl" data-i="rs_lbl">Resultados reales</div><h2 data-i="rs_h">Números de clientes reales.<br>No estimaciones.</h2><p class="sub" data-i="rs_sub">Cada proyecto tiene un objetivo medible. Estos son algunos de los resultados que hemos generado.</p></div>
-    <div class="results-grid">
-      <div class="rcard rv">
-        <div class="rcard-client">Santo Patrón Clothing</div>
-        <div class="rcard-metric">+180%</div>
-        <div class="rcard-desc" data-i="r_d1">ventas en drops limitados</div>
-        <div class="rcard-detail" data-i="r_det1">Rediseño de checkout + sistema de countdown. El siguiente drop se agotó en 18 minutos.</div>
-      </div>
-      <div class="rcard rv d1">
-        <div class="rcard-client">Eleva Corp</div>
-        <div class="rcard-metric">+2.4x</div>
-        <div class="rcard-desc" data-i="r_d2">conversión en catálogo</div>
-        <div class="rcard-detail" data-i="r_det2">Nuevo sitio con UX de producto optimizado y páginas de categoría rediseñadas.</div>
-      </div>
-      <div class="rcard rv d2">
-        <div class="rcard-client">Rystar Studios</div>
-        <div class="rcard-metric">1,200</div>
-        <div class="rcard-desc" data-i="r_d3">registros en lista de espera</div>
-        <div class="rcard-detail" data-i="r_det3">Landing de preventa con customizador 2D interactivo. Demanda generada antes del lanzamiento.</div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="rv"><div class="lbl" data-i="rs_lbl">Resultados reales</div><h2 data-i="rs_h">Números de clientes reales.<br>No estimaciones.</h2><p class="sub" data-i="rs_sub">Cada proyecto tiene un objetivo medible. Estos son algunos de los resultados que hemos generado.</p></div>
+<div class="results-grid">
+<div class="rcard rv">
+<div class="rcard-client">Santo Patrón Clothing</div>
+<div class="rcard-metric">+180%</div>
+<div class="rcard-desc" data-i="r_d1">ventas en drops limitados</div>
+<div class="rcard-detail" data-i="r_det1">Rediseño de checkout + sistema de countdown. El siguiente drop se agotó en 18 minutos.</div>
+</div>
+<div class="rcard rv d1">
+<div class="rcard-client">Eleva Corp</div>
+<div class="rcard-metric">+2.4x</div>
+<div class="rcard-desc" data-i="r_d2">conversión en catálogo</div>
+<div class="rcard-detail" data-i="r_det2">Nuevo sitio con UX de producto optimizado y páginas de categoría rediseñadas.</div>
+</div>
+<div class="rcard rv d2">
+<div class="rcard-client">Rystar Studios</div>
+<div class="rcard-metric">1,200</div>
+<div class="rcard-desc" data-i="r_d3">registros en lista de espera</div>
+<div class="rcard-detail" data-i="r_det3">Landing de preventa con customizador 2D interactivo. Demanda generada antes del lanzamiento.</div>
+</div>
+</div>
+</div>
 </section>
 <div class="divider"></div>
 
 <!-- SOLUCIONES (3 max) -->
 <section class="sec">
-  <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:0" class="rv">
-      <div><div class="lbl" data-i="sl_lbl">Soluciones</div><h2 data-i="sl_h">Tres soluciones.<br>Cero ruido.</h2></div>
-      <p style="color:var(--t2);font-size:14px;line-height:1.8;padding-top:1rem" data-i="sl_sub">No hacemos todo. Hacemos tres cosas muy bien. Cada proyecto incluye estrategia, diseño y desarrollo. Sin freelancers, sin subcontratos.</p>
-    </div>
-    <div class="sol-grid" style="margin-top:36px">
-      <div class="sol-card rv">
-        <div class="sol-num">01</div>
-        <div class="sol-icon">
-          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        </div>
-        <h3 data-i="sl1h">Ecommerce Brand</h3>
-        <p data-i="sl1p">Shopify optimizado para drops, conversión y experiencia de marca. Checkout custom, sistema de lanzamientos, product pages premium.</p>
-        <div class="sol-price" data-i="sl1price">Desde <span>$1,500 USD</span></div>
-      </div>
-      <div class="sol-card rv d1">
-        <div class="sol-num">02</div>
-        <div class="sol-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h3 data-i="sl2h">Brand Website</h3>
-        <p data-i="sl2p">Sitios editoriales para marcas de lujo, moda y hospitalidad. Diseño visual premium, animaciones, multilenguaje. Posicionamiento de marca real.</p>
-        <div class="sol-price" data-i="sl2price">Desde <span>$1,200 USD</span></div>
-      </div>
-      <div class="sol-card rv d2">
-        <div class="sol-num">03</div>
-        <div class="sol-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h3 data-i="sl3h">Conversion Landing</h3>
-        <p data-i="sl3p">Landings diseñadas para vender desde el primer día. Lanzamientos, preventa, captación de leads. CRO aplicado en cada sección.</p>
-        <div class="sol-price" data-i="sl3price">Desde <span>$900 USD</span></div>
-      </div>
-    </div>
-    <div class="ctr rv" style="margin-top:28px"><button class="btn btn-o" onclick="go('servicios')" data-i="sv_more">Ver todos los servicios →</button></div>
-  </div>
+<div class="wrap">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:0" class="rv">
+<div><div class="lbl" data-i="sl_lbl">Soluciones</div><h2 data-i="sl_h">Tres soluciones.<br>Cero ruido.</h2></div>
+<p style="color:var(--t2);font-size:14px;line-height:1.8;padding-top:1rem" data-i="sl_sub">No hacemos todo. Hacemos tres cosas muy bien. Cada proyecto incluye estrategia, diseño y desarrollo. Sin freelancers, sin subcontratos.</p>
+</div>
+<div class="sol-grid" style="margin-top:36px">
+<div class="sol-card rv">
+<div class="sol-num">01</div>
+<div class="sol-icon">
+<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+</div>
+<h3 data-i="sl1h">Ecommerce Brand</h3>
+<p data-i="sl1p">Shopify optimizado para drops, conversión y experiencia de marca. Checkout custom, sistema de lanzamientos, product pages premium.</p>
+<div class="sol-price" data-i="sl1price">Desde <span>$1,500 USD</span></div>
+</div>
+<div class="sol-card rv d1">
+<div class="sol-num">02</div>
+<div class="sol-icon">
+<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+</div>
+<h3 data-i="sl2h">Brand Website</h3>
+<p data-i="sl2p">Sitios editoriales para marcas de lujo, moda y hospitalidad. Diseño visual premium, animaciones, multilenguaje. Posicionamiento de marca real.</p>
+<div class="sol-price" data-i="sl2price">Desde <span>$1,200 USD</span></div>
+</div>
+<div class="sol-card rv d2">
+<div class="sol-num">03</div>
+<div class="sol-icon">
+<svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+</div>
+<h3 data-i="sl3h">Conversion Landing</h3>
+<p data-i="sl3p">Landings diseñadas para vender desde el primer día. Lanzamientos, preventa, captación de leads. CRO aplicado en cada sección.</p>
+<div class="sol-price" data-i="sl3price">Desde <span>$900 USD</span></div>
+</div>
+</div>
+<div class="ctr rv" style="margin-top:28px"><button class="btn btn-o" onclick="go('servicios')" data-i="sv_more">Ver todos los servicios →</button></div>
+</div>
 </section>
 <div class="divider"></div>
 
 <!-- WORK GRID (with laptop frames) -->
 <section class="sec">
-  <div class="wrap">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:0" class="rv">
-      <div><div class="lbl" data-i="wk_lbl">Trabajo reciente</div><h2 data-i="wk_h">Proyectos en producción.</h2></div>
-      <button onclick="go('portafolio')" class="btn btn-o" style="flex-shrink:0" data-i="wk_more">Ver portafolio →</button>
-    </div>
-    <div class="work-grid">
+<div class="wrap">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:0" class="rv">
+<div><div class="lbl" data-i="wk_lbl">Trabajo reciente</div><h2 data-i="wk_h">Proyectos en producción.</h2></div>
+<button onclick="go('portafolio')" class="btn btn-o" style="flex-shrink:0" data-i="wk_more">Ver portafolio →</button>
+</div>
+<div class="work-grid">
 
-      <!-- Santo Patrón -->
-      <a href="https://santopatronclothing.com" target="_blank" class="wcard rv">
-        <div class="wcard-screen">
-          <div class="laptop-frame">
-            <div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
-            <div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
-              <img src="/SANTOWEB.png" alt="Santo Patrón Clothing" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
-            </div>
-          </div>
-        </div>
-        <div class="wcard-info">
-          <div class="wcard-tag">Shopify · Fashion</div>
-          <div class="wcard-name">Santo Patrón Clothing</div>
-          <div class="wcard-result">+180% ventas · Sold out en 18 min</div>
-        </div>
-      </a>
+<!-- Santo Patrón -->
+<a href="https://santopatronclothing.com" target="_blank" class="wcard rv">
+<div class="wcard-screen">
+<div class="laptop-frame">
+<div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
+<div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
+<div class="scr-sp" style="height:100%">
+<div class="mn"><div class="mn-logo"></div><div class="mn-links"><i></i><i></i><i></i></div></div>
+<div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:5px;width:40%;margin-bottom:5px"></div>
+<div class="bar w-bar" style="height:10px;width:70%;margin-bottom:3px"></div>
+<div class="bar w-bar" style="height:10px;width:50%;margin-bottom:8px"></div>
+<div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:20px;width:80px;border-radius:3px;margin-bottom:8px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
+<div class="bar w-bar" style="height:45px;border-radius:3px"></div>
+<div class="bar" style="height:45px;border-radius:3px;background:rgba(255,255,255,.05)"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="wcard-info">
+<div class="wcard-tag">Shopify · Fashion</div>
+<div class="wcard-name">Santo Patrón Clothing</div>
+<div class="wcard-result">+180% ventas · Sold out en 18 min</div>
+</div>
+</a>
 
-      <!-- Eleva Corp -->
-      <a href="https://elevacorp.net" target="_blank" class="wcard rv d1">
-                <div class="wcard-screen">
-          <div class="laptop-frame">
-            <div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
-            <div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
-              <img src="/ELEVAWEB.png" alt="Eleva Corp" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
-            </div>
-          </div>
-        </div>
-        </div>
-        <div class="wcard-info">
-          <div class="wcard-tag">Marketplace · E-commerce</div>
-          <div class="wcard-name">Eleva Corp</div>
-          <div class="wcard-result">+2.4x conversión en catálogo</div>
-        </div>
-      </a>
+<!-- Eleva Corp -->
+<a href="https://elevacorp.net" target="_blank" class="wcard rv d1">
+<div class="wcard-screen">
+<div class="laptop-frame">
+<div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
+<div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
+<div class="scr-el" style="height:100%">
+<div class="mn"><div class="mn-logo"></div><div class="mn-links"><i></i><i></i><i></i></div></div>
+<div class="bar dark-bar" style="height:10px;width:65%;margin-bottom:4px"></div>
+<div class="bar dark-bar" style="height:7px;width:45%;margin-bottom:10px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px">
+<div style="background:rgba(0,0,0,.08);border-radius:3px;height:48px"></div>
+<div style="background:rgba(0,0,0,.12);border-radius:3px;height:48px"></div>
+<div style="background:rgba(0,0,0,.06);border-radius:3px;height:48px"></div>
+</div>
+<div class="bar dark-bar" style="height:5px;width:55%;margin-top:8px"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="wcard-info">
+<div class="wcard-tag">Marketplace · E-commerce</div>
+<div class="wcard-name">Eleva Corp</div>
+<div class="wcard-result">+2.4x conversión en catálogo</div>
+</div>
+</a>
 
+      <!-- Vista Mar -->
+      <a href="https://vistamarpanama.com" target="_blank" class="wcard rv d2">
       <!-- Caos World -->
       <a href="https://caos-world.myshopify.com" target="_blank" class="wcard rv d2">
-                <div class="wcard-screen">
-          <div class="laptop-frame">
-            <div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
-            <div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
-              <img src="/CAOSWEB.png" alt="Caos World" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
-            </div>
-          </div>
-        </div>
-          </div>
-        </div>
-        <div class="wcard-info">
+<div class="wcard-screen">
+<div class="laptop-frame">
+<div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
+<div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
+              <div class="scr-vm" style="height:100%">
+              <div class="scr-cw" style="height:100%">
+<div class="mn"><div class="mn-logo"></div><div class="mn-links"><i></i><i></i><i></i></div></div>
+                <div class="bar gold-bar" style="height:4px;width:40%;margin-bottom:5px"></div>
+                <div class="bar navy-bar" style="height:11px;width:75%;margin-bottom:3px"></div>
+                <div class="bar navy-bar" style="height:11px;width:55%;margin-bottom:10px"></div>
+                <div class="bar cw-accent" style="height:4px;width:40%;margin-bottom:5px"></div>
+                <div class="bar cw-bar" style="height:11px;width:75%;margin-bottom:3px"></div>
+                <div class="bar cw-bar" style="height:11px;width:55%;margin-bottom:10px"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
+                  <div style="background:rgba(200,170,80,.07);border:1px solid rgba(200,170,80,.12);border-radius:3px;height:40px"></div>
+                  <div style="background:rgba(200,170,80,.07);border:1px solid rgba(200,170,80,.12);border-radius:3px;height:40px"></div>
+                  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:40px"></div>
+                  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:40px"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="wcard-info">
+          <div class="wcard-tag">Luxury · Hospitality</div>
+          <div class="wcard-name">Vista Mar Golf &amp; Marina</div>
+          <div class="wcard-result">Editorial luxury — Panama</div>
           <div class="wcard-tag">Streetwear · Shopify</div>
           <div class="wcard-name">Caos World</div>
           <div class="wcard-result">Identidad digital · drop culture</div>
-        </div>
-      </a>
+</div>
+</a>
 
-    </div>
-  </div>
+</div>
+</div>
 </section>
 <div class="divider"></div>
 
 <!-- CASOS DE ESTUDIO -->
 <section class="sec">
-  <div class="wrap">
-    <div class="rv"><div class="lbl" data-i="cs_lbl">Casos de estudio</div><h2 data-i="cs_h">Problema → Solución → Resultado.</h2></div>
-    <div class="cases-grid">
-      <div class="case rv">
-        <div class="case-client">Santo Patrón Clothing</div>
-        <div class="case-lbl" data-i="cs_obj">Problema</div>
-        <div class="case-val" data-i="cs1o">Drops de ropa limitada que no convertían. Checkout genérico, sin urgencia, sin experiencia de marca.</div>
-        <div class="case-lbl" data-i="cs_sol">Solución</div>
-        <div class="case-val" data-i="cs1s">Checkout custom en Shopify + countdown de drop + product pages con motion y storytelling de marca.</div>
-        <div class="case-result">
-          <div class="case-lbl" data-i="cs_res">Resultado</div>
-          <div class="case-val" data-i="cs1r">Sold out en 18 minutos. +180% ventas vs. drop anterior.</div>
-        </div>
-      </div>
-      <div class="case rv d1">
-        <div class="case-client">Rystar Studios</div>
-        <div class="case-lbl" data-i="cs_obj">Problema</div>
-        <div class="case-val" data-i="cs3o">Lanzamiento de ropa personalizada sin audiencia ni demanda validada.</div>
-        <div class="case-lbl" data-i="cs_sol">Solución</div>
-        <div class="case-val" data-i="cs3s">Landing de preventa con customizador 2D interactivo, mockup en tiempo real y formulario de lista de espera.</div>
-        <div class="case-result">
-          <div class="case-lbl" data-i="cs_res">Resultado</div>
-          <div class="case-val" data-i="cs3r">1,200 registros en lista de espera antes del lanzamiento.</div>
-        </div>
-      </div>
-      <div class="case rv d2">
+<div class="wrap">
+<div class="rv"><div class="lbl" data-i="cs_lbl">Casos de estudio</div><h2 data-i="cs_h">Problema → Solución → Resultado.</h2></div>
+<div class="cases-grid">
+<div class="case rv">
+<div class="case-client">Santo Patrón Clothing</div>
+<div class="case-lbl" data-i="cs_obj">Problema</div>
+<div class="case-val" data-i="cs1o">Drops de ropa limitada que no convertían. Checkout genérico, sin urgencia, sin experiencia de marca.</div>
+<div class="case-lbl" data-i="cs_sol">Solución</div>
+<div class="case-val" data-i="cs1s">Checkout custom en Shopify + countdown de drop + product pages con motion y storytelling de marca.</div>
+<div class="case-result">
+<div class="case-lbl" data-i="cs_res">Resultado</div>
+<div class="case-val" data-i="cs1r">Sold out en 18 minutos. +180% ventas vs. drop anterior.</div>
+</div>
+</div>
+<div class="case rv d1">
+<div class="case-client">Rystar Studios</div>
+<div class="case-lbl" data-i="cs_obj">Problema</div>
+<div class="case-val" data-i="cs3o">Lanzamiento de ropa personalizada sin audiencia ni demanda validada.</div>
+<div class="case-lbl" data-i="cs_sol">Solución</div>
+<div class="case-val" data-i="cs3s">Landing de preventa con customizador 2D interactivo, mockup en tiempo real y formulario de lista de espera.</div>
+<div class="case-result">
+<div class="case-lbl" data-i="cs_res">Resultado</div>
+<div class="case-val" data-i="cs3r">1,200 registros en lista de espera antes del lanzamiento.</div>
+</div>
+</div>
+<div class="case rv d2">
+        <div class="case-client">Vista Mar Golf &amp; Marina</div>
         <div class="case-client">Caos World</div>
-        <div class="case-lbl" data-i="cs_obj">Problema</div>
+<div class="case-lbl" data-i="cs_obj">Problema</div>
+        <div class="case-val" data-i="cs4o">Resort de lujo con sitio desactualizado que no reflejaba el nivel del producto ni generaba reservas.</div>
         <div class="case-val" data-i="cs4o">Tienda streetwear física sin presencia digital coherente. Identidad de marca sin traducirse al ecommerce.</div>
-        <div class="case-lbl" data-i="cs_sol">Solución</div>
+<div class="case-lbl" data-i="cs_sol">Solución</div>
+        <div class="case-val" data-i="cs4s">Sitio editorial full-width con video hero, galería de amenidades y sección de membresías premium.</div>
         <div class="case-val" data-i="cs4s">Shopify con catálogo integrado, diseño que refleja la estética de la marca y sistema de drops.</div>
-        <div class="case-result">
-          <div class="case-lbl" data-i="cs_res">Resultado</div>
+<div class="case-result">
+<div class="case-lbl" data-i="cs_res">Resultado</div>
+          <div class="case-val" data-i="cs4r">Posicionamiento visual como resort de primera clase en Centroamérica.</div>
           <div class="case-val" data-i="cs4r">Presencia digital activa que amplía el alcance de la marca más allá de la tienda física.</div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <div class="divider"></div>
 
 <!-- PRICING VISIBLE -->
 <section class="sec">
-  <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1.8fr;gap:5rem;align-items:start" class="rv">
-      <div>
-        <div class="lbl" data-i="pr2_lbl">Inversión</div>
-        <h2 style="margin-bottom:12px" data-i="pr2_h">Precios claros.<br>Sin sorpresas.</h2>
-        <p style="color:var(--t2);font-size:14px;line-height:1.8;margin-bottom:24px" data-i="pr2_sub">Filtramos proyectos que no son para nosotros. Si tienes presupuesto y visión, hablemos.</p>
-        <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-p" data-i="pr2_cta">Consultar disponibilidad</a>
-      </div>
-      <div class="price-grid">
-        <div class="pcard">
-          <div class="pcard-label" data-i="pc1_label">Conversion Landing</div>
-          <div class="pcard-amount">$900</div>
-          <div class="pcard-from" data-i="pc_from">precio base USD</div>
-          <ul class="pcard-items">
-            <li data-i="pc1_1">Diseño UI custom</li>
-            <li data-i="pc1_2">Desarrollo HTML/CSS</li>
-            <li data-i="pc1_3">Formulario + WhatsApp</li>
-            <li data-i="pc1_4">Mobile optimizado</li>
-            <li data-i="pc1_5">Entrega en 7 días</li>
-          </ul>
-        </div>
-        <div class="pcard featured">
-          <div class="pcard-label" data-i="pc2_label">Brand Website</div>
-          <div class="pcard-amount">$1,200</div>
-          <div class="pcard-from" data-i="pc_from">precio base USD</div>
-          <ul class="pcard-items">
-            <li data-i="pc2_1">Hasta 6 secciones</li>
-            <li data-i="pc2_2">Animaciones custom</li>
-            <li data-i="pc2_3">Multilenguaje ES/EN</li>
-            <li data-i="pc2_4">SEO básico</li>
-            <li data-i="pc2_5">CMS integrado</li>
-          </ul>
-        </div>
-        <div class="pcard">
-          <div class="pcard-label" data-i="pc3_label">Ecommerce Brand</div>
-          <div class="pcard-amount">$1,500</div>
-          <div class="pcard-from" data-i="pc_from">precio base USD</div>
-          <ul class="pcard-items">
-            <li data-i="pc3_1">Shopify completo</li>
-            <li data-i="pc3_2">Secciones Liquid custom</li>
-            <li data-i="pc3_3">Checkout optimizado</li>
-            <li data-i="pc3_4">Integración de pagos</li>
-            <li data-i="pc3_5">Drop mechanism</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div style="display:grid;grid-template-columns:1fr 1.8fr;gap:5rem;align-items:start" class="rv">
+<div>
+<div class="lbl" data-i="pr2_lbl">Inversión</div>
+<h2 style="margin-bottom:12px" data-i="pr2_h">Precios claros.<br>Sin sorpresas.</h2>
+<p style="color:var(--t2);font-size:14px;line-height:1.8;margin-bottom:24px" data-i="pr2_sub">Filtramos proyectos que no son para nosotros. Si tienes presupuesto y visión, hablemos.</p>
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-p" data-i="pr2_cta">Consultar disponibilidad</a>
+</div>
+<div class="price-grid">
+<div class="pcard">
+<div class="pcard-label" data-i="pc1_label">Conversion Landing</div>
+<div class="pcard-amount">$900</div>
+<div class="pcard-from" data-i="pc_from">precio base USD</div>
+<ul class="pcard-items">
+<li data-i="pc1_1">Diseño UI custom</li>
+<li data-i="pc1_2">Desarrollo HTML/CSS</li>
+<li data-i="pc1_3">Formulario + WhatsApp</li>
+<li data-i="pc1_4">Mobile optimizado</li>
+<li data-i="pc1_5">Entrega en 7 días</li>
+</ul>
+</div>
+<div class="pcard featured">
+<div class="pcard-label" data-i="pc2_label">Brand Website</div>
+<div class="pcard-amount">$1,200</div>
+<div class="pcard-from" data-i="pc_from">precio base USD</div>
+<ul class="pcard-items">
+<li data-i="pc2_1">Hasta 6 secciones</li>
+<li data-i="pc2_2">Animaciones custom</li>
+<li data-i="pc2_3">Multilenguaje ES/EN</li>
+<li data-i="pc2_4">SEO básico</li>
+<li data-i="pc2_5">CMS integrado</li>
+</ul>
+</div>
+<div class="pcard">
+<div class="pcard-label" data-i="pc3_label">Ecommerce Brand</div>
+<div class="pcard-amount">$1,500</div>
+<div class="pcard-from" data-i="pc_from">precio base USD</div>
+<ul class="pcard-items">
+<li data-i="pc3_1">Shopify completo</li>
+<li data-i="pc3_2">Secciones Liquid custom</li>
+<li data-i="pc3_3">Checkout optimizado</li>
+<li data-i="pc3_4">Integración de pagos</li>
+<li data-i="pc3_5">Drop mechanism</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section>
 <div class="divider"></div>
 
 <!-- TESTIMONIOS -->
 <section class="sec">
-  <div class="wrap">
-    <div class="ctr rv"><div class="lbl" data-i="rv_lbl">Testimonios</div><h2 data-i="rv_h">Lo que dicen nuestros clientes.</h2></div>
-    <div class="rev-grid">
-      <div class="rev rv"><div class="rev-badge">E-commerce</div><div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rev-text" data-i="r1">"Rupta transformó completamente nuestra presencia digital. Las ventas online aumentaron desde el primer mes."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#7c3aed,#e040fb)">J</div><div><div class="rev-name">John Binns</div><div class="rev-role">CEO · Santo Patrón Clothing</div></div></div></div>
-      <div class="rev rv d1"><div class="rev-badge">Branding</div><div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rev-text" data-i="r2">"Desde el branding hasta el lanzamiento, todo fue impecable. Nuestra marca ahora se ve y se siente premium."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">J</div><div><div class="rev-name">Juan Molina</div><div class="rev-role">Fundador · Rystar Studios</div></div></div></div>
-      <div class="rev rv d2"><div class="rev-badge">Diseño Web</div><div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rev-text" data-i="r3">"Trabajar con Rupta fue una experiencia de primer nivel. Entienden la estética de una marca global."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#111,#2a2a2a)">S</div><div><div class="rev-name">Sprayground LATAM</div><div class="rev-role">Representante Regional</div></div></div></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="ctr rv"><div class="lbl" data-i="rv_lbl">Testimonios</div><h2 data-i="rv_h">Lo que dicen nuestros clientes.</h2></div>
+<div class="rev-grid">
+<div class="rev rv"><div class="rev-badge">E-commerce</div><div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rev-text" data-i="r1">"Rupta transformó completamente nuestra presencia digital. Las ventas online aumentaron desde el primer mes."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#7c3aed,#e040fb)">J</div><div><div class="rev-name">John Binns</div><div class="rev-role">CEO · Santo Patrón Clothing</div></div></div></div>
+<div class="rev rv d1"><div class="rev-badge">Branding</div><div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rev-text" data-i="r2">"Desde el branding hasta el lanzamiento, todo fue impecable. Nuestra marca ahora se ve y se siente premium."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">J</div><div><div class="rev-name">Juan Molina</div><div class="rev-role">Fundador · Rystar Studios</div></div></div></div>
+<div class="rev rv d2"><div class="rev-badge">Diseño Web</div><div class="rev-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><p class="rev-text" data-i="r3">"Trabajar con Rupta fue una experiencia de primer nivel. Entienden la estética de una marca global."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#111,#2a2a2a)">S</div><div><div class="rev-name">Sprayground LATAM</div><div class="rev-role">Representante Regional</div></div></div></div>
+</div>
+</div>
 </section>
 <div class="divider"></div>
 
 <!-- FAQ -->
 <section class="sec">
-  <div class="wrap">
-    <div class="ctr rv"><div class="lbl" data-i="faq_lbl">Preguntas frecuentes</div><h2 data-i="faq_h">Todo lo que necesitas saber antes de empezar.</h2></div>
-    <div class="faq-list">
-      <div class="faq-item rv"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq1q">¿Cuánto tiempo tarda en estar lista mi web?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq1a">Landing page (Starter) en 7–10 días hábiles. Brand Website en 14–21 días. Shopify completo puede tomar 3–5 semanas.</div></div></div>
-      <div class="faq-item rv d1"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq2q">¿Los precios mostrados son el precio final?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq2a">Son precios base. El precio final depende del alcance específico del proyecto. Nunca hay cobros sorpresa: todo queda definido antes de empezar.</div></div></div>
-      <div class="faq-item rv d2"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq3q">¿Puedo editar mi web después del lanzamiento?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq3a">Sí. Los proyectos Business y Pro incluyen panel de administración para actualizar contenido sin tocar código.</div></div></div>
-      <div class="faq-item rv d3"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq4q">¿Trabajan con clientes fuera de Panamá?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq4a">Sí, 100% remoto. Hemos entregado proyectos en Panamá, México, Colombia y Estados Unidos.</div></div></div>
-      <div class="faq-item rv d4"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq5q">¿Qué pasa si no me gusta el diseño?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq5a">Presentamos prototipos y esperamos tu aprobación antes de desarrollar. Incluimos rondas de revisión. No avanzamos sin tu visto bueno.</div></div></div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="ctr rv"><div class="lbl" data-i="faq_lbl">Preguntas frecuentes</div><h2 data-i="faq_h">Todo lo que necesitas saber antes de empezar.</h2></div>
+<div class="faq-list">
+<div class="faq-item rv"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq1q">¿Cuánto tiempo tarda en estar lista mi web?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq1a">Landing page (Starter) en 7–10 días hábiles. Brand Website en 14–21 días. Shopify completo puede tomar 3–5 semanas.</div></div></div>
+<div class="faq-item rv d1"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq2q">¿Los precios mostrados son el precio final?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq2a">Son precios base. El precio final depende del alcance específico del proyecto. Nunca hay cobros sorpresa: todo queda definido antes de empezar.</div></div></div>
+<div class="faq-item rv d2"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq3q">¿Puedo editar mi web después del lanzamiento?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq3a">Sí. Los proyectos Business y Pro incluyen panel de administración para actualizar contenido sin tocar código.</div></div></div>
+<div class="faq-item rv d3"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq4q">¿Trabajan con clientes fuera de Panamá?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq4a">Sí, 100% remoto. Hemos entregado proyectos en Panamá, México, Colombia y Estados Unidos.</div></div></div>
+<div class="faq-item rv d4"><button class="faq-q" onclick="toggleFaq(this)" data-i="fq5q">¿Qué pasa si no me gusta el diseño?<svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></button><div class="faq-a"><div class="faq-a-in" data-i="fq5a">Presentamos prototipos y esperamos tu aprobación antes de desarrollar. Incluimos rondas de revisión. No avanzamos sin tu visto bueno.</div></div></div>
+</div>
+</div>
 </section>
 
 <!-- CTA FINAL -->
 <section class="cta-end">
-  <div class="cta-glow"></div>
-  <div class="cta-in rv">
-    <span class="cta-tag" data-i="cta_tag">Plazas disponibles este mes</span>
-    <h2 data-i="cta_h">Tu negocio merece una presencia digital que venda.</h2>
-    <p data-i="cta_p">No dejes que tu competencia te supere online. Cada día sin una web estratégica es un cliente que se va a otro lado.</p>
-    <div class="cta-btns">
-      <button onclick="go('contacto')" class="btn btn-p btn-lg" data-i="cta_b1">Lanzar mi proyecto</button>
-      <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-o btn-lg" data-i="cta_b2">Hablar por WhatsApp</a>
-    </div>
-  </div>
+<div class="cta-glow"></div>
+<div class="cta-in rv">
+<span class="cta-tag" data-i="cta_tag">Plazas disponibles este mes</span>
+<h2 data-i="cta_h">Tu negocio merece una presencia digital que venda.</h2>
+<p data-i="cta_p">No dejes que tu competencia te supere online. Cada día sin una web estratégica es un cliente que se va a otro lado.</p>
+<div class="cta-btns">
+<button onclick="go('contacto')" class="btn btn-p btn-lg" data-i="cta_b1">Lanzar mi proyecto</button>
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="btn btn-o btn-lg" data-i="cta_b2">Hablar por WhatsApp</a>
+</div>
+</div>
 </section>
 </div><!-- /inicio -->
 
 <!-- ═══════ SERVICIOS ═══════ -->
 <div id="pg-servicios" class="page">
 <div class="sec" style="padding-top:110px">
-  <div class="wrap">
-    <div class="rv"><div class="lbl" data-i="sv_lbl">Lo que hacemos</div><h2 data-i="svf_h">Servicios diseñados para generar resultados.</h2><p class="sub" data-i="svf_sub">No vendemos páginas web. Construimos activos digitales que trabajan para tu negocio las 24 horas.</p></div>
-    <div class="serv-grid">
-      <div class="sc rv"><div class="sc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3 data-i="sv1h">Diseño Web</h3><p data-i="sv1f">Desde landing pages hasta portales completos. Cada elemento diseñado al servicio de la conversión.</p><div class="sc-tags"><span class="stag">UI/UX</span><span class="stag">React</span><span class="stag">Next.js</span><span class="stag">WordPress</span></div></div>
-      <div class="sc rv d1"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 data-i="sv2h">Branding &amp; Identidad</h3><p data-i="sv2f">Logos, guías de estilo y sistemas de diseño completos.</p><div class="sc-tags"><span class="stag">Logo</span><span class="stag">Brand System</span><span class="stag">Figma</span></div></div>
-      <div class="sc rv d2"><div class="sc-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><h3 data-i="sv3h">E-commerce</h3><p data-i="sv3f">Tiendas optimizadas para vender. Integración de pagos y experiencia de compra sin fricción.</p><div class="sc-tags"><span class="stag">Shopify</span><span class="stag">WooCommerce</span><span class="stag">Stripe</span></div></div>
-      <div class="sc rv d3"><div class="sc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 data-i="sv4h">SEO &amp; Posicionamiento</h3><p data-i="sv4f">SEO técnico y de contenido para aparecer primero en Google.</p><div class="sc-tags"><span class="stag">SEO Técnico</span><span class="stag">Analytics</span><span class="stag">Core Web Vitals</span></div></div>
-      <div class="sc rv d4"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3 data-i="sv5h">Marketing Digital</h3><p data-i="sv5f">Meta Ads, Google Ads y estrategia de contenido que generan retorno medible.</p><div class="sc-tags"><span class="stag">Meta Ads</span><span class="stag">Google Ads</span><span class="stag">Email</span></div></div>
-      <div class="sc rv d5"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 data-i="sv7h">Seguridad Web</h3><p data-i="sv7f">SSL, firewalls, backups automáticos y monitoreo 24/7.</p><div class="sc-tags"><span class="stag">SSL</span><span class="stag">Firewall</span><span class="stag">Backups</span></div></div>
-      <div class="sc rv"><div class="sc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3 data-i="sv8h">Diseño UI/UX</h3><p data-i="sv8f">Wireframes, prototipos y research de usuario que reducen fricción y aumentan conversión.</p><div class="sc-tags"><span class="stag">Figma</span><span class="stag">Prototipos</span><span class="stag">User Testing</span></div></div>
-      <div class="sc rv d1"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3 data-i="sv6h">Soporte &amp; Mantenimiento</h3><p data-i="sv6f">Paquetes mensuales para que tu web esté siempre actualizada y funcionando.</p><div class="sc-tags"><span class="stag">Hosting</span><span class="stag">Updates</span><span class="stag">Soporte</span></div></div>
-    </div>
-    <div style="text-align:center;margin-top:44px;padding:40px 24px;background:var(--bg2);border:1px solid var(--border);border-radius:14px" class="rv">
-      <div class="lbl" style="justify-content:center;margin-bottom:10px" data-i="svc_cta_lbl">¿Proyecto especial?</div>
-      <h2 style="font-size:1.6rem;margin-bottom:10px" data-i="svc_cta_h">Cuéntanos tu visión.</h2>
-      <p style="color:var(--t2);font-size:14px;margin-bottom:22px;max-width:360px;margin-left:auto;margin-right:auto" data-i="svc_cta_p">Si tu proyecto no encaja en una categoría estándar, construimos la solución exacta que necesitas.</p>
-      <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20hablar%20de%20un%20proyecto" target="_blank" class="btn btn-p" data-i="svc_cta_btn">Hablemos de tu proyecto</a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="rv"><div class="lbl" data-i="sv_lbl">Lo que hacemos</div><h2 data-i="svf_h">Servicios diseñados para generar resultados.</h2><p class="sub" data-i="svf_sub">No vendemos páginas web. Construimos activos digitales que trabajan para tu negocio las 24 horas.</p></div>
+<div class="serv-grid">
+<div class="sc rv"><div class="sc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3 data-i="sv1h">Diseño Web</h3><p data-i="sv1f">Desde landing pages hasta portales completos. Cada elemento diseñado al servicio de la conversión.</p><div class="sc-tags"><span class="stag">UI/UX</span><span class="stag">React</span><span class="stag">Next.js</span><span class="stag">WordPress</span></div></div>
+<div class="sc rv d1"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><h3 data-i="sv2h">Branding &amp; Identidad</h3><p data-i="sv2f">Logos, guías de estilo y sistemas de diseño completos.</p><div class="sc-tags"><span class="stag">Logo</span><span class="stag">Brand System</span><span class="stag">Figma</span></div></div>
+<div class="sc rv d2"><div class="sc-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><h3 data-i="sv3h">E-commerce</h3><p data-i="sv3f">Tiendas optimizadas para vender. Integración de pagos y experiencia de compra sin fricción.</p><div class="sc-tags"><span class="stag">Shopify</span><span class="stag">WooCommerce</span><span class="stag">Stripe</span></div></div>
+<div class="sc rv d3"><div class="sc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 data-i="sv4h">SEO &amp; Posicionamiento</h3><p data-i="sv4f">SEO técnico y de contenido para aparecer primero en Google.</p><div class="sc-tags"><span class="stag">SEO Técnico</span><span class="stag">Analytics</span><span class="stag">Core Web Vitals</span></div></div>
+<div class="sc rv d4"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3 data-i="sv5h">Marketing Digital</h3><p data-i="sv5f">Meta Ads, Google Ads y estrategia de contenido que generan retorno medible.</p><div class="sc-tags"><span class="stag">Meta Ads</span><span class="stag">Google Ads</span><span class="stag">Email</span></div></div>
+<div class="sc rv d5"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3 data-i="sv7h">Seguridad Web</h3><p data-i="sv7f">SSL, firewalls, backups automáticos y monitoreo 24/7.</p><div class="sc-tags"><span class="stag">SSL</span><span class="stag">Firewall</span><span class="stag">Backups</span></div></div>
+<div class="sc rv"><div class="sc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3 data-i="sv8h">Diseño UI/UX</h3><p data-i="sv8f">Wireframes, prototipos y research de usuario que reducen fricción y aumentan conversión.</p><div class="sc-tags"><span class="stag">Figma</span><span class="stag">Prototipos</span><span class="stag">User Testing</span></div></div>
+<div class="sc rv d1"><div class="sc-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h3 data-i="sv6h">Soporte &amp; Mantenimiento</h3><p data-i="sv6f">Paquetes mensuales para que tu web esté siempre actualizada y funcionando.</p><div class="sc-tags"><span class="stag">Hosting</span><span class="stag">Updates</span><span class="stag">Soporte</span></div></div>
+</div>
+<div style="text-align:center;margin-top:44px;padding:40px 24px;background:var(--bg2);border:1px solid var(--border);border-radius:14px" class="rv">
+<div class="lbl" style="justify-content:center;margin-bottom:10px" data-i="svc_cta_lbl">¿Proyecto especial?</div>
+<h2 style="font-size:1.6rem;margin-bottom:10px" data-i="svc_cta_h">Cuéntanos tu visión.</h2>
+<p style="color:var(--t2);font-size:14px;margin-bottom:22px;max-width:360px;margin-left:auto;margin-right:auto" data-i="svc_cta_p">Si tu proyecto no encaja en una categoría estándar, construimos la solución exacta que necesitas.</p>
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20hablar%20de%20un%20proyecto" target="_blank" class="btn btn-p" data-i="svc_cta_btn">Hablemos de tu proyecto</a>
+</div>
+</div>
 </div>
 </div>
 
 <!-- ═══════ PORTAFOLIO ═══════ -->
 <div id="pg-portafolio" class="page">
 <div class="sec" style="padding-top:110px">
-  <div class="wrap">
-    <div class="ctr rv"><div class="lbl" data-i="po_lbl">Trabajo real</div><h2 data-i="po_h">Proyectos que generan resultados reales.</h2><p class="sub" data-i="po_sub">No mostramos mockups. Mostramos sitios en producción con marcas reales que venden.</p></div>
-    <div class="port-grid">
-      <a href="https://santopatronclothing.com" target="_blank" class="pc rv"><div class="pc-thumb"><img src="SANTOWEB.png" alt="Santo Patron Website"></div><div class="pc-info"><div class="pc-meta"><img class="pc-fav" src="https://www.google.com/s2/favicons?domain=santopatronclothing.com&sz=32" alt="" onerror="this.style.display='none'"><span class="pc-domain">santopatronclothing.com</span></div><h3>Santo Patrón Clothing</h3><p class="pc-desc" data-i="po1d">Ecommerce con drops limitados, countdowns y checkout de alta conversión.</p><span class="pc-tag">E-commerce · Shopify</span></div></a>
-      <a href="https://elevacorp.net" target="_blank" class="pc rv d1"><div class="pc-thumb"><img src="ELEVAWEB.png" alt="Eleva Corp Website"></div><div class="pc-info"><div class="pc-meta"><img class="pc-fav" src="https://www.google.com/s2/favicons?domain=elevacorp.net&sz=32" alt="" onerror="this.style.display='none'"><span class="pc-domain">elevacorp.net</span></div><h3>Eleva Corp</h3><p class="pc-desc" data-i="po2d">Marketplace con catálogo premium, pasarela de pago segura y envíos regionales.</p><span class="pc-tag">Marketplace · E-commerce</span></div></a>
-      <a href="https://rystarstudios.com" target="_blank" class="pc rv d2"><div class="pc-thumb"><img src="RYSTARWEB.png" alt="Rystar Website"></div><div class="pc-info"><div class="pc-meta"><img class="pc-fav" src="https://www.google.com/s2/favicons?domain=rystarstudios.com&sz=32" alt="" onerror="this.style.display='none'"><span class="pc-domain">rystarstudios.com</span></div><h3>Rystar Studios</h3><p class="pc-desc" data-i="po3d">Marca streetwear con lista de espera exclusiva y countdown de lanzamientos.</p><span class="pc-tag">Brand · E-commerce</span></div></a>
-      <a href="https://caos-world.myshopify.com" target="_blank" class="pc rv d3"><div class="pc-thumb"><img src="CAOSWEB.png" alt="Caos World Website"></div><div class="pc-info"><div class="pc-meta"><img class="pc-fav" src="https://www.google.com/s2/favicons?domain=caos-world.myshopify.com&sz=32" alt="" onerror="this.style.display='none'"><span class="pc-domain">caos-world.myshopify.com</span></div><h3>Caos World</h3><p class="pc-desc" data-i="po4d">Shopify como eje central de identidad visual y operación comercial de una tienda física.</p><span class="pc-tag">Streetwear · Shopify</span></div></a>
-    </div>
-    <div style="margin-top:64px" class="rv"><div class="lbl" data-i="cs_lbl">Casos de estudio</div><h2 style="margin-bottom:8px" data-i="cs_h">Resultados documentados. No estimaciones.</h2></div>
-    <div class="cases-grid">
-      <div class="case rv"><div class="case-client">Santo Patrón Clothing</div><div class="case-lbl" data-i="cs_obj">Objetivo</div><div class="case-val" data-i="cs1o_p">Aumentar ventas online y fortalecer la identidad de marca.</div><div class="case-lbl" data-i="cs_sol">Solución</div><div class="case-val" data-i="cs1s">Shopify con sistema de drops, countdown y checkout optimizado para conversión.</div><div class="case-result"><div class="case-lbl" data-i="cs_res">Resultado</div><div class="case-val" data-i="cs1r">Drops agotados en menos de 24h. +180% conversión desde el primer mes.</div></div></div>
-      <div class="case rv d1"><div class="case-client">Rystar Studios</div><div class="case-lbl" data-i="cs_obj">Objetivo</div><div class="case-val" data-i="cs3o_p">Posicionar la marca como referente streetwear de edición limitada en Latinoamérica.</div><div class="case-lbl" data-i="cs_sol">Solución</div><div class="case-val" data-i="cs3s">Identidad visual completa + web con lista de espera y lanzamientos programados.</div><div class="case-result"><div class="case-lbl" data-i="cs_res">Resultado</div><div class="case-val" data-i="cs3r">1,200 registros en lista de espera antes del lanzamiento.</div></div></div>
-      <div class="case rv d2"><div class="case-client">Caos World</div><div class="case-lbl" data-i="cs_obj">Objetivo</div><div class="case-val" data-i="cs4o_p">Llevar la identidad de una tienda física streetwear al mundo digital.</div><div class="case-lbl" data-i="cs_sol">Solución</div><div class="case-val" data-i="cs4s">Shopify con catálogo integrado y diseño que refleja la estética de la marca.</div><div class="case-result"><div class="case-lbl" data-i="cs_res">Resultado</div><div class="case-val" data-i="cs4r">Presencia digital activa que amplía el alcance de la marca.</div></div></div>
-    </div>
-    <div class="ctr rv" style="margin-top:44px">
-      <p style="font-size:14px;color:var(--t2);margin-bottom:18px"><strong style="color:var(--pl)">+17 proyectos más</strong> <span data-i="po_more">en nuestro historial.</span></p>
-      <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20resultados%20como%20estos" target="_blank" class="btn btn-p" data-i="po_cta">Quiero resultados así</a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="ctr rv"><div class="lbl" data-i="po_lbl">Trabajo real</div><h2 data-i="po_h">Proyectos que generan resultados reales.</h2><p class="sub" data-i="po_sub">No mostramos mockups. Mostramos sitios en producción con marcas reales que venden.</p></div>
+<div class="port-grid">
+<a href="https://santopatronclothing.com" target="_blank" class="pc rv"><div class="pc-thumb"><img src="SANTOWEB.png" alt="Santo Patron Website"></div><div class="pc-info"><div class="pc-meta"><img class="pc-fav" src="https://www.google.com/s2/favicons?domain=santopatronclothing.com&sz=32" alt="" onerror="this.style.display='none'"><span class="pc-domain">santopatronclothing.com</span></div><h3>Santo Patrón Clothing</h3><p class="pc-desc" data-i="po1d">Ecommerce con drops limitados, countdowns y checkout de alta conversión.</p><span class="pc-tag">E-commerce · Shopify</span></div></a>
+<a href="https://elevacorp.net" target="_blank" class="pc rv d1"><div class="pc-thumb"><img src="ELEVAWEB.png" alt="Eleva Corp Website"></div><div class="pc-info"><div class="pc-meta"><img class="pc-fav" src="https://www.google.com/s2/favicons?domain=elevacorp.net&sz=32" alt="" onerror="this.style.display='none'"><span class="pc-domain">elevacorp.net</span></div><h3>Eleva Corp</h3><p class="pc-desc" data-i="po2d">Marketplace con catálogo premium, pasarela de pago segura y envíos regionales.</p><span class="pc-tag">Marketplace · E-commerce</span></div></a>
+<a href="https://rystarstudios.com" target="_blank" class="pc rv d2"><div class="pc-thumb"><img src="RYSTARWEB.png" alt="Rystar Website"></div><div class="pc-info"><div class="pc-meta"><img class="pc-fav" src="https://www.google.com/s2/favicons?domain=rystarstudios.com&sz=32" alt="" onerror="this.style.display='none'"><span class="pc-domain">rystarstudios.com</span></div><h3>Rystar Studios</h3><p class="pc-desc" data-i="po3d">Marca streetwear con lista de espera exclusiva y countdown de lanzamientos.</p><span class="pc-tag">Brand · E-commerce</span></div></a>
+<a href="https://caos-world.myshopify.com" target="_blank" class="pc rv d3"><div class="pc-thumb"><img src="CAOSWEB.png" alt="Caos World Website"></div><div class="pc-info"><div class="pc-meta"><img class="pc-fav" src="https://www.google.com/s2/favicons?domain=caos-world.myshopify.com&sz=32" alt="" onerror="this.style.display='none'"><span class="pc-domain">caos-world.myshopify.com</span></div><h3>Caos World</h3><p class="pc-desc" data-i="po4d">Shopify como eje central de identidad visual y operación comercial de una tienda física.</p><span class="pc-tag">Streetwear · Shopify</span></div></a>
+</div>
+<div style="margin-top:64px" class="rv"><div class="lbl" data-i="cs_lbl">Casos de estudio</div><h2 style="margin-bottom:8px" data-i="cs_h">Resultados documentados. No estimaciones.</h2></div>
+<div class="cases-grid">
+<div class="case rv"><div class="case-client">Santo Patrón Clothing</div><div class="case-lbl" data-i="cs_obj">Objetivo</div><div class="case-val" data-i="cs1o_p">Aumentar ventas online y fortalecer la identidad de marca.</div><div class="case-lbl" data-i="cs_sol">Solución</div><div class="case-val" data-i="cs1s">Shopify con sistema de drops, countdown y checkout optimizado para conversión.</div><div class="case-result"><div class="case-lbl" data-i="cs_res">Resultado</div><div class="case-val" data-i="cs1r">Drops agotados en menos de 24h. +180% conversión desde el primer mes.</div></div></div>
+<div class="case rv d1"><div class="case-client">Rystar Studios</div><div class="case-lbl" data-i="cs_obj">Objetivo</div><div class="case-val" data-i="cs3o_p">Posicionar la marca como referente streetwear de edición limitada en Latinoamérica.</div><div class="case-lbl" data-i="cs_sol">Solución</div><div class="case-val" data-i="cs3s">Identidad visual completa + web con lista de espera y lanzamientos programados.</div><div class="case-result"><div class="case-lbl" data-i="cs_res">Resultado</div><div class="case-val" data-i="cs3r">1,200 registros en lista de espera antes del lanzamiento.</div></div></div>
+<div class="case rv d2"><div class="case-client">Caos World</div><div class="case-lbl" data-i="cs_obj">Objetivo</div><div class="case-val" data-i="cs4o_p">Llevar la identidad de una tienda física streetwear al mundo digital.</div><div class="case-lbl" data-i="cs_sol">Solución</div><div class="case-val" data-i="cs4s">Shopify con catálogo integrado y diseño que refleja la estética de la marca.</div><div class="case-result"><div class="case-lbl" data-i="cs_res">Resultado</div><div class="case-val" data-i="cs4r">Presencia digital activa que amplía el alcance de la marca.</div></div></div>
+</div>
+<div class="ctr rv" style="margin-top:44px">
+<p style="font-size:14px;color:var(--t2);margin-bottom:18px"><strong style="color:var(--pl)">+17 proyectos más</strong> <span data-i="po_more">en nuestro historial.</span></p>
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20resultados%20como%20estos" target="_blank" class="btn btn-p" data-i="po_cta">Quiero resultados así</a>
+</div>
+</div>
 </div>
 </div>
 
 <!-- ═══════ PLANES ═══════ -->
 <div id="pg-planes" class="page">
 <div class="sec" style="padding-top:110px">
-  <div class="wrap">
-    <div class="ctr rv"><div class="lbl" data-i="pl_lbl">Inversión</div><h2 data-i="pl_h">El plan correcto para tu etapa de negocio.</h2><p class="sub" data-i="pl_sub">Precios reales, sin letra pequeña. Consulta disponibilidad antes de reservar.</p></div>
-    <div class="plans-grid">
-      <div class="plan rv">
-        <div class="plan-name" style="color:#22d3ee">Starter</div>
-        <div class="plan-desc" data-i="pl1d">Para negocios que necesitan una presencia digital sólida y profesional.</div>
-        <ul class="plan-items">
-          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i1">Landing page de alta conversión</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i2">Diseño responsive &amp; mobile-first</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i3">Integración WhatsApp &amp; formulario</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i4">Configuración dominio &amp; hosting</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i5">Entrega en 7–10 días hábiles</span></li>
-        </ul>
-        <a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Starter" target="_blank" class="btn btn-o btn-full" data-i="pl_q">Consultar precio</a>
-      </div>
-      <div class="plan hot rv d1">
-        <div class="plan-pill" data-i="pl_pop">MÁS ELEGIDO</div>
-        <div class="plan-name" style="color:var(--pl)">Business</div>
-        <div class="plan-desc" data-i="pl2d">Para marcas que quieren crecer con presencia digital completa y estratégica.</div>
-        <ul class="plan-items">
-          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i1">Web multi-página premium</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i2">Diseño UI/UX personalizado</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i3">SEO técnico incluido</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i4">Panel de administración</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i5">WhatsApp + Analytics integrado</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i6">Soporte prioritario 3 meses</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i7">Entrega en 14–21 días hábiles</span></li>
-        </ul>
-        <a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Business" target="_blank" class="btn btn-p btn-full" data-i="pl_q">Consultar precio</a>
-      </div>
-      <div class="plan rv d2">
-        <div class="plan-name" style="color:#f59e0b">Pro</div>
-        <div class="plan-desc" data-i="pl3d">Para marcas que exigen lo máximo: ecommerce, integraciones avanzadas y posicionamiento total.</div>
-        <ul class="plan-items">
-          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i1">E-commerce o web avanzada</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i2">Diseño ultra-premium &amp; branding</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i3">SEO avanzado + Google Analytics 4</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i4">Integraciones a medida</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i5">Soporte prioritario 6 meses</span></li>
-          <li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i6">Mantenimiento incluido</span></li>
-        </ul>
-        <a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Pro" target="_blank" class="btn btn-o btn-full" data-i="pl_q">Consultar precio</a>
-      </div>
-    </div>
-    <div style="margin-top:14px;padding:26px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;text-align:center" class="rv">
-      <p style="font-size:14px;color:var(--t2);margin-bottom:13px" data-i="pl_custom">¿Tienes un proyecto especial? Diseñamos una solución a tu medida.</p>
-      <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20un%20plan%20personalizado" target="_blank" class="btn btn-o" data-i="pl_custom_btn">Solicitar propuesta personalizada</a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="ctr rv"><div class="lbl" data-i="pl_lbl">Inversión</div><h2 data-i="pl_h">El plan correcto para tu etapa de negocio.</h2><p class="sub" data-i="pl_sub">Precios reales, sin letra pequeña. Consulta disponibilidad antes de reservar.</p></div>
+<div class="plans-grid">
+<div class="plan rv">
+<div class="plan-name" style="color:#22d3ee">Starter</div>
+<div class="plan-desc" data-i="pl1d">Para negocios que necesitan una presencia digital sólida y profesional.</div>
+<ul class="plan-items">
+<li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i1">Landing page de alta conversión</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i2">Diseño responsive &amp; mobile-first</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i3">Integración WhatsApp &amp; formulario</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i4">Configuración dominio &amp; hosting</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#22d3ee"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p1i5">Entrega en 7–10 días hábiles</span></li>
+</ul>
+<a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Starter" target="_blank" class="btn btn-o btn-full" data-i="pl_q">Consultar precio</a>
+</div>
+<div class="plan hot rv d1">
+<div class="plan-pill" data-i="pl_pop">MÁS ELEGIDO</div>
+<div class="plan-name" style="color:var(--pl)">Business</div>
+<div class="plan-desc" data-i="pl2d">Para marcas que quieren crecer con presencia digital completa y estratégica.</div>
+<ul class="plan-items">
+<li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i1">Web multi-página premium</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i2">Diseño UI/UX personalizado</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i3">SEO técnico incluido</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i4">Panel de administración</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i5">WhatsApp + Analytics integrado</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i6">Soporte prioritario 3 meses</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:var(--pl)"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p2i7">Entrega en 14–21 días hábiles</span></li>
+</ul>
+<a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Business" target="_blank" class="btn btn-p btn-full" data-i="pl_q">Consultar precio</a>
+</div>
+<div class="plan rv d2">
+<div class="plan-name" style="color:#f59e0b">Pro</div>
+<div class="plan-desc" data-i="pl3d">Para marcas que exigen lo máximo: ecommerce, integraciones avanzadas y posicionamiento total.</div>
+<ul class="plan-items">
+<li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i1">E-commerce o web avanzada</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i2">Diseño ultra-premium &amp; branding</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i3">SEO avanzado + Google Analytics 4</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i4">Integraciones a medida</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i5">Soporte prioritario 6 meses</span></li>
+<li><svg viewBox="0 0 24 24" style="stroke:#f59e0b"><polyline points="20 6 9 17 4 12"/></svg><span data-i="p3i6">Mantenimiento incluido</span></li>
+</ul>
+<a href="https://wa.me/50767997259?text=Hola%2C%20me%20interesa%20el%20plan%20Pro" target="_blank" class="btn btn-o btn-full" data-i="pl_q">Consultar precio</a>
+</div>
+</div>
+<div style="margin-top:14px;padding:26px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;text-align:center" class="rv">
+<p style="font-size:14px;color:var(--t2);margin-bottom:13px" data-i="pl_custom">¿Tienes un proyecto especial? Diseñamos una solución a tu medida.</p>
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20un%20plan%20personalizado" target="_blank" class="btn btn-o" data-i="pl_custom_btn">Solicitar propuesta personalizada</a>
+</div>
+</div>
 </div>
 </div>
 
 <!-- ═══════ NOSOTROS ═══════ -->
 <div id="pg-nosotros" class="page">
 <div class="sec" style="padding-top:110px">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="rv">
-        <div class="about-card">
-          <div class="about-av-wrap">
-            <div class="about-av"><img src="/me.jpg" alt="Rodolfo Martinez"></div>
-            <div class="about-av-ring"></div>
-            <div class="about-av-status"></div>
-          </div>
-          <div class="about-role" data-i="ab_role">Fundador &amp; Director Creativo</div>
-          <div class="about-name">Rodolfo Martinez</div>
-          <div class="about-bio" data-i="ab_bio">Diseñador y desarrollador con más de 5 años construyendo marcas digitales que generan impacto real. Cada proyecto es tratado como propio: con estrategia, precisión y obsesión por los detalles.</div>
-          <div class="about-stats">
-            <div class="ast"><div class="ast-n">20+</div><div class="ast-l" data-i="as1">Proyectos</div></div>
-            <div class="ast"><div class="ast-n">5+</div><div class="ast-l" data-i="as2">Años exp.</div></div>
-            <div class="ast"><div class="ast-n">4</div><div class="ast-l" data-i="as3">Países</div></div>
-            <div class="ast"><div class="ast-n">100%</div><div class="ast-l" data-i="as4">Resultados</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="rv d1">
-        <div class="lbl" data-i="ab_lbl">Quiénes somos</div>
-        <h2 style="margin-bottom:12px" data-i="ab_h">Una agencia obsesionada con tu crecimiento.</h2>
-        <p class="sub" style="max-width:100%;margin-bottom:0" data-i="ab_p">En Rupta Studios no hacemos páginas web. Construimos herramientas de negocio. Cada proyecto empieza con una pregunta: ¿cómo esto hace crecer a nuestro cliente?</p>
-        <div class="about-vals">
-          <div class="av-item"><div class="av-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><div class="av-t" data-i="v1t">Orientados a resultados</div><div class="av-d" data-i="v1d">Todo tiene un objetivo claro y medible. Diseñamos para convertir, no para impresionar.</div></div></div>
-          <div class="av-item"><div class="av-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="av-t" data-i="v2t">Velocidad y precisión</div><div class="av-d" data-i="v2d">Plazos cumplidos, comunicación directa y calidad sin excusas.</div></div></div>
-          <div class="av-item"><div class="av-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div class="av-t" data-i="v3t">Relación a largo plazo</div><div class="av-d" data-i="v3d">No somos proveedores de un proyecto único. Somos el equipo digital permanente de nuestros clientes.</div></div></div>
-        </div>
-        <div style="margin-top:28px"><button onclick="go('contacto')" class="btn btn-p" data-i="ab_cta">Trabajemos juntos</button></div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="about-grid">
+<div class="rv">
+<div class="about-card">
+<div class="about-av-wrap">
+<div class="about-av"><img src="/me.jpg" alt="Rodolfo Martinez"></div>
+<div class="about-av-ring"></div>
+<div class="about-av-status"></div>
+</div>
+<div class="about-role" data-i="ab_role">Fundador &amp; Director Creativo</div>
+<div class="about-name">Rodolfo Martinez</div>
+<div class="about-bio" data-i="ab_bio">Diseñador y desarrollador con más de 5 años construyendo marcas digitales que generan impacto real. Cada proyecto es tratado como propio: con estrategia, precisión y obsesión por los detalles.</div>
+<div class="about-stats">
+<div class="ast"><div class="ast-n">20+</div><div class="ast-l" data-i="as1">Proyectos</div></div>
+<div class="ast"><div class="ast-n">5+</div><div class="ast-l" data-i="as2">Años exp.</div></div>
+<div class="ast"><div class="ast-n">4</div><div class="ast-l" data-i="as3">Países</div></div>
+<div class="ast"><div class="ast-n">100%</div><div class="ast-l" data-i="as4">Resultados</div></div>
+</div>
+</div>
+</div>
+<div class="rv d1">
+<div class="lbl" data-i="ab_lbl">Quiénes somos</div>
+<h2 style="margin-bottom:12px" data-i="ab_h">Una agencia obsesionada con tu crecimiento.</h2>
+<p class="sub" style="max-width:100%;margin-bottom:0" data-i="ab_p">En Rupta Studios no hacemos páginas web. Construimos herramientas de negocio. Cada proyecto empieza con una pregunta: ¿cómo esto hace crecer a nuestro cliente?</p>
+<div class="about-vals">
+<div class="av-item"><div class="av-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div><div class="av-t" data-i="v1t">Orientados a resultados</div><div class="av-d" data-i="v1d">Todo tiene un objetivo claro y medible. Diseñamos para convertir, no para impresionar.</div></div></div>
+<div class="av-item"><div class="av-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><div><div class="av-t" data-i="v2t">Velocidad y precisión</div><div class="av-d" data-i="v2d">Plazos cumplidos, comunicación directa y calidad sin excusas.</div></div></div>
+<div class="av-item"><div class="av-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><div class="av-t" data-i="v3t">Relación a largo plazo</div><div class="av-d" data-i="v3d">No somos proveedores de un proyecto único. Somos el equipo digital permanente de nuestros clientes.</div></div></div>
+</div>
+<div style="margin-top:28px"><button onclick="go('contacto')" class="btn btn-p" data-i="ab_cta">Trabajemos juntos</button></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
 <!-- ═══════ CONTACTO ═══════ -->
 <div id="pg-contacto" class="page">
 <div class="sec" style="padding-top:110px">
-  <div class="wrap">
-    <div class="ctr rv" style="margin-bottom:48px"><div class="lbl" data-i="co_lbl">Contacto</div><h2 data-i="co_h">Hablemos de tu proyecto.</h2><p class="sub" data-i="co_sub">Respondemos en menos de 24 horas. Sin compromiso, sin letra pequeña.</p></div>
-    <div class="contact-grid">
-      <div class="rv">
-        <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="ch"><div class="ch-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ch-lbl">WhatsApp</div><div class="ch-val">+507 6799-7259</div></div></a>
-        <a href="/cdn-cgi/l/email-protection#e99b9c999d889a9d9c8d80869a9988a98e84888085c78a8684" class="ch"><div class="ch-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ch-lbl">Email</div><div class="ch-val"><span class="__cf_email__" data-cfemail="41333431352032353425282e32312001262c20282d6f222e2c">[email&#160;protected]</span></div></div></a>
-        <a href="https://instagram.com/ruptastudios" target="_blank" class="ch"><div class="ch-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="ch-lbl">Instagram</div><div class="ch-val">@ruptastudios</div></div></a>
-        <div class="contact-note" data-i="co_note">Atendemos proyectos en toda Latinoamérica. Respondemos en menos de 24 horas hábiles.</div>
-      </div>
-      <div class="rv d1">
-        <div class="form-box" id="fbox">
-          <h3 data-i="fo_h">Cuéntanos tu proyecto</h3>
-          <div class="form-wa-note">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            <span data-i="fo_note">Al enviar, te redirigiremos a WhatsApp para continuar la conversación.</span>
-          </div>
-          <div class="fg"><label data-i="fo_name">Nombre</label><input type="text" id="fn" placeholder="Tu nombre completo"></div>
-          <div class="fg"><label data-i="fo_email">Email</label><input type="email" id="fe" placeholder="tu@empresa.com"></div>
-          <div class="fg"><label data-i="fo_svc">Servicio de interés</label><select id="fs"><option value="" data-i="fo_sel">Selecciona un servicio...</option><option>Ecommerce Brand (Shopify)</option><option>Brand Website</option><option>Conversion Landing</option><option>Branding &amp; Identidad</option><option>Plan a medida</option></select></div>
-          <div class="fg"><label data-i="fo_msg">Mensaje</label><textarea id="fm" rows="4" placeholder="Cuéntanos qué necesitas..."></textarea></div>
-          <button onclick="sendForm()" class="btn btn-wa btn-full" style="font-size:14.5px;padding:14px" data-i="fo_btn">
-            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Enviar por WhatsApp
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="ctr rv" style="margin-bottom:48px"><div class="lbl" data-i="co_lbl">Contacto</div><h2 data-i="co_h">Hablemos de tu proyecto.</h2><p class="sub" data-i="co_sub">Respondemos en menos de 24 horas. Sin compromiso, sin letra pequeña.</p></div>
+<div class="contact-grid">
+<div class="rv">
+<a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="ch"><div class="ch-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ch-lbl">WhatsApp</div><div class="ch-val">+507 6799-7259</div></div></a>
+<a href="/cdn-cgi/l/email-protection#e99b9c999d889a9d9c8d80869a9988a98e84888085c78a8684" class="ch"><div class="ch-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ch-lbl">Email</div><div class="ch-val"><span class="__cf_email__" data-cfemail="41333431352032353425282e32312001262c20282d6f222e2c">[email&#160;protected]</span></div></div></a>
+<a href="https://instagram.com/ruptastudios" target="_blank" class="ch"><div class="ch-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><div class="ch-lbl">Instagram</div><div class="ch-val">@ruptastudios</div></div></a>
+<div class="contact-note" data-i="co_note">Atendemos proyectos en toda Latinoamérica. Respondemos en menos de 24 horas hábiles.</div>
+</div>
+<div class="rv d1">
+<div class="form-box" id="fbox">
+<h3 data-i="fo_h">Cuéntanos tu proyecto</h3>
+<div class="form-wa-note">
+<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+<span data-i="fo_note">Al enviar, te redirigiremos a WhatsApp para continuar la conversación.</span>
+</div>
+<div class="fg"><label data-i="fo_name">Nombre</label><input type="text" id="fn" placeholder="Tu nombre completo"></div>
+<div class="fg"><label data-i="fo_email">Email</label><input type="email" id="fe" placeholder="tu@empresa.com"></div>
+<div class="fg"><label data-i="fo_svc">Servicio de interés</label><select id="fs"><option value="" data-i="fo_sel">Selecciona un servicio...</option><option>Ecommerce Brand (Shopify)</option><option>Brand Website</option><option>Conversion Landing</option><option>Branding &amp; Identidad</option><option>Plan a medida</option></select></div>
+<div class="fg"><label data-i="fo_msg">Mensaje</label><textarea id="fm" rows="4" placeholder="Cuéntanos qué necesitas..."></textarea></div>
+<button onclick="sendForm()" class="btn btn-wa btn-full" style="font-size:14.5px;padding:14px" data-i="fo_btn">
+<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+Enviar por WhatsApp
+</button>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
-  <div class="footer-in">
-    <div class="footer-top">
-      <div>
-        <span class="f-logo"><img src="/favi.png" style="width:22px;height:22px;flex-shrink:0;border-radius:5px;object-fit:cover" alt="Rupta Studios">RUPTA <em>STUDIOS</em></span>
-        <div class="f-desc" data-i="f_desc">Design & conversion agency — Panama.</div>
-        <div class="f-socs">
-          <a href="https://instagram.com/ruptastudios" target="_blank" class="f-soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-          <a href="https://wa.me/50767997259" target="_blank" class="f-soc"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-          <a href="/cdn-cgi/l/email-protection#265453565247555253424f4955564766414b474f4a0845494b" class="f-soc"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
-        </div>
-      </div>
-      <div><h4 data-i="f_nav">Navegación</h4><button class="f-lnk" onclick="go('inicio')" data-i="nav_i">Inicio</button><button class="f-lnk" onclick="go('servicios')" data-i="nav_s">Servicios</button><button class="f-lnk" onclick="go('portafolio')" data-i="nav_p">Portafolio</button><button class="f-lnk" onclick="go('planes')" data-i="nav_pl">Planes</button><button class="f-lnk" onclick="go('nosotros')" data-i="nav_n">Nosotros</button><button class="f-lnk" onclick="go('contacto')" data-i="nav_c">Contacto</button></div>
-      <div><h4 data-i="f_contact">Contacto</h4><a href="https://wa.me/50767997259" target="_blank" class="f-lnk">+507 6799-7259</a><a href="/cdn-cgi/l/email-protection#d7a5a2a7a3b6a4a3a2b3beb8a4a7b697b0bab6bebbf9b4b8ba" class="f-lnk"><span class="__cf_email__" data-cfemail="245651545045575051404d4b575445644349454d480a474b49">[email&#160;protected]</span></a><a href="https://instagram.com/ruptastudios" target="_blank" class="f-lnk">@ruptastudios</a></div>
-      <div><h4 data-i="f_clients">Clientes</h4><a href="https://santopatronclothing.com" target="_blank" class="f-lnk">Santo Patrón Clothing</a><a href="https://elevacorp.net" target="_blank" class="f-lnk">Eleva Corp</a><a href="https://rystarstudios.com" target="_blank" class="f-lnk">Rystar Studios</a><a href="https://caos-world.myshopify.com" target="_blank" class="f-lnk">Caos World</a><span class="f-lnk" style="cursor:default">Sprayground LATAM</span></div>
-    </div>
-    <div class="footer-bot"><span>© 2026 Rupta Studios. Todos los derechos reservados.</span><span data-i="f_made">Designed &amp; developed by Rupta Studios</span></div>
-  </div>
+<div class="footer-in">
+<div class="footer-top">
+<div>
+        <span class="f-logo"><img src="/favi.png" style="width:20px;height:20px;flex-shrink:0" alt="Rupta Studios">RUPTA <em>STUDIOS</em></span>
+        <span class="f-logo"><svg width="20" height="20" viewBox="0 0 28 28" fill="none" style="flex-shrink:0;border-radius:4px"><rect width="28" height="28" rx="6" fill="#7c3aed"/><path d="M7 8h8c2.2 0 4 1.8 4 4s-1.8 4-4 4H7V8z" fill="white"/><path d="M7 16h5l4 4H7v-4z" fill="rgba(255,255,255,0.55)"/></svg>RUPTA <em>STUDIOS</em></span>
+<div class="f-desc" data-i="f_desc">Design & conversion agency — Panama.</div>
+<div class="f-socs">
+<a href="https://instagram.com/ruptastudios" target="_blank" class="f-soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+<a href="https://wa.me/50767997259" target="_blank" class="f-soc"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+<a href="/cdn-cgi/l/email-protection#265453565247555253424f4955564766414b474f4a0845494b" class="f-soc"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+</div>
+</div>
+<div><h4 data-i="f_nav">Navegación</h4><button class="f-lnk" onclick="go('inicio')" data-i="nav_i">Inicio</button><button class="f-lnk" onclick="go('servicios')" data-i="nav_s">Servicios</button><button class="f-lnk" onclick="go('portafolio')" data-i="nav_p">Portafolio</button><button class="f-lnk" onclick="go('planes')" data-i="nav_pl">Planes</button><button class="f-lnk" onclick="go('nosotros')" data-i="nav_n">Nosotros</button><button class="f-lnk" onclick="go('contacto')" data-i="nav_c">Contacto</button></div>
+<div><h4 data-i="f_contact">Contacto</h4><a href="https://wa.me/50767997259" target="_blank" class="f-lnk">+507 6799-7259</a><a href="/cdn-cgi/l/email-protection#d7a5a2a7a3b6a4a3a2b3beb8a4a7b697b0bab6bebbf9b4b8ba" class="f-lnk"><span class="__cf_email__" data-cfemail="245651545045575051404d4b575445644349454d480a474b49">[email&#160;protected]</span></a><a href="https://instagram.com/ruptastudios" target="_blank" class="f-lnk">@ruptastudios</a></div>
+<div><h4 data-i="f_clients">Clientes</h4><a href="https://santopatronclothing.com" target="_blank" class="f-lnk">Santo Patrón Clothing</a><a href="https://elevacorp.net" target="_blank" class="f-lnk">Eleva Corp</a><a href="https://rystarstudios.com" target="_blank" class="f-lnk">Rystar Studios</a><a href="https://caos-world.myshopify.com" target="_blank" class="f-lnk">Caos World</a><span class="f-lnk" style="cursor:default">Sprayground LATAM</span></div>
+</div>
+<div class="footer-bot"><span>© 2026 Rupta Studios. Todos los derechos reservados.</span><span data-i="f_made">Designed &amp; developed by Rupta Studios</span></div>
+</div>
 </footer>
 
 <a href="https://wa.me/50767997259?text=Hola%2C%20quiero%20iniciar%20un%20proyecto" target="_blank" class="wa" title="WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16 1C7.73 1 1 7.73 1 16c0 2.63.68 5.1 1.87 7.25L1 31l7.98-1.84A14.93 14.93 0 0 0 16 31c8.27 0 15-6.73 15-15S24.27 1 16 1zm0 27.33a12.26 12.26 0 0 1-6.27-1.72l-.45-.27-4.74 1.09 1.12-4.61-.3-.48A12.27 12.27 0 1 1 16 28.33zm6.74-9.17c-.37-.18-2.18-1.07-2.52-1.2-.34-.12-.58-.18-.83.18-.24.37-.95 1.2-1.17 1.44-.21.25-.43.28-.8.09-.37-.18-1.56-.57-2.97-1.83-1.1-.98-1.84-2.19-2.05-2.56-.22-.37-.02-.57.16-.75.17-.17.37-.43.55-.65.18-.22.24-.37.37-.61.12-.25.06-.46-.03-.65-.09-.18-.83-2-.13-2.73.62-.65 1.56-.46 1.99-.1.52.43.87 1.05.87 1.78 0 .74-.13 1.48-.13 1.48s-.6-.24-.83-.36z"/></svg>
+<svg viewBox="0 0 32 32"><path d="M16 1C7.73 1 1 7.73 1 16c0 2.63.68 5.1 1.87 7.25L1 31l7.98-1.84A14.93 14.93 0 0 0 16 31c8.27 0 15-6.73 15-15S24.27 1 16 1zm0 27.33a12.26 12.26 0 0 1-6.27-1.72l-.45-.27-4.74 1.09 1.12-4.61-.3-.48A12.27 12.27 0 1 1 16 28.33zm6.74-9.17c-.37-.18-2.18-1.07-2.52-1.2-.34-.12-.58-.18-.83.18-.24.37-.95 1.2-1.17 1.44-.21.25-.43.28-.8.09-.37-.18-1.56-.57-2.97-1.83-1.1-.98-1.84-2.19-2.05-2.56-.22-.37-.02-.57.16-.75.17-.17.37-.43.55-.65.18-.22.24-.37.37-.61.12-.25.06-.46-.03-.65-.09-.18-.83-2-.13-2.73.62-.65 1.56-.46 1.99-.1.52.43.87 1.05.87 1.78 0 .74-.13 1.48-.13 1.48s-.6-.24-.83-.36z"/></svg>
 </a>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('s',window.scrollY>30)});
 function mobMenu(){document.getElementById('mobEl').classList.toggle('open')}
 function go(id){
-  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('on')});
-  document.querySelectorAll('.nl').forEach(function(l){l.classList.toggle('on',l.dataset.p===id)});
-  var el=document.getElementById('pg-'+id);
-  if(el){el.classList.add('on')}
-  window.scrollTo({top:0,behavior:'smooth'});
-  setTimeout(initReveal,80);
+document.querySelectorAll('.page').forEach(function(p){p.classList.remove('on')});
+document.querySelectorAll('.nl').forEach(function(l){l.classList.toggle('on',l.dataset.p===id)});
+var el=document.getElementById('pg-'+id);
+if(el){el.classList.add('on')}
+window.scrollTo({top:0,behavior:'smooth'});
+setTimeout(initReveal,80);
 }
 function initReveal(){
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
-  },{threshold:0.05,rootMargin:'0px 0px -28px 0px'});
-  document.querySelectorAll('.page.on .rv:not(.in)').forEach(function(el){io.observe(el)});
+var io=new IntersectionObserver(function(entries){
+entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+},{threshold:0.05,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.page.on .rv:not(.in)').forEach(function(el){io.observe(el)});
 }
 function toggleFaq(btn){
-  var item=btn.closest('.faq-item');
-  var isOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
-  if(!isOpen)item.classList.add('open');
+var item=btn.closest('.faq-item');
+var isOpen=item.classList.contains('open');
+document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+if(!isOpen)item.classList.add('open');
 }
 document.addEventListener('DOMContentLoaded',function(){setTimeout(initReveal,100)});
 function sendForm(){
-  var n=document.getElementById('fn').value.trim();
-  var e=document.getElementById('fe').value.trim();
-  var s=document.getElementById('fs').value;
-  var m=document.getElementById('fm').value.trim();
-  if(!n||!e){alert('Por favor completa tu nombre y email.');return}
-  var txt=encodeURIComponent('Hola, soy '+n+' ('+e+').'+(s?' Servicio: '+s+'.':'')+' '+(m||'Quisiera más información.'));
-  window.open('https://wa.me/50767997259?text='+txt,'_blank');
-  document.getElementById('fbox').innerHTML='<div class="form-ok"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><h3>¡Listo!</h3><p>Te redirigimos a WhatsApp para continuar.</p></div>';
+var n=document.getElementById('fn').value.trim();
+var e=document.getElementById('fe').value.trim();
+var s=document.getElementById('fs').value;
+var m=document.getElementById('fm').value.trim();
+if(!n||!e){alert('Por favor completa tu nombre y email.');return}
+var txt=encodeURIComponent('Hola, soy '+n+' ('+e+').'+(s?' Servicio: '+s+'.':'')+' '+(m||'Quisiera más información.'));
+window.open('https://wa.me/50767997259?text='+txt,'_blank');
+document.getElementById('fbox').innerHTML='<div class="form-ok"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><h3>¡Listo!</h3><p>Te redirigimos a WhatsApp para continuar.</p></div>';
 }
 var curLang='es';
 var T={
 es:{nav_i:'Inicio',nav_s:'Servicios',nav_p:'Portafolio',nav_pl:'Planes',nav_n:'Nosotros',nav_c:'Contacto',nav_cta:'Iniciar proyecto',
 h_badge:'Design & Conversion Agency — Panama',h_hl:'venden',h_sub:'Shopify, brand websites y landing pages para marcas de moda, lujo y growth-stage en Latinoamérica.',
+h_b1:'Iniciar proyecto',h_b2:'WhatsApp',h_t1:'+20 proyectos entregados',h_t2:'Santo Patrón, Eleva Corp, Vista Mar',h_t3:'Proyectos desde $900 USD',
 h_b1:'Iniciar proyecto',h_b2:'WhatsApp',h_t1:'+20 proyectos entregados',h_t2:'Santo Patrón, Eleva Corp, Caos World',h_t3:'Proyectos desde $900 USD',
 rs_lbl:'Resultados reales',rs_h:'Números de clientes reales. No estimaciones.',rs_sub:'Cada proyecto tiene un objetivo medible.',
 r_d1:'ventas en drops limitados',r_det1:'Rediseño de checkout + sistema de countdown. El siguiente drop se agotó en 18 minutos.',
@@ -1151,6 +1211,7 @@ sv_more:'Ver todos los servicios →',wk_lbl:'Trabajo reciente',wk_h:'Proyectos 
 cs_lbl:'Casos de estudio',cs_h:'Problema → Solución → Resultado.',cs_obj:'Problema',cs_sol:'Solución',cs_res:'Resultado',
 cs1o:'Drops de ropa limitada que no convertían. Checkout genérico, sin urgencia.',cs1s:'Checkout custom + countdown de drop + product pages con motion.',cs1r:'Sold out en 18 minutos. +180% ventas vs. drop anterior.',
 cs3o:'Lanzamiento sin audiencia ni demanda validada.',cs3s:'Landing con customizador 2D y formulario de lista de espera.',cs3r:'1,200 registros antes del lanzamiento.',
+cs4o:'Resort de lujo con sitio desactualizado que no generaba reservas.',cs4s:'Sitio editorial con video hero, galería de amenidades y membresías.',cs4r:'Posicionamiento visual como resort de primera clase en Centroamérica.',
 cs4o:'Resort de lujo con sitio desactualizado que no generaba reservas.',cs4s:'Sitio editorial con video hero, galería de amenidades y membresías.',cs4r:'Presencia digital activa que amplía el alcance de la marca más allá de la tienda física.',
 pr2_lbl:'Inversión',pr2_h:'Precios claros. Sin sorpresas.',pr2_sub:'Filtramos proyectos que no son para nosotros. Si tienes presupuesto y visión, hablemos.',pr2_cta:'Consultar disponibilidad',
 pc1_label:'Conversion Landing',pc_from:'precio base USD',pc1_1:'Diseño UI custom',pc1_2:'Desarrollo HTML/CSS',pc1_3:'Formulario + WhatsApp',pc1_4:'Mobile optimizado',pc1_5:'Entrega en 7 días',
@@ -1183,6 +1244,7 @@ co_lbl:'Contacto',co_h:'Hablemos de tu proyecto.',co_sub:'Respondemos en menos d
 f_desc:'Design & conversion agency — Panama.',f_nav:'Navegación',f_contact:'Contacto',f_clients:'Clientes',f_made:'Designed & developed by Rupta Studios'},
 en:{nav_i:'Home',nav_s:'Services',nav_p:'Portfolio',nav_pl:'Plans',nav_n:'About',nav_c:'Contact',nav_cta:'Start project',
 h_badge:'Design & Conversion Agency — Panama',h_hl:'sell',h_sub:'Shopify, brand websites and landing pages for fashion, luxury and growth-stage brands across Latin America.',
+h_b1:'Start a project',h_b2:'WhatsApp',h_t1:'+20 projects delivered',h_t2:'Santo Patrón, Eleva Corp, Vista Mar',h_t3:'Projects from $900 USD',
 h_b1:'Start a project',h_b2:'WhatsApp',h_t1:'+20 projects delivered',h_t2:'Santo Patrón, Eleva Corp, Caos World',h_t3:'Projects from $900 USD',
 rs_lbl:'Real results',rs_h:'Numbers from real clients. Not estimates.',rs_sub:'Every project has a measurable goal.',
 r_d1:'sales growth on limited drops',r_det1:'Checkout redesign + countdown system. The next drop sold out in 18 minutes.',
@@ -1196,6 +1258,7 @@ sv_more:'View all services →',wk_lbl:'Recent work',wk_h:'Live production proje
 cs_lbl:'Case studies',cs_h:'Problem → Solution → Result.',cs_obj:'Problem',cs_sol:'Solution',cs_res:'Result',
 cs1o:'Limited clothing drops that were not converting. Generic checkout, no urgency.',cs1s:'Custom checkout + drop countdown + product pages with motion.',cs1r:'Sold out in 18 minutes. +180% sales vs. previous drop.',
 cs3o:'Launch with no existing audience or validated demand.',cs3s:'Pre-launch landing with 2D customizer and waitlist form.',cs3r:'1,200 registrations before launch.',
+cs4o:'Luxury resort with outdated site that was not generating reservations.',cs4s:'Full-width editorial site with hero video, amenity gallery and memberships.',cs4r:'Visual positioning as a first-class resort in Central America.',
 cs4o:'Physical streetwear store with no coherent digital presence.',cs4s:'Full-width editorial site with hero video, amenity gallery and memberships.',cs4r:'Active digital presence that expands brand reach beyond the physical store.',
 pr2_lbl:'Investment',pr2_h:'Clear pricing. No surprises.',pr2_sub:'We filter projects that are not a fit. If you have budget and vision, let\'s talk.',pr2_cta:'Check availability',
 pc1_label:'Conversion Landing',pc_from:'base price USD',pc1_1:'Custom UI design',pc1_2:'HTML/CSS development',pc1_3:'Form + WhatsApp',pc1_4:'Mobile optimized',pc1_5:'7-day delivery',
@@ -1228,6 +1291,7 @@ co_lbl:'Contact',co_h:"Let's talk about your project.",co_sub:'We respond in les
 f_desc:'Design & conversion agency — Panama.',f_nav:'Navigation',f_contact:'Contact',f_clients:'Clients',f_made:'Designed & developed by Rupta Studios'},
 pt:{nav_i:'Início',nav_s:'Serviços',nav_p:'Portfólio',nav_pl:'Planos',nav_n:'Sobre',nav_c:'Contato',nav_cta:'Iniciar projeto',
 h_badge:'Design & Conversion Agency — Panama',h_hl:'vendem',h_sub:'Shopify, brand websites e landing pages para marcas de moda, luxo e growth-stage na América Latina.',
+h_b1:'Iniciar projeto',h_b2:'WhatsApp',h_t1:'+20 projetos entregues',h_t2:'Santo Patrón, Eleva Corp, Vista Mar',h_t3:'Projetos a partir de $900 USD',
 h_b1:'Iniciar projeto',h_b2:'WhatsApp',h_t1:'+20 projetos entregues',h_t2:'Santo Patrón, Eleva Corp, Caos World',h_t3:'Projetos a partir de $900 USD',
 rs_lbl:'Resultados reais',rs_h:'Números de clientes reais. Não estimativas.',rs_sub:'Cada projeto tem um objetivo mensurável.',
 r_d1:'crescimento de vendas em drops',r_det1:'Redesign de checkout + sistema de countdown. O próximo drop esgotou em 18 minutos.',
@@ -1241,6 +1305,7 @@ sv_more:'Ver todos os serviços →',wk_lbl:'Trabalho recente',wk_h:'Projetos em
 cs_lbl:'Estudos de caso',cs_h:'Problema → Solução → Resultado.',cs_obj:'Problema',cs_sol:'Solução',cs_res:'Resultado',
 cs1o:'Drops de roupas limitadas que não convertiam.',cs1s:'Checkout custom + countdown de drop + páginas de produto com motion.',cs1r:'Sold out em 18 minutos. +180% vendas vs. drop anterior.',
 cs3o:'Lançamento sem audiência nem demanda validada.',cs3s:'Landing com customizador 2D e formulário de lista de espera.',cs3r:'1.200 registros antes do lançamento.',
+cs4o:'Resort de luxo com site desatualizado que não gerava reservas.',cs4s:'Site editorial com vídeo hero, galeria de comodidades e memberships.',cs4r:'Posicionamento visual como resort de primeira classe na América Central.',
 cs4o:'Loja streetwear física sem presença digital coerente.',cs4s:'Site editorial com vídeo hero, galeria de comodidades e memberships.',cs4r:'Presença digital ativa que amplia o alcance da marca além da loja física.',
 pr2_lbl:'Investimento',pr2_h:'Preços claros. Sem surpresas.',pr2_sub:'Filtramos projetos que não são para nós. Se você tem orçamento e visão, vamos conversar.',pr2_cta:'Verificar disponibilidade',
 pc1_label:'Conversion Landing',pc_from:'preço base USD',pc1_1:'Design UI custom',pc1_2:'Desenvolvimento HTML/CSS',pc1_3:'Formulário + WhatsApp',pc1_4:'Mobile otimizado',pc1_5:'Entrega em 7 dias',
@@ -1273,16 +1338,16 @@ co_lbl:'Contato',co_h:'Vamos falar sobre seu projeto.',co_sub:'Respondemos em me
 f_desc:'Design & conversion agency — Panama.',f_nav:'Navegação',f_contact:'Contato',f_clients:'Clientes',f_made:'Projetado & desenvolvido pela Rupta Studios'}
 };
 function applyLang(lang){
-  curLang=lang;
-  document.querySelectorAll('[data-i]').forEach(function(el){
-    var k=el.dataset.i;
-    if(T[lang]&&T[lang][k]!==undefined){
-      if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=T[lang][k]}
-      else{el.innerHTML=T[lang][k]}
-    }
-  });
-  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('on',b.textContent===lang.toUpperCase())});
-  document.documentElement.lang=lang;
+curLang=lang;
+document.querySelectorAll('[data-i]').forEach(function(el){
+var k=el.dataset.i;
+if(T[lang]&&T[lang][k]!==undefined){
+if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=T[lang][k]}
+else{el.innerHTML=T[lang][k]}
+}
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('on',b.textContent===lang.toUpperCase())});
+document.documentElement.lang=lang;
 }
 function setL(lang){applyLang(lang)}
 </script>
