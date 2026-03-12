@@ -49,7 +49,7 @@ nav.s{background:rgba(9,9,15,.94);backdrop-filter:blur(20px);border-color:var(--
 .nav-in{max-width:var(--max);margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:15.5px;letter-spacing:.4px;cursor:pointer;color:var(--t);display:flex;align-items:center;gap:9px}
 .logo em{font-style:normal;color:var(--pl)}
-.logo-icon{width:32px;height:32px;border-radius:8px;flex-shrink:0;object-fit:cover;display:block}
+.logo-icon{width:50px;border-radius:5px;overflow:hidden;height:50px;flex-shrink:0}
 .nav-links{display:flex;gap:2px}
 .nl{font-size:13.5px;font-weight:500;color:var(--t2);padding:7px 12px;border-radius:6px;transition:all .18s}
 .nl:hover,.nl.on{color:var(--t);background:rgba(255,255,255,.05)}
@@ -391,9 +391,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
   nav{padding:0 20px}
   .footer-top{grid-template-columns:1fr 1fr;gap:28px}
   .about-grid{grid-template-columns:1fr;gap:36px}
-  .hero{grid-template-columns:1fr;min-height:auto;padding-bottom:40px;text-align:center}
-  .hero-right{display:flex;justify-content:center;height:260px;margin-top:8px}
-  .mockup-cluster{transform:scale(0.72);transform-origin:center top}
+  .hero{grid-template-columns:1fr;min-height:auto;padding-bottom:40px}
+  .hero-right{display:none}
   .results-grid{grid-template-columns:1fr 1fr}
   .sol-grid{grid-template-columns:1fr 1fr}
   .work-grid{grid-template-columns:1fr 1fr}
@@ -443,7 +442,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
 <nav id="nav">
   <div class="nav-in">
     <button class="logo" onclick="go('inicio')">
-      <img src="/favi.png" class="logo-icon" alt="Rupta Studios">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="flex-shrink:0;border-radius:5px"><rect width="28" height="28" rx="6" fill="#7c3aed"/><path d="M7 8h8c2.2 0 4 1.8 4 4s-1.8 4-4 4H7V8z" fill="white"/><path d="M7 16h5l4 4H7v-4z" fill="rgba(255,255,255,0.55)"/></svg>
       RUPTA <em>STUDIOS</em>
     </button>
     <div class="nav-links">
@@ -706,7 +705,17 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
           <div class="laptop-frame">
             <div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
             <div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
-              <img src="/SANTOWEB.png" alt="Santo Patrón Clothing" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+              <div class="scr-sp" style="height:100%">
+                <div class="mn"><div class="mn-logo"></div><div class="mn-links"><i></i><i></i><i></i></div></div>
+                <div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:5px;width:40%;margin-bottom:5px"></div>
+                <div class="bar w-bar" style="height:10px;width:70%;margin-bottom:3px"></div>
+                <div class="bar w-bar" style="height:10px;width:50%;margin-bottom:8px"></div>
+                <div class="bar" style="background:linear-gradient(90deg,#7c3aed,#9b59f5)" style="height:20px;width:80px;border-radius:3px;margin-bottom:8px"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
+                  <div class="bar w-bar" style="height:45px;border-radius:3px"></div>
+                  <div class="bar" style="height:45px;border-radius:3px;background:rgba(255,255,255,.05)"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -719,14 +728,23 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
 
       <!-- Eleva Corp -->
       <a href="https://elevacorp.net" target="_blank" class="wcard rv d1">
-                <div class="wcard-screen">
+        <div class="wcard-screen">
           <div class="laptop-frame">
             <div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
             <div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
-              <img src="/ELEVAWEB.png" alt="Eleva Corp" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+              <div class="scr-el" style="height:100%">
+                <div class="mn"><div class="mn-logo"></div><div class="mn-links"><i></i><i></i><i></i></div></div>
+                <div class="bar dark-bar" style="height:10px;width:65%;margin-bottom:4px"></div>
+                <div class="bar dark-bar" style="height:7px;width:45%;margin-bottom:10px"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px">
+                  <div style="background:rgba(0,0,0,.08);border-radius:3px;height:48px"></div>
+                  <div style="background:rgba(0,0,0,.12);border-radius:3px;height:48px"></div>
+                  <div style="background:rgba(0,0,0,.06);border-radius:3px;height:48px"></div>
+                </div>
+                <div class="bar dark-bar" style="height:5px;width:55%;margin-top:8px"></div>
+              </div>
             </div>
           </div>
-        </div>
         </div>
         <div class="wcard-info">
           <div class="wcard-tag">Marketplace · E-commerce</div>
@@ -737,14 +755,21 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
 
       <!-- Caos World -->
       <a href="https://caos-world.myshopify.com" target="_blank" class="wcard rv d2">
-                <div class="wcard-screen">
+        <div class="wcard-screen">
           <div class="laptop-frame">
             <div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
             <div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
-              <img src="/CAOSWEB.png" alt="Caos World" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+              <div class="scr-cw" style="height:100%">
+                <div class="mn"><div class="mn-logo"></div><div class="mn-links"><i></i><i></i><i></i></div></div>
+                <div class="bar cw-accent" style="height:4px;width:40%;margin-bottom:5px"></div>
+                <div class="bar cw-bar" style="height:11px;width:75%;margin-bottom:3px"></div>
+                <div class="bar cw-bar" style="height:11px;width:55%;margin-bottom:10px"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
+                  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:40px"></div>
+                  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:40px"></div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
           </div>
         </div>
         <div class="wcard-info">
@@ -1080,7 +1105,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
   <div class="footer-in">
     <div class="footer-top">
       <div>
-        <span class="f-logo"><img src="/favi.png" style="width:22px;height:22px;flex-shrink:0;border-radius:5px;object-fit:cover" alt="Rupta Studios">RUPTA <em>STUDIOS</em></span>
+        <span class="f-logo"><svg width="20" height="20" viewBox="0 0 28 28" fill="none" style="flex-shrink:0;border-radius:4px"><rect width="28" height="28" rx="6" fill="#7c3aed"/><path d="M7 8h8c2.2 0 4 1.8 4 4s-1.8 4-4 4H7V8z" fill="white"/><path d="M7 16h5l4 4H7v-4z" fill="rgba(255,255,255,0.55)"/></svg>RUPTA <em>STUDIOS</em></span>
         <div class="f-desc" data-i="f_desc">Design & conversion agency — Panama.</div>
         <div class="f-socs">
           <a href="https://instagram.com/ruptastudios" target="_blank" class="f-soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
