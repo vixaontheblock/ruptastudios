@@ -146,13 +146,13 @@ nav.s{background:rgba(9,9,15,.94);backdrop-filter:blur(20px);border-color:var(--
 .scr-el .mn-logo{width:40px;height:4px;background:rgba(0,0,0,.35);border-radius:2px}
 .scr-el .mn-links i{width:24px;height:3px;background:rgba(0,0,0,.12);border-radius:1px}
 
-/* Vista Mar — navy gold */
-.scr-vm{background:#0b1d2e;padding:8px;height:100%;display:flex;flex-direction:column;gap:4px}
-.scr-vm .mn{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
-.scr-vm .mn-logo{width:32px;height:4px;background:rgba(200,170,80,.6);border-radius:2px}
-.scr-vm .mn-links i{width:18px;height:3px;background:rgba(255,255,255,.1);border-radius:1px}
-.gold-bar{background:rgba(200,170,80,.4)}
-.navy-bar{background:rgba(255,255,255,.1)}
+/* Caos World — dark streetwear */
+.scr-cw{background:#0a0a0a;padding:8px;height:100%;display:flex;flex-direction:column;gap:4px}
+.scr-cw .mn{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.scr-cw .mn-logo{width:32px;height:4px;background:rgba(255,255,255,.6);border-radius:2px}
+.scr-cw .mn-links i{width:18px;height:3px;background:rgba(255,255,255,.1);border-radius:1px}
+.cw-bar{background:rgba(255,255,255,.08)}
+.cw-accent{background:rgba(255,255,255,.45)}
 
 /* Rystar — phone dark */
 .scr-ry{background:#0d0d0d;padding:7px;height:100%;display:flex;flex-direction:column;gap:4px}
@@ -442,7 +442,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
 <nav id="nav">
   <div class="nav-in">
     <button class="logo" onclick="go('inicio')">
-      <img src="/favi.png" class="logo-icon" alt="Rupta Studios">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="flex-shrink:0;border-radius:5px"><rect width="28" height="28" rx="6" fill="#7c3aed"/><path d="M7 8h8c2.2 0 4 1.8 4 4s-1.8 4-4 4H7V8z" fill="white"/><path d="M7 16h5l4 4H7v-4z" fill="rgba(255,255,255,0.55)"/></svg>
       RUPTA <em>STUDIOS</em>
     </button>
     <div class="nav-links">
@@ -502,7 +502,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
       </div>
       <div class="hero-trust rv d4">
         <div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t1">+20 proyectos entregados</span></div>
-        <div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t2">Santo Patrón, Eleva Corp, Vista Mar</span></div>
+        <div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t2">Santo Patrón, Eleva Corp, Caos World</span></div>
         <div class="ht-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-i="h_t3">Proyectos desde $900 USD</span></div>
       </div>
     </div>
@@ -573,22 +573,22 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
           </div>
         </div>
 
-        <!-- TABLET — Vista Mar -->
+        <!-- TABLET — Caos World -->
         <div class="mk-tablet">
           <div class="tablet-shell">
             <div class="tablet-camera"></div>
             <div class="tablet-screen">
-              <div class="scr-vm">
+              <div class="scr-cw">
                 <div class="mn">
                   <div class="mn-logo"></div>
                   <div class="mn-links"><i></i><i></i><i></i></div>
                 </div>
-                <div class="bar gold-bar" style="height:4px;width:55%;margin-bottom:4px"></div>
-                <div class="bar navy-bar" style="height:9px;width:80%;margin-bottom:3px"></div>
-                <div class="bar navy-bar" style="height:9px;width:60%;margin-bottom:8px"></div>
+                <div class="bar cw-accent" style="height:4px;width:55%;margin-bottom:4px"></div>
+                <div class="bar cw-bar" style="height:9px;width:80%;margin-bottom:3px"></div>
+                <div class="bar cw-bar" style="height:9px;width:60%;margin-bottom:8px"></div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">
-                  <div style="background:rgba(200,170,80,.08);border:1px solid rgba(200,170,80,.15);border-radius:3px;height:38px"></div>
-                  <div style="background:rgba(200,170,80,.08);border:1px solid rgba(200,170,80,.15);border-radius:3px;height:38px"></div>
+                  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:38px"></div>
+                  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:38px"></div>
                 </div>
               </div>
             </div>
@@ -608,7 +608,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
     <span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
     <span class="logo-item"><span class="logo-sep"></span>Caos World</span>
     <span class="logo-item"><span class="logo-sep"></span>Sprayground LATAM</span>
-    <span class="logo-item"><span class="logo-sep"></span>Vista Mar Golf &amp; Marina</span>
     <span class="logo-item"><span class="logo-sep"></span>FitLife Panama</span>
     <span class="logo-item"><span class="logo-sep"></span>Nexo Dental</span>
     <span class="logo-item"><span class="logo-sep"></span>Santo Patrón Clothing</span>
@@ -616,7 +615,6 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
     <span class="logo-item"><span class="logo-sep"></span>Rystar Studios</span>
     <span class="logo-item"><span class="logo-sep"></span>Caos World</span>
     <span class="logo-item"><span class="logo-sep"></span>Sprayground LATAM</span>
-    <span class="logo-item"><span class="logo-sep"></span>Vista Mar Golf &amp; Marina</span>
     <span class="logo-item"><span class="logo-sep"></span>FitLife Panama</span>
     <span class="logo-item"><span class="logo-sep"></span>Nexo Dental</span>
   </div>
@@ -755,29 +753,29 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
         </div>
       </a>
 
-      <!-- Vista Mar -->
-      <a href="https://vistamarpanama.com" target="_blank" class="wcard rv d2">
+      <!-- Caos World -->
+      <a href="https://caos-world.myshopify.com" target="_blank" class="wcard rv d2">
         <div class="wcard-screen">
           <div class="laptop-frame">
             <div class="dots"><i class="d-r"></i><i class="d-y"></i><i class="d-g"></i></div>
             <div style="border-radius:3px;overflow:hidden;height:calc(100% - 18px)">
-              <div class="scr-vm" style="height:100%">
+              <div class="scr-cw" style="height:100%">
                 <div class="mn"><div class="mn-logo"></div><div class="mn-links"><i></i><i></i><i></i></div></div>
-                <div class="bar gold-bar" style="height:4px;width:40%;margin-bottom:5px"></div>
-                <div class="bar navy-bar" style="height:11px;width:75%;margin-bottom:3px"></div>
-                <div class="bar navy-bar" style="height:11px;width:55%;margin-bottom:10px"></div>
+                <div class="bar cw-accent" style="height:4px;width:40%;margin-bottom:5px"></div>
+                <div class="bar cw-bar" style="height:11px;width:75%;margin-bottom:3px"></div>
+                <div class="bar cw-bar" style="height:11px;width:55%;margin-bottom:10px"></div>
                 <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px">
-                  <div style="background:rgba(200,170,80,.07);border:1px solid rgba(200,170,80,.12);border-radius:3px;height:40px"></div>
-                  <div style="background:rgba(200,170,80,.07);border:1px solid rgba(200,170,80,.12);border-radius:3px;height:40px"></div>
+                  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:40px"></div>
+                  <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:3px;height:40px"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="wcard-info">
-          <div class="wcard-tag">Luxury · Hospitality</div>
-          <div class="wcard-name">Vista Mar Golf &amp; Marina</div>
-          <div class="wcard-result">Editorial luxury — Panama</div>
+          <div class="wcard-tag">Streetwear · Shopify</div>
+          <div class="wcard-name">Caos World</div>
+          <div class="wcard-result">Identidad digital · drop culture</div>
         </div>
       </a>
 
@@ -814,14 +812,14 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
         </div>
       </div>
       <div class="case rv d2">
-        <div class="case-client">Vista Mar Golf &amp; Marina</div>
+        <div class="case-client">Caos World</div>
         <div class="case-lbl" data-i="cs_obj">Problema</div>
-        <div class="case-val" data-i="cs4o">Resort de lujo con sitio desactualizado que no reflejaba el nivel del producto ni generaba reservas.</div>
+        <div class="case-val" data-i="cs4o">Tienda streetwear física sin presencia digital coherente. Identidad de marca sin traducirse al ecommerce.</div>
         <div class="case-lbl" data-i="cs_sol">Solución</div>
-        <div class="case-val" data-i="cs4s">Sitio editorial full-width con video hero, galería de amenidades y sección de membresías premium.</div>
+        <div class="case-val" data-i="cs4s">Shopify con catálogo integrado, diseño que refleja la estética de la marca y sistema de drops.</div>
         <div class="case-result">
           <div class="case-lbl" data-i="cs_res">Resultado</div>
-          <div class="case-val" data-i="cs4r">Posicionamiento visual como resort de primera clase en Centroamérica.</div>
+          <div class="case-val" data-i="cs4r">Presencia digital activa que amplía el alcance de la marca más allá de la tienda física.</div>
         </div>
       </div>
     </div>
@@ -1107,7 +1105,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28p
   <div class="footer-in">
     <div class="footer-top">
       <div>
-        <span class="f-logo"><img src="/favi.png" style="width:20px;height:20px;flex-shrink:0" alt="Rupta Studios">RUPTA <em>STUDIOS</em></span>
+        <span class="f-logo"><svg width="20" height="20" viewBox="0 0 28 28" fill="none" style="flex-shrink:0;border-radius:4px"><rect width="28" height="28" rx="6" fill="#7c3aed"/><path d="M7 8h8c2.2 0 4 1.8 4 4s-1.8 4-4 4H7V8z" fill="white"/><path d="M7 16h5l4 4H7v-4z" fill="rgba(255,255,255,0.55)"/></svg>RUPTA <em>STUDIOS</em></span>
         <div class="f-desc" data-i="f_desc">Design & conversion agency — Panama.</div>
         <div class="f-socs">
           <a href="https://instagram.com/ruptastudios" target="_blank" class="f-soc"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
@@ -1165,7 +1163,7 @@ var curLang='es';
 var T={
 es:{nav_i:'Inicio',nav_s:'Servicios',nav_p:'Portafolio',nav_pl:'Planes',nav_n:'Nosotros',nav_c:'Contacto',nav_cta:'Iniciar proyecto',
 h_badge:'Design & Conversion Agency — Panama',h_hl:'venden',h_sub:'Shopify, brand websites y landing pages para marcas de moda, lujo y growth-stage en Latinoamérica.',
-h_b1:'Iniciar proyecto',h_b2:'WhatsApp',h_t1:'+20 proyectos entregados',h_t2:'Santo Patrón, Eleva Corp, Vista Mar',h_t3:'Proyectos desde $900 USD',
+h_b1:'Iniciar proyecto',h_b2:'WhatsApp',h_t1:'+20 proyectos entregados',h_t2:'Santo Patrón, Eleva Corp, Caos World',h_t3:'Proyectos desde $900 USD',
 rs_lbl:'Resultados reales',rs_h:'Números de clientes reales. No estimaciones.',rs_sub:'Cada proyecto tiene un objetivo medible.',
 r_d1:'ventas en drops limitados',r_det1:'Rediseño de checkout + sistema de countdown. El siguiente drop se agotó en 18 minutos.',
 r_d2:'conversión en catálogo',r_det2:'Nuevo sitio con UX de producto optimizado.',
@@ -1178,7 +1176,7 @@ sv_more:'Ver todos los servicios →',wk_lbl:'Trabajo reciente',wk_h:'Proyectos 
 cs_lbl:'Casos de estudio',cs_h:'Problema → Solución → Resultado.',cs_obj:'Problema',cs_sol:'Solución',cs_res:'Resultado',
 cs1o:'Drops de ropa limitada que no convertían. Checkout genérico, sin urgencia.',cs1s:'Checkout custom + countdown de drop + product pages con motion.',cs1r:'Sold out en 18 minutos. +180% ventas vs. drop anterior.',
 cs3o:'Lanzamiento sin audiencia ni demanda validada.',cs3s:'Landing con customizador 2D y formulario de lista de espera.',cs3r:'1,200 registros antes del lanzamiento.',
-cs4o:'Resort de lujo con sitio desactualizado que no generaba reservas.',cs4s:'Sitio editorial con video hero, galería de amenidades y membresías.',cs4r:'Posicionamiento visual como resort de primera clase en Centroamérica.',
+cs4o:'Resort de lujo con sitio desactualizado que no generaba reservas.',cs4s:'Sitio editorial con video hero, galería de amenidades y membresías.',cs4r:'Presencia digital activa que amplía el alcance de la marca más allá de la tienda física.',
 pr2_lbl:'Inversión',pr2_h:'Precios claros. Sin sorpresas.',pr2_sub:'Filtramos proyectos que no son para nosotros. Si tienes presupuesto y visión, hablemos.',pr2_cta:'Consultar disponibilidad',
 pc1_label:'Conversion Landing',pc_from:'precio base USD',pc1_1:'Diseño UI custom',pc1_2:'Desarrollo HTML/CSS',pc1_3:'Formulario + WhatsApp',pc1_4:'Mobile optimizado',pc1_5:'Entrega en 7 días',
 pc2_label:'Brand Website',pc2_1:'Hasta 6 secciones',pc2_2:'Animaciones custom',pc2_3:'Multilenguaje ES/EN',pc2_4:'SEO básico',pc2_5:'CMS integrado',
@@ -1210,7 +1208,7 @@ co_lbl:'Contacto',co_h:'Hablemos de tu proyecto.',co_sub:'Respondemos en menos d
 f_desc:'Design & conversion agency — Panama.',f_nav:'Navegación',f_contact:'Contacto',f_clients:'Clientes',f_made:'Designed & developed by Rupta Studios'},
 en:{nav_i:'Home',nav_s:'Services',nav_p:'Portfolio',nav_pl:'Plans',nav_n:'About',nav_c:'Contact',nav_cta:'Start project',
 h_badge:'Design & Conversion Agency — Panama',h_hl:'sell',h_sub:'Shopify, brand websites and landing pages for fashion, luxury and growth-stage brands across Latin America.',
-h_b1:'Start a project',h_b2:'WhatsApp',h_t1:'+20 projects delivered',h_t2:'Santo Patrón, Eleva Corp, Vista Mar',h_t3:'Projects from $900 USD',
+h_b1:'Start a project',h_b2:'WhatsApp',h_t1:'+20 projects delivered',h_t2:'Santo Patrón, Eleva Corp, Caos World',h_t3:'Projects from $900 USD',
 rs_lbl:'Real results',rs_h:'Numbers from real clients. Not estimates.',rs_sub:'Every project has a measurable goal.',
 r_d1:'sales growth on limited drops',r_det1:'Checkout redesign + countdown system. The next drop sold out in 18 minutes.',
 r_d2:'catalog conversion increase',r_det2:'New site with optimized product UX.',
@@ -1223,7 +1221,7 @@ sv_more:'View all services →',wk_lbl:'Recent work',wk_h:'Live production proje
 cs_lbl:'Case studies',cs_h:'Problem → Solution → Result.',cs_obj:'Problem',cs_sol:'Solution',cs_res:'Result',
 cs1o:'Limited clothing drops that were not converting. Generic checkout, no urgency.',cs1s:'Custom checkout + drop countdown + product pages with motion.',cs1r:'Sold out in 18 minutes. +180% sales vs. previous drop.',
 cs3o:'Launch with no existing audience or validated demand.',cs3s:'Pre-launch landing with 2D customizer and waitlist form.',cs3r:'1,200 registrations before launch.',
-cs4o:'Luxury resort with outdated site that was not generating reservations.',cs4s:'Full-width editorial site with hero video, amenity gallery and memberships.',cs4r:'Visual positioning as a first-class resort in Central America.',
+cs4o:'Physical streetwear store with no coherent digital presence.',cs4s:'Full-width editorial site with hero video, amenity gallery and memberships.',cs4r:'Active digital presence that expands brand reach beyond the physical store.',
 pr2_lbl:'Investment',pr2_h:'Clear pricing. No surprises.',pr2_sub:'We filter projects that are not a fit. If you have budget and vision, let\'s talk.',pr2_cta:'Check availability',
 pc1_label:'Conversion Landing',pc_from:'base price USD',pc1_1:'Custom UI design',pc1_2:'HTML/CSS development',pc1_3:'Form + WhatsApp',pc1_4:'Mobile optimized',pc1_5:'7-day delivery',
 pc2_label:'Brand Website',pc2_1:'Up to 6 sections',pc2_2:'Custom animations',pc2_3:'ES/EN multilanguage',pc2_4:'Basic SEO',pc2_5:'CMS integrated',
@@ -1255,7 +1253,7 @@ co_lbl:'Contact',co_h:"Let's talk about your project.",co_sub:'We respond in les
 f_desc:'Design & conversion agency — Panama.',f_nav:'Navigation',f_contact:'Contact',f_clients:'Clients',f_made:'Designed & developed by Rupta Studios'},
 pt:{nav_i:'Início',nav_s:'Serviços',nav_p:'Portfólio',nav_pl:'Planos',nav_n:'Sobre',nav_c:'Contato',nav_cta:'Iniciar projeto',
 h_badge:'Design & Conversion Agency — Panama',h_hl:'vendem',h_sub:'Shopify, brand websites e landing pages para marcas de moda, luxo e growth-stage na América Latina.',
-h_b1:'Iniciar projeto',h_b2:'WhatsApp',h_t1:'+20 projetos entregues',h_t2:'Santo Patrón, Eleva Corp, Vista Mar',h_t3:'Projetos a partir de $900 USD',
+h_b1:'Iniciar projeto',h_b2:'WhatsApp',h_t1:'+20 projetos entregues',h_t2:'Santo Patrón, Eleva Corp, Caos World',h_t3:'Projetos a partir de $900 USD',
 rs_lbl:'Resultados reais',rs_h:'Números de clientes reais. Não estimativas.',rs_sub:'Cada projeto tem um objetivo mensurável.',
 r_d1:'crescimento de vendas em drops',r_det1:'Redesign de checkout + sistema de countdown. O próximo drop esgotou em 18 minutos.',
 r_d2:'aumento de conversão no catálogo',r_det2:'Novo site com UX de produto otimizado.',
@@ -1268,7 +1266,7 @@ sv_more:'Ver todos os serviços →',wk_lbl:'Trabalho recente',wk_h:'Projetos em
 cs_lbl:'Estudos de caso',cs_h:'Problema → Solução → Resultado.',cs_obj:'Problema',cs_sol:'Solução',cs_res:'Resultado',
 cs1o:'Drops de roupas limitadas que não convertiam.',cs1s:'Checkout custom + countdown de drop + páginas de produto com motion.',cs1r:'Sold out em 18 minutos. +180% vendas vs. drop anterior.',
 cs3o:'Lançamento sem audiência nem demanda validada.',cs3s:'Landing com customizador 2D e formulário de lista de espera.',cs3r:'1.200 registros antes do lançamento.',
-cs4o:'Resort de luxo com site desatualizado que não gerava reservas.',cs4s:'Site editorial com vídeo hero, galeria de comodidades e memberships.',cs4r:'Posicionamento visual como resort de primeira classe na América Central.',
+cs4o:'Loja streetwear física sem presença digital coerente.',cs4s:'Site editorial com vídeo hero, galeria de comodidades e memberships.',cs4r:'Presença digital ativa que amplia o alcance da marca além da loja física.',
 pr2_lbl:'Investimento',pr2_h:'Preços claros. Sem surpresas.',pr2_sub:'Filtramos projetos que não são para nós. Se você tem orçamento e visão, vamos conversar.',pr2_cta:'Verificar disponibilidade',
 pc1_label:'Conversion Landing',pc_from:'preço base USD',pc1_1:'Design UI custom',pc1_2:'Desenvolvimento HTML/CSS',pc1_3:'Formulário + WhatsApp',pc1_4:'Mobile otimizado',pc1_5:'Entrega em 7 dias',
 pc2_label:'Brand Website',pc2_1:'Até 6 seções',pc2_2:'Animações custom',pc2_3:'Multilíngue ES/EN',pc2_4:'SEO básico',pc2_5:'CMS integrado',
