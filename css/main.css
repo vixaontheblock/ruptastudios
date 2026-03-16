@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════
+   main.css — Variables, reset, utilidades, botones
+   Rupta Studios
+═══════════════════════════════════════ */
+
+/* ── Reset ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* ── Variables ── */
+:root{
+  --bg:#09090f;--bg2:#0f0f1a;--bg3:#141421;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --p:#7c3aed;--pl:#9b59f5;--t:#eeedf5;--t2:#8e8ca4;--t3:#4d4b64;
+  --max:1100px;--accent:#9b59f5;--accent-dim:rgba(124,58,237,.08)
+}
+
+/* ── Base ── */
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--t);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-thumb{background:var(--p);border-radius:2px}
+
+/* ── Tipografía ── */
+h1,h2,h3,.logo{font-family:'Archivo Black',sans-serif}
+h2{font-size:clamp(1.85rem,3.6vw,2.75rem);letter-spacing:-.8px;line-height:1.1;color:var(--t)}
+h3{font-size:1.05rem;letter-spacing:-.2px;color:var(--t);margin-bottom:8px}
+
+/* ── Layout utils ── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.sec{padding:100px 0}
+.divider{height:1px;background:var(--border)}
+.ctr{text-align:center}
+.ctr .lbl{justify-content:center}
+.ctr .lbl::before{display:none}
+.ctr .sub{margin:12px auto 0}
+
+/* ── Label ── */
+.lbl{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10.5px;font-weight:600;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--pl);margin-bottom:14px
+}
+.lbl::before{content:'';width:16px;height:1px;background:var(--pl);flex-shrink:0}
+
+/* ── Sub ── */
+.sub{font-size:15px;color:var(--t2);line-height:1.8;max-width:500px;margin-top:12px}
+
+/* ── Botones ── */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:8px;font-size:14px;font-weight:600;
+  transition:all .2s;cursor:pointer;border:none;font-family:inherit;
+  min-height:48px;letter-spacing:-.1px
+}
+.btn-p{background:var(--p);color:#fff}
+.btn-p:hover{background:var(--pl);transform:translateY(-1px);box-shadow:0 8px 28px rgba(124,58,237,.38)}
+.btn-o{background:transparent;color:var(--t);border:1px solid var(--border2)}
+.btn-o:hover{border-color:rgba(155,89,245,.5);color:var(--pl);background:rgba(124,58,237,.07)}
+.btn-lg{padding:15px 34px;font-size:15px}
+.btn-full{width:100%;justify-content:center}
+.btn-wa{background:linear-gradient(135deg,#1a9e4a,#128c3e);color:#fff;border:none}
+.btn-wa:hover{background:linear-gradient(135deg,#25d366,#1a9e4a);transform:translateY(-1px);box-shadow:0 8px 28px rgba(37,211,102,.28)}
+.btn-wa svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+
+/* ── Reveal animations ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.4s}.d6{transition-delay:.48s}
+
+/* ── WA float ── */
+.wa{
+  position:fixed;bottom:20px;right:20px;z-index:800;
+  width:50px;height:50px;border-radius:50%;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(37,211,102,.28);
+  transition:transform .25s,box-shadow .25s
+}
+.wa:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,.5)}
+.wa svg{width:25px;height:25px;fill:#fff}
+
+/* ── Footer ── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 28px 22px}
+.footer-in{max-width:var(--max);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:44px;margin-bottom:40px}
+.f-logo{
+  font-size:15px;letter-spacing:.4px;border-radius:5px;margin-bottom:9px;
+  color:var(--t);display:flex;align-items:center;gap:8px;
+  font-family:'Archivo Black',sans-serif
+}
+.f-logo em{font-style:normal;color:var(--pl)}
+.f-desc{font-size:13px;color:var(--t3);line-height:1.75;margin-bottom:16px;max-width:210px}
+.f-socs{display:flex;gap:7px}
+.f-soc{
+  width:32px;height:32px;border-radius:50%;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;transition:all .2s
+}
+.f-soc:hover{border-color:rgba(155,89,245,.4);background:rgba(124,58,237,.1)}
+.f-soc svg{
+  width:13px;height:13px;stroke:var(--t3);fill:none;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .2s
+}
+.f-soc:hover svg{stroke:var(--pl)}
+.f-col h4{font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t2);margin-bottom:13px}
+.f-lnk{
+  display:block;font-size:13px;color:var(--t3);padding:3.5px 0;
+  transition:color .18s;background:none;border:none;text-align:left;
+  cursor:pointer;font-family:inherit;text-decoration:none
+}
+.f-lnk:hover{color:var(--t)}
+.footer-bot{
+  border-top:1px solid var(--border);padding-top:18px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:7px
+}
+.footer-bot span{font-size:11.5px;color:var(--t3)}
