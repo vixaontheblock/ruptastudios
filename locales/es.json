@@ -19,6 +19,12 @@
     "trust2": "Santo Patrón, Eleva Corp, Caos World, Sprayground LATAM",
     "trust3": "Proyectos desde $600 USD"
   },
+  "stats": {
+    "projects": "Proyectos entregados",
+    "years": "Años de experiencia",
+    "countries": "Países atendidos",
+    "satisfaction": "Satisfacción de clientes"
+  },
   "results": {
     "label": "Resultados reales",
     "title": "Números de clientes reales. No estimaciones.",
