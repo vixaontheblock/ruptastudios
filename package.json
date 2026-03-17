@@ -1,0 +1,21 @@
+{
+  "name": "ruptastudios",
+  "version": "1.0.0",
+  "description": "Rupta Studios - Agencia de Diseño Web y Shopify en Panamá",
+  "scripts": {
+    "build": "echo 'Static HTML site - no build needed'",
+    "lint": "echo 'No linter configured'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "design",
+    "web",
+    "shopify",
+    "panama"
+  ],
+  "author": "Rupta Studios",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
