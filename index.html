@@ -9,6 +9,7 @@
   <title>Rupta Studios — Agencia de Diseño Web y Shopify en Panamá</title>
   <meta name="description" content="Agencia de diseño web y Shopify en Panamá. Creamos ecommerce, brand websites y landings para marcas que quieren vender más. +20 proyectos entregados.">
   <meta name="keywords" content="diseño web panama, agencia web panama, shopify panama, ecommerce panama, desarrollo web panama">
+  <meta name="robots" content="index, follow">
   <meta property="og:title" content="Rupta Studios — Diseño Web y Shopify en Panamá">
   <meta property="og:description" content="Diseñamos marcas que venden. Shopify, webs y landings para marcas premium en Panamá y Latinoamérica.">
   <meta property="og:type" content="website">
@@ -17,6 +18,23 @@
   <link rel="canonical" href="https://ruptastudios.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Rupta Studios",
+    "url": "https://ruptastudios.com",
+    "telephone": "+50767997259",
+    "email": "ruptastudiospa@gmail.com",
+    "sameAs": ["https://instagram.com/ruptastudios"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PA"
+    }
+  }
+  </script>
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/main.css">
@@ -155,10 +173,11 @@
 <script src="js/effects.js"></script>
 <script src="js/seo.js"></script>
 <script src="js/router.js"></script>
+
 <!-- Vercel Speed Insights -->
-<script>
-  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+<script type="module">
+  import { inject } from 'https://cdn.vercel-insights.com/v1/speed-insights/script.js';
+  inject();
 </script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
