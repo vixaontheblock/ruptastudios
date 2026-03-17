@@ -1,7 +1,4 @@
 {
-  "speedInsights": {
-    "enabled": true
-  },
   "headers": [
     {
       "source": "/(.*)",
@@ -35,6 +32,31 @@
     {
       "source": "/locales/(.*)",
       "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/pages/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "ruptastudios.vercel.app" }],
+      "destination": "https://ruptastudios.com/$1",
+      "permanent": true
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}      "headers": [
         { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
       ]
     },
