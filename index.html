@@ -175,6 +175,13 @@
 <script src="js/router.js"></script>
 
 <!-- Vercel Speed Insights -->
-<script defer src="/_vercel/insights/script.js"></script>
+<script>
+  (function() {
+    var script = document.createElement('script');
+    script.src = 'https://unpkg.com/@vercel/speed-insights@latest/dist/speed-insights.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  })();
+</script>
 </body>
 </html>
