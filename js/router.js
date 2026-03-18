@@ -68,17 +68,20 @@ function go(id) {
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
           container.classList.remove('entering');
-container.classList.add('visible');
-isTransitioning = false;
-/* Reinicializar todo — esperar un frame extra para que el browser pinte */
-requestAnimationFrame(function() {
-  setTimeout(function() {
-    if (typeof initReveal   === 'function') initReveal();
-    if (typeof initCounters === 'function') initCounters();
-    if (typeof initEffects  === 'function') initEffects();
-    if (typeof i18n         !== 'undefined') i18n.reapply();
-  }, 60);
-});
+          container.classList.add('visible');
+          isTransitioning = false;
+
+          /* ── FIX: esperar que el browser pinte antes de inicializar animaciones ── */
+          requestAnimationFrame(function () {
+            setTimeout(function () {
+              if (typeof initReveal   === 'function') initReveal();
+              if (typeof initCounters === 'function') initCounters();
+              if (typeof initEffects  === 'function') initEffects();
+              if (typeof i18n         !== 'undefined') i18n.reapply();
+            }, 60);
+          });
+        });
+      });
     })
     .catch(function (err) {
       console.error(err);
