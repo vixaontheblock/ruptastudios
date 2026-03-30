@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glosario de Bases de Datos</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0010;
+    --bg2: #110020;
+    --bg3: #18002e;
+    --accent: #9B30FF;
+    --accent2: #C97BFF;
+    --accent3: #7B00E0;
+    --accent4: #E0BAFF;
+    --text: #F5EEFF;
+    --muted: #9B7DBF;
+    --border: rgba(155,48,255,0.22);
+    --card-bg: rgba(17,0,32,0.88);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom Cursor */
+  #cursor {
+    position: fixed; width: 12px; height: 12px;
+    background: var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%);
+    transition: width .2s, height .2s, background .2s;
+    mix-blend-mode: screen;
+  }
+  #cursor-ring {
+    position: fixed; width: 36px; height: 36px;
+    border: 1.5px solid var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    transition: all .12s ease-out;
+    opacity: .6;
+  }
+  body:has(.term-card:hover) #cursor { width: 24px; height: 24px; background: var(--accent2); }
+  body:has(.term-card:hover) #cursor-ring { width: 52px; height: 52px; border-color: var(--accent2); }
+
+  /* Animated background grid */
+  .grid-bg {
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(155,48,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(155,48,255,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridShift 20s linear infinite;
+  }
+  @keyframes gridShift {
+    from { background-position: 0 0; }
+    to { background-position: 60px 60px; }
+  }
+
+  /* Floating orbs */
+  .orb {
+    position: fixed; border-radius: 50%;
+    filter: blur(80px); pointer-events: none; z-index: 0;
+    animation: orbFloat 12s ease-in-out infinite;
+  }
+  .orb1 { width: 500px; height: 500px; top: -100px; left: -100px; background: rgba(155,48,255,0.18); animation-duration: 14s; }
+  .orb2 { width: 400px; height: 400px; bottom: -100px; right: -100px; background: rgba(123,0,224,0.14); animation-duration: 18s; animation-delay: -6s; }
+  .orb3 { width: 300px; height: 300px; top: 50%; left: 50%; background: rgba(201,123,255,0.1); animation-duration: 10s; animation-delay: -3s; }
+  @keyframes orbFloat {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(30px,-20px) scale(1.05); }
+    66% { transform: translate(-20px,30px) scale(0.95); }
+  }
+
+  /* Main layout */
+  .wrapper { position: relative; z-index: 1; }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 4rem 2rem;
+    position: relative;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp .8s .2s forwards;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; width: 32px; height: 1px; background: var(--accent); opacity: .5;
+  }
+
+  .hero-title {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 800; line-height: .95;
+    letter-spacing: -.03em;
+    opacity: 0; animation: fadeUp .9s .4s forwards;
+  }
+  .hero-title .line1 { display: block; color: var(--text); }
+  .hero-title .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-title .line3 { display: block; color: var(--text); }
+
+  .hero-sub {
+    font-size: 1.1rem; color: var(--muted); font-weight: 300;
+    max-width: 480px; line-height: 1.7; margin-top: 1.5rem;
+    opacity: 0; animation: fadeUp .9s .6s forwards;
+  }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem;
+    opacity: 0; animation: fadeUp .9s .8s forwards;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Archivo Black', sans-serif; font-size: 2.2rem; font-weight: 900;
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label { font-size: .75rem; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; margin-top: .2rem; }
+
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    opacity: 0; animation: fadeIn 1s 1.5s forwards;
+  }
+  .scroll-hint span { font-size: 11px; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+  .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--accent), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+  @keyframes scrollPulse { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
+
+  /* Search bar */
+  .search-section {
+    padding: 0 2rem 4rem; max-width: 720px; margin: 0 auto;
+    opacity: 0; animation: fadeUp .8s 1s forwards;
+  }
+  .search-wrap {
+    position: relative;
+  }
+  .search-input {
+    width: 100%; padding: 1.1rem 1.4rem 1.1rem 3.2rem;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 14px; color: var(--text);
+    font-family: 'DM Sans', sans-serif; font-size: 1rem;
+    outline: none; backdrop-filter: blur(20px);
+    transition: border-color .3s, box-shadow .3s;
+  }
+  .search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(155,48,255,0.18), 0 0 30px rgba(155,48,255,0.12);
+  }
+  .search-input::placeholder { color: var(--muted); }
+  .search-icon {
+    position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+    color: var(--muted); pointer-events: none;
+  }
+  .results-count {
+    text-align: right; font-size: .8rem; color: var(--muted);
+    margin-top: .6rem; min-height: 1.2em;
+  }
+
+  /* Filter tags */
+  .filter-section { padding: 0 2rem 3rem; max-width: 1200px; margin: 0 auto; }
+  .filter-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .filter-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .filter-tag {
+    padding: .4rem 1rem; border-radius: 100px;
+    border: 1px solid var(--border); background: transparent;
+    color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: .8rem;
+    cursor: pointer; transition: all .25s;
+  }
+  .filter-tag:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-tag.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* Grid */
+  .glossary-section { padding: 0 2rem 6rem; max-width: 1200px; margin: 0 auto; }
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+
+  /* Term Cards */
+  .term-card {
+    position: relative; overflow: hidden;
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 18px; padding: 1.6rem;
+    backdrop-filter: blur(20px);
+    cursor: pointer; transition: transform .3s cubic-bezier(.34,1.56,.64,1), border-color .3s, box-shadow .3s;
+    opacity: 0; transform: translateY(30px);
+  }
+  .term-card.visible {
+    opacity: 1; transform: translateY(0);
+    transition: opacity .6s ease, transform .6s cubic-bezier(.34,1.56,.64,1),
+                box-shadow .3s, border-color .3s;
+  }
+  .term-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: var(--accent);
+    box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 40px rgba(155,48,255,0.18);
+  }
+
+  /* Card shimmer */
+  .term-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(155,48,255,.08) 0%, transparent 60%);
+    opacity: 0; transition: opacity .3s;
+  }
+  .term-card:hover::before { opacity: 1; }
+
+  /* Card glow line top */
+  .term-card::after {
+    content: ''; position: absolute; top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0; transition: opacity .3s;
+  }
+  .term-card:hover::after { opacity: 1; }
+
+  .card-cat {
+    display: inline-block; font-size: .68rem; font-weight: 500;
+    letter-spacing: .12em; text-transform: uppercase;
+    padding: .3rem .8rem; border-radius: 100px; margin-bottom: 1rem;
+  }
+  .cat-fundamentos { background: rgba(155,48,255,.18); color: #D4A0FF; border: 1px solid rgba(155,48,255,.25); }
+  .cat-estructura  { background: rgba(123,0,224,.15); color: #BF7FFF; border: 1px solid rgba(123,0,224,.2); }
+  .cat-relaciones  { background: rgba(201,123,255,.12); color: #E0BAFF; border: 1px solid rgba(201,123,255,.2); }
+  .cat-gestion     { background: rgba(90,0,180,.2); color: #C090FF; border: 1px solid rgba(90,0,180,.25); }
+  .cat-tecnología  { background: rgba(170,80,255,.12); color: #D4AAFF; border: 1px solid rgba(170,80,255,.2); }
+
+  .card-term {
+    font-family: 'Archivo Black', sans-serif; font-size: 1.3rem; font-weight: 900;
+    line-height: 1.2; margin-bottom: .75rem;
+    background: linear-gradient(135deg, var(--text) 60%, rgba(240,244,255,.6));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-def {
+    font-size: .9rem; color: var(--muted); line-height: 1.65;
+    font-weight: 300;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .term-card.expanded .card-def { -webkit-line-clamp: unset; }
+
+  .card-num {
+    position: absolute; top: 1.4rem; right: 1.4rem;
+    font-family: 'Archivo Black', sans-serif; font-size: .7rem; font-weight: 900;
+    color: rgba(155,48,255,.3); letter-spacing: .1em;
+  }
+
+  .card-expand {
+    display: flex; align-items: center; gap: 6px;
+    margin-top: 1rem; font-size: .78rem; color: var(--accent);
+    transition: gap .2s;
+  }
+  .term-card:hover .card-expand { gap: 10px; }
+  .card-expand-icon { transition: transform .3s; }
+  .term-card.expanded .card-expand-icon { transform: rotate(180deg); }
+
+  /* Alphabet index */
+  .alpha-section { padding: 0 2rem 4rem; max-width: 1200px; margin: 0 auto; }
+  .alpha-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .alpha-bar { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .alpha-btn {
+    width: 36px; height: 36px; border-radius: 8px; border: 1px solid var(--border);
+    background: transparent; color: var(--muted); font-family: 'Archivo Black', sans-serif;
+    font-size: .85rem; font-weight: 700; cursor: pointer; transition: all .25s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .alpha-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .alpha-btn.has-terms { color: var(--text); }
+  .alpha-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* Section divider */
+  .section-divider {
+    max-width: 1200px; margin: 0 auto 3rem; padding: 0 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--border), transparent); }
+  .divider-text { font-family: 'Syne', sans-serif; font-size: .7rem; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+
+  /* No results */
+  .no-results {
+    text-align: center; padding: 4rem 2rem; display: none;
+    color: var(--muted); font-size: 1rem;
+  }
+  .no-results.visible { display: block; }
+
+  /* Footer */
+  footer {
+    position: relative; text-align: center; padding: 4rem 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .footer-logo {
+    font-family: 'Archivo Black', sans-serif; font-size: 2.5rem; font-weight: 900;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 1rem;
+  }
+  .footer-credit {
+    font-size: .85rem; color: var(--muted); margin-bottom: .4rem;
+  }
+  .footer-power {
+    font-size: .78rem; color: rgba(123,141,176,.4);
+    letter-spacing: .06em;
+  }
+  .footer-power strong {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; font-weight: 600;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Modal */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(5,8,16,.85); backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 2rem; opacity: 0; pointer-events: none; transition: opacity .3s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 24px; padding: 2.5rem;
+    max-width: 560px; width: 100%;
+    transform: scale(.92) translateY(20px); transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+    position: relative; max-height: 80vh; overflow-y: auto;
+  }
+  .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+  .modal-cat { margin-bottom: 1rem; }
+  .modal-term {
+    font-family: 'Archivo Black', sans-serif; font-size: 2rem; font-weight: 900;
+    margin-bottom: 1.2rem; line-height: 1.1;
+  }
+  .modal-def { color: var(--muted); line-height: 1.75; font-size: 1rem; font-weight: 300; }
+  .modal-close {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,.06); border: 1px solid var(--border);
+    color: var(--muted); cursor: pointer; display: flex;
+    align-items: center; justify-content: center; transition: all .25s;
+    font-size: 1.1rem;
+  }
+  .modal-close:hover { background: rgba(108,99,255,.2); color: var(--text); }
+  .modal-num { font-family: 'Archivo Black', sans-serif; font-size: .75rem; color: rgba(155,48,255,.4); margin-top: 1.5rem; letter-spacing: .08em; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: rgba(108,99,255,.3); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .glossary-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .stat-num { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<div class="grid-bg"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
+<div class="wrapper">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Informática · Bases de Datos</div>
+    <h1 class="hero-title">
+      <span class="line1">Glosario</span>
+      <span class="line2">de Bases</span>
+      <span class="line3">de Datos</span>
+    </h1>
+    <p class="hero-sub">Conceptos esenciales para comprender cómo se organizan, almacenan y gestionan los datos en sistemas modernos.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">25</div><div class="stat-label">Términos</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Categorías</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Esencial</div></div>
+    </div>
+    <div class="scroll-hint">
+      <span>Explorar</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <div class="search-section">
+    <div class="search-wrap">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input class="search-input" type="text" id="searchInput" placeholder="Buscar término o definición…">
+    </div>
+    <div class="results-count" id="resultsCount"></div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filter-section">
+    <div class="filter-label">Filtrar por categoría</div>
+    <div class="filter-tags">
+      <button class="filter-tag active" data-cat="all">Todos</button>
+      <button class="filter-tag" data-cat="fundamentos">Fundamentos</button>
+      <button class="filter-tag" data-cat="estructura">Estructura</button>
+      <button class="filter-tag" data-cat="relaciones">Relaciones</button>
+      <button class="filter-tag" data-cat="gestion">Gestión</button>
+      <button class="filter-tag" data-cat="tecnología">Tecnología</button>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <div class="divider-line"></div>
+    <div class="divider-text">Términos</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- GLOSSARY GRID -->
+  <div class="glossary-section">
+    <div class="glossary-grid" id="glossaryGrid"></div>
+    <div class="no-results" id="noResults">
+      <div style="font-size:2rem;margin-bottom:.5rem">🔍</div>
+      No se encontraron términos para esa búsqueda.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">GBD</div>
+    <div class="footer-credit">Glosario de Bases de Datos · Informática</div>
+    <div style="margin:1.5rem 0; height:1px; background:linear-gradient(to right,transparent,rgba(108,99,255,.3),transparent)"></div>
+    <div class="footer-power">Powered by <strong>Angela Bethancourt - RuptaStudios</strong></div>
+  </footer>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-cat" id="modalCat"></div>
+    <div class="modal-term" id="modalTerm"></div>
+    <div class="modal-def" id="modalDef"></div>
+    <div class="modal-num" id="modalNum"></div>
+  </div>
+</div>
+
+<script>
+const terms = [
+  { id: 1, term: "Base de Datos", cat: "fundamentos", def: "Conjunto organizado de datos estructurados que se almacenan de forma persistente en un sistema informático, permitiendo su consulta, actualización y gestión eficiente." },
+  { id: 2, term: "Estructura", cat: "estructura", def: "Forma en que se organizan y relacionan los datos dentro de una base de datos, incluyendo tablas, campos, índices y relaciones entre entidades." },
+  { id: 3, term: "Datos", cat: "fundamentos", def: "Información en bruto o sin procesar que representa hechos, valores o medidas que se almacenan y manipulan en la base de datos." },
+  { id: 4, term: "Registro", cat: "estructura", def: "Conjunto de datos relacionados que forman una fila completa en una tabla, representando una instancia única de una entidad." },
+  { id: 5, term: "Tabla", cat: "estructura", def: "Estructura fundamental de una base de datos relacional compuesta por filas (registros) y columnas (campos) que almacenan datos de un tipo de entidad específica." },
+  { id: 6, term: "Entidades", cat: "fundamentos", def: "Objetos, conceptos o cosas del mundo real que se representan en la base de datos como tablas independientes con atributos y características propias." },
+  { id: 7, term: "Claves Foráneas", cat: "relaciones", def: "Campo o conjunto de campos en una tabla que hace referencia a la clave primaria de otra tabla, estableciendo relaciones entre entidades." },
+  { id: 8, term: "Indexación de Registros", cat: "estructura", def: "Técnica que crea estructuras de índices para acelerar la búsqueda y recuperación rápida de registros en grandes volúmenes de datos." },
+  { id: 9, term: "Particionamiento", cat: "gestion", def: "Proceso de dividir una tabla o índice grande en partes más pequeñas y manejables para mejorar el rendimiento y la administración de datos." },
+  { id: 10, term: "Relaciones", cat: "relaciones", def: "Conexiones lógicas entre tablas en una base de datos relacional que permiten conectar datos relacionados a través de claves primarias y foráneas." },
+  { id: 11, term: "Atributo", cat: "estructura", def: "Propiedad, característica o campo específico de una entidad que contiene un tipo particular de información dentro de una tabla." },
+  { id: 12, term: "Clave Primaria", cat: "relaciones", def: "Campo o conjunto de campos que identifica de forma única cada registro en una tabla, garantizando que no haya duplicados." },
+  { id: 13, term: "Administrador de BD", cat: "gestion", def: "Profesional responsable de la creación, mantenimiento, optimización, seguridad y respaldo de las bases de datos de una organización." },
+  { id: 14, term: "Índice", cat: "estructura", def: "Estructura de datos que mejora la velocidad de búsqueda y recuperación de registros al crear un mapeo ordenado de los valores de los campos." },
+  { id: 15, term: "Escalabilidad", cat: "gestion", def: "Capacidad de una base de datos para crecer y adaptarse a aumentos en volumen de datos, usuarios concurrentes y complejidad sin afectar significativamente el rendimiento." },
+  { id: 16, term: "Seguridad en BD", cat: "gestion", def: "Conjunto de medidas, protocolos y políticas para proteger la base de datos contra accesos no autorizados, modificaciones indebidas y pérdida de datos." },
+  { id: 17, term: "Normalización", cat: "estructura", def: "Proceso de organización sistemática de datos en tablas y relaciones para eliminar redundancias y dependencias innecesarias, mejorando la integridad de datos." },
+  { id: 18, term: "SGBD", cat: "tecnología", def: "Sistema de Gestión de Base de Datos: software que permite crear, modificar, consultar y administrar bases de datos de manera eficiente y segura." },
+  { id: 19, term: "DBMS", cat: "tecnología", def: "Database Management System: equivalente en inglés del SGBD, es el software responsable de gestionar todas las operaciones de la base de datos." },
+  { id: 20, term: "Formulario", cat: "tecnología", def: "Interfaz gráfica de usuario que facilita la entrada, visualización y edición de datos de la base de datos de forma estructurada y amigable." },
+  { id: 21, term: "Independencia de Datos", cat: "fundamentos", def: "Principio que permite cambiar la estructura física o lógica de la base de datos sin afectar los programas o aplicaciones que la utilizan." },
+  { id: 22, term: "JDBC", cat: "tecnología", def: "Java Database Connectivity: interfaz de programación que permite a las aplicaciones Java conectarse y comunicarse con bases de datos relacionales." },
+  { id: 23, term: "Buscadores", cat: "tecnología", def: "Herramientas o funcionalidades que permiten realizar búsquedas y consultas eficientes en bases de datos utilizando criterios específicos de filtrado." },
+  { id: 24, term: "Reglas de Integridad", cat: "relaciones", def: "Conjunto de restricciones y reglas que garantizan la consistencia, validez y precisión de los datos almacenados en la base de datos." },
+  { id: 25, term: "Tuplas", cat: "estructura", def: "Fila o registro individual en una tabla de base de datos que contiene valores específicos para cada atributo o campo de la entidad." }
+];
+
+let activeFilter = 'all';
+let searchQuery = '';
+
+function catLabel(cat) {
+  const map = { fundamentos:'Fundamentos', estructura:'Estructura', relaciones:'Relaciones', gestion:'Gestión', tecnología:'Tecnología' };
+  return map[cat] || cat;
+}
+
+function renderCards() {
+  const grid = document.getElementById('glossaryGrid');
+  const noResults = document.getElementById('noResults');
+  const countEl = document.getElementById('resultsCount');
+
+  const q = searchQuery.toLowerCase().trim();
+  const filtered = terms.filter(t => {
+    const matchCat = activeFilter === 'all' || t.cat === activeFilter;
+    const matchQ = !q || t.term.toLowerCase().includes(q) || t.def.toLowerCase().includes(q);
+    return matchCat && matchQ;
+  });
+
+  grid.innerHTML = '';
+  noResults.classList.toggle('visible', filtered.length === 0);
+  countEl.textContent = q || activeFilter !== 'all' ? `${filtered.length} resultado${filtered.length !== 1 ? 's' : ''}` : '';
+
+  filtered.forEach((t, i) => {
+    const card = document.createElement('div');
+    card.className = `term-card`;
+    card.dataset.id = t.id;
+    card.innerHTML = `
+      <span class="card-num">#${String(t.id).padStart(2,'0')}</span>
+      <span class="card-cat cat-${t.cat}">${catLabel(t.cat)}</span>
+      <div class="card-term">${t.term}</div>
+      <div class="card-def">${t.def}</div>
+      <div class="card-expand">
+        <span>Ver completo</span>
+        <svg class="card-expand-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+    `;
+    card.style.transitionDelay = `${i * 40}ms`;
+    card.addEventListener('click', () => openModal(t));
+    grid.appendChild(card);
+
+    requestAnimationFrame(() => {
+      setTimeout(() => card.classList.add('visible'), 30 + i * 40);
+    });
+  });
+}
+
+function openModal(t) {
+  document.getElementById('modalCat').innerHTML = `<span class="card-cat cat-${t.cat}">${catLabel(t.cat)}</span>`;
+  document.getElementById('modalTerm').textContent = t.term;
+  document.getElementById('modalDef').textContent = t.def;
+  document.getElementById('modalNum').textContent = `Término #${String(t.id).padStart(2,'0')} de 25`;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById('modalOverlay') && !e.target.classList.contains('modal-close')) return;
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Search
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  renderCards();
+});
+
+// Filters
+document.querySelectorAll('.filter-tag').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tag').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.cat;
+    renderCards();
+  });
+});
+
+// Keyboard close modal
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal({target: document.getElementById('modalOverlay')});
+});
+
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animateCursor() {
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  rx += (mx - rx) * .12; ry += (my - ry) * .12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Init
+renderCards();
+</script>
+</body>
+</html>
